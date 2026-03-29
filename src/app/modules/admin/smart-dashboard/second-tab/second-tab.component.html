@@ -1,0 +1,193 @@
+<div class="row">
+  <div class="col-md-8 pt-4">
+    <div class="row section-one">
+      <div class="col-md-4">
+        <div class="card d-flex align-items-center flex-row p-3">
+          <img src="assets/imgs/zalol/smart/eye.svg" alt="car" class="bg-orange p-4 rounded-3">
+          <div class="mt-5 d-flex flex-column mx-3">
+            <h6 class="mb-2 card-title">{{"smart.totalVisit" | translate}}</h6>
+            <h4 class="mt-2 card-subTitle">{{totalVists}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card d-flex align-items-center flex-row p-3">
+          <img src="assets/imgs/zalol/smart/user.svg" alt="car" class="bg-green p-4 rounded-3">
+          <div class="mt-5 d-flex flex-column mx-3">
+            <h6 class="mb-2 card-title">{{"smart.totalClient" | translate}}</h6>
+            <h4 class="mt-2 card-subTitle">{{totalClients}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card d-flex align-items-center flex-row p-3">
+          <img src="assets/imgs/zalol/smart/point.svg" alt="car" class="bg-yellow p-4 rounded-3">
+          <div class="mt-5 d-flex flex-column mx-3">
+            <h6 class="mb-2 card-title">{{"smart.totalPoint" | translate}}</h6>
+            <h4 class="mt-2 card-subTitle">{{totalPoints}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-two mt-4 mb-2 shadow-lg p-2">
+      <div class="card p-4">
+        <div class="btns-tab">
+          <button [ngClass]="{'active':tab==='visitor'}" (click)="changeTab('visitor')">
+            {{"smart.visitor"|translate}}
+          </button>
+          <button [ngClass]="{'active':tab === 'point'}" (click)="changeTab('point')">
+            {{"smart.point"|translate}}
+          </button>
+        </div>
+        <div class="tabs-content">
+          <div>
+
+            <div *ngIf="tab==='visitor'">
+              <div *ngFor="let customer of customersVisits; let i = index"
+                class="d-flex align-items-center my-3 visitor-card w-100" (click)="viewUserModal(customer.id)">
+                <div class="num border rounded-circle p-2 d-flex justify-content-center align-items-center me-2">{{i+1}}
+                </div>
+                <div class="info w-100 d-flex flex-column mx-3 align-items-start">
+                  <h6 class="mb-1 card-title">{{customer.fullName}}</h6>
+                  <span class="card-subTitle" dir="ltr">+{{customer.countryCode}} {{customer.phoneNumber}}</span>
+                  <div class="d-flex w-80 align-items-center justify-content-between mt-2">
+                    <div class="mx-2">
+                      <img src="assets/imgs/zalol/smart/star.svg" alt="phone" class="ms-2">
+                      <span class="card-subTitle">{{customer.categoryName}}</span>
+                    </div>
+                    <div class="mx-2">
+                      <img src="assets/imgs/zalol/smart/map.svg" alt="phone" class="mx-2">
+                      <span class="card-subTitle">{{'smart.Riyadh'|translate}}</span>
+                    </div>
+                    <div class="mx-2">
+                      <img src="assets/imgs/zalol/smart/eye-black.svg" alt="phone" class="mx-2">
+                      <span class="card-subTitle">{{customer.visitsCount}} {{ "smart.vists" | translate }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <nav *ngIf="totalPagesVisitors > 1" aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center">
+
+                  <li class="page-item" [class.disabled]="pageVisitors === 1">
+                    <a class="page-link" (click)="prevPageVisitors()">
+                      <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                  </li>
+
+                  <li class="page-item" *ngFor="let p of [].constructor(totalPagesVisitors); let i = index"
+                    [class.active]="pageVisitors === i + 1">
+                    <a class="page-link" (click)="goToPageVisitors(i + 1)">{{ i + 1 }}</a>
+                  </li>
+
+                  <li class="page-item" [class.disabled]="pageVisitors === totalPagesVisitors">
+                    <a class="page-link" (click)="nextPageVisitors()">
+                      <i class="fa-solid fa-angle-left"></i>
+                    </a>
+                  </li>
+
+                </ul>
+              </nav>
+
+
+
+              <div class="col-12 text-center mt-5" *ngIf="!customersVisits || customersVisits.length === 0">
+                <img src="assets/imgs/zalol/smart/notFound.png" alt="No Data" class="img-fluid mt-5 "
+                  style="max-width: 250px;">
+                <p class="mt-3 text-muted fw-semibold">{{ "smart.notFound" | translate }}</p>
+              </div>
+
+            </div>
+
+
+            <div *ngIf="tab==='point'">
+              <div *ngFor="let customer of customersPoints; let i = index"
+                class="d-flex align-items-center my-3 visitor-card w-100" (click)="viewUserModal(customer.id)">
+                <div class="num border rounded-circle p-2 d-flex justify-content-center align-items-center me-2">{{i+1}}
+                </div>
+                <div class="info w-100 d-flex flex-column mx-3 align-items-start">
+                  <h6 class="mb-1 card-title">{{customer.fullName}}</h6>
+                  <span class="card-subTitle" dir="ltr">+{{customer.countryCode}} {{customer.phoneNumber}}</span>
+                  <div class="d-flex w-80 align-items-center justify-content-between mt-2">
+                    <div class="mx-2">
+                      <img src="assets/imgs/zalol/smart/star.svg" alt="phone" class="ms-2">
+                      <span class="card-subTitle">{{customer.categoryName}}</span>
+                    </div>
+                    <div class="mx-2">
+                      <img src="assets/imgs/zalol/smart/map.svg" alt="phone" class="mx-2">
+                      <span class="card-subTitle">الرياض</span>
+                    </div>
+                    <div class="mx-2">
+                      <img src="assets/imgs/zalol/smart/points.svg" alt="phone" class="mx-2">
+                      <span class="card-subTitle">{{customer.totalPoints}} {{ "pointsDetails.points" | translate
+                        }}</span>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="col-12 text-center mt-5" *ngIf="!customersPoints || customersPoints.length === 0">
+                <img src="assets/imgs/zalol/smart/notFound.png" alt="No Data" class="img-fluid mt-5 "
+                  style="max-width: 250px;">
+                <p class="mt-3 text-muted fw-semibold">{{ "smart.noPoints" | translate }}</p>
+              </div>
+
+
+              <nav *ngIf="totalPagesPoints > 1" aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center">
+
+                  <li class="page-item" [class.disabled]="pagePoints === 1">
+                    <a class="page-link" (click)="prevPagePoints()">
+                      <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                  </li>
+
+                  <li class="page-item" *ngFor="let p of [].constructor(totalPagesPoints); let i = index"
+                    [class.active]="pagePoints === i + 1">
+                    <a class="page-link" (click)="goToPagePoints(i + 1)">{{ i + 1 }}</a>
+                  </li>
+
+                  <li class="page-item" [class.disabled]="pagePoints === totalPagesPoints">
+                    <a class="page-link" (click)="nextPagePoints()">
+                      <i class="fa-solid fa-angle-left"></i>
+                    </a>
+                  </li>
+
+                </ul>
+              </nav>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="section-three">
+      <div class="card p-4 mt-5">
+        <!-- <div class="d-flex justify-content-between align-items-center">
+          <h4>{{"smart.gendar" | translate}}</h4>
+          <select class="form-select w-50 my-3" aria-label="Default select example">
+            <option selected>هذا الشهر</option>
+            <option value="1">الشهر الماضي</option>
+            <option value="2">آخر 6 أشهر</option>
+            <option value="3">هذا العام</option>
+          </select>
+        </div>
+        <div>
+          <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" type="doughnut" width="300" height="200">
+          </canvas>
+
+        </div> -->
+        <h5>{{"smart.wait" | translate}}</h5>
+        <p class="mt-4">{{ "smart.comingSoon" | translate }}</p>
+        <img src="assets/imgs/cuate.png" alt="">
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center" *ngIf="type === 'view'">{{ "brands.foodics" | translate }}</div>
+<div class="title text-center" *ngIf="type === 'add'">{{ "brands.addFoodics" | translate }}</div>
+
+<div class="modal-body mx-10">
+
+  <div class="custom-dropdown">
+  <label for="system" class="label mx-3 mb-1 d-block">{{ "brands.system" | translate }}</label>
+
+  <select id="system"
+  class="dropdown-select"
+   [(ngModel)]="selectedIntegration"
+     (ngModelChange)="onIntegrationChange($event)"
+  [compareWith]="compareIntegrationWays"
+   [disabled]="type === 'view'">
+    <option [ngValue]="null"  disabled >{{ "brands.chooseSystem" | translate }}</option>
+    <option [ngValue]="IntegrationWay.Foodics">Foodics</option>
+    <option [ngValue]="IntegrationWay.Syrve">Syrve</option>
+  </select>
+</div>
+
+
+<div *ngIf="selectedIntegration === IntegrationWay.Foodics">
+  <div class="label mx-4">{{ "brands.foodics" | translate }}</div>
+  <textarea class="rectangle-12 col-12" [(ngModel)]="foodics" [disabled]="type === 'view'"
+  [placeholder]="'brands.foodics' | translate"></textarea>
+</div>
+
+<div *ngIf="selectedIntegration === IntegrationWay.Syrve">
+<label class="mx-4">{{"users.userName"|translate}}</label>
+  <input
+  id="userName"
+   type="text" autocomplete="off"
+  autocorrect="off"
+   class="dropdown-select m-2 bg-transparent" [placeholder]="'users.userName'|translate"
+    [(ngModel)]="syrveUsername" name="userName"
+    readonly="true"
+              (focus)="removeReadonly($event)"
+    />
+
+  <label class="mx-4 mt-3">{{ "LogIn.Password" | translate }}</label>
+<div class="position-relative">
+  <input
+  name="newPassword"
+  id="password"
+    [type]="showPassword ? 'text' : 'password'"
+    class="dropdown-select mt-2 bg-transparent pe-5"
+    [(ngModel)]="syrvePassword"
+    [placeholder]="'LogIn.Password'|translate"
+  />
+  <span
+    class="position-absolute top-50   translate-middle-y ms-5 cursor-pointer"
+        [ngClass]="currentLangDirection === 'rtl' ? 'start-0 ms-5' : 'end-0 me-5'"
+
+    (click)="togglePasswordVisibility()"
+
+  >
+    <i [ngClass]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+  </span>
+</div>
+
+</div>
+
+</div>
+<div class="modal-footer mx-10" *ngIf="type === 'add'">
+<button type="submit"  (click)="submit()"  [disabled]="
+          (selectedIntegration === IntegrationWay.Foodics && !foodics?.trim()) ||
+          (selectedIntegration === IntegrationWay.Syrve && (!syrveUsername?.trim() || !syrvePassword?.trim()))
+        ">
+  {{ "users.save" | translate }}
+</button>
+<button type="button"  (click)="closeModal()">
+  {{ "users.cancel" | translate }}
+</button>
+</div>

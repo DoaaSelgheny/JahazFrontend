@@ -1,0 +1,309 @@
+<!--begin::Menu wrapper-->
+<div
+  id="kt_app_sidebar_menu_wrapper"
+  class="app-sidebar-wrapper hover-scroll-overlay-y"
+  data-kt-scroll="true"
+  data-kt-scroll-activate="true"
+  data-kt-scroll-height="auto"
+  data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer"
+  data-kt-scroll-wrappers="#kt_app_sidebar_menu"
+  data-kt-scroll-offset="5px"
+  data-kt-scroll-save-state="true"
+>
+  <!--begin::Menu-->
+  <div
+    class="menu menu-column menu-rounded menu-sub-indention"
+    id="#kt_app_sidebar_menu"
+    data-kt-menu="true"
+    data-kt-menu-expand="false"
+  >
+    <div class="logo">
+      <a href="/home" class="ps-5">
+        <svg width="34" height="36" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 10C0 4.47715 4.47715 0 10 0H23.0938C28.6166 0 33.0938 4.47715 33.0938 10V26C33.0938 31.5228 28.6166 36 23.0938 36H10C4.47715 36 0 31.5228 0 26V10Z" fill="#155DFC"/>
+<path d="M18.2136 23V13C18.2136 12.558 18.038 12.1341 17.7255 11.8215C17.4129 11.509 16.989 11.3334 16.547 11.3334H9.88029C9.43826 11.3334 9.01434 11.509 8.70178 11.8215C8.38922 12.1341 8.21362 12.558 8.21362 13V22.1667C8.21362 22.3877 8.30142 22.5997 8.4577 22.756C8.61398 22.9122 8.82594 23 9.04696 23H10.7136" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19.0469 23H14.0469" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22.3803 23H24.047C24.268 23 24.4799 22.9122 24.6362 22.7559C24.7925 22.5996 24.8803 22.3876 24.8803 22.1666V19.125C24.88 18.9358 24.8153 18.7525 24.697 18.605L21.797 14.98C21.719 14.8824 21.6201 14.8035 21.5076 14.7493C21.3951 14.6951 21.2719 14.6668 21.147 14.6666H18.2136" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.7135 24.6667C21.634 24.6667 22.3802 23.9205 22.3802 23C22.3802 22.0796 21.634 21.3334 20.7135 21.3334C19.7931 21.3334 19.0469 22.0796 19.0469 23C19.0469 23.9205 19.7931 24.6667 20.7135 24.6667Z" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.3803 24.6667C13.3008 24.6667 14.047 23.9205 14.047 23C14.047 22.0796 13.3008 21.3334 12.3803 21.3334C11.4598 21.3334 10.7136 22.0796 10.7136 23C10.7136 23.9205 11.4598 24.6667 12.3803 24.6667Z" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+      <span  class="px-3">Jahez</span>
+
+      </a>
+      <p class="mt-3">Water Trucks</p>
+
+      <div class="line-sep">
+        <img src="/assets/imgs/line.svg" alt="" srcset="" />
+      </div>
+    </div>
+
+    <div class="menu-item">
+
+      <a
+        *ngIf="currentUser?.roles[0] === roles.ThalolBusinessOperation"
+        class="menu-link without-sub"
+        routerLink="/admin/manager-dashboard"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title">{{
+          "sideMenue.dashboard" | translate
+        }}</span></a
+      >
+        <a
+        *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector ||
+        currentUser?.roles[0] ===roles.ThalolBranchDirector"
+        class="menu-link without-sub"
+        routerLink="/admin/smart-dashboard"
+        routerLinkActive="active"
+        >
+        <span class="menu-icon">
+          <!-- <span
+            [inlineSVG]="'./assets/imgs/sidebar/smartDashboard.svg'"
+            class="svg-icon svg-icon-2">
+        </span> -->
+         </span>
+        <span class="menu-title">
+          {{"sideMenue.smartDashboard" | translate }}
+        </span>
+        </a
+      >
+      <a
+        *ngIf="currentUser?.roles[0] === roles.ThalolSuperAdmin"
+        class="menu-link without-sub"
+        routerLink="/admin/brand-manager"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span>
+
+
+          </span
+        ><span class="menu-title">{{
+          "sideMenue.brandManager" | translate
+        }}</span></a
+      >
+
+
+      <a
+        *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
+        class="menu-link without-sub"
+        routerLink="/admin/dashboard-brand-manager"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title">{{
+          "sideMenue.dashboard" | translate
+        }}</span></a
+      >
+
+      <a
+        *ngIf="
+          currentUser?.roles[0] === roles.ThalolBrandDirector ||
+          currentUser?.roles[0] === roles.ThalolSuperAdmin ||
+          currentUser?.roles[0] === roles.ThalolBusinessOperation
+        "
+        class="menu-link without-sub"
+        routerLink="/admin/branches-management"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title">{{
+          "sideMenue.branches" | translate
+        }}</span></a
+      >
+
+      <a
+        *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
+        class="menu-link without-sub"
+        routerLink="/admin/branch-manager-management"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title">{{
+          "branchManager.branchManagerManagement" | translate
+        }}</span></a
+      >
+
+      <a
+        *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
+        class="menu-link without-sub"
+        routerLink="/admin/cashier-management"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title">{{
+          "sideMenue.accountants" | translate
+        }}</span></a
+      >
+
+      <a
+        *ngIf="currentUser?.roles[0] === roles.ThalolCasheir"
+        class="menu-link without-sub"
+        routerLink="/admin/dashboard"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title">{{
+          "sideMenue.dashboard" | translate
+        }}</span></a
+      >
+
+      <a
+        *ngIf="
+          currentUser?.roles[0] === roles.ThalolCasheir ||
+          currentUser?.roles[0] === roles.ThalolBrandDirector
+        "
+        class="menu-link without-sub"
+        routerLink="/admin/user-management"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title">{{ "sideMenue.users" | translate }}</span></a
+      >
+      <a
+        *ngIf="
+          currentUser?.roles[0] === roles.ThalolCasheir ||
+          currentUser?.roles[0] === roles.ThalolBrandDirector
+        "
+        class="menu-link without-sub"
+        routerLink="/admin/manage-requests"
+        routerLinkActive="active"
+        >
+        <span class="menu-icon">
+          <!-- <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          >
+        </span> -->
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.6667 15V4.99998C11.6667 4.55795 11.4912 4.13403 11.1786 3.82147C10.866 3.50891 10.4421 3.33331 10.0001 3.33331H3.33341C2.89139 3.33331 2.46746 3.50891 2.1549 3.82147C1.84234 4.13403 1.66675 4.55795 1.66675 4.99998V14.1666C1.66675 14.3877 1.75455 14.5996 1.91083 14.7559C2.06711 14.9122 2.27907 15 2.50008 15H4.16675" stroke="#364153" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.5 15H7.5" stroke="#364153" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.8334 15H17.5001C17.7211 15 17.9331 14.9122 18.0893 14.7559C18.2456 14.5997 18.3334 14.3877 18.3334 14.1667V11.125C18.3331 10.9359 18.2684 10.7525 18.1501 10.605L15.2501 6.98002C15.1721 6.88242 15.0733 6.80359 14.9608 6.74935C14.8482 6.69512 14.725 6.66687 14.6001 6.66669H11.6667" stroke="#364153" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.1667 16.6666C15.0871 16.6666 15.8333 15.9205 15.8333 15C15.8333 14.0795 15.0871 13.3333 14.1667 13.3333C13.2462 13.3333 12.5 14.0795 12.5 15C12.5 15.9205 13.2462 16.6666 14.1667 16.6666Z" stroke="#364153" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.83341 16.6666C6.75389 16.6666 7.50008 15.9205 7.50008 15C7.50008 14.0795 6.75389 13.3333 5.83341 13.3333C4.91294 13.3333 4.16675 14.0795 4.16675 15C4.16675 15.9205 4.91294 16.6666 5.83341 16.6666Z" stroke="#364153" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+          </span>
+
+        <span class="menu-title">{{ "sideMenue.record" | translate }}</span></a
+      >
+      <a
+      *ngIf="
+      currentUser?.roles[0] === roles.ThalolBranchDirector
+    "
+        class="menu-link without-sub"
+        routerLink="/admin/welcome-message/0"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title"
+          >{{ "welcomeMessage.WelcomeScreenManagement" | translate }}
+        </span></a
+      >
+      <a
+      *ngIf="
+      currentUser?.roles[0] === roles.ThalolBrandDirector
+    "
+        class="menu-link without-sub"
+        routerLink="/admin/welcome-message-management"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title"
+          >{{ "welcomeMessage.WelcomeScreenManagement" | translate }}
+        </span></a
+      >
+
+      <a
+        *ngIf="
+        (currentUser?.roles[0] === roles.ThalolBrandDirector)||
+        (currentUser?.roles[0] === roles.ThalolBusinessOperation)||
+        (currentUser?.roles[0] === roles.ThalolSuperAdmin)
+
+        "
+        class="menu-link without-sub"
+        routerLink="/admin/brands"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title">{{ "sideMenue.brands" | translate }}</span></a
+      >
+
+      <a
+      *ngIf="(currentUser?.roles[0] === roles.ThalolSuperAdmin)"
+      class="menu-link without-sub"
+      routerLink="/admin/manage-contact-us"
+      routerLinkActive="active"
+      ><span class="menu-icon">
+        <span
+          [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+          class="svg-icon svg-icon-2"
+        ></span> </span
+      ><span class="menu-title">{{ "sideMenue.contactUs" | translate }}</span></a
+    >
+      <a
+        *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
+        class="menu-link without-sub"
+        routerLink="/admin/category-management"
+        routerLinkActive="active"
+        ><span class="menu-icon">
+          <span
+            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+            class="svg-icon svg-icon-2"
+          ></span> </span
+        ><span class="menu-title">{{
+          "categoryManager.categoryManager" | translate
+        }}</span></a
+      >
+      <a
+      *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
+      class="menu-link without-sub"
+      routerLink="/admin/redeem-points-management"
+      routerLinkActive="active"
+      ><span class="menu-icon">
+        <span
+          [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
+          class="svg-icon svg-icon-2"
+        ></span> </span
+      ><span class="menu-title">{{
+        "redeemPointsManager.redeemPointsManager" | translate
+      }}</span></a
+    >
+    </div>
+  </div>
+  <!--end::Menu-->
+</div>

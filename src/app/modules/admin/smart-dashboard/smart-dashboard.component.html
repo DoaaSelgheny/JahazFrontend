@@ -1,0 +1,200 @@
+<section class="smart-page">
+  <div class="container">
+    <div class="page-title">
+      <header>
+        <h3>{{ "smart.smartPage" | translate }}</h3>
+      </header>
+    </div>
+    <div class="page-content">
+      <article>
+        <div
+          class="d-flex align-items-center justify-content-between text-center"
+        >
+          <h4>{{ "smart.subTitle" | translate }}</h4>
+          <button
+            class="btn btn-outline-primary mt-4 filter"
+            (click)="openFilter()"
+          >
+            <img
+              src="assets/imgs/zalol/smart/filter.svg"
+              alt="filter"
+              class="me-2"
+            />
+            {{ "smart.filter" | translate }}
+          </button>
+        </div>
+        <div class="btns-tab flex d-lg-flex justify-content-between">
+          <div class="flex d-sm-flex">
+            <button
+              [ngClass]="{ active: this.tab === 'dashboard' }"
+              (click)="changeTab('dashboard')"
+            >
+              <img
+                src="assets/imgs/zalol/smart/dashboard.svg"
+                alt="filter"
+                class="ms-2"
+              />
+              {{ "smart.dashboard" | translate }}
+            </button>
+            <button
+              [ngClass]="{ active: this.tab === 'client' }"
+              (click)="changeTab('client')"
+            >
+              <img
+                src="assets/imgs/zalol/smart/client.svg"
+                alt="filter"
+                class="ms-2"
+              />
+              {{ "smart.clients" | translate }}
+            </button>
+            <button
+              [ngClass]="{ active: this.tab === 'requests' }"
+              (click)="changeTab('requests')"
+            >
+              <img
+                src="assets/imgs/zalol/smart/requests.svg"
+                alt="filter"
+                class="ms-2"
+              />
+              {{ "smart.requests" | translate }}
+            </button>
+          </div>
+
+          <div class="flex d-flex mt-5">
+            <div
+              class="excel d-flex align-items-center justify-content-center mt-1"
+              (click)="getExport()"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.9742 10.1708L5.63995 8.87872V18.426C5.63987 18.5297 5.66026 18.6325 5.69997 18.7284C5.73968 18.8242 5.79793 18.9113 5.87136 18.9846C5.9448 19.058 6.03198 19.1161 6.12792 19.1556C6.22386 19.1952 6.32665 19.2154 6.43042 19.2151H19.0859C19.1898 19.2156 19.2927 19.1955 19.3888 19.156C19.4849 19.1165 19.5722 19.0584 19.6458 18.9851C19.7194 18.9118 19.7777 18.8246 19.8175 18.7287C19.8573 18.6327 19.8778 18.5299 19.8777 18.426V14.9083L12.9742 10.1708Z"
+                  fill="#185C37"
+                />
+                <path
+                  d="M12.9742 1.9878H6.43042C6.32665 1.98753 6.22386 2.00776 6.12792 2.04731C6.03198 2.08686 5.9448 2.14495 5.87136 2.21827C5.79793 2.29158 5.73968 2.37867 5.69997 2.47454C5.66026 2.57041 5.63987 2.67317 5.63995 2.77694V6.29462L12.9742 10.6015L16.8576 11.8935L19.8777 10.6015V6.29462L12.9742 1.9878Z"
+                  fill="#21A366"
+                />
+                <path
+                  d="M5.63995 6.29462H12.9742V10.6014H5.63995V6.29462Z"
+                  fill="#107C41"
+                />
+                <path
+                  opacity="0.1"
+                  d="M10.889 5.43323H5.63995V16.2003H10.889C11.0981 16.1993 11.2985 16.1158 11.4465 15.9681C11.5946 15.8204 11.6786 15.6203 11.6801 15.4112V6.22237C11.6786 6.01322 11.5946 5.8131 11.4465 5.66539C11.2985 5.51768 11.0981 5.43427 10.889 5.43323Z"
+                  fill="black"
+                />
+                <path
+                  opacity="0.2"
+                  d="M10.4576 5.86389H5.63995V16.631H10.4576C10.6668 16.6299 10.8671 16.5465 11.0152 16.3988C11.1633 16.2511 11.2472 16.051 11.2488 15.8418V6.65304C11.2472 6.44388 11.1633 6.24377 11.0152 6.09606C10.8671 5.94834 10.6668 5.86493 10.4576 5.86389Z"
+                  fill="black"
+                />
+                <path
+                  opacity="0.2"
+                  d="M10.4576 5.86389H5.63995V15.7696H10.4576C10.6668 15.7686 10.8671 15.6851 11.0152 15.5374C11.1633 15.3897 11.2472 15.1896 11.2488 14.9805V6.65304C11.2472 6.44388 11.1633 6.24377 11.0152 6.09606C10.8671 5.94834 10.6668 5.86493 10.4576 5.86389Z"
+                  fill="black"
+                />
+                <path
+                  opacity="0.2"
+                  d="M10.0263 5.86389H5.63995V15.7696H10.0263C10.2355 15.7686 10.4358 15.6851 10.5839 15.5374C10.7319 15.3897 10.8159 15.1896 10.8174 14.9805V6.65304C10.8159 6.44388 10.7319 6.24377 10.5839 6.09606C10.4358 5.94834 10.2355 5.86493 10.0263 5.86389Z"
+                  fill="black"
+                />
+                <path
+                  d="M2.11631 5.8639H10.0263C10.2358 5.86372 10.4369 5.94674 10.5852 6.09472C10.7336 6.24269 10.8171 6.44351 10.8174 6.65304V14.5498C10.8171 14.7593 10.7336 14.9601 10.5852 15.1081C10.4369 15.2561 10.2358 15.3391 10.0263 15.3389H2.11631C2.01249 15.3393 1.90962 15.3191 1.81361 15.2796C1.71759 15.2401 1.63033 15.182 1.55682 15.1087C1.48332 15.0354 1.42501 14.9482 1.38526 14.8523C1.34551 14.7564 1.32509 14.6536 1.32518 14.5498V6.65304C1.32509 6.54922 1.34551 6.4464 1.38526 6.35048C1.42501 6.25457 1.48332 6.16745 1.55682 6.09413C1.63033 6.02081 1.71759 5.96273 1.81361 5.92322C1.90962 5.88371 2.01249 5.86355 2.11631 5.8639Z"
+                  fill="url(#paint0_linear_4357_279)"
+                />
+                <path
+                  d="M3.77676 13.1676L5.44053 10.5941L3.91657 8.03522H5.14037L5.97192 9.6738C6.04878 9.82885 6.10444 9.94414 6.12962 10.021H6.14088C6.19521 9.89687 6.25264 9.77628 6.31316 9.65922L7.20235 8.03787H8.32875L6.7657 10.5822L8.36851 13.1696H7.16988L6.20913 11.3733C6.16465 11.296 6.12675 11.2151 6.09583 11.1315H6.07992C6.05184 11.213 6.01449 11.2911 5.96861 11.3641L4.97936 13.1676H3.77676Z"
+                  fill="white"
+                />
+                <path
+                  d="M19.0865 1.9878H12.9742V6.29463H19.8777V2.77694C19.8778 2.67312 19.8573 2.5703 19.8176 2.47439C19.7778 2.37847 19.7195 2.29136 19.646 2.21803C19.5725 2.14471 19.4853 2.08663 19.3892 2.04712C19.2932 2.00761 19.1904 1.98745 19.0865 1.9878Z"
+                  fill="#33C481"
+                />
+                <path
+                  d="M12.9742 10.6014H19.8777V14.9083H12.9742V10.6014Z"
+                  fill="#107C41"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_4357_279"
+                    x1="2.97768"
+                    y1="5.24371"
+                    x2="9.16494"
+                    y2="15.9591"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#18884F" />
+                    <stop offset="0.5" stop-color="#117E43" />
+                    <stop offset="1" stop-color="#0B6631" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+<div class="d-flex" *ngIf="brands&&brands.length>0">
+      <div class="mx-2">
+              <select
+                class="form-select Select"
+                [(ngModel)]="BrandId"
+                (change)="changeBrand($any($event).target.value)"
+              >
+                <option *ngFor="let item of brands" [value]="item.id">
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="mx-2" *ngIf="BrandId">
+              <select
+                class="form-select Select"
+                [(ngModel)]="Branch"
+                (change)="getData()"
+              >
+                <option selected [ngValue]="null">
+                  {{ "dashboardBrandManager.selectBranch" | translate }}
+                </option>
+                <option *ngFor="let item of branchs" [ngValue]="item.id">
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+</div>
+        
+          </div>
+        </div>
+
+        <div class="tabs-content">
+          <div>
+            <div *ngIf="tab === 'dashboard'">
+              <app-first-tab
+                [filterValue]="formValue"
+                [BranchIdFilter]="Branch"
+                [BrandIdFilter]="BrandId"
+              ></app-first-tab>
+            </div>
+            <div *ngIf="tab === 'client'">
+              <app-second-tab
+                [filterValue]="formValue"
+                [BranchIdFilter]="Branch"
+                [BrandIdFilter]="BrandId"
+              >
+              </app-second-tab>
+            </div>
+            <div *ngIf="tab === 'requests'">
+              <app-third-tab
+                [filterValue]="formValue"
+                [BranchIdFilter]="Branch"
+                [BrandIdFilter]="BrandId"
+              ></app-third-tab>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

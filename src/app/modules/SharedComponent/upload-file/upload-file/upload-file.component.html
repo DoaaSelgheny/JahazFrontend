@@ -1,0 +1,115 @@
+<div class="drag-div d-block" *ngIf="flag === 3">
+  <div class="sm d-flex flex-column align-items-center">
+    <label class="m-0 py-2 lbl-curser main" [for]="id">
+      <img [src]="'/assets/imgs/zalol/downloadImage.svg'" alt="" srcset="" />
+      <label class="m-0 mx-2" style="width: auto; cursor: pointer">
+        <input
+          [id]="id"
+          #myFileInput
+          type="file"
+          name="file"
+          [accept]="acceptedExtensionsString"
+          [multiple]="isMultiple"
+          (change)="onSelectFile($any($event).target.files)"
+        />
+      </label>
+    </label>
+
+      <div class="image-container position-relative">
+        <img
+          id="iconUpload"
+          width="100px"
+          height="100px"
+          [src]="url ? url : '/assets/imgs/zalol/downloadImage.svg'"
+          (click)="myFileInput.click()"
+          alt=""
+          srcset=""
+         role="button"
+        />
+        <img
+          class="position-absolute bottom-0 end-0 mr-2 mb-2"
+          src="/assets/imgs/zalol/plusPhoto.svg"
+          (click)="myFileInput.click()"
+          alt=""
+          role="button"
+          srcset=""
+        />
+      </div>
+      <div class="title mt-5">{{ "welcomeMessage.Allowedfile" | translate }}</div>
+      <div class="desc mt-5">{{ label | translate }}</div>
+
+
+  </div>
+</div>
+<div class="user-img" *ngIf="flag === 1">
+  <div class="view-img">
+    <img src="/assets/imgs/upload.svg" alt="" srcset="" />
+    <label class="m-0 mx-2" style="width: auto; cursor: pointer">
+      <input
+        [id]="id"
+        #myFileInput
+        type="file"
+        name="file"
+        [accept]="acceptedExtensionsString"
+        [multiple]="isMultiple"
+        (change)="onSelectFile($any($event).target.files)"
+      />
+      <!-- <i style="color: #E84D5E;" class="fa fa-upload"></i> -->
+
+      <img
+        class="cameraSection"
+        src="/assets/imgs/camera.png"
+        alt=""
+        srcset=""
+      />
+    </label>
+    <!--  -->
+  </div>
+</div>
+
+<div class="drag-div d-block" *ngIf="flag !== 1 && flag !== 3">
+  <div class="sm d-flex align-items-center">
+    <img src="/assets/imgs/upload.png" width="35px" alt="" srcset="" />
+    <label class="m-0 py-2 lbl-curser main" [for]="id">
+      <label class="m-0 mx-2" style="width: auto; cursor: pointer">
+        <input
+          [id]="id"
+          #myFileInput
+          type="file"
+          name="file"
+          [accept]="acceptedExtensionsString"
+          [multiple]="isMultiple"
+          (change)="onSelectFile($any($event).target.files)"
+        />
+        <!-- <i style="color: #E84D5E;" class="fa fa-upload"></i> -->
+        <img src="assets/icons/add-file.png" alt="" srcset="" />
+        <span class="label-txt">{{ label | translate }}</span>
+      </label>
+    </label>
+  </div>
+  <div></div>
+</div>
+<div class="folder ds" *ngIf="fileName && flag !== 3">
+  <div class="action">
+    <button (click)="deleteImage()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-x"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+        />
+      </svg>
+    </button>
+  </div>
+  <img src="assets/icons/Folder.svg" alt="" srcset="" />
+  <h5>
+    <a target="_blank" rel="noopener noreferrer">
+      {{ fileName }}
+    </a>
+  </h5>
+</div>

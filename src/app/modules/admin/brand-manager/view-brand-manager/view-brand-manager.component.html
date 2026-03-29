@@ -1,0 +1,36 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center">{{ "cashier.details" | translate }}</div>
+<div class="modal-body mx-10 mb-7">
+	<div class="row">
+		<div class="col-md-7 col-sm-12">
+			<div class="d-flex flex-column my-5">
+				<p>{{data.name??'-'}}</p>
+				<label class="mb-3 d-flex email-div">
+					<img src="assets/imgs/zalol/email.svg" class="mx-2">
+<div >{{ data.email ?? '-'}}</div>
+					
+				</label>
+				<label class="mb-2">
+					<img src="assets/imgs/zalol/phone.svg" class="mx-2">
+					{{data.countryCode}}{{ data.phoneNumber ?? '-'}}
+				</label>
+			</div>
+		</div>
+		<div class="col-1">
+			<img src="assets/imgs/line-2.svg">
+		</div>
+
+		<div class="col-4">
+			<div class="d-flex flex-row">
+				<img src="assets/imgs/zalol/brand.svg">
+				<div class="d-flex flex-column px-2 mt-5">
+					<label class="fw-bold">{{ "cashier.brand" | translate}}</label>
+					<span class="" *ngFor="let item of data?.brands">{{item?.name ??'-'}} </span>
+				</div>
+
+			</div>
+
+		</div>
+	</div>

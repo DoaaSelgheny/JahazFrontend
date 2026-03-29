@@ -1,0 +1,120 @@
+.modal-header {
+  border: none;
+  padding-bottom: 0;
+  justify-content: flex-end;
+
+  button {
+    margin: 0;
+    color: rgba(198, 198, 198, 1);
+  }
+}
+
+.title {
+  h2 {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 100%;
+    color: rgba(13, 13, 13, 1);
+  }
+}
+
+// modal-body
+.modal-body {
+
+  .user-details {
+    margin-bottom: 30px;
+  }
+
+  h5 {
+    span {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 100%;
+      color: rgba(0, 0, 0, 1);
+      margin: 0 5px;
+    }
+  }
+
+  .Phone-Number {
+    i {
+      border-radius: 5px;
+      background-color: rgba(38, 50, 56, 0.1);
+      backdrop-filter: blur(20px);
+      color: rgba(38, 50, 56, 1);
+      font-size: 12px;
+      padding: 7px;
+    }
+  }
+
+  .user-message {
+    i {
+      background: rgba(107, 33, 33, 0.09);
+      color: rgba(107, 33, 33, 1);
+      backdrop-filter: blur(20px);
+      font-size: 12px;
+      padding: 5px;
+      border-radius: 5px;
+
+    }
+
+  }
+
+  .Message {
+    h3 {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 100%;
+      color: rgba(13, 13, 13, 1);
+    }
+
+    p  {
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 30px;
+      color: rgba(59, 55, 55, 1);
+    }
+
+  }
+}
+
+.page-action {
+  margin-bottom: 3rem;
+  text-align: center;
+
+  button {
+    cursor: pointer !important;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    width: 90%;
+    height: 47px;
+    border-radius: 25px;
+    background: rgba(150, 59, 58, 1);
+  }
+}
+
+.ReplayMessage {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 100%;
+  color: rgba(13, 13, 13, 1);
+}
+
+.replay_message
+{
+font-weight: 400;
+font-size: 11px;
+line-height: 30px;
+color: rgba(59, 55, 55, 1);
+}
+
+label {
+  color: #9f9d9d;
+}
+
+::placeholder {
+  color: rgba(13, 13, 13, 0.3);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+}

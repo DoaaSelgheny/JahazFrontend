@@ -1,0 +1,78 @@
+<div class="modal-header">
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="title text-center mb-5">
+
+  <h2>
+    {{ "ContactUs.ShowDetails" | translate }}
+  </h2>
+
+</div>
+
+<div class="modal-body mt-2">
+
+  <!-- user details -->
+  <div class="user-details row ">
+
+    <div class="col-md-6 User-Name mt-3">
+    <h5>
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="22" height="22" rx="5" fill="#ED8B85" fill-opacity="0.1"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4996 5.08301C10.7813 5.08301 10.0924 5.36835 9.5845 5.87626C9.07659 6.38417 8.79125 7.07305 8.79125 7.79134C8.79125 8.50964 9.07659 9.19851 9.5845 9.70642C10.0924 10.2143 10.7813 10.4997 11.4996 10.4997C12.2179 10.4997 12.9068 10.2143 13.4147 9.70642C13.9226 9.19851 14.2079 8.50964 14.2079 7.79134C14.2079 7.07305 13.9226 6.38417 13.4147 5.87626C12.9068 5.36835 12.2179 5.08301 11.4996 5.08301ZM9.87458 11.0413C8.97379 11.0413 8.10766 11.4519 7.60012 12.0705C7.34283 12.3847 7.16137 12.773 7.14566 13.2037C7.12941 13.6435 7.28812 14.0725 7.61583 14.4468C8.41316 15.3595 9.68662 15.9163 11.4996 15.9163C13.3125 15.9163 14.586 15.3595 15.3833 14.4468C15.711 14.0725 15.8697 13.6435 15.8535 13.2037C15.8372 12.773 15.6569 12.3847 15.3985 12.0705C14.892 11.453 14.0259 11.0413 13.1246 11.0413H9.87458Z" fill="#ED8B85"/>
+        </svg>
+              <span> {{data.name}} </span></h5>
+    </div>
+
+    <div class="col-md-6 Phone-Number mt-3">
+      <h5><i class="fa-solid fa-phone"></i>   <span> <bdi>+{{data.countryCode}} {{data.phoneNumber}} </bdi> </span>  </h5>
+    </div>
+    <div class="col-md-6 user-message mt-3">
+      <h5><i class="fa-solid fa-envelope"></i><span>{{data.email}}</span></h5>
+    </div>
+
+  </div>
+
+  <!-- message  -->
+
+  <div class="Message">
+    <h3>{{"ContactUs.Message" |translate}}</h3>
+    <p>{{data.message}}</p>
+  </div>
+
+
+
+  <form class="mt-5" [formGroup]="ReplayMessage"> 
+    <div class="row">
+      <div class="col-lg-12 mb-5">
+    <h3 class="ReplayMessage">{{"ContactUs.Replay" |translate}}</h3>
+
+    <p *ngIf="data.hasReply" class="replay_message">{{data.reply}}</p>
+        <textarea
+        *ngIf="!data.hasReply"
+          id="reply"
+          class="form-control"
+          formControlName="reply"
+          rows="3"
+          [placeholder]="'ContactUs.ReplayMessage' | translate"
+        ></textarea>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="page-action">
+
+  <button type="button" (click)="sendform()" *ngIf="!data.hasReply" >
+    {{ "EditPlayer.save" | translate }}
+  </button>
+
+  <button type="button" (click)="close()" *ngIf="data.hasReply" >
+    {{ "ContactUs.close" | translate }}
+  </button>
+
+</div>

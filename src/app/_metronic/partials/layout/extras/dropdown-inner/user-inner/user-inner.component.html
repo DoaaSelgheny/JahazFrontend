@@ -1,0 +1,37 @@
+<!-- *ngIf="user$ | async as _user" -->
+
+<ng-container>
+
+
+ 
+
+  <div
+    class="menu-item px-5"
+    data-kt-menu-trigger="hover"
+    data-kt-menu-placement="left-start"
+    data-kt-menu-flip="bottom"
+  ></div>
+  <div
+  class="menu-item px-5"
+  data-kt-menu-trigger="hover"
+  data-kt-menu-placement="left-start"
+  data-kt-menu-flip="bottom"
+>
+<a
+    class="menu-link px-5 cursor-pointer"
+    (click)="selectLanguage(language.lang)"
+  >
+    <span class="menu-title position-relative">
+      {{ language.name === langs[0].name ? langs[1].name : langs[0].name }}
+    </span>
+  </a>
+</div>
+  <div class="separator my-1"></div>
+
+  <div class="menu-item px-5">
+    <a (click)="logout()" class="menu-link px-5 cursor-pointer">
+      {{ "LogIn.SignOut" | translate }}
+    </a>
+  </div>
+</ng-container>
+

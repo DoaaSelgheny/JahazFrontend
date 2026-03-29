@@ -1,0 +1,187 @@
+<div class="modal-header">
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center">
+  {{ "redeemPointsManager.addNewRedeem" | translate }}
+</div>
+<div class="sub-title text-center">
+  {{ "redeemPointsManager.hint" | translate }}
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3 me-auto mb-5">
+        <label for="carNumber" class="form-label">{{ "branches.brand" | translate }}
+        </label>
+        <span class="text-danger mx-2 fs-2">*</span>
+        <div class="mt-3">
+          <select class="form-select" formControlName="brandId" (change)="GetCategory($any($event).target.value)">
+            <option [value]="null" [disabled]="form.get('brandId')?.value">
+              {{ "categoryManager.chooseBrand" | translate }}
+            </option>
+            <option *ngFor="let item of brands" [value]="item.id">
+              {{ item.name }}
+            </option>
+          </select>
+        </div>
+        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Validation.ThisFieldIsRequired' | translate,
+            control: form.controls['brandId']
+          }"></ng-container>
+      </div>
+    </div>
+
+    <div *ngIf="category.length > 0" formArrayName="points">
+      <div *ngFor="let option of points.controls; let i = index;let last=last">
+        <div class="row my-form-div justify-content-center mt-4 pb-5">
+          <div class="row mt-3" >
+
+
+
+            <!-- <div class="ps-0"  [formGroupName]="i">
+              <p> {{ option.get('name')?.value }}</p>
+            </div> -->
+
+            <ng-container  [formGroupName]="i">
+              <h3>{{points.value[i].name}}</h3>
+              <div class="col-lg-6 col-md-6 col-sm-4 col-12 ps-0">
+                <label for="carMake" class="form-label">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_b_3506_5507)">
+                      <rect width="22" height="22" rx="5" fill="#455A64" fill-opacity="0.15" />
+                      <g clip-path="url(#clip0_3506_5507)">
+                        <path
+                          d="M15.3359 11.1296C15.316 11.0893 15.3057 11.045 15.3057 11C15.3057 10.9551 15.316 10.9108 15.3359 10.8705L15.7088 10.1075C15.9165 9.68271 15.752 9.17637 15.3343 8.95475L14.5841 8.5567C14.5443 8.53578 14.5099 8.506 14.4835 8.46966C14.4571 8.43333 14.4394 8.39141 14.4318 8.34715L14.2851 7.51065C14.2034 7.04491 13.7726 6.73195 13.3045 6.79818L12.4636 6.91712C12.4191 6.92355 12.3738 6.91967 12.3311 6.90579C12.2884 6.89191 12.2494 6.86839 12.2172 6.83706L11.6069 6.2466C11.267 5.91781 10.7346 5.91779 10.3948 6.2466L9.78437 6.83712C9.75219 6.86844 9.71323 6.89195 9.67052 6.90583C9.62781 6.91971 9.58248 6.9236 9.53803 6.91718L8.69715 6.79824C8.22889 6.73197 7.79823 7.04497 7.71653 7.51071L7.56982 8.34717C7.56219 8.39143 7.5445 8.43335 7.5181 8.46969C7.4917 8.50602 7.45731 8.53581 7.41757 8.55674L6.66738 8.95479C6.24969 9.17639 6.08516 9.68277 6.29281 10.1076L6.66576 10.8706C6.68561 10.9108 6.69594 10.9552 6.69594 11.0001C6.69594 11.045 6.68561 11.0893 6.66576 11.1296L6.29279 11.8926C6.08514 12.3174 6.24967 12.8237 6.66736 13.0453L7.41755 13.4434C7.45729 13.4643 7.49169 13.4941 7.51809 13.5304C7.54449 13.5668 7.56219 13.6087 7.56982 13.6529L7.71653 14.4894C7.79091 14.9134 8.15446 15.2108 8.57229 15.2107C8.61344 15.2107 8.6552 15.2078 8.69717 15.2019L9.53805 15.083C9.5825 15.0765 9.62783 15.0804 9.67055 15.0943C9.71326 15.1082 9.75222 15.1317 9.78439 15.163L10.3948 15.7535C10.5647 15.9179 10.7827 16.0001 11.0008 16.0001C11.2188 16 11.437 15.9178 11.6069 15.7535L12.2172 15.163C12.2831 15.0993 12.3729 15.0702 12.4636 15.083L13.3045 15.2019C13.7728 15.2681 14.2034 14.9552 14.2851 14.4894L14.4318 13.653C14.4395 13.6087 14.4571 13.5668 14.4835 13.5304C14.5099 13.4941 14.5443 13.4643 14.5841 13.4434L15.3343 13.0453C15.752 12.8237 15.9165 12.3174 15.7088 11.8925L15.3359 11.1296ZM9.84728 8.40463C10.4303 8.40463 10.9047 8.87898 10.9047 9.46203C10.9047 10.0451 10.4303 10.5194 9.84728 10.5194C9.26424 10.5194 8.78989 10.0451 8.78989 9.46203C8.78989 8.87898 9.26424 8.40463 9.84728 8.40463ZM9.30151 13.1071C9.2452 13.1635 9.17139 13.1916 9.0976 13.1916C9.02381 13.1916 8.94998 13.1635 8.8937 13.1071C8.78108 12.9945 8.78108 12.8119 8.8937 12.6993L12.7001 8.89291C12.8127 8.78029 12.9953 8.78029 13.1079 8.89291C13.2205 9.00553 13.2205 9.18812 13.1079 9.30074L9.30151 13.1071ZM12.1543 13.5955C11.5713 13.5955 11.0969 13.1211 11.0969 12.5381C11.0969 11.955 11.5713 11.4807 12.1543 11.4807C12.7373 11.4807 13.2117 11.955 13.2117 12.5381C13.2117 13.1211 12.7373 13.5955 12.1543 13.5955Z"
+                          fill="#263238" />
+                        <path
+                          d="M12.1548 12.0575C11.8898 12.0575 11.6742 12.2731 11.6742 12.5381C11.6742 12.8031 11.8898 13.0187 12.1548 13.0187C12.4198 13.0187 12.6355 12.8031 12.6355 12.5381C12.6355 12.2731 12.4198 12.0575 12.1548 12.0575ZM9.84781 8.98145C9.58279 8.98145 9.36719 9.19705 9.36719 9.46207C9.36719 9.72709 9.58279 9.94271 9.84781 9.94271C10.1128 9.94271 10.3285 9.72711 10.3285 9.46207C10.3284 9.19707 10.1128 8.98145 9.84781 8.98145Z"
+                          fill="#263238" />
+                      </g>
+                    </g>
+                    <defs>
+                      <filter id="filter0_b_3506_5507" x="-20" y="-20" width="62" height="62"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feGaussianBlur in="BackgroundImageFix" stdDeviation="10" />
+                        <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_3506_5507" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_3506_5507"
+                          result="shape" />
+                      </filter>
+                      <clipPath id="clip0_3506_5507">
+                        <rect width="10" height="10" fill="white" transform="translate(6 6)" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <span class="mx-2">{{ "redeemPointsManager.points" | translate }} </span>
+                </label>
+                <span class="text-danger mx-2 fs-2">*</span>
+                <div class="d-flex flex-row align-items-center">
+
+                  <input formControlName="pointNo" id="pointNo" type="text" readonly class="form-control disabled"
+                    [placeholder]="'redeemPointsManager.points' | translate" />
+                  <!-- <i class="fa-solid fa-arrow-right-arrow-left mx-3"></i> -->
+                  <i class="fa-solid fa-equals mx-3"></i>
+
+                </div>
+                <label *ngIf="
+                        points.controls[i].get('pointNo')?.errors
+                          ?.required  &&
+                        isValidFormSubmitted !== null &&
+                        !isValidFormSubmitted
+                      " class="error mt-2">
+                  {{ "Validation.ThisFieldIsRequired" | translate }}
+                </label>
+                <label class="error mt-2" *ngIf="
+                  points.controls[i].get('pointNo')?.errors?.pattern
+                ">
+                  {{ "branches.ShouldAcceptOnlyNumbers" | translate }}
+                </label>
+              </div>
+            </ng-container>
+
+
+            <div class="col-lg-6 col-md-6 col-sm-4 col-12 pe-0" [formGroupName]="i">
+              <label for="carMake" class="form-label">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g filter="url(#filter0_b_0_1)">
+                    <rect width="22" height="22" rx="5" fill="#6B2121" fill-opacity="0.09" />
+                  </g>
+                  <g clip-path="url(#clip0_0_1)">
+                    <path
+                      d="M12.3917 10.5426C11.9992 10.3257 11.582 10.1605 11.169 9.98907C10.9294 9.88994 10.7002 9.77428 10.4978 9.61318C10.0991 9.29512 10.1756 8.77879 10.6423 8.57432C10.7745 8.51649 10.9129 8.4979 11.0533 8.48964C11.5944 8.46073 12.1087 8.55986 12.5982 8.79531C12.8419 8.91303 12.9224 8.87586 13.0051 8.62182C13.0918 8.35333 13.1641 8.08071 13.2446 7.81015C13.2983 7.6284 13.2322 7.50861 13.0608 7.43219C12.7469 7.29381 12.4247 7.19468 12.086 7.14098C11.644 7.07282 11.644 7.07076 11.6419 6.62671C11.6399 6.00092 11.6399 6.00092 11.012 6.00092C10.9211 6.00092 10.8303 5.99885 10.7394 6.00092C10.4461 6.00918 10.3966 6.06081 10.3883 6.35615C10.3842 6.48834 10.3883 6.62052 10.3862 6.75476C10.3842 7.14718 10.3821 7.14098 10.0062 7.27729C9.09746 7.60775 8.53569 8.22734 8.47579 9.2187C8.42209 10.0965 8.8806 10.6892 9.6014 11.1209C10.0454 11.3873 10.537 11.5443 11.0079 11.7529C11.1917 11.8334 11.3673 11.9264 11.5201 12.0544C11.9724 12.4282 11.8898 13.0499 11.3528 13.2853C11.0657 13.4113 10.7621 13.4423 10.4502 13.4031C9.96903 13.3432 9.50846 13.2172 9.07474 12.9921C8.8207 12.8599 8.74635 12.895 8.65961 13.1697C8.58526 13.4072 8.51916 13.6468 8.45307 13.8863C8.36426 14.2085 8.39731 14.285 8.70504 14.4357C9.09746 14.6257 9.51672 14.7228 9.94424 14.791C10.2788 14.8447 10.2892 14.8591 10.2933 15.2061C10.2953 15.3631 10.2953 15.5221 10.2974 15.6791C10.2995 15.8773 10.3945 15.993 10.599 15.9971C10.8303 16.0012 11.0637 16.0012 11.295 15.9951C11.485 15.9909 11.5821 15.8877 11.5821 15.6956C11.5821 15.4808 11.5924 15.2639 11.5841 15.0491C11.5738 14.8302 11.6688 14.7187 11.8795 14.6608C12.3648 14.5287 12.7779 14.2684 13.0959 13.8802C13.9799 12.8062 13.6432 11.2345 12.3917 10.5426Z"
+                      fill="#6B2121" />
+                  </g>
+                  <defs>
+                    <filter id="filter0_b_0_1" x="-20" y="-20" width="62" height="62" filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feGaussianBlur in="BackgroundImageFix" stdDeviation="10" />
+                      <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_0_1" />
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_0_1" result="shape" />
+                    </filter>
+                    <clipPath id="clip0_0_1">
+                      <rect width="10" height="10" fill="white" transform="translate(6 6)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+
+
+                <span class="mx-2">{{ "redeemPointsManager.price" | translate }}</span>
+              </label><span class="text-danger mx-2 fs-2">*</span>
+              <div class="d-flex flex-row align-items-center">
+                <input formControlName="price" id="price" type="text" class="form-control"
+                  [placeholder]="'redeemPointsManager.price' | translate" />
+              </div>
+
+              <label *ngIf="
+                points.controls[i].get('price')?.errors?.required &&
+                isValidFormSubmitted !== null &&
+                points.controls[i].get('price')?.touched &&
+                !isValidFormSubmitted
+              " class="error mt-2">
+                {{ "Validation.ThisFieldIsRequired" | translate }}
+              </label>
+              <label class="error mt-2" *ngIf="
+              points.controls[i].get('price')?.errors?.pattern &&
+              points.controls[i].get('price')?.touched
+            ">
+                {{ "branches.ShouldAcceptOnlyNumbers" | translate }}
+              </label>
+
+              <label class="error mt-2" *ngIf="
+              points.controls[i].get('price')?.errors?.max &&
+              points.controls[i].get('price')?.touched
+            ">
+                {{ "Validation.maxOfPoint" | translate }}
+              </label>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="page-action mt-5">
+  <button type="submit" (click)="submit()" [disabled]="form.invalid" [ngClass]="{'disabled': form.invalid}">
+    {{ "users.save" | translate }}
+  </button>
+  <button type="button" class="" (click)="closeModal()">
+    {{ "users.cancel" | translate }}
+  </button>
+  <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+    <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+      <div class="fv-plugins-message-container">
+        <div class="fv-help-block">
+          <span role="alert">
+            {{ message }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>

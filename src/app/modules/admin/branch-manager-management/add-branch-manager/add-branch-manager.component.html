@@ -1,0 +1,139 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center">{{ "cashier.addNewUser" | translate }}</div>
+<div class="modal-body px-10">
+	<form [formGroup]="form">
+		<div class="row ">
+            
+            <div class="col-md-6  mb-5">
+                <label for="name" class="form-label">
+					{{ "cashier.brand" | translate }} </label>
+                    <span class="text-danger mx-2 fs-2">*</span>
+                <ng-multiselect-dropdown [placeholder]="'cashier.brand'|translate" formControlName="brand"
+                    [settings]="dropdownSettings" [data]="brands" (onSelect)="onItemSelect($event)"
+                    >
+                </ng-multiselect-dropdown>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'Validation.ThisFieldIsRequired' | translate,
+                    control: form.controls['brand']
+			    }"></ng-container>
+            </div>
+            <div class="col-md-6  mb-5">
+                <label for="name" class="form-label">
+					{{ "cashier.branch" | translate }} </label>
+                    <span class="text-danger mx-2 fs-2">*</span>
+               
+                <select
+                class="form-select" 
+                formControlName="branchId"
+               
+                >
+              
+                <option *ngFor="let item of branchs"  [value]="item.id">
+                  {{item.name}}
+                </option>
+              </select>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'Validation.ThisFieldIsRequired' | translate,
+                    control: form.controls['branchId']
+			    }"></ng-container>
+            </div>
+			<div class="col-md-6  mb-5">
+				<label for="name" class="form-label">
+					{{ "cashier.userName" | translate }} </label>
+                    <span class="text-danger mx-2 fs-2">*</span>
+				<input formControlName="fullName" id="name" type="text" class="form-control"
+					[placeholder]="'cashier.userName' | translate" />
+				<ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'Validation.ThisFieldIsRequired' | translate,
+                    control: form.controls['fullName']
+			    }"></ng-container>
+			</div>
+            <div class="col-md-6  mb-5">
+                <label for="name" class="form-label">
+					{{ "cashier.email" | translate }} </label>
+                    <span class="text-danger mx-2 fs-2">*</span>
+                <input style="max-height: 43px;" 
+                    class="form-control" type="email" formControlName="email"
+                    [placeholder]="'cashier.email' | translate" />
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                        validation: 'required',
+                        message: 'Validation.ThisFieldIsRequired' | translate,
+                        control: form.controls['email']
+                    }"></ng-container>
+            </div>
+            <div class="col-md-6  mb-5" >
+                <label for="name" class="form-label">
+					{{ "cashier.phoneNumber" | translate }} </label>
+                    <span class="text-danger mx-2 fs-2">*</span>
+                    <div class=" phone form-control" style="direction: ltr;height: 44px;display: flex;
+                    justify-content: start;align-items: center;padding:0">
+                        <intl-telephone-input
+                        #mobileNumber
+                        [preferredCountries]="[CountryISO.SaudiArabia, CountryISO.SaudiArabia]"
+                        [enablePlaceholder]="true"
+                        [searchCountryFlag]="true"
+                        [separateDialCode]="false"
+                        [enableAutoCountrySelect]="true"
+                        [searchCountryField]="SearchCountryField.All"
+                        [phoneValidation]="true"
+                        [numberFormat]="PhoneNumberFormat.International"
+                        [inputId]="'phoneNumber'"
+                        (onChange)="onInputChange($event)"
+                      >
+                      </intl-telephone-input>
+                      
+                    </div>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                      validation: 'required',
+                      message: 'Validation.ThisFieldIsRequired' | translate,
+                      control: form.controls['phoneNumber']
+                  }"></ng-container>
+            </div>
+            <div class="col-md-6  mb-5">
+                <label for="name" class="form-label">
+					{{ "cashier.nationality" | translate }} </label>
+                    <span class="text-danger mx-2 fs-2">*</span>
+                <ng-multiselect-dropdown [placeholder]="'cashier.nationality'|translate" (onSelect)="onItemSelectNational($event)"
+                    [settings]="dropdownSettingNationality" [data]="nationality" >
+                </ng-multiselect-dropdown>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'Validation.ThisFieldIsRequired' | translate,
+                    control: form.controls['nationalityId']
+			    }"></ng-container>
+            </div>
+		</div>
+	</form>
+</div>
+
+<div class="page-action">
+	<button type="submit"  (click)="submit()">
+		{{ "users.save" | translate }}
+	</button>
+	<button type="button"  (click)="closeModal()">
+		{{ "users.cancel" | translate }}
+	</button>
+    <ng-template
+    #formError
+    let-control="control"
+    let-message="message"
+    let-validation="validation"
+  >
+    <ng-container
+      *ngIf="control.hasError(validation) && (control.dirty || control.touched)"
+    >
+      <div class="fv-plugins-message-container">
+        <div class="fv-help-block">
+          <span role="alert">
+            {{ message }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>

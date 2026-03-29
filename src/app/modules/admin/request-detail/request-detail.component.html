@@ -1,0 +1,164 @@
+<section class="request-details">
+  <div class="container">
+    <div class="page-header">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a >{{"requests.detail"|translate}} </a></li>
+          <li class="breadcrumb-item active" aria-current="page" routerLink="/admin/requests" role="button">
+             {{"requests.orderMenue"|translate}}
+          </li>
+        </ol>
+      </nav>
+      <h3>{{"requests.reference"|translate}}:#{{orderDetail.reference}}</h3>
+    </div>
+    <div class="page-content">
+      <div class="row">
+        <!-- <div class="col-12">
+          <div class="order-steps">
+            <div class="row">
+              <div class="col-lg-4 col-sm-6 my-4 p-0">
+                <div class="step-card one active">
+                  <img src="/assets/imgs/icon12.svg" alt="" srcset="">
+                  <h3>مراجعه الطلب</h3>
+                  <p>03:52 ص</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6 my-4 p-0">
+                <div class="step-card two">
+                  <img src="/assets/imgs/icon12.svg" alt="" srcset="">
+                  <h3>جاري التحضير</h3>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6 my-4 p-0">
+                <div class="step-card three">
+                  <img src="/assets/imgs/icon12.svg" alt="" srcset="">
+                  <h3>تم التسليم</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="col-lg-4 my-5">
+          <div class="details-card h-100">
+            <div class="info">
+              <img src="/assets/imgs/Mercdedes.svg" alt="" srcset="" />
+              <h3>  {{orderDetail.car.type}} </h3>
+              <p> {{orderDetail.car.model}} , {{orderDetail.car.color}} </p>
+            </div>
+            <div class="details">
+              <h4>{{"requests.note"|translate}}</h4>
+              <p>
+                {{orderDetail.customer_notes?orderDetail.customer_notes:'لا يوجد'}}
+              </p>
+              <button>{{"requests.deliverOrder"|translate}}</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 my-5">
+          <div class="data-section h-100">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">{{"requests.item"|translate}}</th>
+                    <th scope="col">{{"requests.qty"|translate}}</th>
+                    
+                    <th scope="col">{{"requests.price"|translate}}</th>
+                    <th scope="col">{{"requests.total"|translate}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                  <tr *ngFor="let row of orderDetail.products">
+                    <th scope="row">
+                      <div class="item-card">
+                        <div class="image">
+                          <img [src]="row.product.image?row.product.image:'/assets/imgs/item.png'" alt="" srcset="" />
+                        </div>
+                        <div class="info">
+                          <h3>  {{row.product.name}}</h3>
+                          <p></p>
+                        </div>
+                      </div>
+                    </th>
+                    <td> {{row.quantity}}</td>
+                    <td> {{row.unit_price}}</td>
+                    <td>{{row.total_price}} {{"requests.total"|translate}}</td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+            <div class="total-section">
+              <div class="total">
+                <span>الأجمالي</span>
+                <h3>اضافة {{orderDetail.tax_exclusive_discount_amount}}% خدمة</h3>
+              </div>
+              <div class="price">
+                <span>{{orderDetail.total_price}} درهم</span>
+                <h3>{{totalAfterTax}} درهم</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 my-5">
+          <section class="pre-oreders">
+            <div class="title">
+              <h4>الطلبات السابقة</h4>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6 my-4">
+                <div class="order-card">
+                  <h3>19 ابريل 2023</h3>
+                  <p>اجمالي مبلغ 1500 درهم</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 my-4">
+                <div class="order-card">
+                  <h3>19 ابريل 2023</h3>
+                  <p>اجمالي مبلغ 1500 درهم</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 my-4">
+                <div class="order-card">
+                  <h3>19 ابريل 2023</h3>
+                  <p>اجمالي مبلغ 1500 درهم</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 my-4">
+                <div class="order-card">
+                  <h3>19 ابريل 2023</h3>
+                  <p>اجمالي مبلغ 1500 درهم</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 my-4">
+                <div class="order-card">
+                  <h3>19 ابريل 2023</h3>
+                  <p>اجمالي مبلغ 1500 درهم</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 my-4">
+                <div class="order-card">
+                  <h3>19 ابريل 2023</h3>
+                  <p>اجمالي مبلغ 1500 درهم</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 my-4">
+                <div class="order-card">
+                  <h3>19 ابريل 2023</h3>
+                  <p>اجمالي مبلغ 1500 درهم</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 my-4">
+                <div class="order-card">
+                  <h3>19 ابريل 2023</h3>
+                  <p>اجمالي مبلغ 1500 درهم</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

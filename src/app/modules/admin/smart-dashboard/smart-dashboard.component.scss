@@ -1,0 +1,107 @@
+.smart-page {
+  margin-top: 75px;
+
+  .page-title {
+    header {
+      h3 {
+        color: #000;
+        font-size: 28px;
+      }
+    }
+  }
+
+  .page-content {
+    article {
+      h4 {
+        color:#00000099;
+        font-size: 16px;
+      }
+      .filter {
+        color:#3D3B3B;
+        font-size: 12px;
+        border:1px solid #3D3B3B26 !important;
+        border-radius: 5px;
+      }
+       .btns-tab {
+        margin-top: 20px;
+          border-top: 1px solid #EDEDED;
+        button {
+          border: 0;
+          color: rgba(61, 59, 59, .6);
+          font-size: 16px;
+          background: #FFF;
+          padding: 12px 0px;
+          font-weight: 500;
+          min-width: 130px;
+          margin-inline: 10px;
+
+          &.active {
+            border-top:2px solid #9B403E;
+            color:#9B403E;
+            font-weight: 700;
+            img{
+              svg {
+              path {
+                fill:#9B403E;
+              }
+            }
+          }
+          }
+        }
+      }
+    }
+  }
+
+.Select
+{
+  color: rgba(61, 59, 59, .8) !important;
+}
+}
+
+::ng-deep .multiselect-dropdown {
+  width:130px !important;
+  .dropdown-btn {
+    border: 1px solid rgba(61, 59, 59, 0.15) !important;
+    border-radius: 10px !important;
+    padding: 8px 14px !important;
+    color: rgba(107, 107, 107, 1);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  .dropdown-btn:hover {
+    border-color: #c5c5c5 !important;
+  }
+
+  .dropdown-btn .dropdown-down,
+  .dropdown-btn .dropdown-up {
+    border-color: #a05252 transparent transparent transparent !important;
+    margin-left: 8px;
+    border-width: 6px 6px 0 6px;
+  }
+
+  .dropdown-btn .selected-item {
+    background: transparent !important;
+    color: #444 !important;
+    font-weight: 500;
+  }
+
+  .dropdown-list {
+    border-radius: 10px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+
+.excel
+{
+border: 1px solid rgba(236, 236, 236, 1);
+border-radius: 10px;
+width: 40px;
+height: 40px;
+cursor: pointer;
+}

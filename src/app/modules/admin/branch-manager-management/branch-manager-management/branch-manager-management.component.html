@@ -1,0 +1,135 @@
+<section class="requests-page">
+	<div class="container">
+		<div class="page-title">
+			<header>
+				<h4>{{'branchManager.branchManagerManagement'|translate}}</h4>
+			</header>
+			<button class="addbutton px-9 py-4" (click)="addUserModel()">
+				+ {{ "branchManager.addNewUser" | translate }}
+			</button>
+		</div>
+		<div class="page-content">
+			<article>
+				<div>
+					<div class="row mt-3">
+						<span class="the-search">
+							{{'branches.search' |translate}}
+						</span>
+					</div>
+					<div class="row mt-3">
+						<div class="col-md-3 col-sm-6 col-12  mt-3">
+							<div class="search-btn">
+								<input style="max-height: 43px;" (keyup)="page = 1; fromSearchInput = true; getData()"
+								class="form-control" type="email" [(ngModel)]="Email"
+								[placeholder]="'cashier.email' | translate" />
+								<i class="fa fa-search"></i>
+							</div>
+							
+						</div>
+						<div class="col-md-3 col-12 col-sm-6 mt-3 ">
+							<ng-multiselect-dropdown [placeholder]="'cashier.brand'|translate"
+								[settings]="dropdownSettings" [data]="brands" 
+								(onSelect)="changeBrand($event)" (onDeSelect)="BrandId=undefined;Branch=undefined;getData();">
+							</ng-multiselect-dropdown>
+						</div>
+						<div class="col-md-3 col-12 col-sm-6 mt-3 " *ngIf="BrandId">
+							<ng-multiselect-dropdown [placeholder]="'cashier.branch'|translate"
+								[settings]="dropdownSettingBranch" [data]="branchs" [(ngModel)]="Branch"
+								(onSelect)="getData()" (onDeSelect)="getData()">
+							</ng-multiselect-dropdown>
+						</div>
+						<div class="col-md-3 col-12 col-sm-6 mt-3 ">
+							<select class="form-select" [(ngModel)]="State" aria-label="Default select example"
+								(change)="page = 1; fromSearchInput = true; getData()">
+								<option selected disabled value="">
+									{{ "cashier.state" | translate }}
+								</option>
+								<option [value]="cashierState.All">
+									{{ "cashier.All" | translate }}
+								</option>
+								<option [value]="cashierState.Active">
+									{{ "cashier.active" | translate }}
+								</option>
+								<option [value]="cashierState.Inactive">
+									{{ "cashier.inActive" | translate }}
+								</option>
+							</select>
+						</div>
+
+						<!-- <div class="col-1 mt-3 ">
+						<button class="addbutton my-search-btn " (click)="getData()">
+							{{ "branches.search" | translate }}
+						</button>
+					</div> -->
+					</div>
+				</div>
+				<div class="table-responsive mt-7">
+					<!-- begin::Table -->
+					<div *ngIf="allCashiers.length === 0">
+						<img style="
+				  text-align: center;
+				  display: block;
+				  margin-left: auto;
+				  margin-right: auto;
+				  margin-top: 10%;
+				  max-width: 250px;
+				" src="assets/imgs/zalol/noData.svg" />
+
+						<h1 class="titleNoData" style="text-align: center; padding-top: 15px">
+							{{ "userManagement.NotFound" | translate }}
+						</h1>
+					</div>
+					<table class="table align-middle table-striped gs-0 gy-4" *ngIf="allCashiers.length > 0">
+						<!-- begin::Table head -->
+						<thead>
+							<tr class="text-center">
+								<th class="min-w-95px">{{ "branches.brandname" | translate }}</th>
+								<th class="min-w-125px">{{ "branches.branchName" | translate }}</th>
+								<th class="min-w-125px">{{ "branchManager.managerName" | translate }}</th>
+								<th class="min-w-125px">{{ "cashier.email" | translate }}</th>
+								<th class="min-w-125px">{{ "cashier.state" | translate }}</th>
+								<th class="min-w-95px">{{ "cashier.actions" | translate }}</th>
+							</tr>
+						</thead>
+						<!-- end::Table head -->
+						<!-- begin::Table body -->
+						<tbody>
+							<tr class="text-center" *ngFor="let item of allCashiers">
+								<td>{{ item.brand??'-' }}</td>
+								<td>
+									<div>{{ item.branch??'-' }}</div>
+							
+
+								</td>
+								<td>{{ item.name??'-' }}</td>
+								<td>{{ item.email }}</td>
+								<td >
+									<div class="form-check form-switch p-0 d-flex justify-content-center align-items-center ">
+										<label class="switch form-check-label " [for]="item.id" style="margin-left: 75px;margin-right: 75px;">
+											<input (change)="changAccountState(item)" class="form-check-input" 
+												type="checkbox" [checked]="item.state === cashierState.Active"
+												[id]="item.id" role="button"/>
+											<span class="slider round"></span>
+										</label>
+									</div>
+								</td>
+								<td role="button" (click)="viewUserModal(item)"><i class="fa fa-eye"></i></td>
+							</tr>
+						</tbody>
+						<!-- end::Table body -->
+					</table>
+					<div class="pagi-sec">
+						<p *ngIf="allCashiers?.length !== 0">
+							{{ "users.total" | translate }}:{{ totalCount }}
+						</p>
+						<ngb-pagination *ngIf="allCashiers?.length !== 0"
+							class="pagination p-0 my-4 d-flex justify-content-center" [collectionSize]="totalCount"
+							[(page)]="page" [pageSize]="pageSize" (pageChange)="getData()">
+						</ngb-pagination>
+					</div>
+					<!-- end::Table -->
+				</div>
+			</article>
+		</div>
+	</div>
+</section>

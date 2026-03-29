@@ -1,0 +1,23 @@
+<section>
+  <div class="  text-start  p-2 ">
+    <button
+      type="button"
+      class="btn-close "
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    ></button>
+    
+  </div>
+  
+  <div class="body ">
+
+    <h2 class="text-center">{{"ContactUs.Message" |translate}}</h2>
+    <p class="m-5 bg-light p-5">{{data.message}}</p>
+
+  </div>
+  
+</section>
+
+
+
+ 

@@ -1,0 +1,200 @@
+<section class="login-page">
+  <div class="page-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-7">
+          <div class="form-container">
+            <div class="form-title">
+              <img src="/assets/imgs/zalol/logo.png" role="button" routerLink="/home" alt="" srcset="" />
+              <h2>
+                Welcome Back
+              </h2>
+              <p>
+                Sign in to access the water tank monitoring platform
+              </p>
+            </div>
+            <!--begin::Form-->
+            <div class="body-size">
+              <form
+                class="form w-100 my-5"
+                [formGroup]="loginForm"
+                novalidate="novalidate"
+                id="kt_login_signin_form"
+                (ngSubmit)="submit()"
+              >
+                <!-- begin::Alert error-->
+                <ng-container *ngIf="hasError">
+                  <div class="mb-lg-15 alert alert-danger">
+                    <div class="alert-text font-weight-bold">
+                      The login details are incorrect
+                    </div>
+                  </div>
+                </ng-container>
+                <!-- end::Alert error-->
+
+                <!--begin::Form group-->
+                <div class="fv-col-6 mb-8">
+                  <!-- <label class="form-label fs-6 fw-bolder text-dark">{{'Validation.EmailAddress'|translate}}</label> -->
+                  <label for="">{{ "loginPage.logInEmail" | translate }}</label>
+                  <input
+                    class="form-control "
+                    type="email"
+                    [placeholder]="'loginPage.enterEmail' | translate"
+                    name="email"
+                    formControlName="email"
+                    autocomplete="off"
+                    [ngClass]="{
+                      'is-invalid': loginForm.controls['email'].invalid,
+                      'is-valid': loginForm.controls['email'].valid
+                    }"
+                  />
+                  <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+                      validation: 'required',
+                      message: 'loginPage.thisFieldIsRequired' | translate,
+                      control: loginForm.controls['email']
+                    }"
+                  ></ng-container>
+                  <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+                      validation: 'pattern',
+                      message: 'loginPage.thisFieldIsRequired' | translate,
+                      control: loginForm.controls['email']
+                    }"
+                  ></ng-container>
+                </div>
+                <!--end::Form group-->
+
+                <!--begin::Form group-->
+                <div class="fv-row mb-3">
+                  <!-- <label class="form-label fw-bolder text-dark fs-6 mb-0">{{'SingUp.Password'|translate}}</label> -->
+                  <div class="input-group d-block mb-5">
+                    <label for="">{{ "loginPage.Password" | translate }}</label>
+                    <div class="pass-sec">
+                      <input
+                        class="form-control"
+                        [placeholder]="'loginPage.enterPassword' | translate"
+                        [type]="showPassword ? 'text' : 'password'"
+                        name="password"
+                        autocomplete="off"
+                        formControlName="password"
+                        [ngClass]="{
+                          'is-invalid': loginForm.controls['password'].invalid,
+                          'is-valid': loginForm.controls['password'].valid
+                        }"
+                      />
+                      <span class="input-group-text" id="basic-addon1">
+                        <i
+                          class="toggle-password fa fa-fw fa-eye-slash"
+                          [ngClass]="showPassword ? ' fa-eye' : ' fa-eye-slash'"
+                          (click)="togglePasswordVisibilty()"
+                          class="toggle-password fa fa-fw"
+                        ></i>
+                      </span>
+                    </div>
+                  </div>
+                  <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+                      validation: 'required',
+                      message: 'loginPage.thisFieldIsRequired' | translate,
+                      control: loginForm.controls['password']
+                    }"
+                  ></ng-container>
+
+                  <ng-container
+                    [ngTemplateOutlet]="formError"
+                    [ngTemplateOutletContext]="{
+                      validation: 'pattern',
+                      message: 'loginPage.thisFieldIsRequired' | translate,
+                      control: loginForm.controls['password']
+                    }"
+                  ></ng-container>
+                </div>
+
+                  <div class="fv-row  mb-3">
+                  <!-- <label class="form-label fw-bolder text-dark fs-6 mb-0">{{'SingUp.Password'|translate}}</label> -->
+                  <div class="input-group d-flex justify-content-between align-items-center  mb-5">
+
+                    <div class="label d-flex justify-content-start align-items-center">
+                      <input type="checkbox" >
+                      <h5 class="mt-1 mx-1">
+                      Remember me
+                      </h5>
+                    </div>
+                    <div class="forget_btn">
+                      <a href="./">Forgot password ?</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!--end::Form group-->
+                <!-- <a routerLink="/auth/forgot-password" class="link-primary">
+                  {{ "LogIn.ForgotPassword" | translate }}
+                </a> -->
+                <!--end::Link-->
+                <!--end::Wrapper-->
+
+                <!-- <div class="mb-3 form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="exampleCheck1"
+                  />
+                  <label class="form-check-label" for="exampleCheck1">
+                    {{ "loginPage.rememberme" | translate }}
+                  </label>
+                </div> -->
+              </form>
+            </div>
+            <!--end::Form-->
+            <div class="form-action-btn">
+              <button
+                type="submit"
+                id="kt_sign_in_submit"
+                class="
+                "
+                (click)="submit()"
+              >
+                <ng-container *ngIf="isLoading$ | async">
+                  <span class="indicator-progress" [style.display]="'block'">
+                    {{ "Shared.PleaseWait" | translate }}
+                    <span
+                      class="spinner-border spinner-border-sm align-middle ms-2"
+                    ></span>
+                  </span>
+                </ng-container>
+                <ng-container *ngIf="(isLoading$ | async) === false">
+                  <span class="indicator-label"
+                    >{{ "loginPage.logIn" | translate }}
+                  </span>
+                </ng-container>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template
+  #formError
+  let-control="control"
+  let-message="message"
+  let-validation="validation"
+>
+  <ng-container
+    *ngIf="control.hasError(validation) && (control.dirty || control.touched)"
+  >
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        <span role="alert">
+          {{ message }}
+        </span>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

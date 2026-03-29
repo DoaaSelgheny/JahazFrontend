@@ -1,0 +1,274 @@
+<section class="dashboard-container container">
+  <div class="d-flex gap-5">
+    <div class="title mt-3">
+      <h2>{{ "sideMenue.dashboard" | translate }}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <div class="card card-background">
+        <div class="card-body">
+          <h5 class="card-title mt-4 text-welcome-color">
+            {{ "dashboard.text1" | translate }}
+          </h5>
+          <p class="card-text mt-4 text-card">
+            {{ "dashboardManger.text2" | translate }}
+          </p>
+          <p class="card-text mt-4 text-card mb-10">
+            {{ "dashboardManger.text3" | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mt-5">
+      <img src="assets/imgs/zalol/car.svg" height="210px" width="100%" />
+    </div>
+  </div>
+
+  <div class="row mt-4 me-1 ms-1">
+    <div class="card-statistic">
+     
+      <div class="d-flex  mt-5 title-table">
+        <h5>{{ "dashboardManger.lastBranch" | translate }}</h5>
+        <button (click)="goToBranch()">
+          {{ "dashboardManger.branchManger" | translate }}
+        </button>
+      </div>
+      <div class="d-flex justify-content-between mt-5 row">
+        <div class="col-md-12 col-sm-12">
+          <div *ngIf="allBranch.length === 0">
+            <img
+              style="
+                text-align: center;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 4%;
+                max-width: 250px;
+              "
+              src="assets/imgs/zalol/noData.svg"
+            />
+
+            <h1
+              class="titleNoData"
+              style="text-align: center; padding-top: 15px"
+            >
+              {{ "userManagement.NotFound" | translate }}
+            </h1>
+          </div>
+          <table *ngIf="allBranch.length !== 0">
+            <thead>
+              <th>{{ "dashboardManger.branchName" | translate }}</th>
+              <th>{{ "dashboardManger.brandName" | translate }}</th>
+              <th>{{ "dashboardManger.city" | translate }}</th>
+              <th>{{ "dashboardManger.numberofcameras" | translate }}</th>
+              <th>{{ "dashboardManger.branchStatus" | translate }}</th>
+              <th>{{ "dashboardManger.brandStatus" | translate }}</th>
+            </thead>
+            <tr *ngFor="let item of allBranch">
+              <td>
+                {{ item.branch ?? "-" }}
+              </td>
+              <td>
+                {{ item.brand ?? "-" }}
+              </td>
+              <td>
+                {{ item.city ?? "-" }}
+              </td>
+              <td>
+                {{ item.cameraNo ?? "-" }}
+              </td>
+              <td>
+                {{'branchState.'+item?.branchState |translate}}
+              </td>
+              <td>
+                {{'branchState.'+item?.brandState |translate}}
+              </td>
+            </tr>
+          </table>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4 me-1 ms-1">
+    <div class="col-md-4 mt-5 col-sm-12">
+      <div class="card-statistic">
+        <div class="card-body">
+          <div class="card-icon">
+            <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_1952_2491)">
+              <path d="M24.7317 12.1123L23.4421 11.2315L23.8002 10.9454C24.1174 10.692 24.1065 10.2043 23.7764 9.966L11.9463 1.42265C11.415 1.03886 10.6772 1.13861 10.2667 1.64955L6.37878 6.48882C5.93663 7.03929 6.04824 7.85037 6.62295 8.26081L9.57854 10.3715L8.39195 12.0573C8.19557 12.3363 8.26394 12.7221 8.54408 12.9167L8.96703 13.2105C8.27369 13.8793 7.348 14.253 6.38469 14.2532H5.23047V12.9202C5.23047 12.5804 4.95501 12.305 4.61523 12.305C4.27546 12.305 4 12.5804 4 12.9202V19.1956C4 19.5354 4.27546 19.8108 4.61523 19.8108C4.95501 19.8108 5.23047 19.5354 5.23047 19.1956V17.9446H6.0644C8.27276 17.9446 10.4318 17.0158 11.9654 15.2929L12.5807 15.7203C12.8616 15.9154 13.2478 15.8438 13.4402 15.5613L14.5548 13.9251L17.089 15.7349C17.1979 15.8127 17.3293 15.8528 17.4631 15.8492C17.597 15.8456 17.726 15.7984 17.8306 15.7149L18.7488 14.9813L21.1363 16.6997C21.4015 16.8906 21.7694 16.8408 21.9745 16.5867L24.8636 13.0068C25.0888 12.7276 25.0283 12.3148 24.7317 12.1123ZM6.0644 16.7141H5.23047V15.4836H6.38465C7.0607 15.4835 7.72955 15.3449 8.35 15.0764C8.97044 14.8079 9.52933 14.4152 9.99222 13.9225L10.9461 14.585C9.69465 15.9279 7.91375 16.7141 6.0644 16.7141ZM12.7727 14.3555L9.75445 12.2593L10.5799 11.0865L13.5532 13.2098L12.7727 14.3555ZM17.4257 14.4633L7.33802 7.25946L11.2259 2.42019L22.3996 10.4895L17.4257 14.4633ZM21.3825 15.3608L19.747 14.1836L22.4366 12.0348L23.4875 12.7526L21.3825 15.3608Z" fill="white"/>
+              <path d="M19.4219 10.5C19.7617 10.5 20.0371 10.2246 20.0371 9.88477C20.0371 9.54498 19.7617 9.26953 19.4219 9.26953C19.0821 9.26953 18.8066 9.54498 18.8066 9.88477C18.8066 10.2246 19.0821 10.5 19.4219 10.5Z" fill="white"/>
+              </g>
+              <defs>
+              <filter id="filter0_d_1952_2491" x="0" y="0" width="29" height="29" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dy="4"/>
+              <feGaussianBlur stdDeviation="2"/>
+              <feComposite in2="hardAlpha" operator="out"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1952_2491"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1952_2491" result="shape"/>
+              </filter>
+              </defs>
+              </svg>
+              
+          </div>
+
+          <div class="d-flex justify-content-between mt-5">
+            <div>
+              <p>{{ "dashboardManger.numberOfCamera" | translate }}</p>
+              <h3>{{camerNo ?? "-"}}</h3>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100"
+                height="60"
+                viewBox="0 0 145 80"
+                fill="none"
+              >
+                <path
+                  d="M144 1C135.028 20.5 126.568 45.3937 108.561 45.3937C86.5853 45.9914 82.0935 23.8192 63.2524 25.0638C31.4019 25.0638 43.0655 79 9.53674e-07 79"
+                  stroke="url(#paint0_linear_629_452)"
+                  stroke-width="2"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_629_452"
+                    x1="144"
+                    y1="1"
+                    x2="22.2102"
+                    y2="105.007"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop
+                      offset="0.125"
+                      stop-color="#00DEA3"
+                      stop-opacity="0"
+                    />
+                    <stop offset="0.488932" stop-color="#00DEA3" />
+                    <stop offset="1" stop-color="#00DEA3" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mt-5 col-sm-12">
+      <div class="card-statistic">
+        <div class="card-body">
+          <div class="card-icon">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.3381 11.2321C13.1471 8.39349 12.9197 8.74763 12.9718 8.67362C13.6304 7.74466 13.9785 6.65132 13.9785 5.51172C13.9785 2.48957 11.5261 0 8.5 0C5.48376 0 3.02148 2.48466 3.02148 5.51172C3.02148 6.65059 3.37689 7.77255 4.05709 8.71403L5.66186 11.2322C3.94609 11.4958 1.0293 12.2816 1.0293 14.0117C1.0293 14.6424 1.44095 15.5412 3.40206 16.2416C4.77142 16.7307 6.58189 17 8.5 17C12.0868 17 15.9707 15.9882 15.9707 14.0117C15.9707 12.2813 13.0573 11.4963 11.3381 11.2321ZM4.88913 8.16614C4.88365 8.15759 4.87793 8.14919 4.87196 8.14097C4.30595 7.36229 4.01758 6.43945 4.01758 5.51172C4.01758 3.02089 6.02325 0.996094 8.5 0.996094C10.9716 0.996094 12.9824 3.02178 12.9824 5.51172C12.9824 6.44094 12.6995 7.33248 12.1641 8.09064C12.1161 8.15392 12.3664 7.76505 8.5 13.8321L4.88913 8.16614ZM8.5 16.0039C4.58223 16.0039 2.02539 14.8523 2.02539 14.0117C2.02539 13.4467 3.33917 12.5177 6.25042 12.1556L8.07998 15.0265C8.12497 15.0971 8.18704 15.1552 8.26045 15.1955C8.33386 15.2358 8.41624 15.2569 8.49997 15.2569C8.5837 15.2569 8.66608 15.2358 8.73948 15.1955C8.81289 15.1552 8.87496 15.0971 8.91995 15.0265L10.7495 12.1556C13.6608 12.5177 14.9746 13.4467 14.9746 14.0117C14.9746 14.8452 12.4408 16.0039 8.5 16.0039Z" fill="white"/>
+              <path d="M8.5 3.02148C7.12688 3.02148 6.00977 4.1386 6.00977 5.51172C6.00977 6.88483 7.12688 8.00195 8.5 8.00195C9.87312 8.00195 10.9902 6.88483 10.9902 5.51172C10.9902 4.1386 9.87312 3.02148 8.5 3.02148ZM8.5 7.00586C7.67613 7.00586 7.00586 6.33559 7.00586 5.51172C7.00586 4.68785 7.67613 4.01758 8.5 4.01758C9.32387 4.01758 9.99414 4.68785 9.99414 5.51172C9.99414 6.33559 9.32387 7.00586 8.5 7.00586Z" fill="white"/>
+              </svg>
+              
+          </div>
+
+          <div class="d-flex justify-content-between mt-5">
+            <div>
+              <p>{{ "dashboardManger.numberOfBranch" | translate }}</p>
+              <h3>{{branchNo}}</h3>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100"
+                height="60"
+                viewBox="0 0 145 80"
+                fill="none"
+              >
+                <path
+                  d="M144 1C135.028 20.5 126.568 45.3937 108.561 45.3937C86.5853 45.9914 82.0935 23.8192 63.2524 25.0638C31.4019 25.0638 43.0655 79 9.53674e-07 79"
+                  stroke="url(#paint0_linear_629_452)"
+                  stroke-width="2"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_629_452"
+                    x1="144"
+                    y1="1"
+                    x2="22.2102"
+                    y2="105.007"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop
+                      offset="0.125"
+                      stop-color="#00DEA3"
+                      stop-opacity="0"
+                    />
+                    <stop offset="0.488932" stop-color="#00DEA3" />
+                    <stop offset="1" stop-color="#00DEA3" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mt-5 col-sm-12">
+      <div class="card-statistic">
+        <div class="card-body">
+          <div class="card-icon" style="background-color: #a77777">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.0011 7.69148L17.5021 12.9485V18C17.5021 18.1327 17.4494 18.2598 17.3556 18.3536C17.2619 18.4474 17.1347 18.5 17.0021 18.5H14.0002V14.25C14.0002 14.0511 13.9212 13.8604 13.7805 13.7197C13.6399 13.5791 13.4491 13.5 13.2502 13.5H10.7502C10.5513 13.5 10.3605 13.5791 10.2199 13.7197C10.0792 13.8604 10.0002 14.0511 10.0002 14.25V18.5H6.99707C6.86446 18.5 6.73729 18.4474 6.64352 18.3536C6.54977 18.2598 6.49709 18.1327 6.49707 18.0001C6.49707 18.0001 6.49707 18.0001 6.49707 18L6.49799 12.9486L12.0011 7.69148Z" stroke="white"/>
+              <path d="M18.9959 11.992L18.9958 11.992L16.6583 9.7557L16.5039 9.60803V9.39441V6.00098L15.0039 6.00098V7.00098V8.17083L14.1584 7.36236L12.3484 5.63174L12.3383 5.62209L12.3384 5.62195C12.2751 5.55796 12.1575 5.50098 12.0005 5.50098C11.8451 5.50098 11.728 5.55755 11.6644 5.62194L11.6594 5.62702L11.6543 5.63194L5.00888 11.9899C5.00878 11.99 5.00869 11.9901 5.00859 11.9902C5.00689 11.9919 5.0055 11.9936 5.00438 11.9954L11.483 5.80467L11.4832 5.80448L11.8286 6.16598C11.8751 6.12147 11.9371 6.09663 12.0014 6.09663C12.0658 6.09663 12.1277 6.12147 12.1742 6.16598L18.6592 12.3622C18.7548 12.4538 18.8827 12.5038 19.0151 12.5013C19.1474 12.4987 19.2733 12.4437 19.3652 12.3485L18.9959 11.992ZM18.9959 11.992C18.9961 11.9922 18.9965 11.9926 18.997 11.9934M18.9959 11.992L18.997 11.9934M18.997 11.9934L12.5199 5.80467L18.997 11.9934Z" fill="white" stroke="white"/>
+              </svg>
+              
+          </div>
+
+          <div class="d-flex justify-content-between mt-5">
+            <div>
+              <p>{{ "dashboardManger.numberOfBrand" | translate }}</p>
+              <h3>{{brandNo}}</h3>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100"
+                height="60"
+                viewBox="0 0 145 80"
+                fill="none"
+              >
+                <path
+                  d="M144 1C135.028 20.5 126.568 45.3937 108.561 45.3937C86.5853 45.9914 82.0935 23.8192 63.2524 25.0638C31.4019 25.0638 43.0655 79 9.53674e-07 79"
+                  stroke="url(#paint0_linear_629_452)"
+                  stroke-width="2"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_629_452"
+                    x1="144"
+                    y1="1"
+                    x2="22.2102"
+                    y2="105.007"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop
+                      offset="0.125"
+                      stop-color="#00DEA3"
+                      stop-opacity="0"
+                    />
+                    <stop offset="0.488932" stop-color="#00DEA3" />
+                    <stop offset="1" stop-color="#00DEA3" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

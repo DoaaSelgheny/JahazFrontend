@@ -1,0 +1,163 @@
+.notification-container {
+  width: 100% !important;
+  margin-top: 5%;
+  padding-top: 5px;
+  // padding-bottom: 50px;
+
+  .notification-all {
+
+    background: rgba(242, 223, 220, 1);
+    border-radius: 151px;
+    padding: 10px;
+
+    text-align: center;
+    color: #9B403E;
+    font-weight: 700;
+  }
+
+  .notification-unRead {
+    color: rgba(109, 109, 109, 1);
+
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+    border-radius: 151px;
+    background: rgba(228, 228, 228, 1);
+  }
+
+  .title {
+
+    h2 {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .content-style {
+    background: rgba(244, 244, 244, 1);
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 5px;
+  }
+
+  .iput-sec {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    height: 40px;
+    position: relative;
+
+    img {
+
+      top: 9px;
+      left: 14px;
+    }
+
+    input {
+      width: 100%;
+      outline: none;
+      border: none;
+      border-radius: 30px;
+      background-color: transparent;
+    }
+  }
+
+}
+
+ul {
+  list-style: none;
+}
+
+li .img {
+  background: rgba(105, 154, 252, 0.21);
+  // border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-text p {
+  display: inline-block !important;
+  margin: 5%;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.row-content {
+  max-width: 100%;
+}
+
+.read {
+  // border-radius:50%;
+  width: 10px;
+  height: 10px;
+
+  color: #9B403E;
+  background-color: #9B403E;
+  margin: 10px;
+
+}
+
+@media screen and (max-width: 500px) {
+  .read {
+    width: 30px !important;
+    height: 10px !important;
+  }
+
+}
+
+.notification-lists {
+  padding: 20px;
+
+  li {
+    padding: 15px 10px;
+    border-bottom: 1px solid whitesmoke;
+
+    &:last-child {
+      border: none;
+    }
+
+    .notif-div {
+      margin-right: 15px;
+      margin-left: 15px;
+      background: rgba(242, 223, 220, 1);
+      border-radius: 151px;
+      padding: 10px;
+      text-align: center;
+      color: #9B403E;
+      font-weight: 700;
+    }
+
+    .notif-img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+
+    a {
+      display: block;
+
+      p {
+        margin: 0;
+        margin-inline-start: 10px;
+        text-align: start;
+        color: #606060;
+
+        span {
+          color: #afabab;
+        }
+      }
+    }
+  }
+}
+
+.isused {
+  cursor: pointer;
+}

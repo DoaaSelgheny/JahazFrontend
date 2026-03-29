@@ -1,0 +1,110 @@
+<section class="requests-page" *ngIf="showPage">
+  <div class="container">
+    <div class="page-title">
+      <header>
+        <h4>{{ "categoryManager.categoryManager" | translate }}</h4>
+      </header>
+      <button class="addbutton px-9 py-4"
+       (click)="add()">
+        + {{ "categoryManager.addNewCategory" | translate }}
+      </button>
+    </div>
+    <div class="page-content">
+      <article>
+        <div>
+          <div class="row mt-3">
+            <span class="the-search">
+              {{'branches.search' |translate}}
+            </span>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-3 col-sm-6 col-12  mt-3">
+              <div class="search-btn">
+                <input style="max-height: 43px;" (keyup)="page = 1; fromSearchInput = true; getAllCategoriesData()"
+                  class="form-control" type="text" [(ngModel)]="searchText"
+                  [placeholder]="'categoryManager.catergoryName' | translate" />
+                <i class="fa fa-search"></i>
+              </div>
+
+            </div>
+            <div class="col-md-3 col-sm-6 col-12 mt-3 ">
+              <ng-multiselect-dropdown [placeholder]="'branches.brand'|translate" [settings]="dropdownSettings"
+                [data]="brands" [(ngModel)]="selectedItemsBrand" (onSelect)="getAllCategoriesData()"
+                (onDeSelect)="getAllCategoriesData()">
+              </ng-multiselect-dropdown>
+            </div>
+           </div>
+        </div>
+        <div class="table-responsive mt-10">
+          <!-- begin::Table -->
+          <div *ngIf="allCategories.length === 0">
+            <img style="
+				  text-align: center;
+				  display: block;
+				  margin-left: auto;
+				  margin-right: auto;
+				  margin-top: 10%;
+				  max-width: 250px;
+				" src="assets/imgs/zalol/noData.svg" />
+
+            <h1 class="titleNoData" style="text-align: center; padding-top: 15px">
+              {{ "userManagement.NotFound" | translate }}
+            </h1>
+          </div>
+          <table class="table align-middle table-striped gs-0 gy-4" *ngIf="allCategories.length > 0">
+            <!-- begin::Table head -->
+            <thead>
+              <tr class="text-center">
+                <th class="min-w-95px">{{ "branches.brandname" | translate }}</th>
+                <th class="min-w-125px">{{ "categoryManager.catergoryName" | translate }}</th>
+                <th class="min-w-125px">{{ "categoryManager.descrtiption" | translate }}</th>
+                <th class="min-w-125px">{{ "categoryManager.points" | translate }}</th>
+                <th class="min-w-125px">
+                  {{ "categoryManager.pointsNo" | translate }}
+                </th>
+                <th class="min-w-125px">{{ "categoryManager.price" | translate }}</th>
+                <th class="min-w-95px">{{ "categoryManager.actions" | translate }}</th>
+              </tr>
+            </thead>
+            <!-- end::Table head -->
+            <!-- begin::Table body -->
+
+            <tbody>
+              <tr class="text-center" *ngFor="let item of allCategories">
+                <td>{{ item.brandName??'-' }}</td>
+                <td>{{ item.name??'-' }}</td>
+                <td><a (click)="viewDesc(item)" role="button">{{'branches.pressHere'|translate}}</a></td>
+                <td>{{ item.minPoints}} {{'categoryManager.to'|translate}} {{item.maxPoints}}</td>
+                <td>{{ item.totalPoints ??'-' }}</td>
+                <td>{{ item.totalPrice ??'-' }}
+
+                  <img width="15px" height="15px" src="assets/imgs/zalol/riyal.svg" />
+
+                  </td>
+                <td>
+                  <img
+                  class="edit-icon mx-2"
+                  src="assets\imgs/edit.svg"
+                  role="button"
+                  (click)="edit(item)"
+                  />
+                  <i class="fa fa-trash" role="button" (click)="delete(item.id)"></i>
+                </td>
+              </tr>
+            </tbody>
+            <!-- end::Table body -->
+          </table>
+          <div class="pagi-sec">
+            <p *ngIf="allCategories?.length !== 0">
+              {{ "users.total" | translate }}:{{ totalCount }}
+            </p>
+            <ngb-pagination *ngIf="allCategories?.length !== 0" class="pagination p-0 my-4 d-flex justify-content-center"
+              [collectionSize]="totalCount" [(page)]="page" [pageSize]="pageSize" (pageChange)="getAllCategoriesData()">
+            </ngb-pagination>
+          </div>
+          <!-- end::Table -->
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

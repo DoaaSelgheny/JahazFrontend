@@ -1,0 +1,248 @@
+<div class="modal-header">
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="closeModal()"
+  ></button>
+</div>
+<div class="d-flex align-items-center flex-column">
+  <div class="title text-center">{{ "smart.userInfo" | translate }}</div>
+
+  <div class="subTitle text-center">{{ "smart.userDesc" | translate }}</div>
+  <img
+    src="assets/imgs/user.svg"
+    class="mx-auto my-3 border rounded-circle"
+    width="86"
+    height="86"
+  />
+  <div class="title">{{ customerDetails?.fullName }}</div>
+  <div *ngIf="latestOrder!==null" class="subTitle">
+    {{ "smart.lastVisit" | translate }}
+   {{
+      latestOrder.orderDate | date : "dd-MM-yyyy hh:mm a"
+    }}
+  </div>
+</div>
+<div class="modal-body mx-10 mb-10">
+  <h3>{{ "smart.personalInfo" | translate }}</h3>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="d-flex align-items-start info">
+          <img
+            src="assets/imgs/zalol/smart/email.svg"
+            class="mx-2"
+            width="20"
+            height="20"
+          />
+          <div class="d-flex flex-column align-items-start">
+            <div class="title">{{ "users.phoneNumber" | translate }}</div>
+            <div class="subTitle">{{ customerDetails.phoneNumber }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-4">
+      <div class="card">
+        <div class="d-flex align-items-start info">
+          <img src="assets/imgs/zalol/smart/map.svg" class="mx-2" width="20" height="20">
+          <div class="d-flex flex-column align-items-start">
+            <div class="title">{{"smart.city" | translate}}</div>
+            <div class="subTitle">email98@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="d-flex align-items-start info">
+          <img
+            src="assets/imgs/zalol/smart/calendar.svg"
+            class="mx-2"
+            width="20"
+            height="20"
+          />
+          <div class="d-flex flex-column align-items-start">
+            <div class="title">{{ "smart.date" | translate }}</div>
+            <div class="subTitle">
+              {{ customerDetails.creationTime | date : "dd-MM-yyyy" }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>{{ "smart.companyInfo" | translate }}</h3>
+  <div class="row company">
+    <div class="col-md-3">
+      <div class="card bg-orange border-0">
+        <div class="d-flex align-items-start info">
+          <div class="imgBg ms-2">
+            <img src="assets/imgs/zalol/smart/eye-white.svg" />
+          </div>
+          <div class="d-flex flex-column align-items-start mx-2">
+            <div class="subtitle">{{ "smart.totalVisit" | translate }}</div>
+            <div class="Title">{{ customerDetails?.totalVisits }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card bg-green border-0">
+        <div class="d-flex align-items-start info">
+          <div class="imgBg ms-2">
+            <img src="assets/imgs/zalol/smart/dollar.svg" />
+          </div>
+          <div class="d-flex flex-column align-items-start mx-2">
+            <div class="subtitle">{{ "smart.totalInvoice" | translate }}</div>
+            <div class="Title">{{ customerDetails?.totalPurchasesCount }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-yellow border-0">
+        <div class="d-flex align-items-start info">
+          <div class="imgBg ms-2">
+            <img src="assets/imgs/zalol/smart/point-white.svg" />
+          </div>
+          <div class="d-flex flex-column align-items-start mx-2">
+            <div class="subtitle">{{ "smart.pointsData" | translate }}</div>
+            <div class="Title">{{ customerDetails?.membershipPoints }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-blue border-0">
+        <div class="d-flex align-items-start info">
+          <div class="imgBg ms-2">
+            <img src="assets/imgs/zalol/smart/chart.svg" />
+          </div>
+          <div class="d-flex flex-column align-items-start mx-2">
+            <div class="subtitle">{{ "smart.totalPaid" | translate }}</div>
+            <div class="Title">{{ customerDetails?.totalMoneySpent }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>{{ "smart.vehicleDetails" | translate }}</h3>
+
+  <div class="row" *ngFor="let car of customerDetails?.cars">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="d-flex align-items-start info">
+          <img
+            src="assets/imgs/zalol/smart/car.svg"
+            class="mx-2"
+            width="20"
+            height="20"
+          />
+          <div class="d-flex flex-column align-items-start">
+            <div class="title">{{ "smart.vehicleNo" | translate }}</div>
+            <div class="subTitle">{{ car?.number }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="d-flex align-items-start info">
+          <img
+            src="assets/imgs/zalol/smart/car.svg"
+            class="mx-2"
+            width="20"
+            height="20"
+          />
+          <div class="d-flex flex-column align-items-start">
+            <div class="title">{{ "smart.vehicleType" | translate }}</div>
+            <div class="subTitle">{{ car?.make }} {{ car?.color }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="d-flex align-items-start info">
+          <img
+            src="assets/imgs/zalol/smart/car.svg"
+            class="mx-2"
+            width="20"
+            height="20"
+          />
+          <div class="d-flex flex-column align-items-start">
+            <div class="title">{{ "smart.vehicleMake" | translate }}</div>
+            <div class="subTitle">{{ car?.makeModel }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- "orderNumber": "ORD-2025-199",
+            "orderDate": "2025-09-14T10:39:53.7444892Z",
+            "paidAmount": 1500,
+            "orderStatus": "Completed",
+            "items": [
+                "Lexus ES350"
+            ] -->
+  <h3>{{ "smart.requestsLog" | translate }}</h3>
+  <table
+    class="table align-middle table-striped gs-0 gy-4"
+    *ngIf="allLogs.length > 0"
+  >
+    <!-- begin::Table head -->
+    <thead>
+      <tr class="text-center">
+        <th class="min-w-95px">{{ "smart.requestNo" | translate }}</th>
+        <th class="min-w-125px">{{ "smart.requestDate" | translate }}</th>
+        <th class="min-w-95px">{{ "smart.requestPrice" | translate }}</th>
+        <th class="min-w-95px">
+          {{ "smart.requestStatus" | translate }}
+        </th>
+        <th>{{ "smart.requestDetails" | translate }}</th>
+      </tr>
+    </thead>
+    <!-- end::Table head -->
+    <!-- begin::Table body -->
+
+    <tbody>
+      <tr
+        class="text-center"
+        *ngFor="let item of customerDetails?.orderHistory | slice:0:5"
+      >
+        <td>{{ item.orderNumber ?? "-" }}</td>
+        <td>{{ item.orderDate | date : "dd-MM-yyyy" ?? "-" }}</td>
+        <td>{{ item.paidAmount ?? "-" }}</td>
+        <td>{{ item.orderStatus ?? "-" }}</td>
+        <td>
+          <span *ngFor="let details of item.items"> {{ details }}<br /> </span>
+        </td>
+      </tr>
+    </tbody>
+    <!-- end::Table body -->
+  </table>
+  <!-- <div class="pagi-sec">
+    <p *ngIf="allLogs.length !== 0">
+      {{ "users.total" | translate }}:{{ totalCount }}
+    </p>
+    <ngb-pagination
+      *ngIf="allLogs.length !== 0"
+      class="pagination p-0 my-4 d-flex justify-content-center"
+      [collectionSize]="totalCount"
+      [maxSize]="15"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      (pageChange)="getAllLogsData()"
+    >
+    </ngb-pagination>
+  </div> -->
+</div>

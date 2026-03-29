@@ -1,0 +1,155 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center">{{ "pointsDetails.pointsDetails" | translate }}</div>
+<!-- <div class="points text-center">
+  <span>
+    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.3382 7.5024C16.4989 7.34689 16.6125 7.14926 16.6661 6.93215C16.7197 6.71503 16.7111 6.48722 16.6412 6.2748C16.5729 6.06176 16.4459 5.87228 16.2748 5.72809C16.1038 5.58389 15.8956 5.49081 15.6741 5.45951L11.6304 4.87196C11.5456 4.85964 11.4651 4.82687 11.3957 4.77647C11.3264 4.72608 11.2704 4.65958 11.2325 4.5827L9.42468 0.918948C9.32643 0.718026 9.17355 0.548848 8.98359 0.430797C8.79362 0.312746 8.57423 0.250598 8.35057 0.251474C8.12697 0.250661 7.90766 0.312839 7.71775 0.430886C7.52785 0.548933 7.37503 0.718078 7.2768 0.918948L5.46866 4.58304C5.39175 4.7392 5.2426 4.84722 5.07038 4.8723L1.02675 5.45985C0.805228 5.49114 0.597009 5.58422 0.42596 5.72842C0.254912 5.87262 0.127956 6.06209 0.0596459 6.27513C-0.010251 6.48755 -0.0189034 6.71537 0.0346798 6.93248C0.088263 7.14959 0.201915 7.34722 0.362618 7.50273L3.28834 10.3545C3.41307 10.4763 3.47025 10.6515 3.44082 10.8227L2.75061 14.8496C2.71938 15.0207 2.72662 15.1967 2.77179 15.3646C2.81696 15.5326 2.89894 15.6884 3.01178 15.8207C3.36826 16.2444 3.99059 16.3735 4.48818 16.112L8.10445 14.2106C8.18066 14.1717 8.26501 14.1514 8.35057 14.1514C8.43614 14.1514 8.52048 14.1717 8.59669 14.2106L12.2133 16.112C12.3848 16.2035 12.5761 16.2514 12.7704 16.2515C13.1239 16.2515 13.459 16.0943 13.6894 15.8207C13.8022 15.6884 13.8842 15.5326 13.9294 15.3646C13.9746 15.1967 13.9818 15.0207 13.9505 14.8496L13.26 10.8227C13.2455 10.7382 13.2519 10.6514 13.2784 10.5698C13.305 10.4883 13.351 10.4144 13.4125 10.3545L16.3382 7.5024Z" fill="#EB841D"/>
+    </svg>
+  </span>
+  <span>
+    {{ pointNo }} {{ "pointsDetails.points" | translate }}
+  </span>
+</div> -->
+
+<div class="modal-body mb-10">
+	<div class="row  mb-2 pb-2 mx-10">
+		<div class="col-sm-6 col-12">
+			<div class="d-flex flex-column  mt-5">
+				<label>
+          <img width="25px" src="assets/imgs/zalol/user/user.svg"> {{ "users.userName" | translate
+					}}</label>
+				<span class="mt-3 px-4">{{pointsData?.customerName ??'-'}} </span>
+			</div>
+		</div>
+		<div class="col-sm-6 col-12">
+			<div class="d-flex flex-column mt-5">
+				<label><img width="25px" src="assets/imgs/zalol/user/car.svg"> {{ "users.carNumber" | translate
+					}}</label>
+				<span class="mt-3 px-6"> {{pointsData?.carNumber ??'-'}}</span>
+			</div>
+		</div>
+  </div>
+  <!------------>
+  <div class="row userInfo mb-5 pb-3 mx-10">
+		<div class="col-sm-6 col-12">
+			<div class="d-flex flex-column mt-5">
+				<label>
+            <svg class="ms-2" width="14" height="14" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.3382 7.5024C16.4989 7.34689 16.6125 7.14926 16.6661 6.93215C16.7197 6.71503 16.7111 6.48722 16.6412 6.2748C16.5729 6.06176 16.4459 5.87228 16.2748 5.72809C16.1038 5.58389 15.8956 5.49081 15.6741 5.45951L11.6304 4.87196C11.5456 4.85964 11.4651 4.82687 11.3957 4.77647C11.3264 4.72608 11.2704 4.65958 11.2325 4.5827L9.42468 0.918948C9.32643 0.718026 9.17355 0.548848 8.98359 0.430797C8.79362 0.312746 8.57423 0.250598 8.35057 0.251474C8.12697 0.250661 7.90766 0.312839 7.71775 0.430886C7.52785 0.548933 7.37503 0.718078 7.2768 0.918948L5.46866 4.58304C5.39175 4.7392 5.2426 4.84722 5.07038 4.8723L1.02675 5.45985C0.805228 5.49114 0.597009 5.58422 0.42596 5.72842C0.254912 5.87262 0.127956 6.06209 0.0596459 6.27513C-0.010251 6.48755 -0.0189034 6.71537 0.0346798 6.93248C0.088263 7.14959 0.201915 7.34722 0.362618 7.50273L3.28834 10.3545C3.41307 10.4763 3.47025 10.6515 3.44082 10.8227L2.75061 14.8496C2.71938 15.0207 2.72662 15.1967 2.77179 15.3646C2.81696 15.5326 2.89894 15.6884 3.01178 15.8207C3.36826 16.2444 3.99059 16.3735 4.48818 16.112L8.10445 14.2106C8.18066 14.1717 8.26501 14.1514 8.35057 14.1514C8.43614 14.1514 8.52048 14.1717 8.59669 14.2106L12.2133 16.112C12.3848 16.2035 12.5761 16.2514 12.7704 16.2515C13.1239 16.2515 13.459 16.0943 13.6894 15.8207C13.8022 15.6884 13.8842 15.5326 13.9294 15.3646C13.9746 15.1967 13.9818 15.0207 13.9505 14.8496L13.26 10.8227C13.2455 10.7382 13.2519 10.6514 13.2784 10.5698C13.305 10.4883 13.351 10.4144 13.4125 10.3545L16.3382 7.5024Z" fill="#EB841D"/>
+            </svg>
+           {{ "pointsDetails.pointNo" | translate}}</label>
+           <label class="mt-3">
+            <svg class="ms-2" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="22" height="22" rx="5" fill="#9D593C" fill-opacity="0.15"/>
+              <g clip-path="url(#clip0_3917_1875)">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.1499 8.00772C11.1499 7.63737 11.0028 7.2822 10.7409 7.02032C10.4791 6.75845 10.1239 6.61133 9.75354 6.61133H8.00576C7.63542 6.61133 7.28024 6.75845 7.01837 7.02032C6.75649 7.2822 6.60938 7.63737 6.60938 8.00772V9.75244C6.60938 10.1228 6.75649 10.478 7.01837 10.7398C7.28024 11.0017 7.63542 11.1488 8.00576 11.1488H10.4502C10.6358 11.1488 10.8138 11.0751 10.945 10.9439C11.0762 10.8127 11.1499 10.6347 11.1499 10.4491V8.00466V8.00772ZM11.8466 8.00772C11.8466 7.63737 11.9937 7.2822 12.2556 7.02032C12.5175 6.75845 12.8726 6.61133 13.243 6.61133H14.9877C15.1713 6.61093 15.3533 6.64675 15.523 6.71675C15.6928 6.78674 15.8471 6.88954 15.9771 7.01924C16.1071 7.14895 16.2102 7.30302 16.2806 7.47264C16.3509 7.64226 16.3872 7.82409 16.3872 8.00772V9.75244C16.3872 10.1228 16.24 10.478 15.9782 10.7398C15.7163 11.0017 15.3611 11.1488 14.9908 11.1488H12.5463C12.3607 11.1488 12.1828 11.0751 12.0515 10.9439C11.9203 10.8127 11.8466 10.6347 11.8466 10.4491V8.00466V8.00772ZM11.1499 14.9927C11.1499 15.3631 11.0028 15.7182 10.7409 15.9801C10.4791 16.242 10.1239 16.3891 9.75354 16.3891H8.00576C7.63542 16.3891 7.28024 16.242 7.01837 15.9801C6.75649 15.7182 6.60938 15.3631 6.60938 14.9927V13.2449C6.60938 12.8746 6.75649 12.5194 7.01837 12.2575C7.28024 11.9957 7.63542 11.8486 8.00576 11.8486H10.4502C10.6358 11.8486 10.8138 11.9223 10.945 12.0535C11.0762 12.1847 11.1499 12.3627 11.1499 12.5483V14.9927ZM11.8466 14.9927C11.8466 15.3631 11.9937 15.7182 12.2556 15.9801C12.5175 16.242 12.8726 16.3891 13.243 16.3891H14.9877C15.1713 16.3895 15.3533 16.3537 15.523 16.2837C15.6928 16.2137 15.8471 16.1109 15.9771 15.9812C16.1071 15.8515 16.2102 15.6974 16.2806 15.5278C16.3509 15.3582 16.3872 15.1764 16.3872 14.9927V13.2449C16.3872 12.8746 16.24 12.5194 15.9782 12.2575C15.7163 11.9957 15.3611 11.8486 14.9908 11.8486H12.5463C12.3607 11.8486 12.1828 11.9223 12.0515 12.0535C11.9203 12.1847 11.8466 12.3627 11.8466 12.5483V14.9927Z" fill="#9D593C"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_3917_1875">
+              <rect width="11" height="11" fill="white" transform="translate(6 6)"/>
+              </clipPath>
+              </defs>
+              </svg>
+              
+           {{ "categoryManager.catergoryName" | translate}}</label>
+				<!-- <span class="mt-3 px-4">{{pointsData?.customerName ??'-'}} </span> -->
+			</div>
+		</div>
+		<div class="col-sm-6 col-12 ">
+			<div class="d-flex flex-column mt-5">
+				<!-- <label> {{ "pointsDetails.points" | translate}}</label> -->
+				<span class="pointNo"> {{pointNo ??'-'}} {{ "pointsDetails.points" | translate}}</span>
+		
+        <span class="pointNo mt-3"> {{pointsData.category  ??'-'}} </span>
+      </div>
+		</div>
+  </div>
+
+  
+  <div class="row userInfo mb-5 pb-3 d-flex align-items-center mx-10">
+    <div class="col-sm-5 mb-5">
+      <label for="carNumber" class="form-label">
+        <img width="25px" src="assets/imgs/zalol/user/point.svg">
+        {{ "pointsDetails.point" | translate }}
+      </label>
+      <div >
+        <!-- <select class="form-select" [ngModel]="pointId"
+        (change)="choosePoints($any($event).target.value)">
+          <option [value]="null" disabled>
+            {{ "pointsDetails.pointNo" | translate }}
+          </option>
+          <option *ngFor="let item of points" [value]="item.id">
+            {{ item.pointNo }}
+          </option>
+        </select> -->
+        <input
+        [(ngModel)]="pointInput"
+        (keyup)="calcuatePoints()"
+        (keypress)="validateInput($event)"
+        (paste)="blockEvent($event)"
+        (drop)="blockEvent($event)"
+        id="poind"
+        type="text"
+        class="form-control"
+        [placeholder]="'pointsDetails.pointNo' | translate"
+      />
+      </div>
+    </div>
+    <div class="col-2 sm:mt-0 mt-2 d-flex justify-content-center">
+
+      <!-- <i class="fa-solid fa-arrow-right-arrow-left"></i> -->
+      <i style="font-size: x-large;" class="fa-solid fa-equals"></i>
+    </div>
+    <div class="col-sm-5 col-12 mb-5">
+      <label for="carMake" class="form-label">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_b_0_1)">
+          <rect width="22" height="22" rx="5" fill="#6B2121" fill-opacity="0.09"/>
+          </g>
+          <g clip-path="url(#clip0_0_1)">
+          <path d="M12.3917 10.5426C11.9992 10.3257 11.582 10.1605 11.169 9.98907C10.9294 9.88994 10.7002 9.77428 10.4978 9.61318C10.0991 9.29512 10.1756 8.77879 10.6423 8.57432C10.7745 8.51649 10.9129 8.4979 11.0533 8.48964C11.5944 8.46073 12.1087 8.55986 12.5982 8.79531C12.8419 8.91303 12.9224 8.87586 13.0051 8.62182C13.0918 8.35333 13.1641 8.08071 13.2446 7.81015C13.2983 7.6284 13.2322 7.50861 13.0608 7.43219C12.7469 7.29381 12.4247 7.19468 12.086 7.14098C11.644 7.07282 11.644 7.07076 11.6419 6.62671C11.6399 6.00092 11.6399 6.00092 11.012 6.00092C10.9211 6.00092 10.8303 5.99885 10.7394 6.00092C10.4461 6.00918 10.3966 6.06081 10.3883 6.35615C10.3842 6.48834 10.3883 6.62052 10.3862 6.75476C10.3842 7.14718 10.3821 7.14098 10.0062 7.27729C9.09746 7.60775 8.53569 8.22734 8.47579 9.2187C8.42209 10.0965 8.8806 10.6892 9.6014 11.1209C10.0454 11.3873 10.537 11.5443 11.0079 11.7529C11.1917 11.8334 11.3673 11.9264 11.5201 12.0544C11.9724 12.4282 11.8898 13.0499 11.3528 13.2853C11.0657 13.4113 10.7621 13.4423 10.4502 13.4031C9.96903 13.3432 9.50846 13.2172 9.07474 12.9921C8.8207 12.8599 8.74635 12.895 8.65961 13.1697C8.58526 13.4072 8.51916 13.6468 8.45307 13.8863C8.36426 14.2085 8.39731 14.285 8.70504 14.4357C9.09746 14.6257 9.51672 14.7228 9.94424 14.791C10.2788 14.8447 10.2892 14.8591 10.2933 15.2061C10.2953 15.3631 10.2953 15.5221 10.2974 15.6791C10.2995 15.8773 10.3945 15.993 10.599 15.9971C10.8303 16.0012 11.0637 16.0012 11.295 15.9951C11.485 15.9909 11.5821 15.8877 11.5821 15.6956C11.5821 15.4808 11.5924 15.2639 11.5841 15.0491C11.5738 14.8302 11.6688 14.7187 11.8795 14.6608C12.3648 14.5287 12.7779 14.2684 13.0959 13.8802C13.9799 12.8062 13.6432 11.2345 12.3917 10.5426Z" fill="#6B2121"/>
+          </g>
+          <defs>
+          <filter id="filter0_b_0_1" x="-20" y="-20" width="62" height="62" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+          <feGaussianBlur in="BackgroundImageFix" stdDeviation="10"/>
+          <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_0_1"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_0_1" result="shape"/>
+          </filter>
+          <clipPath id="clip0_0_1">
+          <rect width="10" height="10" fill="white" transform="translate(6 6)"/>
+          </clipPath>
+          </defs>
+          </svg>
+
+        {{ "requests.price" | translate }}
+        </label>
+      <input
+      [(ngModel)]="choosenPrice"
+        id="price"
+        type="text"
+        class="form-control"
+        [placeholder]="'redeemPointsManager.price' | translate"
+        disabled
+      />
+    </div>
+  </div>
+
+  <div class="row px-10">
+    <div class="d-flex flex-row justify-content-between align-items-center mt-5">
+      <label>
+        <img width="25px" src="assets/imgs/zalol/user/point.svg"> {{ "pointsDetails.afterPoints" | translate
+        }}</label>
+      <span class="px-4" *ngIf="afterPrice">{{afterPrice}} {{ "pointsDetails.points" | translate }}</span>
+    </div>
+  </div>
+<div class="error mt-2 px-10" *ngIf="errorMessage">{{errorMessage}}</div>
+  <div class="page-action mt-5 d-flex justify-content-center align-items-center">
+    <button type="submit"  (click)="submit()" >
+      {{ "redeemPointsManager.save"| translate }}
+    </button>
+  </div>
+
+</div>

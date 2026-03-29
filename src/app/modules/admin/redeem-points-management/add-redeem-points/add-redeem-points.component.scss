@@ -1,0 +1,134 @@
+.modal-header {
+  border: none;
+  padding-bottom: 0;
+  justify-content: flex-end;
+
+  button {
+    margin: 0;
+  }
+}
+.disabled
+{
+  background: rgba(236, 236, 236, 1) !important;
+  color:#A1A5B7 !important;
+  border: transparent !important;
+}
+.error {
+  color:#f1416c
+}
+.title {
+  color: rgba(13, 13, 13, 1);
+  font-size: 24px;
+  font-weight: 700;
+
+}
+.sub-title {
+  color:#0D0D0D80;
+  font-size: 14px;
+}
+.btn-add {
+  border: 2px solid #963B3A !important;
+  background-color: #fff;
+  width: 24px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i {
+    color:#963B3A;
+
+  }
+}
+.page-action {
+  margin-bottom: 3rem;
+  text-align: center;
+
+  button {
+    height: 43px;
+
+    &:first-child {
+      margin: 5px;
+      cursor: pointer !important;
+      color: #fff;
+      background: rgba(150, 59, 58, 1);
+
+      border-radius: 20px;
+      font-size: 16px;
+      border: none;
+      min-width: 110px;
+      line-height: 0;
+      padding: 10px;
+      height: 43px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      // width: 120px;
+      border: 1px solid rgba(150, 59, 58, 1);
+    }
+
+    &:last-child {
+      all: unset;
+      cursor: pointer !important;
+      font-size: 16px;
+      margin: 5px;
+      background: #ffffff;
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.13) !important;
+      border-radius: 20px;
+      color: rgba(150, 59, 58, 1);
+      min-width: 110px;
+      height: 43px;
+      display: inline-flex;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(150, 59, 58, 1) !important;
+      padding: 0 !important;
+    }
+  }
+}
+
+.my-form-div 
+{
+  // background-color: forestgreen;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1)
+}
+label {
+  color: #9F9D9D;
+}
+
+::placeholder {
+  color: #4A4A4A;
+}
+
+input,
+select {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  //    background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+#basic-addon1 {
+  border: none;
+  // background-color: rgba(0, 0, 0, 0.1);
+}
+.input-container {
+  height: 20px !important;
+}
+textarea {
+  padding: 20px;
+  border-radius: 14px;
+  border-style: solid;
+  border-color: #8383834d;
+  border-width: 1px;
+  width: 100%;
+  height: 200px;
+  background-color: transparent !important;
+  outline: none;
+  color: rgba(13, 13, 13, 0.3) !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.modal-body {
+  padding: 1rem 5rem;
+}
+

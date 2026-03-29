@@ -1,0 +1,117 @@
+
+
+ 
+
+
+  <!--begin::User menu-->
+  <div class="app-navbar-item" [ngClass]="itemClass">
+   
+    <!--begin::Menu wrapper-->
+    <div class="cursor-pointer symbol" [ngClass]="userAvatarClass" data-kt-menu-trigger="hover"
+      data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+      <div class="row">
+        <div class="col-2">
+          <img src="/assets/imgs/user.svg" width="40px" />
+        </div>
+        <div class="col-10">
+          <div class="user-info mx-7">
+            <div *ngIf="currentUser">
+              {{userName ?? currentUser?.email}}
+            </div>
+            <div class="user-title" *ngIf="currentUser">
+              {{'users.'+currentUser?.roles[0] |translate}}
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <app-user-inner data-kt-menu="true"></app-user-inner>
+
+    <div ngbDropdown class="btn-group" *ngIf="currentUser?.roles[0] === roles.ThalolCasheir">
+      <div class="action-btn" id="dropdownBasic1" ngbDropdownToggle>
+        <button>
+          <span class="num" *ngIf="messageNo > 0">{{ messageNo>99?'+99': messageNo}}</span>
+          <img class="mx-2 notific-icon" src="/assets/imgs/zalol/notification.svg" alt="" srcset="" />
+        </button>
+      </div>
+
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <ul class="option p-0 list-unstyled m-0 px-2">
+          <li role="menuitem">
+            <div class="d-flex justify-content-between" role="button">
+              <div class="title">{{'notificationComponent.Notification'|translate}}</div>
+              <div routerLink="/admin/notification-management" class="all-notification">
+                {{'notificationComponent.showAll'|translate}}
+
+              </div>
+            </div>
+          </li>
+          <li class="notify" role="menuitem" *ngFor="let row of allManageNotifications.slice(0, 5)">
+            <div role="button" class="d-flex" (click)="openUserMangment(row)">
+              <img class="mx-2 notific-icon" src="/assets/imgs/zalol/mercedes.svg" alt="" srcset="" />
+              <h3>{{ row.title }} </h3>
+
+              <img class="ml-auto point" src="/assets/imgs/zalol/point.svg" alt="" srcset="" />
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <!--end::Menu wrapper-->
+  </div>
+  <!--end::User menu-->
+
+  <!--begin::Header menu toggle-->
+  <ng-container *ngIf="appHeaderDefaulMenuDisplay">
+    <div class="app-navbar-item d-lg-none ms-2 me-n3" title="Show header menu">
+      <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_header_menu_toggle">
+      </div>
+    </div>
+  </ng-container>
+
+
+  <div class="app-navbar-item"  [ngClass]="itemClass"
+  *ngIf='this.currentUser?.roles[0] === Constants.AllRoles.ThalolCasheir'>
+  <div ngbDropdown class="btn-group">
+    <div class="action-btn" id="dropdownBasic2" ngbDropdownToggle>
+      <button>
+        <div class="d-flex justify-content-between align-items-center px-2 py-2 ">
+          <div class="d-flex align-items-center px-2">
+            <img src="assets/imgs/zalol/branchHead.svg" width="33px">
+
+            <div class="user-info mx-1">
+              <div>
+                {{userData?.brand}}
+              </div>
+              <div class="user-title">
+                {{userData?.branch}} 
+              </div>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-down" *ngIf="notActiveBranches?.length > 0"></i>
+
+        </div>
+      </button>
+    </div>
+
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2" *ngIf="notActiveBranches?.length > 0">
+      <ul class="option p-0 list-unstyled m-0 px-2">
+        <label for="name" class="form-label">
+          {{"branches.changeBranch" | translate}}</label>
+        <li role="menuitem" *ngFor="let branch of notActiveBranches">
+          <div role="button" class="py-2 branch" (click)="onItemSelect(branch)" >
+            {{branch.name}}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--begin::Menu wrapper-->
+
+  <!--end::Menu wrapper-->
+</div>
+  <!--end::Header menu toggle-->

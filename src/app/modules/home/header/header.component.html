@@ -1,0 +1,61 @@
+
+    <div class="container borderBottom">
+        <nav class="navbar navbar-expand-lg px-0">
+            <a class="navbar-brand" href="#">
+                <img src="/assets/imgs/logo.svg" width="120px" alt="" srcset="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <svg style="color: #fff;" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                        fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto p-0">
+                    <li class="nav-item">
+                        <!---->
+                        <a class="nav-link" (click)="changeStatus(1)" [ngClass]="tab===1? 'active' : ''"
+                            (click)="getToAbout()">{{'home.about'|translate}} </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="changeStatus(2)" [ngClass]="tab===2? 'active' : ''"
+                            (click)="getToDisad()">{{'home.probs'|translate}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="changeStatus(3)" [ngClass]="tab===3? 'active' : ''"
+                            (click)=" getDownload()">{{'home.dashboard'|translate}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="changeStatus(4)" [ngClass]="tab===4? 'active' : ''"
+                            routerLink="/the-privacy-policy">{{'home.contactus'|translate}}</a>
+                    </li>
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <a class="point" (click)="switchLang()">
+                        <i class="fas fa-globe-europe mx-2"> </i>
+                        <span class="lang-font">{{ currentLanguage }}</span>
+                    </a>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary px-0">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        

@@ -1,0 +1,158 @@
+<section class="requests-page">
+  <div class="container">
+
+    <div class="page-content">
+      <form [formGroup]="messageModalForm">
+        <article>
+          <div>
+            <!-- <div class="row mt-3">
+              <span class="the-search"
+                >{{ "welcomeMessage.WelcomeMessage" | translate }}
+              </span>
+            </div> -->
+            <div class="row">
+              <div class="col-md-6 mb-5" *ngIf="isBrandManager">
+                <label for="name" class="form-label">
+                  {{ "cashier.brand" | translate }}
+                </label>
+                <span class="text-danger mx-2 fs-2">*</span>
+                <select class="form-select" (change)="onItemSelect()" formControlName="brandId">
+                  <option *ngFor="let item of brands" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'Validation.ThisFieldIsRequired' | translate,
+                    control: messageModalForm.controls['brandId']
+                  }"></ng-container>
+              </div>
+              <div class="col-md-6 mb-5" *ngIf="isBrandManager">
+                <label for="name" class="form-label">
+                  {{ "cashier.branch" | translate }}
+                </label>
+                <span class="text-danger mx-2 fs-2">*</span>
+
+                <select class="form-select" formControlName="branchId">
+                  <option *ngFor="let item of branchs" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'Validation.ThisFieldIsRequired' | translate,
+                    control: messageModalForm.controls['branchId']
+                  }"></ng-container>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-6 col-sm-6 col-12 mt-3">
+                  <label for="name" class="form-label">
+                    {{ "welcomeMessage.WelcomeMessage" | translate }}
+                  </label>
+                  <span class="text-danger mx-2 fs-2">*</span>
+
+                  <div class="search-btn">
+                    <input style="max-height: 43px" class="form-control" type="text" formControlName="welcomeMessage"
+                      [placeholder]="'welcomeMessage.WriteWelcome' | translate" />
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                        validation: 'required',
+                        message: 'Validation.ThisFieldIsRequired' | translate,
+                        control: messageModalForm.controls['welcomeMessage']
+                      }"></ng-container>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-12 mt-3">
+                  <label for="name" class="form-label">
+                    {{ "welcomeMessage.color" | translate }}
+                  </label>
+                  <span class="text-danger mx-2 fs-2">*</span>
+
+                  <div class="search-btn">
+                    <input type="color" style="min-height: 50px" class="form-control"  formControlName="color"
+                      [placeholder]="'welcomeMessage.color' | translate" />
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                        validation: 'required',
+                        message: 'Validation.ThisFieldIsRequired' | translate,
+                        control: messageModalForm.controls['color']
+                      }"></ng-container>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-6 col-sm-12 col-12 mt-3">
+                  <div class="new-upload">
+                    <div class="title">
+                      {{ "welcomeMessage.LogoImage" | translate }}
+                    </div>
+                    <app-upload-file [acceptedExtensions]="[
+                        'png',
+                        'gif',
+                        'jpg',
+                        'jpeg',
+                        'pdf'
+                      ]" [flag]="3" label="welcomeMessage.OptimaldimensionsLogo" [isMultiple]="false"
+                      (bindValue)="uploadImg($event)" [url]="FileStorageNameUrl">
+                    </app-upload-file>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                        validation: 'required',
+                        message: 'Validation.ThisFieldIsRequired' | translate,
+                        control:
+                          messageModalForm.controls['logoStorageFileName']
+                      }"></ng-container>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-12 mt-3">
+                  <div class="new-upload">
+                    <div class="title">
+                      {{ "welcomeMessage.ProductImage" | translate }}
+                    </div>
+                    <app-upload-file [acceptedExtensions]="[
+                        'png',
+                        'gif',
+                        'jpg',
+                        'jpeg',
+                        'pdf'
+                      ]" [flag]="3" label="welcomeMessage.Optimaldimensions" [isMultiple]="false"
+                      (bindValue)="uploadImgProduct($event)" [url]="productFileStorageNameUrl">
+                    </app-upload-file>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                        validation: 'required',
+                        message: 'Validation.ThisFieldIsRequired' | translate,
+                        control:
+                          messageModalForm.controls['menuImageStorageFileName']
+                      }"></ng-container>
+                  </div>
+                </div>
+              </div>
+              <div class="page-action mt-7">
+                <button type="submit" *ngIf="!id" class="" (click)="submit()">
+                  {{ "users.save" | translate }}
+                </button>
+                <button type="submit" *ngIf="id" class="" (click)="submit()">
+                  {{ "welcomeMessage.review" | translate }}
+                </button>
+                <button type="button" class="">
+                  {{ "users.cancel" | translate }}
+                </button>
+                <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+                  <ng-container *ngIf="
+                      control.hasError(validation) &&
+                      (control.dirty || control.touched)
+                    ">
+                    <div class="fv-plugins-message-container">
+                      <div class="fv-help-block">
+                        <span role="alert">
+                          {{ message }}
+                        </span>
+                      </div>
+                    </div>
+                  </ng-container>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </article>
+      </form>
+    </div>
+  </div>
+</section>

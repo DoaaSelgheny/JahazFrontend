@@ -1,0 +1,23 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div *ngIf="!isBrand" class="title text-center">{{ "cashier.branchBrand" | translate }}</div>
+
+<div *ngIf="isBrand" class="title text-center">{{ "brandManager.brands" | translate }}</div>
+<div class="modal-body mx-10 mb-10" *ngIf="!isBrand">
+	<div *ngFor="let branch of data" class="px-10 py-5">
+        <img src="assets/imgs/zalol/branchbrand.svg">
+        {{branch}}
+    </div>
+    <img src="assets/imgs/zalol/line.svg" width="100%;">
+
+</div>
+<div class="modal-body mx-10 mb-10" *ngIf="isBrand">
+	<div *ngFor="let brand of data" class="px-10 py-5">
+        <img src="assets/imgs/zalol/branchbrand.svg">
+        {{brand.name}}
+    </div>
+    <img src="assets/imgs/zalol/line.svg" width="100%;" >
+
+</div>
+

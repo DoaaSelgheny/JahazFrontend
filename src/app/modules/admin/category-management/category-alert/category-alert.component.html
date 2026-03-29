@@ -1,0 +1,22 @@
+<div class="container p-2">
+    <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="closeModal()"
+        ></button>
+      </div>
+    <div class="text-center m-5">
+        <img src="assets/imgs/alert.png"class="mt-3 mb-3" alt="Alert">
+        <h4 class=" mt-2 mb-4">{{"CategoryAlert.TilteAlert"|translate}}</h4>
+        <p class=" mt-2 mb-4">
+            {{"CategoryAlert.message" |translate}}
+            {{val}}
+            {{"CategoryAlert.point" | translate}}
+            </p>
+        <button class="genral-button" (click)="closeModal()">
+    {{ "categoryManager.accept" | translate }}
+        </button>
+    </div>
+</div>

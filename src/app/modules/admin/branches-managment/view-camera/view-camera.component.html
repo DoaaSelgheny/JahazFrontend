@@ -1,0 +1,15 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center">{{ "branches.cameraNo" | translate }}({{brandname}})</div>
+<div class="modal-body">
+	<div *ngFor="let option of cameras; let i=index">
+		<div class="row justify-content-center">
+			<div class="col-lg-8  mb-5">
+				<label for="name" class="form-label" class="mb-3">{{'camera.name'|translate}} {{i+1}}</label>
+				<br>
+				<label for="name" class="form-label" class="mb-3">{{option.number}}</label>
+			</div>
+		</div>
+	</div>
+</div>

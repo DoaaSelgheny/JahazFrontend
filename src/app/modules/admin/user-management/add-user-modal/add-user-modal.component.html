@@ -1,0 +1,207 @@
+<div class="modal-header">
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="closeModal()"
+  ></button>
+</div>
+<div class="title text-center" *ngIf="!isEdit">{{ "users.addUser" | translate }}</div>
+<div class="title text-center" *ngIf="isEdit">{{ "users.updateUser" | translate }}</div>
+<div class="modal-body">
+  <form [formGroup]="userModalForm">
+    <div class="row">
+      <div class="col-lg-6 mb-5">
+        <label for="carNumber" class="form-label">
+          {{ "users.carNumber" | translate }} </label
+        ><span class="text-danger mx-2 fs-2">*</span>
+        <input
+        [attr.disabled]="isdisabledEdit"
+          formControlName="carNumber"
+          id="carNumber"
+          type="text"
+          class="form-control"
+          [placeholder]="'users.carNumber' | translate"
+        />
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Validation.ThisFieldIsRequired' | translate,
+            control: userModalForm.controls['carNumber']
+          }"
+        ></ng-container>
+      </div>
+      <div class="col-lg-6 mb-5">
+        <label for="carMake" class="form-label">
+          {{ "users.carMake" | translate }} </label
+        ><span class="text-danger mx-2 fs-2">*</span>
+        <input
+        [attr.disabled]="isdisabledEdit"
+          formControlName="carMake"
+          id="carMake"
+          type="text"
+          class="form-control"
+          [placeholder]="'users.carMake' | translate"
+        />
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Validation.ThisFieldIsRequired' | translate,
+            control: userModalForm.controls['carMake']
+          }"
+        ></ng-container>
+      </div>
+      <!-- drop downs -->
+      <div class="col-lg-6 mb-5">
+        <label for="carYear" class="form-label">
+          {{ "users.carYear" | translate }} </label
+        ><span class="text-danger mx-2 fs-2">*</span>
+        <input
+        [attr.disabled]="isdisabledEdit"
+          formControlName="carYear"
+          id="carYear"
+          type="text"
+          class="form-control"
+          [placeholder]="'users.carYear' | translate"
+        />
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Validation.ThisFieldIsRequired' | translate,
+            control: userModalForm.controls['carYear']
+          }"
+        ></ng-container>
+      </div>
+      <div class="col-lg-6 mb-5">
+        <label for="carColor" class="form-label">
+          {{ "users.carColor" | translate }} </label
+        ><span class="text-danger mx-2 fs-2">*</span>
+        <input
+        [attr.disabled]="isdisabledEdit"
+          formControlName="carColor"
+          id="carColor"
+          type="text"
+          class="form-control"
+          [placeholder]="'users.carColor' | translate"
+        />
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Validation.ThisFieldIsRequired' | translate,
+            control: userModalForm.controls['carColor']
+          }"
+        ></ng-container>
+      </div>
+
+
+      <div class="col-lg-6 mb-5">
+        <label for="carMakeModel" class="form-label">
+          {{ "users.carMakeModel" | translate }} </label
+        ><span class="text-danger mx-2 fs-2">*</span>
+        <input
+        [attr.disabled]="isdisabledEdit"
+          formControlName="carMakeModel"
+          id="carMakeModel"
+          type="text"
+          class="form-control"
+          [placeholder]="'users.carMakeModel' | translate"
+        />
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Validation.ThisFieldIsRequired' | translate,
+            control: userModalForm.controls['carMakeModel']
+          }"
+        ></ng-container>
+      </div>
+
+      <div class="col-lg-6 mb-5">
+        <label for="fullName" class="form-label">
+          {{ "users.userName" | translate }} </label
+        >
+        <!-- <span class="text-danger mx-2 fs-2">*</span> -->
+        <input
+          formControlName="fullName"
+          id="fullName"
+          type="text"
+          class="form-control"
+          [placeholder]="'users.userName' | translate"
+        />
+        <!-- <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Validation.ThisFieldIsRequired' | translate,
+            control: userModalForm.controls['fullName']
+          }"
+        ></ng-container> -->
+      </div>
+      <div class="col-lg-6 mb-5">
+        <label for="phoneNumber" class="form-label">
+          {{ "users.phoneNumber" | translate }} </label
+        >
+        <!-- <span class="text-danger mx-2 fs-2">*</span> -->
+        <div class="phone form-control" style="direction: ltr;height: 44px;display: flex;
+        justify-content: start;align-items: center;padding:0">
+          <intl-telephone-input
+          *ngIf="isLoading===false"
+        
+            #mobileNumber
+            [preferredCountries]="[CountryISO.SaudiArabia, CountryISO.SaudiArabia]"
+            [enablePlaceholder]="true"
+             [customPlaceholder]="phoneNumberPlaceholder"
+            [searchCountryFlag]="true"
+            [separateDialCode]="false"
+            [enableAutoCountrySelect]="true"
+            [searchCountryField]="SearchCountryField.All"
+            [phoneValidation]="true"
+            [numberFormat]="PhoneNumberFormat.International"
+            [inputId]="'phoneNumber'"
+            (onChange)="onInputChange($event)"
+          >
+          </intl-telephone-input>
+        </div>
+        <!-- <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Validation.ThisFieldIsRequired' | translate,
+            control: userModalForm.controls['phoneNumber']
+          }"
+        ></ng-container> -->
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="page-action">
+  <button type="submit" class="" (click)="submit()">
+    {{ "users.save" | translate }}
+  </button>
+  <button type="button" class="" (click)="closeModal()">
+    {{ "users.cancel" | translate }}
+  </button>
+  <ng-template
+    #formError
+    let-control="control"
+    let-message="message"
+    let-validation="validation"
+  >
+    <ng-container
+      *ngIf="control.hasError(validation) && (control.dirty || control.touched)"
+    >
+      <div class="fv-plugins-message-container">
+        <div class="fv-help-block">
+          <span role="alert">
+            {{ message }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>

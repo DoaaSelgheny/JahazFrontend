@@ -1,0 +1,122 @@
+.modal-header {
+	border: none;
+	padding-bottom: 0;
+	justify-content: flex-end;
+
+	button {
+		margin: 0;
+	}
+}
+
+.title {
+	color: rgba(13, 13, 13, 1);
+	font-size: 20px;
+	font-weight: 700;
+
+
+}
+.label {
+  color:#0d0d0d;
+  font-size: 16px;
+}
+.modal-footer{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border:none;
+  button {
+    height: 43px;
+
+    &:first-child {
+    margin: 5px;
+    cursor: pointer !important;
+    color: #fff;
+    background: rgba(150, 59, 58, 1);
+
+    border-radius: 20px;
+    font-size: 16px;
+    border: none;
+    min-width: 110px;
+    line-height: 0;
+    padding: 10px;
+    height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    // width: 120px;
+    border: 1px solid rgba(150, 59, 58, 1);
+    }
+
+    &:last-child {
+    all: unset;
+    cursor: pointer !important;
+    font-size: 16px;
+    margin: 5px;
+    background: #ffffff;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.13) !important;
+    border-radius: 20px;
+    color: rgba(150, 59, 58, 1);
+    min-width: 110px;
+    height: 43px;
+    display: inline-flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(150, 59, 58, 1) !important;
+    padding: 0 !important;
+    }
+  }
+}
+textarea {
+  padding: 20px;
+  border-radius: 14px;
+  border-style: solid;
+  border-color: #8383834d;
+  border-width: 1px;
+  width: 100%;
+  height: 300px;
+  background-color: transparent !important;
+  outline: none;
+  color: rgba(13, 13, 13, 0.3) !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+.custom-dropdown {
+  // width: 95%;
+  margin: 20px 1% 20px 0;
+  // position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+
+.dropdown-select {
+  width: 100%;
+  height: 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  padding: 0 16px;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  color: rgba(13, 13, 13, 0.3);
+  // text-align: right;
+  appearance: none;
+  background-color: white;
+  background-size: 16px;
+  cursor: pointer;
+
+}
+
+
+.dropdown-select:focus,
+.dropdown-select:active {
+  border: 1px solid rgba(13, 13, 13, 0.3);
+  outline: none;
+  box-shadow: none;
+}

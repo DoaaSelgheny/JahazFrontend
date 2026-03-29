@@ -1,0 +1,317 @@
+<div class="row">
+  <div class="col-md-3 px-2">
+    <div class="d-flex align-items-center p-4 info-card">
+      <div class="p-3 img-1">
+        <img src="assets/imgs/zalol/smart/arrow.svg" alt="">
+      </div>
+      <div class="px-3">
+        <p class="mb-2 card-title">{{"orders.averageDailyRequests" | translate}}</p>
+        <h3>{{ averageDailyOrders | number:'1.0-0' }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 px-2">
+    <div class="d-flex align-items-center p-4 info-card">
+      <div class="p-3 img-2">
+        <img src="assets/imgs/zalol/smart/cart.svg" alt="">
+      </div>
+      <div class="px-3">
+        <p class="mb-2 card-title">{{"orders.totalRequests" | translate}}</p>
+        <h3>{{totalOrdersCount | number:'1.0-0'}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 px-2">
+    <div class="d-flex align-items-center p-4 info-card">
+      <div class="p-3 img-3">
+        <img src="assets/imgs/zalol/smart/money.svg" alt="">
+      </div>
+      <div class="px-3">
+        <p class="mb-2 card-title">{{"orders.totalRevenue" | translate}}</p>
+        <h3>{{totalRevenueAmount | number:'1.0-0'}} <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_4998_101)">
+              <path
+                d="M11.2023 18.6037C10.8811 19.3471 10.6687 20.1539 10.5874 21L17.3848 19.4917C17.706 18.7484 17.9181 17.9414 17.9996 17.0953L11.2023 18.6037Z"
+                fill="#060606" />
+              <path
+                d="M17.3846 14.9729C17.7058 14.2296 17.9182 13.4226 17.9995 12.5765L12.7046 13.7521V11.4923L17.3845 10.4541C17.7057 9.71082 17.918 8.90384 17.9994 8.05775L12.7044 9.23228V1.10533C11.8931 1.58086 11.1725 2.21384 10.5868 2.96048V9.7023L8.46919 10.1721V0C7.65785 0.475362 6.9373 1.10851 6.35157 1.85515V10.6418L1.61339 11.6928C1.29218 12.4361 1.0797 13.2431 0.998195 14.0892L6.35157 12.9016V15.7475L0.614382 17.0201C0.293176 17.7634 0.0808539 18.5704 -0.000488281 19.4165L6.00474 18.0843C6.4936 17.9782 6.91376 17.6765 7.18693 17.2613L8.28825 15.5569V15.5566C8.40258 15.3802 8.46919 15.1676 8.46919 14.9386V12.4318L10.5868 11.9619V16.4816L17.3845 14.9726L17.3846 14.9729Z"
+                fill="#060606" />
+            </g>
+            <defs>
+              <clipPath id="clip0_4998_101">
+                <rect width="18" height="21" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 px-2">
+    <div class="d-flex align-items-center p-4 info-card">
+      <div class="p-3 img-4">
+        <img src="assets/imgs/zalol/smart/order-list.svg" alt="">
+      </div>
+      <div class="px-3">
+        <p class="mb-2 card-title">{{"orders.averageOrderValue" | translate}}</p>
+        <h3>{{averageOrderAmount | number:'1.0-0'}} <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_4998_101)">
+              <path
+                d="M11.2023 18.6037C10.8811 19.3471 10.6687 20.1539 10.5874 21L17.3848 19.4917C17.706 18.7484 17.9181 17.9414 17.9996 17.0953L11.2023 18.6037Z"
+                fill="#060606" />
+              <path
+                d="M17.3846 14.9729C17.7058 14.2296 17.9182 13.4226 17.9995 12.5765L12.7046 13.7521V11.4923L17.3845 10.4541C17.7057 9.71082 17.918 8.90384 17.9994 8.05775L12.7044 9.23228V1.10533C11.8931 1.58086 11.1725 2.21384 10.5868 2.96048V9.7023L8.46919 10.1721V0C7.65785 0.475362 6.9373 1.10851 6.35157 1.85515V10.6418L1.61339 11.6928C1.29218 12.4361 1.0797 13.2431 0.998195 14.0892L6.35157 12.9016V15.7475L0.614382 17.0201C0.293176 17.7634 0.0808539 18.5704 -0.000488281 19.4165L6.00474 18.0843C6.4936 17.9782 6.91376 17.6765 7.18693 17.2613L8.28825 15.5569V15.5566C8.40258 15.3802 8.46919 15.1676 8.46919 14.9386V12.4318L10.5868 11.9619V16.4816L17.3845 14.9726L17.3846 14.9729Z"
+                fill="#060606" />
+            </g>
+            <defs>
+              <clipPath id="clip0_4998_101">
+                <rect width="18" height="21" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row mt-5">
+
+
+  <div class="col-md-8 px-2">
+    <div class="info-card p-5">
+      <h3>{{"orders.OrdersByHour" | translate}}</h3>
+      <!-- Chart -->
+      <div class="chart-container" style="height: 350px;">
+        <canvas baseChart [data]="ordersByHourChartData" [options]="performanceChartOptions" [type]="'line'">
+        </canvas>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div class="col-md-4 px-2 ">
+    <div class="info-card " style="padding: 3.2rem 1.5rem;">
+      <div class="d-flex justify-content-between mb-5 align-items-center">
+        <h3>{{"orders.orderingTimes" | translate}}</h3>
+
+        <select *ngIf="lang==='ar'" class="form-select w-auto " [(ngModel)]="selectedGranularity"
+          (change)="getOrdersTimeOfDayStatistics()">
+          <option *ngFor="let option of granularityOptions" [value]="option.value">
+            {{ option.label }}
+          </option>
+
+        </select>
+        <select *ngIf="lang==='en'" class="form-select w-auto " [(ngModel)]="selectedGranularity"
+          (change)="getOrdersTimeOfDayStatistics()">
+          <option *ngFor="let option of granularityOptionsEn" [value]="option.value">
+            {{ option.label }}
+          </option>
+
+        </select>
+      </div>
+      <div class="canvas-container mb-4 mt-3">
+        <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" type="doughnut" width="300" height="200">
+        </canvas>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div class="d-flex flex-column">
+          <div class="d-flex align-items-center">
+            <div class="dot morning"></div>
+            <p class="mb-0 mx-1">{{"orders.morning" | translate}}</p>
+
+          </div>
+          <p class="text-center">
+            {{ordersTimeOfDay?.morningCount }}
+          </p>
+        </div>
+        <div class="d-flex flex-column">
+          <div class="d-flex align-items-center">
+            <div class="dot afternoon"></div>
+            <p class="mb-0 mx-1">{{"orders.afternoon" | translate}}</p>
+
+          </div>
+          <p class="text-center">
+            {{ordersTimeOfDay?.afternoonCount }}
+          </p>
+        </div>
+
+        <div class="d-flex flex-column">
+          <div class="d-flex align-items-center">
+            <div class="dot evening"></div>
+            <p class="mb-0 mx-1">{{"orders.evening" | translate}}</p>
+          </div>
+          <p class="text-center">
+            {{ordersTimeOfDay?.nightCount }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row mt-5">
+  <div class="col-md-8 px-2">
+    <div class="info-card ">
+      <!-- <div class="btns-tab">
+        <button [ngClass]="{'active': this.tab==='customers'}" (click)="changeTab('customers')">
+        </button>
+        <button [ngClass]="{'active': this.tab==='points'}" (click)="changeTab('points')">
+          {{"orders.pointsLeaderboard" | translate}}
+        </button>
+
+      </div> -->
+      <div class="tabs-content">
+        <!-- <div *ngIf="tab==='customers'">
+        </div> -->
+        <div>
+          <h3 class="mostVisitedCustomers mb-3 p-3 ">
+            {{"orders.mostVisitedCustomers" | translate}}
+          </h3>
+
+          <div class="d-flex align-items-center gap-5 p-3 card-item" *ngFor="let product of products">
+            <img class="product-img" [src]="product?.productImage || 'assets/imgs/bg.jpg'" alt="">
+            <div class="w-75">
+              <h4>{{product?.productName || '-'}}</h4>
+              <p>
+                {{product?.category || '-'}}
+                •
+                {{product?.description || '-'}}
+              </p>
+              <div class="d-flex justify-content-between">
+
+
+                <div>
+                  <svg class="mx-2" width="8" height="14" viewBox="0 0 8 14" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.65807 12.6667V11.3107C3.08607 11.2369 2.59473 11.0389 2.18407 10.7167C1.7734 10.3945 1.46807 9.94871 1.26807 9.37937L1.88607 9.11004C2.07851 9.60915 2.34296 9.9936 2.6794 10.2634C3.01584 10.5332 3.47184 10.6676 4.0474 10.6667C4.55407 10.6667 5.01718 10.5405 5.43673 10.288C5.85629 10.0356 6.06584 9.62848 6.0654 9.06671C6.0654 8.59248 5.91118 8.2116 5.60273 7.92404C5.29384 7.63648 4.71651 7.35671 3.87073 7.08471C3.00896 6.81048 2.40251 6.49715 2.0514 6.14471C1.70029 5.79182 1.52473 5.33248 1.52473 4.76671C1.52473 4.14715 1.76229 3.65226 2.2374 3.28204C2.71251 2.91226 3.18584 2.71226 3.6574 2.68204V1.33337H4.32407V2.68204C4.78584 2.72826 5.18229 2.85626 5.5134 3.06604C5.84451 3.27582 6.11918 3.57426 6.3374 3.96137L5.74473 4.26404C5.58607 3.97693 5.3674 3.74448 5.08873 3.56671C4.81007 3.38893 4.4554 3.30004 4.02473 3.30004C3.51007 3.30004 3.07584 3.43626 2.72207 3.70871C2.36829 3.98071 2.1914 4.33337 2.1914 4.76671C2.1914 5.17604 2.33651 5.5076 2.62673 5.76137C2.9174 6.0156 3.49962 6.28071 4.3734 6.55671C5.18229 6.81271 5.77784 7.14182 6.16007 7.54404C6.5414 7.94626 6.73207 8.45115 6.73207 9.05871C6.73207 9.72804 6.49651 10.2598 6.0254 10.654C5.55429 11.0483 4.98718 11.2696 4.32407 11.318V12.6667H3.65807Z"
+                      fill="#272830" stroke="#272830" stroke-width="0.8" />
+                  </svg>
+                  <span>{{"orders.price" | translate}} :
+                    {{product?.averageUnitPrice || '-'}}
+                    <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_4998_101)">
+                        <path
+                          d="M11.2023 18.6037C10.8811 19.3471 10.6687 20.1539 10.5874 21L17.3848 19.4917C17.706 18.7484 17.9181 17.9414 17.9996 17.0953L11.2023 18.6037Z"
+                          fill="#060606" />
+                        <path
+                          d="M17.3846 14.9729C17.7058 14.2296 17.9182 13.4226 17.9995 12.5765L12.7046 13.7521V11.4923L17.3845 10.4541C17.7057 9.71082 17.918 8.90384 17.9994 8.05775L12.7044 9.23228V1.10533C11.8931 1.58086 11.1725 2.21384 10.5868 2.96048V9.7023L8.46919 10.1721V0C7.65785 0.475362 6.9373 1.10851 6.35157 1.85515V10.6418L1.61339 11.6928C1.29218 12.4361 1.0797 13.2431 0.998195 14.0892L6.35157 12.9016V15.7475L0.614382 17.0201C0.293176 17.7634 0.0808539 18.5704 -0.000488281 19.4165L6.00474 18.0843C6.4936 17.9782 6.91376 17.6765 7.18693 17.2613L8.28825 15.5569V15.5566C8.40258 15.3802 8.46919 15.1676 8.46919 14.9386V12.4318L10.5868 11.9619V16.4816L17.3845 14.9726L17.3846 14.9729Z"
+                          fill="#060606" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_4998_101">
+                          <rect width="18" height="21" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+
+
+                  </span>
+                </div>
+
+                <div>
+
+                  <svg class="mx-2" width="15" height="15" viewBox="0 0 15 15" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.6875 4.25H10.75M10.75 7.5H6.6875M10.75 10.75H6.6875M2.625 14H12.375C12.806 14 13.2193 13.8288 13.524 13.524C13.8288 13.2193 14 12.806 14 12.375V2.625C14 2.19402 13.8288 1.7807 13.524 1.47595C13.2193 1.1712 12.806 1 12.375 1H2.625C2.19402 1 1.7807 1.1712 1.47595 1.47595C1.1712 1.7807 1 2.19402 1 2.625V12.375C1 12.806 1.1712 13.2193 1.47595 13.524C1.7807 13.8288 2.19402 14 2.625 14Z"
+                      stroke="#272830" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+
+                  <span>{{"orders.OrdersCount" | translate}} :
+                    {{product?.totalOrdersContaining || '-'}}
+                  </span>
+                </div>
+
+
+                <div>
+                  <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M8.85382 1.60663C9.05143 1.49683 9.27376 1.43921 9.49982 1.43921C9.72588 1.43921 9.94822 1.49683 10.1458 1.60663L16.4675 5.11859C16.9235 5.37167 16.9235 6.02755 16.4675 6.28139L9.82282 9.97271C9.72402 10.0276 9.61285 10.0564 9.49982 10.0564C9.38679 10.0564 9.27562 10.0276 9.17682 9.97271L2.53214 6.28139C2.42843 6.22381 2.34201 6.13954 2.28184 6.03731C2.22167 5.93508 2.18994 5.81861 2.18994 5.69999C2.18994 5.58137 2.22167 5.46491 2.28184 5.36268C2.34201 5.26045 2.42843 5.17617 2.53214 5.11859L8.85382 1.60663ZM9.59178 2.60299C9.56363 2.58742 9.53199 2.57926 9.49982 2.57926C9.46765 2.57926 9.43601 2.58742 9.40786 2.60299L3.83326 5.69999L9.49982 8.84791L15.1664 5.69999L9.59178 2.60299Z"
+                      fill="#272830" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M15.9217 5.28049C16.0229 5.22427 16.137 5.19543 16.2527 5.19683C16.3685 5.19822 16.4818 5.22981 16.5816 5.28846C16.6814 5.3471 16.7642 5.43078 16.8217 5.53122C16.8793 5.63166 16.9096 5.74538 16.9097 5.86113V12.8531C16.9097 13.0903 16.8463 13.3232 16.7261 13.5277C16.6058 13.7321 16.433 13.9007 16.2257 14.0159L9.91769 17.5195C9.81651 17.5758 9.7024 17.6046 9.58666 17.6032C9.47092 17.6018 9.35754 17.5702 9.25775 17.5116C9.15796 17.4529 9.0752 17.3692 9.01766 17.2688C8.96012 17.1684 8.9298 17.0546 8.92969 16.9389V9.55625C8.92969 9.31457 9.06041 9.09189 9.27169 8.97485L15.9217 5.28049ZM15.7697 6.66901L10.0697 9.83517V16.131L15.6716 13.0188C15.7013 13.0024 15.726 12.9784 15.7432 12.9493C15.7604 12.9202 15.7696 12.887 15.7697 12.8531V6.66901Z"
+                      fill="#272830" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M3.07784 5.28049C2.97666 5.22427 2.86256 5.19543 2.74682 5.19683C2.63107 5.19822 2.5177 5.22981 2.41791 5.28846C2.31811 5.3471 2.23536 5.43078 2.17782 5.53122C2.12028 5.63166 2.08996 5.74538 2.08984 5.86113V12.8531C2.08984 13.3357 2.35204 13.7803 2.77384 14.0159L9.08184 17.5195C9.18302 17.5758 9.29713 17.6046 9.41287 17.6032C9.52861 17.6018 9.64199 17.5702 9.74178 17.5116C9.84157 17.4529 9.92433 17.3692 9.98187 17.2688C10.0394 17.1684 10.0697 17.0546 10.0698 16.9389V9.55625C10.0699 9.43765 10.0382 9.3212 9.97803 9.21897C9.9179 9.11674 9.83152 9.03246 9.72784 8.97485L3.07784 5.28049ZM3.22984 6.66901L8.92984 9.83517V16.131L3.32788 13.0188C3.29827 13.0024 3.27356 12.9784 3.25633 12.9493C3.23909 12.9202 3.22995 12.887 3.22984 12.8531V6.66901Z"
+                      fill="#272830" />
+                  </svg>
+
+                  <span>
+                    {{"orders.orderUnit" | translate}} :
+                    {{product?.totalQuantitySold || '-'}}
+                  </span>
+                </div>
+
+
+
+                <div>
+                  <svg class="mx-2" width="15" height="15" viewBox="0 0 15 15" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.5 13.5C3.5 14.327 4.173 15 5 15C5.827 15 6.5 14.327 6.5 13.5C6.5 12.673 5.827 12 5 12C4.173 12 3.5 12.673 3.5 13.5ZM5.5 13.5C5.5 13.7755 5.2755 14 5 14C4.7245 14 4.5 13.7755 4.5 13.5C4.5 13.2245 4.7245 13 5 13C5.2755 13 5.5 13.2245 5.5 13.5ZM12.5 13.5C12.5 12.673 11.827 12 11 12C10.173 12 9.5 12.673 9.5 13.5C9.5 14.327 10.173 15 11 15C11.827 15 12.5 14.327 12.5 13.5ZM10.5 13.5C10.5 13.2245 10.7245 13 11 13C11.2755 13 11.5 13.2245 11.5 13.5C11.5 13.7755 11.2755 14 11 14C10.7245 14 10.5 13.7755 10.5 13.5ZM2.05 1.5L2.9085 9.657C2.94665 10.0259 3.12039 10.3675 3.39604 10.6156C3.67169 10.8638 4.02963 11.0007 4.4005 11H12.192C12.5349 10.9985 12.8671 10.8802 13.1338 10.6646C13.4004 10.449 13.5857 10.149 13.659 9.814L14.86 4.2095C14.8916 4.06372 14.8899 3.91272 14.8552 3.76766C14.8205 3.6226 14.7536 3.48721 14.6595 3.3715C14.5659 3.25528 14.4474 3.16156 14.3128 3.09726C14.1781 3.03296 14.0307 2.99972 13.8815 3H3.2135L2.9975 0.948C2.98464 0.825029 2.92668 0.711183 2.8348 0.628446C2.74292 0.545708 2.62364 0.499948 2.5 0.5H1C0.867392 0.5 0.740215 0.552678 0.646447 0.646447C0.552678 0.740215 0.5 0.867392 0.5 1C0.5 1.13261 0.552678 1.25979 0.646447 1.35355C0.740215 1.44732 0.867392 1.5 1 1.5H2.05ZM13.8815 4L12.681 9.6045C12.6315 9.8335 12.426 10 12.1915 10H4.4005C4.27687 10.0003 4.15754 9.95467 4.06563 9.872C3.97371 9.78932 3.91576 9.67547 3.903 9.5525L3.3185 4H13.8815Z"
+                      fill="#272830" />
+                  </svg>
+                  <span>{{"orders.total" | translate}} :
+                    {{product?.totalRevenue || '-'}}
+                    <svg width="15" height="18" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_4998_101)">
+                        <path
+                          d="M11.2023 18.6037C10.8811 19.3471 10.6687 20.1539 10.5874 21L17.3848 19.4917C17.706 18.7484 17.9181 17.9414 17.9996 17.0953L11.2023 18.6037Z"
+                          fill="#060606" />
+                        <path
+                          d="M17.3846 14.9729C17.7058 14.2296 17.9182 13.4226 17.9995 12.5765L12.7046 13.7521V11.4923L17.3845 10.4541C17.7057 9.71082 17.918 8.90384 17.9994 8.05775L12.7044 9.23228V1.10533C11.8931 1.58086 11.1725 2.21384 10.5868 2.96048V9.7023L8.46919 10.1721V0C7.65785 0.475362 6.9373 1.10851 6.35157 1.85515V10.6418L1.61339 11.6928C1.29218 12.4361 1.0797 13.2431 0.998195 14.0892L6.35157 12.9016V15.7475L0.614382 17.0201C0.293176 17.7634 0.0808539 18.5704 -0.000488281 19.4165L6.00474 18.0843C6.4936 17.9782 6.91376 17.6765 7.18693 17.2613L8.28825 15.5569V15.5566C8.40258 15.3802 8.46919 15.1676 8.46919 14.9386V12.4318L10.5868 11.9619V16.4816L17.3845 14.9726L17.3846 14.9729Z"
+                          fill="#060606" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_4998_101">
+                          <rect width="18" height="21" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+
+                  </span>
+                </div>
+
+
+              </div>
+            </div>
+            <hr class="m-0">
+          </div>
+
+
+          <div class="col-12 text-center mt-5" *ngIf="!products || products.length === 0">
+            <img src="assets/imgs/zalol/smart/notFound.png" alt="No Data" class="img-fluid mt-5 "
+              style="max-width: 250px;">
+            <p class="mt-3 text-muted fw-semibold">{{ "smart.noPoints" | translate }}</p>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+  </div>
+  <div class="col-md-4 px-2 info-card">
+    <div class=" p-5">
+      <h2 class="wait-title mb-5">{{"orders.waiting" | translate}} !!</h2>
+      <p class="wait-text">{{"orders.waitingText" | translate}}</p>
+      <div class="d-flex justify-content-center">
+        <img src="assets/imgs/coupon.svg" alt="">
+      </div>
+    </div>
+  </div>
+</div>

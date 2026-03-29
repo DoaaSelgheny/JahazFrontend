@@ -1,0 +1,102 @@
+.modal-header {
+	border: none;
+	padding-bottom: 0;
+	justify-content: flex-end;
+
+	button {
+	  margin: 0;
+	}
+  }
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    color:#0D0D0D
+  }
+  .subTitle {
+    font-size: 12px;
+    font-weight: 400;
+    color:#8C8C8C
+  }
+  h3 {
+    color:#0D0D0D;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .card {
+    border: 1px solid #00000024;
+    border-radius: 13px;
+    padding: 16px;
+    margin-bottom: 16px;
+    .title {
+      font-size: 12px;
+      font-weight: 600;
+      color:#8C8C8C;
+      margin-bottom: 8px;
+    }
+    .title {
+      font-size: 12px;
+      font-weight: 600;
+      color:#000;
+      margin-bottom: 8px;
+    }
+    &.bg-orange {
+      background: #FE993411;
+      .imgBg {
+        background-color:#FE9934 ;
+
+      }
+    }
+    &.bg-green {
+      background: #54C96811;
+      .imgBg {
+        background-color: #54C968;
+
+      }
+    }
+    &.bg-yellow {
+      background: #FFD71011;
+      .imgBg {
+        background-color: #FFD710;
+
+      }
+    }
+    &.bg-blue {
+      background: #5C85EE24;
+      .imgBg {
+        background-color: #5C85EE;
+
+      }
+    }
+  }
+  .company {
+
+  .Title {
+      font-size: 12px;
+      font-weight: 400;
+      color:#425166;
+      margin-bottom: 8px;
+  }
+  .subtitle {
+      font-size: 12px;
+      font-weight: 500;
+      color:#000000;
+  }
+  .imgBg {
+      border-radius: 10px;
+      width: 32px;
+      height: 32px;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+  }
+  }
+// thead {
+//   border:1px solid #E7E7E7;
+//   border-radius: 10px 11px 0px 0px;
+//   background-color: #FBFBFB;
+//   color:#000000;
+//   font-size: 12px;
+// }

@@ -1,0 +1,136 @@
+.info-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 20px 45px 0px rgba(240, 237, 246, 1);
+  select
+{
+  padding: 0.775rem .8rem 0.775rem 2.5rem;
+  cursor: pointer;
+}
+}
+
+.mostVisitedCustomers
+{
+font-family: IBM Plex Sans Arabic;
+font-weight: 700;
+font-style: Bold;
+font-size: 16px;
+color: rgba(0, 0, 0, 1);
+}
+
+
+.card-title {
+  color: rgba(107, 107, 107, 1);
+}
+
+.img-1 {
+  border-radius: 10px;
+  background-color: rgba(254 159 249 / 10%);
+}
+
+.img-2 {
+  border-radius: 10px;
+  background-color: rgb(36 214 165 / 10%);
+}
+
+.img-3 {
+  border-radius: 10px;
+  background-color: rgba(255 215 16 / 10%);
+}
+
+.img-4 {
+  border-radius: 10px;
+  background-color: rgba(255 215 16 / 10%);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.morning {
+  background-color: #B15C57;
+}
+
+.afternoon {
+  background-color: #D28582;
+}
+
+.evening {
+  background-color: #FFC8C5;
+}
+
+.product-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.wait-title {
+  font-size: 27px;
+  color: #9B403E;
+}
+
+.wait-text {
+  font-size: 18px;
+  color: #6B6B6B;
+}
+
+.btns-tab {
+  margin-top: 20px;
+  border-top: 1px solid #EDEDED;
+
+  button {
+    border: 0;
+    color: #C9C9C9;
+    font-size: 16px;
+    background: #FFF;
+    padding: 12px 0px;
+    font-weight: 500;
+    min-width: 130px;
+    margin-inline: 10px;
+
+    &.active {
+      border-bottom: 1px solid #000000;
+      color: #000000;
+      font-weight: 700;
+
+      img {
+        svg {
+          path {
+            fill: #000000;
+          }
+        }
+      }
+    }
+  }
+}
+.card-item:hover{
+  background-color: #F8EBEB;
+  border: 1px solid #DEA9A9;
+  border-radius: 10px;
+  box-shadow: 0px 20px 45px 0px #F0EDF6;
+
+}
+
+// .granularity-filter {
+//   background: #fff;
+//   border-radius: 12px;
+//   padding: 8px 12px;
+//   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+//   background-color: red;
+//   h5 {
+//     font-weight: 600;
+//     color: #333;
+//   }
+
+//   .form-select {
+//     border-radius: 8px;
+//     padding: 4px 8px;
+//     font-size: 14px;
+//   }
+// }
+
+

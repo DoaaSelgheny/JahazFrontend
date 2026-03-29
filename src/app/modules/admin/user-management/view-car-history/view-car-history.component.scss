@@ -1,0 +1,90 @@
+.modal-header {
+	border: none;
+	padding-bottom: 0;
+	justify-content: flex-end;
+
+	button {
+		margin: 0;
+	}
+}
+
+.title {
+	color: rgba(13, 13, 13, 1);
+	font-size: 20px;
+	font-weight: 700;
+
+
+}
+
+p {
+	color: #393838cc;
+
+	font-size: 17px;
+	font-weight: 700;
+}
+.points-no{
+	color: #5C85EE;
+  cursor: pointer;
+}
+
+span {
+	color: #0D0D0DCC;
+
+	font-size: 16px;
+	font-weight: 400;
+
+
+}
+
+table td {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #babcbe;
+
+}
+
+th {
+	color: #0D0D0DCC;
+
+	font-size: 14px;
+	font-weight: 400;
+	height: 31px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+label {
+	color: #0D0D0D80;
+	font-size: 13px;
+	font-weight: 400;
+
+
+}
+.customer-no{
+	color: #963B3A !important;
+}
+.tab-active{
+	color: #963B3A !important;
+	border-bottom: 3px solid;
+
+}
+
+thead{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: rgb(196 196 196);
+}
+.title-table{
+	color: #333333;
+	font-size: 14px;
+	font-weight: 600;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+	--bs-table-accent-bg: #EFEFEF !important;
+	color: black;
+  }
+  .tab-title{
+	color: #9C9898;
+    font-size: 15px;
+  }

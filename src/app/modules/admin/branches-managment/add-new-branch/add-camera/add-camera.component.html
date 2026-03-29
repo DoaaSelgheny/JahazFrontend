@@ -1,0 +1,71 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center">{{ "camera.title" | translate }}</div>
+<div class="modal-body">
+	
+	<form [formGroup]="form">
+		<div formArrayName="cameras">
+			<div *ngFor="let option of cameras.controls; let i=index">
+				<div class="row justify-content-center">
+					<div class="col-lg-8 col-8  mb-5">
+
+						<label for="name" class="form-label" class="mb-3">{{'camera.name'|translate}} {{i+1}}</label>
+						<div [formGroupName]="i">
+							<input class="form-control"  *ngIf="i===0 && isAdmin" type="text" formControlName="number" />
+							<input class="form-control" [attr.disabled]="isDisabled" *ngIf="i===0&& !isAdmin" type="text" formControlName="number" />
+							<input class="form-control"  type="text" *ngIf="i!==0 " formControlName="number" />
+							<label
+							*ngIf="cameras.controls[i].get('number')?.errors?.required 
+							&& isValidFormSubmitted !== null && !isValidFormSubmitted"
+							class="error mt-2">
+							{{'Validation.ThisFieldIsRequired' | translate}}
+						</label>
+						<div class="error mt-2" *ngIf="cameras.controls[i].get('number')?.errors?.pattern">{{'branches.ShouldAcceptOnlyNumbers'|translate}}</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-2 mt-12" >
+						<i class="fa fa-trash " *ngIf="i===0&&isAdmin" role="button" (click)="cameras.removeAt(i)"></i>
+						<i class="fa fa-trash" *ngIf="i!==0" role="button" (click)="cameras.removeAt(i)"></i>
+						<img class="me-3 ms-3" src="assets/imgs/zalol/add.svg" *ngIf="i===0" role="button" (click)="addOption()">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<!-- <form [formGroup]="form">
+		<div class="row justify-content-center">
+			<div class="col-lg-8  mb-5">
+				<label for="name" class="form-label">
+					{{ "camera.name" | translate }} </label><span class="text-danger mx-2 fs-2">*</span>
+				<input formControlName="name" id="name" type="text" class="form-control"
+					[placeholder]="'brand.name' | translate" />
+				<ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+			  validation: 'required',
+			  message: 'Validation.ThisFieldIsRequired' | translate,
+			  control: form.controls['name']
+			}"></ng-container>
+			</div>
+		</div>
+	</form> -->
+</div>
+
+<div class="page-action">
+	<button type="submit" class="" (click)="submit()">
+		{{ "users.save" | translate }}
+	</button>
+	<button type="button" class="" (click)="closeModal()">
+		{{ "users.cancel" | translate }}
+	</button>
+	<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+		<ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+			<div class="fv-plugins-message-container">
+				<div class="fv-help-block">
+					<span role="alert">
+						{{ message }}
+					</span>
+				</div>
+			</div>
+		</ng-container>
+	</ng-template>
+</div>

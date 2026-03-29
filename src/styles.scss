@@ -1,0 +1,275 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "./assets/sass/style.scss";
+// Replace above style with this css file to enable RTL styles
+// @import './assets/sass/plugins.scss';
+// // @import "./assets/css/style.rtl.css";
+
+// @import "./assets/sass/style.angular.scss";
+
+
+
+
+
+//English @import "./assets/sass/style.scss";
+
+
+//arabic
+// @import "./assets/css/style.rtl.css";
+
+
+:root {
+  --color: #0274B3;
+}
+
+@import "./assets/sass/style.scss";
+
+
+
+
+
+@import './assets/sass/plugins.scss';
+@import "./assets/sass/style.angular.scss";
+
+
+// Fonts Import
+// @font-face {
+//   font-family: 'Light';
+//   src: url('/assets/fonts/ArbFONTS-DINNEXTLTARABIC-LIGHT-1.ttf');
+// }
+// @font-face {
+//   font-family: 'Regular';
+//   src: url('/assets/fonts/ArbFONTS-DINNextLTArabic-Regular-2.ttf');
+// }
+// @font-face {
+//   font-family: 'medium';
+//   src: url('/assets/fonts/ArbFONTS-DINNextLTArabic-Medium-2.ttf');
+// }
+// @font-face {
+//   font-family: 'bold';
+//   src: url('/assets/fonts/ArbFONTS-DINNextLTArabic-Bold-2.ttf');
+// }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.app-content {
+  padding: 35px;
+  background: #fff;
+  padding-top: 30px !important;
+  min-height: 100vh;
+}
+/*Our themes*/
+
+.genral-button {
+  background-color: #1293C3;
+  color: var(--kt-primary-inverse);
+  height: 50px;
+  border-radius: 9px;
+  border: #1293C3;
+}
+
+.genral-light-button {
+  height: 50px;
+  border-radius: 9px;
+  color: var(--kt-primary);
+  border-color: var(--kt-primary-light);
+  background-color: var(--kt-primary-light);
+}
+
+.button-size {
+  padding: 0% 15% 0% 15%;
+}
+
+.back-button {
+
+  // padding: 0% 15% 0% 15%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  cursor: pointer;
+  /* align-items: center; */
+
+}
+
+.app-sidebar {
+  background-color: #fff !important;
+}
+
+.app-toolbar{
+  display: none;
+}
+
+.table-design {
+  margin-top: 40px;
+  border: 1px solid #D6D2D2;
+  border-radius: 25px;
+  text-align: center;
+  table {
+    thead {
+      background: #fcf0da;
+      padding: 20px;
+      tr {
+        th {
+          color: #363636;
+          font-size: 16px;
+          // font-family: 'Semibold';
+          padding: 15px !important;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid #D6D2D2;
+        &:last-child {
+          border: none;
+        }
+        button {
+          all: unset;
+          cursor: pointer;
+        }
+        .form-switch {
+          display: inline-block;
+        }
+        .form-check-input:checked {
+          background-color: #0274B3;
+          border: none;
+        }
+      }
+    }
+  }
+  .table tr, .table th, .table td {
+    vertical-align: baseline;
+  }
+}
+
+.toast-container{
+  position: fixed !important;
+  }
+
+.modal-dialog.modal-dialog-centered.modal-sm {
+  max-width: 480px;
+}
+
+
+.pagi-sec {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  p {
+      margin: 0;
+      color:  rgba(0, 0, 0, 0.61);
+
+  }
+  .page-item {
+    margin: 3px;
+    &.active {
+      .page-link {
+        background:  rgba(150, 59, 58, 1);
+        ;
+      }
+    }
+    .page-link {
+      background: rgba(238, 238, 238, 1);
+      border: 1px solid rgba(238, 238, 238, 1);
+    }
+  }
+}
+
+td .d-flex .form-check label {
+  margin: 0 !important;
+}
+
+[data-kt-app-sidebar-minimize=on][data-kt-app-sidebar-hoverable=true] .app-sidebar:not(:hover) .app-sidebar-menu .menu-title span {
+  opacity: 0 !important;
+  margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
+}
+[data-kt-app-sidebar-minimize=on][data-kt-app-sidebar-hoverable=true] .app-sidebar:not(:hover) .app-sidebar-menu .menu-title svg,
+[data-kt-app-sidebar-minimize=on][data-kt-app-sidebar-hoverable=true] .app-sidebar:not(:hover) .app-sidebar-menu .menu-title  {
+  opacity: 1 !important;
+}
+
+.form-check-input:checked {
+  background-color: #0274B3;
+  border-color: #0274B3;
+}
+
+.modal-dialog.modal-md {
+  max-width: 651px;
+}
+
+.multiselect-dropdown .dropdown-btn {
+  display: inline-block;
+  border: 1px solid #e6e6e6 !important;
+  width: 100%;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: 1.52857143;
+  text-align: left;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border-radius: 4px;
+  min-height: 43px;
+  padding-top: 10px;
+  background: #fff;
+}
+
+.form-check-input:checked {
+  background-color: #2E52A4;
+}
+
+.input-container {
+  border-radius: 10px;
+  // background-color: #F1F1F1;
+  color: #3D3C42 !important;
+  font-weight: 500 !important;
+  height: 36.44px;
+   border: none !important;
+}
+
+.phoneInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+  .multiselect-dropdown .dropdown-btn,.form-select {
+    // line-height: 2.5 !important;
+    // color:hsla(0, 0%, 5%, 0.301);
+    color: #A1A5B7;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    // padding:6px !important;
+    align-items: center;
+    // padding:15px
+    }
+    .multiselect-dropdown .dropdown-btn .selected-item-container .selected-item,
+    .multiselect-item-checkbox input[type=checkbox]:checked + div:before {
+      border: 1px solid #9b403e !important;
+      background: #9b403e !important;
+
+    }
+    .multiselect-item-checkbox input[type=checkbox]:checked + div:after {
+      border-color:#9b403e !important
+    }
+    .multiselect-dropdown .dropdown-btn .dropdown-multiselect__caret {
+    top:9px !important;
+    }
+    .login-page .form-control.is-valid {
+        background-position:right calc(0.375em + 2.3875rem) center;
+    }
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    .form-check-input:checked{
+      background-color: #9b403e !important;
+    }
+    .form-control {
+      font-size: 1rem;
+    }

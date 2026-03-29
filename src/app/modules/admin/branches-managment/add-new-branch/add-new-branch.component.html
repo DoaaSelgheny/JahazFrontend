@@ -1,0 +1,270 @@
+<section class="requests-page">
+  <div class="container">
+    <div class="page-title">
+      <header>
+        <h3>{{ "branches.addNewBranch" | translate }}</h3>
+      </header>
+    </div>
+    <div class="page-content mt-3">
+      <div class="row">
+        <label class="mb-3">{{ "branches.brandname" | translate }}</label>
+        <div class="col-md-5 col-sm-7 col-9">
+          <ng-multiselect-dropdown
+            [placeholder]="'branches.brandname' | translate"
+            [settings]="dropdownSettings"
+            [data]="dropdownList"
+            [(ngModel)]="selectedItems"
+            (onSelect)="onItemSelect($event)"
+            (onSelectAll)="onSelectAll($event)"
+          >
+          </ng-multiselect-dropdown>
+
+          <ng-container
+            [ngTemplateOutlet]="formError"
+            [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'Validation.ThisFieldIsRequired' | translate,
+              control: form.controls['brandId']
+            }"
+          ></ng-container>
+        </div>
+        <!-- <div class="col-1 mt-3"><img src="assets/imgs/zalol/add.svg" width="22" (click)="addNewBrand()" role="button" ></div> -->
+      </div>
+      <form [formGroup]="form">
+        <div class="d-flex flex-row-reverse mt-2 mb-2">
+          <button class="addBranch px-5 py-3" (click)="addBranch()">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            {{ "branches.addOtherBranch" | translate }}
+          </button>
+        </div>
+        <div formArrayName="branches">
+          <div *ngFor="let option of branches.controls; let i = index">
+            <div class="row my-form-div justify-content-center mt-4">
+              <div
+                class="col-md-12 col-sm-12 col-12 delButton d-flex flex-row-reverse"
+                *ngIf="i !== 0"
+              >
+                <i
+                  class="fa fa-trash"
+                  role="button"
+                  (click)="branches.removeAt(i)"
+                ></i>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-4 col-sm-6 col-12 mb-5" [formGroupName]="i">
+                  <label class="mb-2">{{
+                    "branches.country" | translate
+                  }}</label>
+                  <ng-multiselect-dropdown
+                    [placeholder]="'branches.country' | translate"
+                    [settings]="dropdownSettingsCountries"
+                    [data]="countries"
+                    formControlName="selectedItemsCountry"
+                    (onSelect)="onItemSelectCountry($event)"
+                    (onDeSelect)="removeCities()"
+                    (onSelectAll)="onSelectAll($event)"
+                  >
+                  </ng-multiselect-dropdown>
+
+                  <label
+                    *ngIf="
+                      branches.controls[i].get('selectedItemsCountry')?.errors
+                        ?.required &&
+                      isValidFormSubmitted !== null &&
+                      !isValidFormSubmitted
+                    "
+                    class="error mt-2"
+                  >
+                    {{ "Validation.ThisFieldIsRequired" | translate }}
+                  </label>
+                </div>
+                <div class="col-md-4 col-sm-6 col-12" [formGroupName]="i">
+                  <label class="mb-2">{{ "branches.city" | translate }}</label>
+                  <ng-multiselect-dropdown
+                    [placeholder]="'branches.city' | translate"
+                    [settings]="dropdownSettingsCountries"
+                    [data]="cities"
+                    formControlName="selectedItemsCity"
+                  >
+                  </ng-multiselect-dropdown>
+                  <label
+                    *ngIf="
+                      branches.controls[i].get('selectedItemsCity')?.errors
+                        ?.required &&
+                      isValidFormSubmitted !== null &&
+                      !isValidFormSubmitted
+                    "
+                    class="error mt-2"
+                  >
+                    {{ "Validation.ThisFieldIsRequired" | translate }}
+                  </label>
+                </div>
+              </div>
+              <div [formGroupName]="i" *ngIf="visibleCameras">
+                <input
+                  class="form-control"
+                  [placeholder]="'branches.EnterBranchName' | translate"
+                  type="text"
+                  formControlName="cameras"
+                />
+              </div>
+              <div class="row mt-3">
+                <div class="col-lg-4 mb-5">
+                  <label for="name" class="form-label mb-2" class="mb-3"
+                    >{{ "branches.branchName" | translate }}
+                  </label>
+                  <div [formGroupName]="i">
+                    <input
+                      class="form-control"
+                      [placeholder]="'branches.EnterBranchName' | translate"
+                      type="text"
+                      formControlName="name"
+                    />
+                  </div>
+                  <label
+                    *ngIf="
+                      branches.controls[i].get('name')?.errors?.required &&
+                      isValidFormSubmitted !== null &&
+                      !isValidFormSubmitted
+                    "
+                    class="error mt-2"
+                  >
+                    {{ "Validation.ThisFieldIsRequired" | translate }}
+                  </label>
+                </div>
+                <div class="col-lg-4 mb-5">
+                  <label for="name" class="form-label mb-2" class="mb-3"
+                    >{{ "branches.location" | translate }}
+                  </label>
+                  <div [formGroupName]="i">
+                    <input
+                      class="form-control"
+                      [placeholder]="'branches.EnterLocation' | translate"
+                      type="text"
+                      formControlName="location"
+                    />
+                  </div>
+
+                  <label
+                    *ngIf="
+                      branches.controls[i].get('location')?.errors?.required &&
+                      branches.controls[i].get('location')?.errors &&
+                      isValidFormSubmitted !== null &&
+                      !isValidFormSubmitted
+                    "
+                    class="error mt-2"
+                  >
+                    {{ "Validation.ThisFieldIsRequired" | translate }}
+                  </label>
+                  <div
+                    class="error mt-2"
+                    *ngIf="
+                      branches.controls[i].get('location')?.errors?.pattern
+                    "
+                  >
+                    {{ "branches.ShouldAcceptURL" | translate }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4 mb-5">
+                  <label for="reference" class="form-label" class="mb-3"
+                    >{{ "branches.reference" | translate }}
+                  </label>
+                  <div class="d-flex" [formGroupName]="i">
+                    <input
+                      [placeholder]="'branches.Enterreference' | translate"
+                      class="form-control"
+                      type="text"
+                      formControlName="reference"
+                      (blur)="checkRefrence($event)"
+                    />
+                  </div>
+                  <label
+                    *ngIf="
+                      branches.controls[i].get('reference')?.errors?.required
+					  &&
+                      isValidFormSubmitted !== null &&
+                      !isValidFormSubmitted"
+                    class="error mt-2"
+                  >
+                    {{ "Validation.ThisFieldIsRequired" | translate }}
+                  </label>
+                </div>
+                <div class="col-lg-4 mb-5">
+                  <label for="name" class="form-label" class="mb-3"
+                    >{{ "branches.cameras" | translate }}
+                  </label>
+                  <div class="d-flex" [formGroupName]="i">
+                    <input
+                      [placeholder]="'branches.EnterCamera' | translate"
+                      class="form-control"
+                      type="text"
+                      formControlName="firstcamera"
+                      (change)="camerasChange(option, i)"
+                    />
+                    <img
+                      *ngIf="
+                        option.value?.firstcamera &&
+                        !branches.controls[i].get('firstcamera')?.errors
+                          ?.required &&
+                        !branches.controls[i].get('firstcamera')?.errors
+                          ?.pattern
+                      "
+                      class="me-2 ms-2"
+                      src="assets/imgs/zalol/add.svg"
+                      width="22"
+                      role="button"
+                      (click)="addNewCamera(i)"
+                    />
+                  </div>
+                  <!-- <label
+										*ngIf="branches.controls[i].get('firstcamera')?.errors?.required && isValidFormSubmitted !== null && !isValidFormSubmitted"
+										class="error mt-2">
+										{{'Validation.ThisFieldIsRequired' | translate}}
+									</label> -->
+                  <div
+                    class="error mt-2"
+                    *ngIf="
+                      branches.controls[i].get('firstcamera')?.errors?.pattern
+                    "
+                  >
+                    {{ "branches.ShouldAcceptOnlyNumbers" | translate }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="page-action mt-5">
+  <button type="submit" class="" (click)="submit()">
+    {{ "users.save" | translate }}
+  </button>
+  <button type="button" class="">
+    {{ "users.cancel" | translate }}
+  </button>
+  <ng-template
+    #formError
+    let-control="control"
+    let-message="message"
+    let-validation="validation"
+  >
+    <ng-container
+      *ngIf="control.hasError(validation) && (control.dirty || control.touched)"
+    >
+      <div class="fv-plugins-message-container">
+        <div class="fv-help-block">
+          <span role="alert">
+            {{ message }}
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>

@@ -1,0 +1,133 @@
+<!-- Button to open modal
+<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#filterModal">
+  فلتر البحث
+</button> -->
+
+<!-- Modal -->
+<div
+  id="filterModal"
+  class="p-3 rounded-4 filterModal"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div class="modal-header border-0">
+    <h5 class="modal-title mx-auto"> {{"smart.searchFilter" |translate}}</h5>
+    <button
+      type="button"
+      class="bg-transparent"
+      (click)="close()"
+      data-bs-dismiss="modal"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="mt-5 modal_body">
+    <form [formGroup]="filterForm">
+      <!-- <div class="mb-4">
+        <label class="mx-3">{{"smart.search" |translate}}</label>
+        <input
+          type="text"
+          class="form-control mt-2"
+          formControlName="search"
+          placeholder="{{ 'smart.searchByModel' | translate }}"
+        />
+      </div> -->
+<div class="date-wrapper mb-3" [ngClass]="{'rtl': currentLang === 'ar', 'ltr': currentLang !== 'ar'}">
+ <label class="mx-3"> {{"smart.Date" |translate}}</label>
+  <input
+    type="date"
+    class="form-control date-input"
+    formControlName="Date"
+    placeholder="yyyy-mm-dd"
+    #dateInput
+  />
+  <span class="date-icon" (click)="openCalendar(dateInput)"> <img src="/assets/imgs/calender.svg" alt="icon" /></span>
+</div>
+<div class="date-wrapper mb-3" [ngClass]="{'rtl': currentLang === 'ar', 'ltr': currentLang !== 'ar'}">
+ <label class="mx-3"> {{"smart.toDate" |translate}}</label>
+  <input
+    type="date"
+    class="form-control date-input"
+    formControlName="toDate"
+    placeholder="yyyy-mm-dd"
+    #dateInput1
+  />
+  <span class="date-icon" (click)="openCalendar(dateInput1)"> <img src="/assets/imgs/calender.svg" alt="icon" /></span>
+</div>
+      <!-- <div class="mb-3">
+        <label class="mx-3"> {{"smart.Date" |translate}}</label>
+        <input type="date" class="form-control mt-2 "
+          [ngClass]="currentLang === 'ar' ? 'text-end' : 'text-start'"
+        formControlName="Date" />
+      
+      </div> -->
+        <!-- <div class="mb-3">
+        <label class="mx-3"> {{"smart.toDate" |translate}}</label>
+        <input type="date" class="form-control mt-2" formControlName="toDate"
+          [ngClass]="currentLang === 'ar' ? 'text-end' : 'text-start'" />
+    
+      </div> -->
+      <!-- <div>
+             <label class="mx-3">{{"smart.country" |translate}}</label>
+        <select
+          class="form-select mt-2"
+          (change)="onItemSelectCountry()"
+          formControlName="country"
+        >
+          <option disabled value=""> {{"smart.selectCountry" |translate}}</option>
+          <option *ngFor="let country of countries" [value]="country.id">
+            {{ country.nameAr }}
+          </option>
+        </select>
+      </div> -->
+      <!-- <div class="mb-3">
+        <label class="mx-3">{{"smart.city" |translate}}</label>
+        <select class="form-select mt-2" formControlName="city">
+          <option disabled value=""> {{"smart.selectCity" |translate}}</option>
+          <option *ngFor="let city of cities" [value]="city.id">
+            {{ city.nameAr }}
+          </option>
+        </select>
+      </div> -->
+
+      <!--
+                  <div class="mb-3">
+            <label class="mx-3">الجنس</label>
+            <select class="form-select mt-2"  formControlName="sex">
+              <option value="">اختر الجنس</option>
+              <option *ngFor="let sex of sex" [value]="sex">{{ sex }}</option>
+            </select>
+          </div>
+
+           <div class="mb-3">
+            <label class="mx-3">الفتره الزمنيه</label>
+            <select class="form-select mt-2"  formControlName="TimePeriod">
+              <option value="">اختر الفتره الزمنيه</option>
+              <option *ngFor="let TimePeriod of TimePeriod" [value]="TimePeriod">{{ TimePeriod }}</option>
+            </select>
+          </div>
+
+                 <div class="mb-3">
+            <label class="mx-3"> المركبه</label>
+            <select class="form-select mt-2"  formControlName="Vehicle">
+              <option value="">اختر نوع المركبه</option>
+              <option *ngFor="let Vehicle of Vehicles" [value]="Vehicle">{{ Vehicle }}</option>
+            </select>
+          </div>
+
+           <div class="mb-3 mt-4">
+            <label class="mx-1">وقت الانتظار</label>
+            <input type="range" class="form-range mt-5" formControlName="waitTime" min="0" max="100">
+            <p class="text-end">{{ filterForm.value.waitTime }} دقيقة</p>
+          </div> -->
+    </form>
+  </div>
+
+  <div class="modal-footer border-0 d-flex justify-content-between">
+    <button class="btn btn-apply" (click)="applyFilter()">{{"smart.apply" |translate}}</button>
+    <button class="btn btn-cancel" data-bs-dismiss="modal" (click)="reset()">
+      {{"smart.cancel" |translate}}
+    </button>
+  </div>
+</div>

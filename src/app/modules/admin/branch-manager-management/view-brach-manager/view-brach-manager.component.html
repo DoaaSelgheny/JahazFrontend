@@ -1,0 +1,47 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center">{{ "cashier.details" | translate }}</div>
+<div class="modal-body mx-10 mb-7">
+	<div class="row">
+		<div class="col-7">
+			<div class="d-flex flex-column my-5">
+				<p>{{cashierData.name??'-'}}</p>
+                <label class="mb-3 d-flex">
+                    <img  src="assets/imgs/zalol/national.svg" class="mx-2">
+					 
+                    {{ cashierData.nationality ?? '-'}}
+                </label>
+                <label class="mb-3 d-flex">
+                    <img  src="assets/imgs/zalol/email.svg" class="mx-2">
+					 
+                    {{ cashierData.email ?? '-'}}
+                </label>
+                <label class="mb-2">
+                    <img  src="assets/imgs/zalol/phone.svg" class="mx-2"> 
+                    {{cashierData.countryCode}}{{ cashierData.phoneNumber ?? '-'}}
+                </label>
+			</div>
+		</div>
+		<div class="col-5">
+			<div class="d-flex flex-row">
+				<img  src="assets/imgs/zalol/brand.svg">
+                <div  class="d-flex flex-column px-2 mt-5">
+                     <label class="fw-bold">{{ "cashier.brand" | translate}}</label>
+				    <span class="">{{cashierData?.brand ??'-'}} </span>
+                </div>
+                
+			</div>
+            <div class="d-flex flex-row">
+				<img  src="assets/imgs/zalol/branch-icon.svg">
+                <div  class="d-flex flex-column px-2 mt-5">
+                    <label> {{ "branchManager.branch" | translate}}</label>
+				    <span class="">{{cashierData?.branch ??'-'}} </span>
+                </div>
+                
+			</div>
+		</div>	
+	</div>
+
+
+</div>

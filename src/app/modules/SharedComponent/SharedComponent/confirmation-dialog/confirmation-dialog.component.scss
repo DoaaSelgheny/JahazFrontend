@@ -1,0 +1,52 @@
+.modal-header {
+    padding: 0 15px;
+    border: none;
+    button {
+        all: unset;
+        cursor: pointer;
+        font-size: 33px;
+    }
+}
+
+.modal-body {
+    text-align: center;
+    padding-bottom: 0;
+    img {
+        max-width: 170px;
+    }
+    svg {
+        fill: rgba(150, 59, 58, 1);;
+
+        path {
+            fill: rgba(150, 59, 58, 1);;
+        }
+    }
+    h4 {
+        font-size: 21px;
+        margin-bottom: 5px;
+        margin-top: 15px;
+    }
+}
+
+.modal-footer {
+    border: none;
+    justify-content: center;
+    button {
+        min-width: 120px;
+        background-color: rgba(150, 59, 58, 1);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        &:hover {
+            background-color: rgba(150, 59, 58, 1) !important;
+            color: #fff;
+        }
+        &:last-child,
+        &:last-child:hover {
+            background: #fff !important;
+            color: rgba(150, 59, 58, 1);
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.13);
+        }
+    }
+}

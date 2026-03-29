@@ -1,0 +1,256 @@
+.request-details {
+    margin-top: 75px;
+
+    .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        ol {
+            li {
+                color: #AB403D;
+                font-size: 16px;
+
+                &:after {
+                    padding: 0 10px;
+                }
+
+                a {
+                    color: #000;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        h3 {
+            color: #000;
+            font-size: 24px;
+        }
+    }
+
+    .page-content {
+        margin-top: 40px;
+
+        .order-steps {
+            border-radius: 10px;
+            background: #F4F4F4;
+            box-shadow: 0px 2px 7px 0px rgba(199, 199, 199, 0.50);
+            padding: 25px;
+
+            .step-card {
+                text-align: center;
+                position: relative;
+                &.active {
+                    img {
+                        // filter: invert(55%) sepia(4%) saturate(5904%) hue-rotate(313deg) brightness(83%) contrast(71%);
+                    }
+                }
+                &.two {
+                    &::after {
+                        width: 100%;
+                    }
+                }
+
+                &.three {
+                    &::after {
+                        right: unset;
+                        left: 0;
+                    }
+                }
+
+                &.one {
+                    &::after {
+                        left: unset;
+                        right: 0;
+                    }
+                }
+
+                &::after {
+                    @media(max-width:992px) {
+                        all: unset;
+                    }
+
+                    content: '';
+                    position: absolute;
+                    top: 45px;
+                    left: 0;
+                    width: 50%;
+                    margin-top: -1px;
+                    border-top: 2px solid #BFBFBF;
+                }
+
+                img {
+                    margin-bottom: 20px;
+                    position: relative;
+                    z-index: 99;
+                }
+
+                p {
+                    color: #737373;
+                }
+            }
+        }
+
+        .details-card {
+            border-radius: 10px;
+            background: #F4F4F4;
+            box-shadow: 0px 2px 7px 0px rgba(199, 199, 199, 0.50);
+            padding: 25px;
+
+            .info {
+                text-align: center;
+
+                img {
+                    margin-bottom: 20px;
+                }
+
+                h3 {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    color: rgba(0, 0, 0, 0.40);
+                    font-size: 16px;
+                }
+            }
+
+            .details {
+                margin-top: 35px;
+
+                h4 {
+                    font-size: 20px;
+                }
+
+                p {
+                    color: rgba(0, 0, 0, 0.65);
+                    font-size: 16px;
+                }
+
+                button {
+                    width: 100%;
+                    border: none;
+                    color: #fff;
+                    border-radius: 40px;
+                    background: #963B3A;
+                    height: 45px;
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        .data-section {
+            border-radius: 10px;
+            background: #F4F4F4;
+            box-shadow: 0px 2px 7px 0px rgba(199, 199, 199, 0.50);
+            padding: 25px;
+
+            .table {
+                thead {
+                    tr {
+                        border-bottom: 1px solid #E8E5E5;
+
+                        th {
+                            text-align: center;
+                            vertical-align: middle;
+                            color: #000;
+                            font-size: 16px;
+
+                            &:first-child {
+                                text-align: start;
+                            }
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        border-bottom: 1px solid #E8E5E5;
+
+                        th {
+                            .item-card {
+                                display: flex;
+                                align-items: center;
+
+                                .image {
+                                    margin-inline-end: 15px;
+
+                                    img {
+                                        width: 70px;
+                                        height: 70px;
+                                    }
+                                }
+
+                                .info {
+                                    p {
+                                        color: #B76767;
+                                        font-size: 15px;
+                                        margin: 0;
+                                    }
+                                }
+                            }
+                        }
+
+                        td {
+                            text-align: center;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+
+            .total-section {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-top: 1px solid #E8E5E5;
+
+                padding-top: 20px;
+
+                span {
+                    color: #252525;
+                    font-size: 15px;
+                }
+
+                h3 {
+                    color: #252525;
+                    font-size: 20px;
+                    margin-top: 15px;
+                }
+            }
+        }
+
+        .pre-oreders {
+            border-radius: 10px;
+            background: #F4F4F4;
+            box-shadow: 0px 2px 7px 0px rgba(199, 199, 199, 0.50);
+            padding: 25px;
+
+            .title {
+                h4 {
+                    font-size: 25px;
+                    color: #000;
+                    margin-bottom: 30px;
+                }
+            }
+
+            .order-card {
+                border-radius: 5px;
+                border: 1px dashed #DEDEDE;
+                padding: 15px;
+
+                h3 {
+                    color: #000;
+                    font-size: 18px;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    color: rgba(0, 0, 0, 0.50);
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

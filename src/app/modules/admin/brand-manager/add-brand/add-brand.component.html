@@ -1,0 +1,41 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center">{{ "brand.title" | translate }}</div>
+<div class="modal-body">
+	<form [formGroup]="form">
+		<div class="row justify-content-center">
+			<div class="col-lg-8  mb-5">
+				<label for="name" class="form-label">
+					{{ "brand.name" | translate }} </label><span class="text-danger mx-2 fs-2">*</span>
+				<input formControlName="name" id="name" type="text" class="form-control"
+					[placeholder]="'brand.name' | translate" />
+				<ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+			  validation: 'required',
+			  message: 'Validation.ThisFieldIsRequired' | translate,
+			  control: form.controls['name']
+			}"></ng-container>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="page-action">
+	<button type="submit"  (click)="submit()">
+		{{ "users.save" | translate }}
+	</button>
+	<button type="button"  (click)="closeModal()">
+		{{ "users.cancel" | translate }}
+	</button>
+	<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+		<ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+			<div class="fv-plugins-message-container">
+				<div class="fv-help-block">
+					<span role="alert">
+						{{ message }}
+					</span>
+				</div>
+			</div>
+		</ng-container>
+	</ng-template>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tholol</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="./assets/media/logos/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"
+    />
+    <!-- SPLASH SCREEN-->
+    <link
+      rel="stylesheet"
+      id="layout-styles-anchor"
+      href="./assets/splash-screen.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+ 
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6BYEKV8NC7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6BYEKV8NC7');
+</script>
+ 
+  </head>
+
+  <body root id="kt_body" class="mat-typography">
+    <!-- <body root id="kt_body" class="mat-typography" direction="rtl" dir="rtl" style="direction: rtl"></body> -->
+    <!--begin::Theme mode setup on page load-->
+    <script>
+      if (document.documentElement) {
+        var defaultThemeMode = "system";
+
+        var hasKTName = document.body.hasAttribute("data-kt-name");
+        var lsKey = "kt_" + (hasKTName ? name + "_" : "") + "theme_mode_value";
+        var themeMode = localStorage.getItem(lsKey);
+        if (!themeMode) {
+          if (defaultThemeMode === "system") {
+            themeMode = window.matchMedia("(prefers-color-scheme: dark)")
+              .matches
+              ? "light"
+              : "dark";
+          } else {
+            themeMode = defaultThemeMode;
+          }
+        }
+
+        document.documentElement.setAttribute("data-theme", themeMode);
+      }
+    </script>
+    <!--end::Theme mode setup on page load-->
+    <div id="splash-screen" class="splash-screen">
+      <!-- <img src="assets/media/logos/Loader.gif" alt="Metronic logo" /> -->
+    </div>
+  </body>
+</html>

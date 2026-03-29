@@ -1,0 +1,91 @@
+.modal-header {
+	border: none;
+	padding-bottom: 0;
+	justify-content: flex-end;
+
+	button {
+		margin: 0;
+	}
+}
+
+.title {
+	color: rgba(13, 13, 13, 1);
+	font-size: 20px;
+	font-weight: 700;
+
+
+}
+
+.points-no{
+  color: #5C85EE;
+}
+
+span {
+  color: #0D0D0D80;
+
+	font-size: 16px;
+	font-weight: 400;
+
+
+}
+label {
+  color: #393838cc;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+p {
+	color: #0D0D0D80;
+	font-size: 14px;
+	font-weight: 400;
+
+
+}
+
+.points{
+  span {
+
+    color:#EB841D;
+    font-size: 14px;
+  }
+}
+.userInfo {
+  border-bottom: 2px dashed #A7A7A7;
+  .pointNo
+  {
+    color: #393838cc;
+    font-size: 13px;
+    font-weight: 700;  }
+}
+.page-action {
+button {
+  height: 43px;
+  margin: 5px;
+  cursor: pointer !important;
+  color: #fff;
+  background: rgba(150, 59, 58, 1);
+
+  border-radius: 20px;
+  font-size: 16px;
+  border: none;
+  // min-width: 110px;
+  min-width: 320px;
+  line-height: 0;
+  padding: 10px;
+  height: 43px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  // width: 120px;
+  border: 1px solid rgba(150, 59, 58, 1);
+  &:disabled {
+    background-color: #ddd;
+    border-color:#ddd
+  }
+  }
+
+}
+.error {
+  color:red
+}

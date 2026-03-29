@@ -1,0 +1,293 @@
+<div class="landing-page">
+  <section class="section-one">
+    <div class="header-page">
+      <nav class="navbar navbar-expand-lg px-0" style="height: 98px">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/imgs/logo.svg" width="120px" alt="" srcset="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <svg style="color: #fff" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+              class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            </svg>
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto p-0" style="margin: auto">
+            <li class="nav-item">
+              <!---->
+              <a class="nav-link" (click)="goToHome()" [ngClass]="tab === 1 ? 'active' : ''">
+                {{ "landingPage.home" | translate }}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="goToAbout()" [ngClass]="tab === 2 ? 'active' : ''">{{ "landingPage.about" |
+                translate }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="getToDisad()" [ngClass]="tab === 3 ? 'active' : ''">{{
+                "landingPage.advantageTholol" | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <a (click)="contactUs()" class="nav-link" [ngClass]="tab === 4 ? 'active' : ''">{{ "landingPage.contact" |
+                translate }}</a>
+            </li>
+            <li class="nav-item">
+              <a (click)="dashboard()" class="nav-link" [ngClass]="tab === 5 ? 'active' : ''">
+                {{ "landingPage.login"
+                | translate }}</a>
+            </li>
+          </ul>
+          <div class="form-inline lang my-2 my-lg-0">
+            <img role="button" (click)="switchLang()" width="100%" height="100%" [src]="
+                currentLanguage === 'en'
+                  ? '/assets/imgs/eng.png'
+                  : '/assets/imgs/Ar.png'
+              " />
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="div2" id="home">{{ "landingPage.welcomeTitle" | translate }}</div>
+    <div class="div">
+      {{ "landingPage.describe" | translate }}
+      <br />
+      {{ "landingPage.describe2" | translate }}
+    </div>
+    <img class="untitled-2-1" src="/assets/imgs/labtop.svg" />
+  </section>
+  <section class="section-two"></section>
+  <section class="section-three" id="about-sec">
+
+    <div class="row justify-content-center div15 me-4 ms-5">
+
+      <div class="div36">{{ "landingPage.ab" | translate }} <img class="removebg-preview-13"
+          src="/assets/imgs/logo.svg" />
+      </div>
+
+
+
+
+      {{ "landingPage.aboutDescrib" | translate }}
+      <br />
+      {{ "landingPage.aboutDescrib2" | translate }}
+      <br />
+      {{ "landingPage.aboutDescrib3" | translate }}
+    </div>
+  </section>
+  <section class="section-four">
+    <div class="row about-card d-flex mx-10 ">
+      <div class="col-md-4 col-sm-12 my-3 mt-10">
+        <div class="about-card-child h-100 me-3 ms-3">
+          <div class="div-img">
+            <svg class="_2-user" width="31" height="27" viewBox="0 0 31 27" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.7267 7.32018C18.7267 11.1757 15.5717 14.2654 11.6348 14.2654C7.69926 14.2654 4.54286 11.1757 4.54286 7.32018C4.54286 3.4647 7.69926 0.375 11.6348 0.375C15.5717 0.375 18.7267 3.4647 18.7267 7.32018ZM0.916992 22.1295C0.916992 18.5605 5.85422 17.6675 11.6348 17.6675C17.4467 17.6675 22.3525 18.5912 22.3525 22.163C22.3525 25.732 17.4153 26.625 11.6348 26.625C5.82283 26.625 0.916992 25.7013 0.916992 22.1295ZM21.5866 7.44609C21.5866 9.40947 20.9844 11.2415 19.9285 12.7633C19.8186 12.9198 19.9156 13.1308 20.1068 13.1643C20.3722 13.2077 20.6448 13.2342 20.923 13.2398C23.6913 13.3111 26.1756 11.5657 26.862 8.93714C27.8794 5.03694 24.8942 1.535 21.0914 1.535C20.679 1.535 20.2838 1.57692 19.8985 1.65378C19.8457 1.66496 19.7886 1.69011 19.7601 1.73483C19.723 1.79212 19.7501 1.86619 19.7872 1.9151C20.9302 3.4844 21.5866 5.39468 21.5866 7.44609ZM26.1713 15.9825C28.0321 16.3389 29.255 17.0641 29.7615 18.122C30.191 18.9884 30.191 19.9945 29.7615 20.8609C28.9867 22.4987 26.4867 23.0255 25.5149 23.1611C25.3137 23.189 25.1525 23.0213 25.1739 22.8229C25.6705 18.2841 21.7221 16.132 20.7004 15.6374C20.6576 15.6136 20.6476 15.5801 20.6519 15.5577C20.6548 15.5437 20.6733 15.5214 20.7061 15.5172C22.9165 15.4753 25.2938 15.7729 26.1713 15.9825Z"
+                fill="#CA5351" />
+            </svg>
+          </div>
+          <p class="title">
+            {{ "landingPage.clientReport" | translate }}
+          </p>
+          <p>
+            {{ "landingPage.describeReport" | translate }}
+            <br />
+            <!-- {{ "landingPage.describeReport2" | translate }} -->
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 my-3 mt-10">
+        <div class="about-card-child h-100 me-3 ms-3">
+          <div class="div-img">
+            <svg class="group" width="28" height="32" viewBox="0 0 28 32" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.8144 0.0908203C11.6749 0.0913773 11.5368 0.119412 11.4081 0.173322C11.2795 0.227233 11.1626 0.305965 11.0644 0.405022C10.9661 0.504079 10.8883 0.621522 10.8354 0.750644C10.7825 0.879767 10.7556 1.01804 10.7562 1.15757C10.7562 2.94045 10.1367 3.98595 9.33668 5.32257C8.89893 6.05357 8.19768 7.26376 7.89805 8.19238C7.58355 7.55913 7.40293 7.09057 7.12349 6.07588C7.0724 5.88571 6.96947 5.71348 6.82618 5.57841C6.68289 5.44334 6.50489 5.35074 6.31203 5.31096C6.11918 5.27118 5.91906 5.28577 5.73402 5.35311C5.54898 5.42045 5.38629 5.53789 5.26411 5.69232C1.27761 10.6574 0.10674 14.3804 0.190678 18.1459C0.358553 25.7311 6.38718 31.9361 14.0032 31.9361C21.6192 31.9361 27.8136 25.7396 27.8136 18.1236C27.8136 16.1675 27.3609 13.6271 26.4249 11.2386C25.4888 8.85007 24.0778 6.58163 21.9156 5.42563C21.773 5.35003 21.615 5.30792 21.4537 5.30249C21.2923 5.29707 21.1319 5.32848 20.9845 5.39433C20.8371 5.46019 20.7067 5.55876 20.6031 5.68256C20.4995 5.80636 20.4255 5.95214 20.3867 6.10882C20.1784 6.96201 20.1019 7.22444 19.8533 7.94694C19.5484 6.56357 19.0596 5.23757 18.2617 3.95832C16.924 1.80995 14.7182 0.0908203 11.8144 0.0908203ZM10.4512 14.1381C10.6606 14.1382 10.8679 14.1795 11.0613 14.2597C11.2547 14.3399 11.4304 14.4574 11.5784 14.6055C11.7264 14.7536 11.8438 14.9293 11.9238 15.1228C12.0039 15.3163 12.0451 15.5236 12.045 15.7329C12.0449 15.9423 12.0036 16.1496 11.9234 16.343C11.8432 16.5364 11.7258 16.7121 11.5777 16.8601C11.4296 17.0081 11.2538 17.1255 11.0603 17.2055C10.8669 17.2856 10.6595 17.3268 10.4502 17.3267C10.0273 17.3266 9.62189 17.1585 9.32301 16.8594C9.02412 16.5603 8.85629 16.1547 8.85643 15.7319C8.85657 15.3091 9.02467 14.9036 9.32376 14.6047C9.62284 14.3058 10.0284 14.138 10.4512 14.1381ZM17.9907 14.1488C18.133 14.1291 18.278 14.142 18.4145 14.1865C18.5511 14.2311 18.6758 14.3061 18.7791 14.4059C18.9905 14.5911 19.1199 14.8524 19.139 15.1328C19.1582 15.4132 19.0654 15.6897 18.8811 15.9019L10.7169 25.1966C10.5316 25.4087 10.2698 25.5385 9.98891 25.5576C9.70801 25.5767 9.43101 25.4836 9.21874 25.2986C9.11342 25.2062 9.02742 25.0939 8.96568 24.9682C8.90394 24.8424 8.86768 24.7057 8.85899 24.5658C8.8503 24.426 8.86935 24.2858 8.91504 24.1534C8.96074 24.021 9.03217 23.8989 9.12524 23.7941L17.281 14.4994C17.4674 14.3005 17.7195 14.1759 17.9907 14.1488ZM17.5487 22.3725C17.7581 22.3726 17.9654 22.4139 18.1588 22.4941C18.3522 22.5743 18.5279 22.6917 18.6759 22.8398C18.8239 22.9879 18.9413 23.1637 19.0213 23.3572C19.1014 23.5506 19.1426 23.758 19.1425 23.9673C19.1424 24.1767 19.1011 24.384 19.0209 24.5774C18.9407 24.7708 18.8233 24.9465 18.6752 25.0945C18.5271 25.2425 18.3513 25.3599 18.1578 25.4399C17.9644 25.52 17.757 25.5611 17.5477 25.5611C17.1248 25.5609 16.7194 25.3928 16.4205 25.0937C16.1216 24.7947 15.9538 24.3891 15.9539 23.9663C15.9541 23.5434 16.1222 23.138 16.4213 22.8391C16.7203 22.5402 17.1259 22.3724 17.5487 22.3725Z"
+                fill="#CA5351" />
+            </svg>
+          </div>
+          <p class="title">
+            {{ "landingPage.offers" | translate }}
+          </p>
+          <p>
+            {{ "landingPage.describeOffer" | translate }}
+            <br />
+            {{ "landingPage.describeOffer2" | translate }}
+            <br />
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 my-3 mt-10">
+        <div class="about-card-child h-100 me-3 ms-3">
+          <div class="div-img">
+            <svg class="group2" width="24" height="28" viewBox="0 0 24 28" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.458 0H3.54134C2.69063 0.000618027 1.87493 0.338836 1.27339 0.940382C0.671844 1.54193 0.333626 2.35762 0.333008 3.20833V24.7917C0.333626 25.6424 0.671844 26.4581 1.27339 27.0596C1.87493 27.6612 2.69063 27.9994 3.54134 28H20.458C21.3087 27.9994 22.1244 27.6612 22.726 27.0596C23.3275 26.4581 23.6657 25.6424 23.6663 24.7917V3.20833C23.6657 2.35762 23.3275 1.54193 22.726 0.940382C22.1244 0.338836 21.3087 0.000618027 20.458 0ZM10.5413 15.1667V9.422C13.3413 9.84783 15.4997 12.25 15.4997 15.1667C15.4997 18.3832 12.8828 21 9.66634 21C8.42399 20.9967 7.21581 20.5929 6.22117 19.8485L10.2847 15.785C10.3661 15.7039 10.4307 15.6076 10.4748 15.5015C10.5188 15.3953 10.5414 15.2816 10.5413 15.1667ZM8.79134 9.422V14.805L4.98451 18.6118C4.24009 17.6172 3.83628 16.409 3.83301 15.1667C3.83301 12.25 5.99134 9.84783 8.79134 9.422ZM19.2913 24.7917H4.70801C4.47594 24.7917 4.25338 24.6995 4.08929 24.5354C3.9252 24.3713 3.83301 24.1487 3.83301 23.9167C3.83301 23.6846 3.9252 23.462 4.08929 23.2979C4.25338 23.1339 4.47594 23.0417 4.70801 23.0417H19.2913C19.5234 23.0417 19.746 23.1339 19.9101 23.2979C20.0742 23.462 20.1663 23.6846 20.1663 23.9167C20.1663 24.1487 20.0742 24.3713 19.9101 24.5354C19.746 24.6995 19.5234 24.7917 19.2913 24.7917ZM19.2913 21H17.5413C17.3093 21 17.0867 20.9078 16.9226 20.7437C16.7585 20.5796 16.6663 20.3571 16.6663 20.125C16.6663 19.8929 16.7585 19.6704 16.9226 19.5063C17.0867 19.3422 17.3093 19.25 17.5413 19.25H19.2913C19.5234 19.25 19.746 19.3422 19.9101 19.5063C20.0742 19.6704 20.1663 19.8929 20.1663 20.125C20.1663 20.3571 20.0742 20.5796 19.9101 20.7437C19.746 20.9078 19.5234 21 19.2913 21ZM19.2913 17.7917H17.5413C17.3093 17.7917 17.0867 17.6995 16.9226 17.5354C16.7585 17.3713 16.6663 17.1487 16.6663 16.9167C16.6663 16.6846 16.7585 16.462 16.9226 16.2979C17.0867 16.1339 17.3093 16.0417 17.5413 16.0417H19.2913C19.5234 16.0417 19.746 16.1339 19.9101 16.2979C20.0742 16.462 20.1663 16.6846 20.1663 16.9167C20.1663 17.1487 20.0742 17.3713 19.9101 17.5354C19.746 17.6995 19.5234 17.7917 19.2913 17.7917ZM19.2913 14.2917H17.5413C17.3093 14.2917 17.0867 14.1995 16.9226 14.0354C16.7585 13.8713 16.6663 13.6487 16.6663 13.4167C16.6663 13.1846 16.7585 12.962 16.9226 12.7979C17.0867 12.6339 17.3093 12.5417 17.5413 12.5417H19.2913C19.5234 12.5417 19.746 12.6339 19.9101 12.7979C20.0742 12.962 20.1663 13.1846 20.1663 13.4167C20.1663 13.6487 20.0742 13.8713 19.9101 14.0354C19.746 14.1995 19.5234 14.2917 19.2913 14.2917ZM19.2913 11.0833H17.5413C17.3093 11.0833 17.0867 10.9911 16.9226 10.8271C16.7585 10.663 16.6663 10.4404 16.6663 10.2083C16.6663 9.97627 16.7585 9.75371 16.9226 9.58961C17.0867 9.42552 17.3093 9.33333 17.5413 9.33333H19.2913C19.5234 9.33333 19.746 9.42552 19.9101 9.58961C20.0742 9.75371 20.1663 9.97627 20.1663 10.2083C20.1663 10.4404 20.0742 10.663 19.9101 10.8271C19.746 10.9911 19.5234 11.0833 19.2913 11.0833Z"
+                fill="#CA5351" />
+            </svg>
+          </div>
+          <p class="title">
+            {{ "landingPage.FuturisticAnalysis" | translate }}
+          </p>
+          <p>
+            {{ "landingPage.describeAnalysis" | translate }} <br />
+            {{ "landingPage.describeAnalysis2" | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="div16" id="disadv">
+      {{ "landingPage.advantage" | translate }}
+    </div>
+    <div class="features">
+      <img width="80%" height="90%" [src]="
+          currentLanguage === 'en'
+            ? '/assets/imgs/textandimgEn.png'
+            : '/assets/imgs/textandimgAR.png'
+        " />
+    </div>
+  </section>
+  <!-- <section class="row section-five">
+
+    <div>
+      <div class="div23" id="video">
+        {{ "landingPage.welcomeTitle" | translate }}
+      </div>
+      <div class="show-video d-flex mt-10">
+        <div class="svgexport-17-1-1 mx-3">
+          <svg class="group13" width="17" height="17" viewBox="0 0 17 17" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0.744141 8.50021V2.97853C0.744141 0.690833 3.22109 -0.740222 5.2 0.405286L9.98457 3.16779L14.7691 5.93029C16.7514 7.07247 16.7514 9.93458 14.7691 11.0768L9.98457 13.8393L5.2 16.6018C3.22109 17.7406 0.744141 16.3129 0.744141 14.0252V8.50021Z"
+              fill="white" />
+          </svg>
+        </div>
+        <div class="div24" role="button" (click)="openViewVideoModal()">
+          {{"landingPage.video" | translate }}</div>
+      </div>
+    </div>
+
+  </section> -->
+  <section class="row justify-content-center section-six" id="contactUs">
+    <div class="div26">{{ "landingPage.serviceProvider" | translate }}</div>
+    <div class="div37">{{ "landingPage.describeService" | translate }}</div>
+    <div class="form-contact">
+      <div class="logo2 row justify-content-center">
+        <div class="div36">{{ "landingPage.contactUs" | translate }} <img class="removebg-preview-13"
+            src="/assets/imgs/logo.svg" /></div>
+
+      </div>
+      <form [formGroup]="userModalForm">
+        <div class="form2">
+          <div class="name">
+            <div class="div27">{{ "landingPage.name" | translate }}</div>
+            <input formControlName="name" id="name" type="text" class="rectangle-1"
+              [placeholder]="'landingPage.name' | translate" />
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'Validation.ThisFieldIsRequired' | translate,
+              control: userModalForm.controls['name']
+          }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+            validation: 'pattern',
+            message: 'Validation.arabicAndEnglishOnly' | translate,
+            control: userModalForm.controls['name']
+          }"></ng-container>
+          </div>
+          <div class="mobile-no">
+            <div class="div27">
+              {{ "landingPage.mobileNumber" | translate }}
+            </div>
+
+            <input formControlName="phoneNumber" id="phoneNumber" type="text" class="rectangle-13"
+              [placeholder]="'landingPage.mobileNumber' | translate" />
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'Validation.ThisFieldIsRequired' | translate,
+              control: userModalForm.controls['phoneNumber']
+          }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+             validation: 'pattern',
+             message: 'Validation.MobileNumberIsInValid' | translate,
+             control: userModalForm.controls['phoneNumber']
+           }"></ng-container>
+          </div>
+          <div class="email">
+            <div class="div27">{{ "landingPage.email" | translate }}</div>
+
+            <input formControlName="email" id="email" type="text" class="rectangle-15"
+              [placeholder]="'landingPage.email' | translate" />
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'Validation.ThisFieldIsRequired' | translate,
+              control: userModalForm.controls['email']
+          }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+             validation: 'pattern',
+             message: 'Validation.EmailIsInValid' | translate,
+             control: userModalForm.controls['email']
+           }"></ng-container>
+          </div>
+          <div class="name2 mb-4">
+            <div class="div27">{{ "landingPage.message" | translate }}</div>
+            <textarea class="rectangle-12" formControlName="message"
+              [placeholder]="'landingPage.messagePlaceHolder' | translate"></textarea>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'Validation.ThisFieldIsRequired' | translate,
+              control: userModalForm.controls['message']
+          }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+            validation: 'pattern',
+            message: 'Validation.donotContainSpecialChar' | translate,
+            control: userModalForm.controls['message']
+        }"></ng-container>
+          </div>
+          <div class="row mt-3">
+            <div class="col-sm-12 mb-2">
+              <div >
+              <re-captcha  formControlName="recaptcha"></re-captcha>
+              </div>
+              <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'Validation.ThisFieldIsRequired' | translate,
+                control: userModalForm.controls['recaptcha']
+            }"></ng-container>
+            </div>
+          </div>
+          <div class="send-btn mb-5" role="button" (click)="addContact()">
+            <div class="div34">{{ "landingPage.send" | translate }}</div>
+          </div>
+          <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+            <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+              <div class="fv-plugins-message-container">
+                <div class="fv-help-block">
+                  <span role="alert">
+                    {{ message }}
+                  </span>
+                </div>
+              </div>
+            </ng-container>
+          </ng-template>
+        </div>
+      </form>
+      <div class="line-53"></div>
+    </div>
+
+    <div class="footerRightdiv mb-5 mt-5">
+      {{ "landingPage.product" | translate }}
+      <!-- <img class="footerRightremovebg-preview-13" width="100px" height="100px" src="/assets/imgs/RightWayLogo.svg" /> -->
+    </div>
+  </section>
+</div>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="line-scale-pulse-out-rapid"
+  [fullScreen]="true">
+  <p style="color: white"></p>
+</ngx-spinner>

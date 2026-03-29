@@ -1,0 +1,103 @@
+<section class="notification-container container">
+  <div class="d-flex gap-5">
+    <div class="title mt-5 pt-2">
+      <h2>{{ "notificationComponent.Notification" | translate }}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 my-3 ">
+      <div class="iput-sec">
+        <input onfocus="(this.type='date') " class="form-control date" ngbDatepicker #d="ngbDatepicker" aria-label=""
+          id="date1" [(ngModel)]="dateText1" (change)="page = 1; getUserAllNotifications(); returnType($event)"
+          data-toggle="tooltip" data-placement="bottom" title=" enter the start date "
+          [placeholder]="'notificationComponent.fromDate' | translate" />
+        <img class="px-2" src="assets/imgs/zalol/date.svg" />
+      </div>
+    </div>
+    <div class="col-lg-4 my-3">
+      <div class="iput-sec">
+        <input onfocus="(this.type='date')" class="form-control date" ngbDatepicker #d="ngbDatepicker" aria-label=""
+          [(ngModel)]="dateText2" (change)="page = 1; getUserAllNotifications()" data-toggle="tooltip"
+          data-placement="bottom" title=" enter the end date " [placeholder]="'notificationComponent.toDate' | translate" />
+        <img class="px-2" src="assets/imgs/zalol/date.svg" />
+      </div>
+    </div>
+  </div>
+
+  <div class="content content-style">
+    <div class="row justify-content-between row-content">
+      <div class="col-lg-12 mt-4">
+        <div class="row px-5">
+          <div role="button" class="col-lg-2 my-1 mx-2" [ngClass]="
+              All === this.theNotificationRead.All
+                ? 'notification-all'
+                : 'notification-unRead'
+            " (click)="
+              All = this.theNotificationRead.All; getUserAllNotifications()
+            ">
+            {{'notificationComponent.all'|translate}}
+          </div>
+          <div class="col-lg-2 my-1 mx-2" role="button" [ngClass]="
+              All === this.theNotificationRead.UnReaded
+                ? 'notification-all'
+                : 'notification-unRead'
+            " (click)="
+              All = this.theNotificationRead.UnReaded; getUserAllNotifications()
+            ">
+                {{'notificationComponent.unRead'|translate}}
+           
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="notification-text">
+              <div *ngIf="allNotifications.length === 0">
+                <img style="
+                    text-align: center;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 4%;
+                    max-width: 250px;
+                  " src="assets/imgs/zalol/noData.svg" />
+
+                <h1 class="titleNoData" style="text-align: center; padding-top: 15px">
+                  {{ "userManagement.NotFound" | translate }}
+                </h1>
+              </div>
+
+              <ul class="notification-lists">
+                <li  [ngClass]="{'isused': !Notification.isUsed}"
+                  *ngFor="let Notification of allNotifications; index as i">
+                  <span style="width: 30px;" *ngIf="Notification.isUsed"></span>
+                  <span class="rounded" [ngClass]="{'read': !Notification.isUsed}"></span>
+                  <div class="notif-div">
+                    <img class="notif-img" src="assets/imgs/zalol/mercedesRed.svg" alt="" srcset="" />
+                  </div>
+
+                  <a (click)="openUserMangment(Notification)">
+                    <p style="color: gray" class="d-inline-block">
+                      <span class="d-block" style="color: black">
+                        {{ Notification.title }}
+                      </span>
+                      {{ Notification.details }}
+                      <span class="d-block">
+                        {{ Notification.date | date }}</span>
+                    </p>
+                  </a>
+                </li>
+              </ul>
+              <!--  -->
+              <div class="pagi-sec">
+                <ngb-pagination [collectionSize]="totalCount" [(page)]="page" [pageSize]="pageSize" [maxSize]="15"
+                  (pageChange)="getUserAllNotifications()" class="pagination p-0 my-4 d-flex justify-content-center">
+                </ngb-pagination>
+              </div>
+              <!--  -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+body[dir="rtl"] {
+  font-family: 'IBM Plex Sans Arabic', sans-serif !important;
+
+  .page-content {
+    font-family: 'IBM Plex Sans Arabic', sans-serif !important;
+  }
+
+  .request-details .page-content .order-steps .step-card.one::after {
+    right: unset !important;
+    left: 0 !important;
+  }
+  .request-details .page-content .order-steps .step-card.three::after {
+    left: unset !important;
+    right: 0 !important;
+}
+
+  .landing-page .contact-page .content-sec section header h4::after {
+    left: unset !important;
+    right: 0 !important;
+  }
+
+  .user-management .page-title h2 a img {
+    transform: scale(-1, 1);
+  }
+
+  @media (min-width: 992px) {
+    .profile-view .page-content .user-info .main-info {
+      border-right: 0px solid #BCBCBC !important;
+      border-left: 1px solid #BCBCBC;
+    }
+  }
+
+  .form-check {
+    padding-right: 2.25rem !important;
+  }
+
+  .form-check .form-check-input {
+    float: revert;
+    margin-right: -2.25rem;
+    margin-left: 0 !important;
+  }
+
+  .agent-registration {
+    background-image: url('/assets/imgs/Rectangle.png');
+    // background-image: url('../assets/imgs/Rectangle.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  }
+
+  .form-check-label {
+    margin-right: 15px;
+  }
+
+  @media (min-width: 992px) {
+    .app-sidebar {
+      left: unset !important;
+      right: 0;
+    }
+
+    .app-header {
+      position: inherit !important;
+    }
+  }
+
+  .folder.ds {
+    right: unset !important;
+    left: 0;
+  }
+
+  .input-group-text {
+    right: unset !important;
+    left: 0;
+  }
+
+  .profile-view .page-content .user-info .main-info .user-img .view-img button {
+    right: unset !important;
+    left: 7px !important;
+  }
+
+  .profile-view .page-content .user-info .action-edit-btn {
+    right: unset !important;
+    left: 0 !important;
+  }
+
+  .page-content .form-content .form-group .form-check label.sd,
+  .page-content .form-content .form-group .form-check label {
+    margin-right: 41px !important;
+  }
+
+  .page-content .form-content .form-group .form-check label.sd.ff,
+  label.sd.ff {
+    margin-right: 20px !important;
+  }
+
+  .navbar .dropdown-menu {
+    left: 0 !important;
+    right: unset;
+  }
+
+  .page-content .form-content .form-group .form-check label.ng {
+    margin-right: 11px !important;
+  }
+
+  @media (min-width: 992px) {
+    .profile-view .page-content .facility-info.border-sec {
+      border-left: 1px solid #BCBCBC;
+      padding-left: 16px;
+      border-right: unset !important;
+      padding-right: unset !important;
+    }
+  }
+
+  .search-top .input-img button {
+    right: unset !important;
+    left: 14px;
+  }
+
+  .search-top .form-select,
+  .form-select {
+    padding: 0.775rem 1rem 0.775rem 3rem;
+    background-position: left 1rem center;
+  }
+
+
+
+  .app-header {
+    z-index: 100;
+    position: fixed !important;
+    left: unset;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .app-sidebar-toggle.btn.btn-icon.btn-shadow.btn-sm {
+    left: 0 !important;
+    right: unset;
+  }
+
+  .payment-package .page-content .payment-card .body ul li img {
+    transform: unset !important;
+  }
+
+  .profile-page .page-title h2 a img {
+    transform: scaleX(-1);
+  }
+
+  .page-content .form-content .form-group .password-input button {
+    right: unset !important;
+    left: 0 !important;
+  }
+
+  .input-container .dropdown__items {
+    left: unset !important;
+    right: 0 !important;
+  }
+
+  .profile-view .page-title h3 a svg {
+    transform: scale(-1, 1);
+  }
+
+  .input-container input {
+    margin: 0;
+  }
+
+  .agent-registration .page-title button svg {
+    transform: unset !important;
+  }
+
+  // .change-pass-sec .form-control.is-valid {
+  //   background-position: left calc(2.375em + 0.3875rem) center !important;
+  // }
+
+  .cameraSection {
+    right: -42px !important;
+  }
+
+  .page-content .pass-sec .input-group-text {
+    right: unset !important;
+    left: 6px !important;
+  }
+
+  .form-gro .btn-info.ar-btn-icon {
+    right: unset !important;
+    left: 0 !important;
+  }
+
+  .form-wizard .form-check label {
+    margin-left: 0 !important;
+    margin-right: 51px;
+  }
+
+  .multiselect-dropdown .dropdown-btn {
+    display: flex !important;
+  }
+
+  .multiselect-dropdown .dropdown-btn .dropdown-multiselect__caret {
+    right: unset !important;
+    left: 1px !important;
+  }
+
+  .multiselect-item-checkbox input[type=checkbox]+div:before {
+    left: unset;
+    right: 0;
+  }
+
+  .multiselect-item-checkbox input[type=checkbox]+div {
+    padding-left: 0;
+    text-align: start;
+    padding-right: 2rem;
+  }
+
+  .login-page .body-size .form-control {
+    padding-right: 10px !important;
+  }
+  .login-page .form-control.is-valid {
+    background-position: left calc(0.375em + 2.3875rem) center;
+  }
+
+
+  .requests-page .page-content article .search-btn {
+
+    i {
+
+      left: 10px !important;
+      right:auto !important;
+    }
+  }
+}
+
+
+// body[dir="rtl"]{
+//   .page-content {
+//     font-family: 'IBM Plex Sans Arabic', sans-serif !important;
+//   }
+// }

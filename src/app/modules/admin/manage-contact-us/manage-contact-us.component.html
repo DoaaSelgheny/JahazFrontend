@@ -1,0 +1,82 @@
+<section class="requests-page" >
+  <div class="container">
+    <div class="page-title">
+      <header>
+        <h4>{{ "sideMenue.contactUs" | translate }}</h4>
+      </header>
+    </div>
+    <div class="page-content">
+      <article>
+        <div class="table-responsive mt-10">
+         
+          <table class="table align-middle table-striped gs-0 gy-4" >
+            <!-- begin::Table head -->
+            <thead>
+              <tr class="text-center">
+                <th class="min-w-95px">{{ "users.userName" | translate }}</th>
+                <th class="min-w-125px">{{ "userManagement.Email" | translate }}</th>
+                <th class="min-w-125px">{{ "contactUs.phoneNumber" | translate }}</th>
+                <th class="min-w-125px">{{ "ContactUs.TimeAndDate" | translate }}</th>
+                <th class="min-w-125px">{{ "ContactUs.MessageStatus" | translate }}</th>
+                <th class="min-w-125px">{{ "ContactUs.Message" | translate }}</th>
+                <th class="min-w-125px">{{ "ContactUs.Details" | translate }}</th>
+                </tr>
+            </thead>
+            <!-- end::Table head -->
+            <!-- begin::Table body -->
+
+            <tbody>
+              <tr class="text-center" *ngFor="let item of AllData" >
+                <td>{{ item.name??'-' }}</td>
+                <td>{{ item.email??'-' }}</td>
+
+                <td>
+                  <bdi>+{{item.countryCode??'-' }} {{ item.phoneNumber??'-' }}</bdi>
+             </td>
+                  <td>{{item.date |dateDifference| date:"dd.MM.yyyy" }}
+                    <br>
+                   {{item.date | dateDifference| date:"hh:mm a"}}
+                   </td>
+
+                <td>
+                  <select  [(ngModel)]="item.status" (change)="onStatusChange($event,item.id)">
+                    <option [value]="ContactUsMessageStatus.New">
+                      {{ 'STATUS.NEW' | translate }}
+                    </option>
+                    <option [value]="ContactUsMessageStatus.InProgress">
+                      {{ 'STATUS.INPROGRESS' | translate }}
+                    </option>
+                    <option [value]="ContactUsMessageStatus.closed">
+                      {{ 'STATUS.CLOSED' | translate }}
+                    </option>
+                  </select>
+                </td>
+                
+                <td>
+                  <p>
+                    {{ item.message.length <= 15 ? item.message : item.message.slice(0, 15)  }} 
+                    <br>
+
+                    <a *ngIf="item.message.length > 40 " href="javascript:void(0);" (click)="openModal(item)">{{"cashier.more" | translate}} </a>
+                  </p>
+                  </td>
+                  <td role="button" (click)="viewUserModal(item)" ><i class="fa fa-eye"></i></td>
+              </tr>
+            </tbody>
+            <!-- end::Table body -->
+          </table>
+          <div class="pagi-sec">
+            <p *ngIf="AllData?.length !== 0">
+              {{ "requests.total" | translate }}:{{ totalCount }}
+            </p>
+            <ngb-pagination *ngIf="AllData?.length !== 0" class="pagination p-0 my-4 d-flex justify-content-center"
+              [collectionSize]="totalCount" [(page)]="page" [pageSize]="pageSize" (pageChange)="getAllMessage()">
+            </ngb-pagination>
+          </div>
+          <!-- end::Table -->
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+

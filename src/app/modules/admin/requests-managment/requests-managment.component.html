@@ -1,0 +1,61 @@
+<section class="requests-page">
+  <div class="container">
+    <div class="page-title">
+      <header>
+        <h3> {{"requests.orderMenue"|translate}}</h3>
+      </header>
+    </div>
+    <div class="page-content">
+      <article>
+        <div class="btns-tab">
+          <button [ngClass]="{'active': this.filterObj.orderStatus===orderStatus.Pending}" 
+          (click)="changeTab(orderStatus.Pending)" > {{"requests.orderNew"|translate}}</button>
+          <button [ngClass]="{'active': this.filterObj.orderStatus===orderStatus.Active}"
+           (click)="changeTab(orderStatus.Active)">{{"requests.orderActive"|translate}}</button>
+          <button [ngClass]="{'active': this.filterObj.orderStatus===orderStatus.Closed}"
+           (click)="changeTab(orderStatus.Closed)"> {{"requests.orderClosed"|translate}}</button>
+          <button [ngClass]="{'active': this.filterObj.orderStatus===orderStatus.Declined}"
+           (click)="changeTab(orderStatus.Declined)"> {{"requests.orderDeclined"|translate}}</button>
+        </div>
+        <div class="tabs-content">
+          <div class="search-btn">
+            <input [(ngModel)]="searchText" class="form-control" type="text" [placeholder]="'requests.searchtxt'| translate" (keyup)="page=1;getAllOrderData()">
+            <i class="bi bi-search"></i>
+          </div>
+          <div class="cards-section">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-5" *ngFor="let row of allOrders">
+                <div class="request-card">
+                  <div class="info">
+                    <h3>{{row.created_at | date: 'hh:mm'}}</h3>
+                    <p>{{row.created_at | date: 'a'}}</p>
+                    <button (click)="requestDetails(row.reference)">{{"requests.detail"|translate}}</button>
+                  </div>
+                  <div class="details">
+                    <h4>{{row.car.number}}</h4>
+                    <h4>{{row.car.type}}</h4>
+                    <p>
+                      <img src="/assets/imgs/Mercedes.svg" alt="">
+                      {{row.car.model}} , {{row.car.color}} 
+                    </p>
+                    <span>#{{row.reference}}</span>
+                  </div>
+                </div>
+              </div>
+
+              <ngb-pagination
+              [collectionSize]="totalCount"
+              [(page)]="page"
+              [pageSize]="pageSize"
+              [maxSize]="15"
+              (pageChange)="getAllOrderData()"
+              class="pagination p-0 my-4 d-flex justify-content-center"
+            >
+            </ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

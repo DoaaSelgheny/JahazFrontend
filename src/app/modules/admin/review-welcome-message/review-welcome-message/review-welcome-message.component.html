@@ -1,0 +1,123 @@
+<section class="requests-page" [ngClass]="{ 'mt-20': !isFullScreen }">
+  <div [ngClass]="{ container: !isFullScreen }">
+    <div class="page-content">
+      <article>
+        <div
+          class="header-message"
+          [ngStyle]="{ 'background-color': data?.color ?? '#a02220' }"
+        >
+          <img
+            class="mt-5"
+            [src]="data?.logoUrl ?? 'assets/imgs/logo-white.svg'"
+            height="100px"
+            width="150px"
+          />
+        </div>
+        <div
+          class="message mt-10"
+          [ngStyle]="{ color: data?.color ?? '#af2724' }"
+        >
+          {{ data?.welcomeMessage }}
+        </div>
+        <div class="user mt-10">{{ latestNotification?.car.fullName }}</div>
+        <div class="row mt-10">
+          <div class="col-4 d-flex-column info">
+            <div
+              class="title mb-3"
+              [ngStyle]="{ color: data?.color ?? 'rgba(0, 0, 0, 0.47)' }"
+            >
+              لوحة سيارتك
+            </div>
+            <div class="box" *ngIf="!latestNotification">-----</div>
+            <div class="box" *ngIf="latestNotification">
+              {{ latestNotification?.car.carNumber }}
+            </div>
+          </div>
+          <div class="col-4 d-flex-column info">
+            <div
+              class="title mb-3"
+              [ngStyle]="{ color: data?.color ?? 'rgba(0, 0, 0, 0.47)' }"
+            >
+              تاريخ اخر زياره لك
+            </div>
+            <div class="box" *ngIf="!latestNotification">-----</div>
+
+            <div *ngIf="latestNotification?.order" class="box">
+              {{
+                latestNotification?.order?.created_at
+                  | dateDifference
+                  | date : "dd.MM.yyyy"
+              }}
+              <br />
+              {{
+                latestNotification?.order?.created_at
+                  | dateDifference
+                  | date : "hh:mm a"
+              }}
+            </div>
+            <span class="box" *ngIf="latestNotification && latestNotification?.order === null">لايوجد</span>
+          </div>
+          <div class="col-4 d-flex-column info">
+            <div
+              class="title mb-3"
+              [ngStyle]="{ color: data?.color ?? 'rgba(0, 0, 0, 0.47)' }"
+            >
+              اخر طلب لك عندنا
+            </div>
+
+            <div class="box-coffee" *ngIf="latestNotification">
+              <img
+                *ngIf="latestNotification?.order"
+                class="mt-5 rounded-circle"
+                [src]="
+                  latestNotification?.order?.products[0].product.image ??
+                  'assets/home/Ellipse55.png'
+                "
+                height="90px"
+                width="90px"
+              />
+              <span class="box" *ngIf="latestNotification && latestNotification?.order === null ">لا يوجد</span>
+              <div class="mt-1">
+                <h6>
+                  {{ latestNotification?.order?.products[0].product.name }}
+                </h6>
+              </div>
+            </div>
+            <div class="box" *ngIf="!latestNotification">-----</div>
+          </div>
+        </div>
+        <div class="row mt-7 ms-3 me-3 img-product">
+          <img [src]="data?.menuUrl" />
+        </div>
+        <div class="page-action mt-7" *ngIf="!isFullScreen">
+          <button type="su bmit" class="">
+            <a
+              class="text-white"
+              target="_blank"
+              routerLink="/welcome/{{ data.id }}"
+            >
+              {{ "welcomeMessage.Approval" | translate }}</a
+            >
+          </button>
+          <button type="button" class="" (click)="redirect()">
+            {{ "welcomeMessage.back" | translate }}
+          </button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<div class="whatsapp" *ngIf="isFullScreen">
+  <a (click)="toggleFullscreen()">
+    <i class="fas fa-expand-arrows-alt"></i>
+  </a>
+</div>
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="line-scale-pulse-out-rapid"
+  [fullScreen]="true"
+>
+  <p style="color: white"></p>
+</ngx-spinner>

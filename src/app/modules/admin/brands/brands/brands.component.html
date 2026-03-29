@@ -1,0 +1,94 @@
+<section class="requests-page" *ngIf="showPage">
+	<div class="container">
+		<div class="page-title">
+			<header>
+				<h4>{{ "brands.brands" | translate }}</h4>
+			</header>
+
+		</div>
+		<div class="page-content">
+			<article>
+
+				<div class="table-responsive mt-10">
+					<!-- begin::Table -->
+					<div *ngIf="brands.length === 0">
+						<img style="
+				  text-align: center;
+				  display: block;
+				  margin-left: auto;
+				  margin-right: auto;
+				  margin-top: 10%;
+				  max-width: 250px;
+				" src="assets/imgs/zalol/noData.svg" />
+
+						<h1 class="titleNoData" style="text-align: center; padding-top: 15px">
+							{{ "userManagement.NotFound" | translate }}
+						</h1>
+					</div>
+					<table class="table align-middle table-striped gs-0 gy-4" *ngIf="brands.length > 0">
+						<!-- begin::Table head -->
+						<thead>
+							<tr class="text-center">
+
+								<th class="min-w-125px">{{ "brands.brandName" | translate }}</th>
+
+								<th *ngIf="currentUser?.roles[0] === roles.ThalolSuperAdmin" class="min-w-125px">{{ "brands.state" | translate }}</th>
+
+								<th class="min-w-125px"  *ngIf="hasAccess">{{ "brands.foodics" | translate }}</th>
+
+								<th class="min-w-125px"  *ngIf="hasAccess">{{ "brands.action" | translate }}</th>
+
+
+						</tr>
+						</thead>
+						<!-- end::Table head -->
+						<!-- begin::Table body -->
+
+						<tbody>
+							<tr class="text-center" *ngFor="let item of brands">
+
+								<td>{{ item.name??'-' }}</td>
+
+								<td *ngIf="currentUser?.roles[0] === roles.ThalolSuperAdmin">
+                                    <div class="form-check form-switch p-0 d-flex justify-content-center align-items-center ">
+										<label class="switch form-check-label " [for]="item.id" style="margin-left: 75px;margin-right: 75px;">
+											<input (change)="changState(item)" class="form-check-input"
+												type="checkbox"[checked]="item.state === activationState.Active"
+												[id]="item.id" role="button"/>
+											<span class="slider round"></span>
+										</label>
+									</div>
+								</td>
+                <!-- <td *ngIf="hasAccess">
+                  <a *ngIf="item.accessToken" role="button" (click)="openFoodics(item.id,item.accessToken,item.integrationWay,'view')">{{"brands.click"|translate}}</a>
+                  <p  *ngIf="!item.accessToken">-</p>
+                </td> -->
+
+                <td>{{IntegrationWay[item?.integrationWay]??'-' }}</td>
+
+                <td *ngIf="hasAccess">
+<i class="fa-solid fa-pen" role="button"
+  (click)="openFoodics(item.id, item.accessToken, item.integrationWay, 'add', item.host, item.password)">
+</i>
+                  <!-- <i class="fa-solid fa-plus mx-4" role="button" (click)="openFoodics(item.id,item.accessToken,item.integrationWay, 'add')"></i> -->
+                </td>
+
+								</tr>
+						</tbody>
+						<!-- end::Table body -->
+					</table>
+					<div class="pagi-sec">
+						<p *ngIf="brands?.length !== 0">
+							{{ "users.total" | translate }}:{{ totalCount }}
+						</p>
+						<ngb-pagination *ngIf="brands?.length !== 0"
+							class="pagination p-0 my-4 d-flex justify-content-center" [collectionSize]="totalCount"
+							[(page)]="page" [pageSize]="pageSize" (pageChange)="getBrands()">
+						</ngb-pagination>
+					</div>
+					<!-- end::Table -->
+				</div>
+			</article>
+		</div>
+	</div>
+</section>

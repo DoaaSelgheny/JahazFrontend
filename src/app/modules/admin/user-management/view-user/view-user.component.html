@@ -1,0 +1,89 @@
+<div class="modal-header">
+	<button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="title text-center">{{ "users.viewUser" | translate }}</div>
+<div class="modal-body mb-10">
+	<div class="row">
+		<div class="col-12">
+			<div class="d-flex flex-column px-10 mt-5">
+				<p>
+					#{{data.customerNo??'-'}}</p>
+
+			</div>
+		</div>
+
+		<!-- <div class="col-6">
+			<div class="d-flex flex-column px-10 mt-5">
+				<label> <img width="25px" src="assets/imgs/zalol/user/car.svg"> {{ "users.carNumber" | translate
+					}}</label>
+				<span class="mt-3 px-6"> {{data.carNumber}}</span>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="d-flex flex-column px-10 mt-5">
+				<label><img width="25px" src="assets/imgs/zalol/user/car.svg"> {{ "users.carMake" | translate }}</label>
+				<span class="mt-3 px-6"> {{data.carMake}}</span>
+			</div>
+		</div> -->
+		<!-- <div class="col-6">
+			<div class="d-flex flex-column px-10 mt-5">
+				<label> <img width="25px" src="assets/imgs/zalol/user/user n.svg"> {{ "users.carColor" | translate
+					}}</label>
+				<span class="mt-3 px-6"> {{data.carColor}}</span>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="d-flex flex-column">
+				<div class="d-flex flex-column px-10 mt-5">
+					<label> <img width="25px" src="assets/imgs/zalol/user/car.svg"> {{ "users.carYear" | translate }}
+					</label>
+					<span class="mt-3 px-6"> {{data.carYear}}</span>
+				</div>
+			</div> -->
+		<!-- </div> -->
+		<div class="col-sm-6 col-12">
+			<div class="d-flex flex-column px-10 mt-5">
+				<label><img width="25px" src="assets/imgs/zalol/user/user.svg"> {{ "users.userName" | translate
+					}}</label>
+				<span class="mt-3 px-4">{{userData?.fullName ??'-'}} </span>
+			</div>
+		</div>
+		<div class="col-sm-6 col-12">
+			<div class="d-flex flex-column px-10 mt-5">
+				<label><img width="25px" src="assets/imgs/zalol/user/mail.svg"> {{ "users.phoneNumber" | translate
+					}}</label>
+				<span class="mt-3 px-6"> {{userData?.phoneNumber ??'-'}}</span>
+			</div>
+		</div>
+		<div class="col-12 mt-5  table-responsive">
+			<table class="table">
+				<thead>
+					<th class="min-w-100px text-center">{{ "users.carNumber" | translate}}</th>
+					<th class="min-w-100px text-center">{{ "users.carMake" | translate}}</th>
+					<th class="min-w-100px text-center">{{ "users.carColor" | translate}}</th>
+					<th class="min-w-100px text-center">{{ "users.carMakeModel" | translate}}</th>
+					<!-- <th class="min-w-100px text-center">{{ "users.branch" | translate}}</th> -->
+					<th class="min-w-100px text-center">{{ "users.date" | translate}}</th>
+					<th class="min-w-100px text-center">{{ "users.carYear" | translate}}</th>
+				</thead>
+
+				<tbody>
+					<tr *ngFor="let data of userData?.cars">
+						<td class="text-center">{{data.carNumber ??'-'}}</td>
+						<td class="text-center">{{data.carMake ??'-'}}</td>
+						<td class="text-center">{{data.carColor ??'-'}}</td>
+						<td class="text-center">{{data.carMakeModel??'-'}}</td>
+						<!-- <td class="text-center" *ngIf="data.branches?.length">{{data.branches[0].branch}}</td>
+						<td class="text-center" *ngIf="data.branches?.length===0"> <span class="me-10 ms-10">- </span></td> -->
+						<td class="text-center"> {{data.dateTime |dateDifference| date:"dd.MM.yyyy"}}
+							<br>
+							{{data.dateTime | dateDifference| date:"hh:mm a"}}
+						</td>
+						<td class="text-center">{{data.carYear ??'-'}}</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+</div>

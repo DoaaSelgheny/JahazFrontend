@@ -1,0 +1,140 @@
+.requests-page {
+	margin-top: 75px;
+
+	.page-title {
+		display: flex;
+		justify-content: space-between;
+
+		header {
+			h4 {
+				color: #000;
+				font-size: 20px;
+				font-weight: 600;
+			}
+		}
+		@media (max-width:400px) {
+			display: block;
+			margin:15px auto
+		}
+	}
+
+	.page-content {
+		article {
+			.btns-tab {
+				margin-top: 20px;
+
+				button {
+					border-radius: 10px 10px 0px 0px;
+					border: 1px solid #F4F4F4;
+					color: #B7B7B7;
+					background: #FFF;
+					padding: 12px 5px;
+					font-weight: 500;
+					min-width: 130px;
+
+					&.active {
+						background: #F4F4F4;
+						color: #9B403E;
+					}
+
+				}
+			}
+
+
+
+			.search-btn {
+				// border-radius: 5px;
+				// border: 1px solid #E7E7E7;
+				// background: #FFF;
+				// display: flex;
+				// align-items: center;
+				// max-width: 355px;
+				position: relative;
+				input {
+					// border: none;
+					font-weight: 400;
+				}
+
+				i {
+					position: absolute;
+					top: 42%;
+					right: 10px;
+					color: #9B403E;
+				}
+			}
+
+			// .table tr:first-child{
+			//   background-color: #9B403E;
+			// }
+			thead tr {
+				font-weight: 700;
+				font-size: 14px;
+
+			}
+		}
+	}
+}
+
+tr {
+	height: 50px !important
+}
+
+th {
+	background-color: #FBFBFB;
+
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+	--bs-table-accent-bg: #F3F3F3 !important;
+	color: black;
+}
+
+.titleNoData {
+
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 21px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: rgba(137, 137, 137, 1);
+}
+
+.addbutton {
+	border-radius: 20px;
+	color: white;
+	background: rgb(150, 59, 58);
+	border: 0px;
+	@media (max-width:400px) {
+		margin-top:15px;
+	}
+}
+.the-search{
+	color: rgb(150, 59, 58);
+	font-size: 18px;
+	font-weight: 500;
+}
+.my-search-btn{
+	margin-top: 10px;
+	width: 70px !important;
+    height: 29px;
+}
+.camera-No{
+	color:var(--bs-link-color);
+	text-decoration: underline;
+}
+::ng-deep{
+	.multiselect-dropdown .dropdown-btn {
+	// line-height: 2.5 !important;
+	// color:hsla(0, 0%, 5%, 0.301);
+	color: #A1A5B7;
+	font-size: 15px;
+  }
+  .multiselect-dropdown .dropdown-btn .dropdown-multiselect__caret {
+	top:9px
+  }
+}
+td {
+  a {
+    color:#5C85EE;
+  }
+}
