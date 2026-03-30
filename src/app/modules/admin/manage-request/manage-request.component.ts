@@ -41,6 +41,25 @@ export class ManageRequestComponent implements OnInit {
     this.getData();
   }
 
+
+toggleMenu(selectedItem: any) {
+  this.data.forEach(item => {
+    item.isOpen = item === selectedItem ? !item.isOpen : false;
+  });
+}
+
+viewDetails(item: any) {
+  console.log('Details:', item);
+}
+
+viewImages(item: any) {
+  console.log('Images:', item);
+}
+
+
+
+
+
   getData() {
     this.spinner.show();
     const startIndex = (this.page - 1) * this.pageSize;
@@ -65,13 +84,13 @@ export class ManageRequestComponent implements OnInit {
       modalRef.componentInstance.notificationID = row.notificationId;
       modalRef.componentInstance.cameraNumber = row.cameraNumber;
       modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
-        
+
         if (receivedEntry === true) {
           this.getData();
         }
       });
-   
-    
+
+
   }
   initFilterObj() {
     return {

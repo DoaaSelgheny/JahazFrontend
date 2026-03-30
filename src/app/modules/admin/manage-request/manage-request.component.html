@@ -1,181 +1,205 @@
 <section class="requests-page">
-	<div class="container">
+  <div class="container">
 
-		<!-- <div class="page-title">
+    <!-- <div class="page-title">
 			<header>
 				<h4>{{ "sideMenue.record" | translate }}</h4>
 			</header>
 
 		</div> -->
 
-<div class="vehicles-page">
+    <div class="vehicles-page">
 
-  <!-- Header -->
-  <div class="page-header">
-    <div>
-      <h2>Vehicles</h2>
-      <p>Monitor and manage all truck visit records in real-time</p>
+      <!-- Header -->
+      <div class="page-header">
+        <div>
+          <h2>Vehicles</h2>
+          <p>Monitor and manage all truck visit records in real-time</p>
+        </div>
+
+        <button class="export-btn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10"
+              stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4.66663 6.66663L7.99996 9.99996L11.3333 6.66663" stroke="white" stroke-width="1.33333"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8 10V2" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+
+          Export CSV
+        </button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-info">
+            <h3>Active Visits</h3>
+            <h2>347</h2>
+            <span class="danger">
+              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_10_431)">
+                  <path d="M8.00649 7.81968L4.91307 4.72626L3.0934 6.54592L0.727844 4.18036" stroke="#EC003F"
+                    stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M5.82294 7.81964H8.00653V5.63605" stroke="#EC003F" stroke-width="0.727865"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_10_431">
+                    <rect width="8.73438" height="12" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <span class="px-1">
+                <span class="sale">3%</span> vs last week</span>
+
+            </span>
+          </div>
+          <div class="icon orange p-3">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 29.3333C23.3638 29.3333 29.3334 23.3638 29.3334 16C29.3334 8.63616 23.3638 2.66663 16 2.66663C8.63622 2.66663 2.66669 8.63616 2.66669 16C2.66669 23.3638 8.63622 29.3333 16 29.3333Z"
+                stroke="#E17100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M16 10.6666V17.9966" stroke="#E17100" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M16 21.3333H16.0133" stroke="#E17100" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <h3>Completed</h3>
+            <h2>61</h2>
+            <span class="danger">
+              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_10_431)">
+                  <path d="M8.00649 7.81968L4.91307 4.72626L3.0934 6.54592L0.727844 4.18036" stroke="#EC003F"
+                    stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M5.82294 7.81964H8.00653V5.63605" stroke="#EC003F" stroke-width="0.727865"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_10_431">
+                    <rect width="8.73438" height="12" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <span class="px-1">
+                <span class="sale">3%</span> vs last week</span>
+
+            </span>
+          </div>
+          <div class="icon green p-3">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 29.3333C23.3638 29.3333 29.3333 23.3638 29.3333 16C29.3333 8.63616 23.3638 2.66663 16 2.66663C8.63616 2.66663 2.66663 8.63616 2.66663 16C2.66663 23.3638 8.63616 29.3333 16 29.3333Z"
+                stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M11.7578 16L15.0911 20L21.7578 12" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <h3>Avg. Stay Time</h3>
+            <h2>2.4h</h2>
+            <span class="danger">
+              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_10_431)">
+                  <path d="M8.00649 7.81968L4.91307 4.72626L3.0934 6.54592L0.727844 4.18036" stroke="#EC003F"
+                    stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M5.82294 7.81964H8.00653V5.63605" stroke="#EC003F" stroke-width="0.727865"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_10_431">
+                    <rect width="8.73438" height="12" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <span class="px-1">
+                <span class="sale">3%</span> vs last week</span>
+
+            </span>
+          </div>
+          <div class="icon purple p-3">
+            <svg width="25" height="25" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 29.3333C23.3638 29.3333 29.3333 23.3638 29.3333 16C29.3333 8.63616 23.3638 2.66663 16 2.66663C8.63616 2.66663 2.66663 8.63616 2.66663 16C2.66663 23.3638 8.63616 29.3333 16 29.3333Z"
+                stroke="#7F22FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M13.0078 10V18L18.3411 20.6667" stroke="#7F22FE" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-card">
+        <div class="filters-header">
+          <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5.99978 12C5.99972 12.1239 6.03419 12.2454 6.09931 12.3508C6.16443 12.4561 6.25763 12.5413 6.36845 12.5967L7.70178 13.2634C7.80344 13.3142 7.91641 13.3381 8.02994 13.333C8.14348 13.3278 8.25381 13.2938 8.35047 13.234C8.44712 13.1742 8.52689 13.0907 8.58219 12.9914C8.6375 12.8921 8.6665 12.7803 8.66645 12.6667V8.00002C8.6666 7.66961 8.78942 7.35102 9.01111 7.10602L13.8264 1.78002C13.9128 1.68439 13.9695 1.56581 13.9898 1.43861C14.0102 1.31141 13.9932 1.18104 13.941 1.06327C13.8889 0.945499 13.8037 0.845369 13.6958 0.774988C13.5879 0.704608 13.4619 0.666991 13.3331 0.666687H1.33311C1.20418 0.666734 1.07804 0.704164 0.969946 0.774445C0.861857 0.844725 0.776466 0.94484 0.724116 1.06266C0.671767 1.18048 0.654704 1.31096 0.674996 1.43828C0.695289 1.5656 0.752064 1.68431 0.838447 1.78002L5.65511 7.10602C5.8768 7.35102 5.99963 7.66961 5.99978 8.00002V12Z"
+              stroke="#62748E" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span>Filters</span>
+        </div>
+
+        <div class="filters-body">
+
+          <div class="filter-item search me-5">
+            <label>Search Records</label>
+            <input type="text" placeholder="Search by plate number..." />
+          </div>
+
+          <div class="filter-item  me-1">
+            <label>Plate Color</label>
+            <select>
+              <option>All Colors</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label>Vehicle Type</label>
+            <select>
+              <option>All Types</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label>Status</label>
+            <select>
+              <option>All Statuses</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label>Record Type</label>
+            <select>
+              <option>All Records</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <button class="export-btn">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.66663 6.66663L7.99996 9.99996L11.3333 6.66663" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M8 10V2" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+    <div class="page-content">
+      <article>
 
-      Export CSV
-    </button>
-  </div>
-
-  <!-- Stats -->
-  <div class="stats-cards">
-    <div class="stat-card">
-      <div class="stat-info">
-        <h3>Active Visits</h3>
-        <h2>347</h2>
-        <span class="danger">
-<svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_10_431)">
-<path d="M8.00649 7.81968L4.91307 4.72626L3.0934 6.54592L0.727844 4.18036" stroke="#EC003F" stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M5.82294 7.81964H8.00653V5.63605" stroke="#EC003F" stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_10_431">
-<rect width="8.73438" height="12" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
-<span class="px-1">
-          <span class="sale">3%</span> vs last week</span>
-
-</span>
-      </div>
-      <div class="icon orange p-3">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 29.3333C23.3638 29.3333 29.3334 23.3638 29.3334 16C29.3334 8.63616 23.3638 2.66663 16 2.66663C8.63622 2.66663 2.66669 8.63616 2.66669 16C2.66669 23.3638 8.63622 29.3333 16 29.3333Z" stroke="#E17100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M16 10.6666V17.9966" stroke="#E17100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M16 21.3333H16.0133" stroke="#E17100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-      </div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-info">
-        <h3>Completed</h3>
-        <h2>61</h2>
-        <span class="danger">
-<svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_10_431)">
-<path d="M8.00649 7.81968L4.91307 4.72626L3.0934 6.54592L0.727844 4.18036" stroke="#EC003F" stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M5.82294 7.81964H8.00653V5.63605" stroke="#EC003F" stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_10_431">
-<rect width="8.73438" height="12" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
-<span class="px-1">
-          <span class="sale">3%</span> vs last week</span>
-
-</span>      </div>
-      <div class="icon green p-3">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 29.3333C23.3638 29.3333 29.3333 23.3638 29.3333 16C29.3333 8.63616 23.3638 2.66663 16 2.66663C8.63616 2.66663 2.66663 8.63616 2.66663 16C2.66663 23.3638 8.63616 29.3333 16 29.3333Z" stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M11.7578 16L15.0911 20L21.7578 12" stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-      </div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-info">
-        <h3>Avg. Stay Time</h3>
-        <h2>2.4h</h2>
-        <span class="danger">
-<svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_10_431)">
-<path d="M8.00649 7.81968L4.91307 4.72626L3.0934 6.54592L0.727844 4.18036" stroke="#EC003F" stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M5.82294 7.81964H8.00653V5.63605" stroke="#EC003F" stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_10_431">
-<rect width="8.73438" height="12" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-
-<span class="px-1">
-          <span class="sale">3%</span> vs last week</span>
-
-</span>      </div>
-      <div class="icon purple p-3">
-<svg width="25" height="25" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 29.3333C23.3638 29.3333 29.3333 23.3638 29.3333 16C29.3333 8.63616 23.3638 2.66663 16 2.66663C8.63616 2.66663 2.66663 8.63616 2.66663 16C2.66663 23.3638 8.63616 29.3333 16 29.3333Z" stroke="#7F22FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M13.0078 10V18L18.3411 20.6667" stroke="#7F22FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Filters -->
-  <div class="filters-card">
-    <div class="filters-header">
-<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.99978 12C5.99972 12.1239 6.03419 12.2454 6.09931 12.3508C6.16443 12.4561 6.25763 12.5413 6.36845 12.5967L7.70178 13.2634C7.80344 13.3142 7.91641 13.3381 8.02994 13.333C8.14348 13.3278 8.25381 13.2938 8.35047 13.234C8.44712 13.1742 8.52689 13.0907 8.58219 12.9914C8.6375 12.8921 8.6665 12.7803 8.66645 12.6667V8.00002C8.6666 7.66961 8.78942 7.35102 9.01111 7.10602L13.8264 1.78002C13.9128 1.68439 13.9695 1.56581 13.9898 1.43861C14.0102 1.31141 13.9932 1.18104 13.941 1.06327C13.8889 0.945499 13.8037 0.845369 13.6958 0.774988C13.5879 0.704608 13.4619 0.666991 13.3331 0.666687H1.33311C1.20418 0.666734 1.07804 0.704164 0.969946 0.774445C0.861857 0.844725 0.776466 0.94484 0.724116 1.06266C0.671767 1.18048 0.654704 1.31096 0.674996 1.43828C0.695289 1.5656 0.752064 1.68431 0.838447 1.78002L5.65511 7.10602C5.8768 7.35102 5.99963 7.66961 5.99978 8.00002V12Z" stroke="#62748E" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-      <span>Filters</span>
-    </div>
-
-    <div class="filters-body">
-      <div class="filter-item search">
-        <label>Search Records</label>
-        <input type="text" placeholder="Search by plate number..." />
-      </div>
-
-      <div class="filter-item">
-        <label>Plate Color</label>
-        <select>
-          <option>All Colors</option>
-        </select>
-      </div>
-
-      <div class="filter-item">
-        <label>Vehicle Type</label>
-        <select>
-          <option>All Types</option>
-        </select>
-      </div>
-
-      <div class="filter-item">
-        <label>Status</label>
-        <select>
-          <option>All Statuses</option>
-        </select>
-      </div>
-
-      <div class="filter-item">
-        <label>Record Type</label>
-        <select>
-          <option>All Records</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-		<div class="page-content">
-			<article>
-
-				<div class="table-responsive mt-7">
-					<!-- begin::Table -->
-					<div *ngIf="data.length === 0">
-						<img style="
+        <div class="table-responsive mt-7">
+          <!-- begin::Table -->
+          <div *ngIf="data.length === 0">
+            <img style="
 				  text-align: center;
 				  display: block;
 				  margin-left: auto;
@@ -184,56 +208,193 @@
 				  max-width: 250px;
 				" src="assets/imgs/zalol/noData.svg" />
 
-						<h1 class="titleNoData" style="text-align: center; padding-top: 15px">
-							{{ "userManagement.NotFound" | translate }}
-						</h1>
-					</div>
-					<table class="table align-middle table-striped gs-0 gy-4" *ngIf="data.length > 0">
-						<!-- begin::Table head -->
-						<thead>
-							<tr class="text-center">
-								<th class="min-w-95px">{{ "record.number" | translate }}</th>
-								<th class="min-w-125px">{{ "record.make" | translate }}</th>
-								<th class="min-w-125px">{{ "record.color" | translate }}</th>
-								<th class="min-w-125px">{{ "record.makeModel" | translate }}</th>
-								<th class="min-w-125px">{{ "record.dateTime" | translate }}</th>
-								<th class="min-w-95px">{{ "cashier.actions" | translate }}</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							<tr class="text-center" *ngFor="let item of data">
-								<td>{{ item.number }}</td>
-								<td>
-									{{ item.make}}
-								</td>
-								<td>{{ item.color}}</td>
-								<td>{{ item.makeModel }}</td>
-								<td>
-									{{item.dateTime |dateDifference| date:"dd.MM.yyyy"}}
-									<br>
-									{{item.dateTime | dateDifference| date:"hh:mm a"}}
-								</td>
-								<td role="button" (click)="openUserMangment(item)"><img src="assets\imgs/edit.svg"></td>
-							</tr>
-						</tbody>
-						<!-- end::Table body -->
-					</table>
-					<div class="pagi-sec">
-						<p *ngIf="data?.length !== 0">
-							{{ "users.total" | translate }}:{{ totalCount }}
-						</p>
-						<ngb-pagination *ngIf="data?.length !== 0"
-
-							class="pagination p-0 my-4 d-flex justify-content-center" [maxSize]="15" [collectionSize]="totalCount"
-							[(page)]="page" [pageSize]="pageSize" (pageChange)="getData()">
+            <h1 class="titleNoData" style="text-align: center; padding-top: 15px">
+              {{ "userManagement.NotFound" | translate }}
+            </h1>
+          </div>
+          <table class="table align-middle  gs-0 gy-4" *ngIf="data.length > 0">
+            <!-- begin::Table head -->
+            <thead>
+              <tr class="text-center">
+                <th class="min-w-95px">Plate Number</th>
+                <th class="min-w-125px">Plate Color</th>
+                <th class="min-w-125px">Vehicle Type</th>
+                <th class="min-w-125px">License No.</th>
+                <th class="min-w-125px">Entry Time</th>
+                <th class="min-w-125px">Duration</th>
+                <th class="min-w-125px">Exit Time</th>
+                <th class="min-w-125px">Exit Time</th>
+                <th class="min-w-125px">Status</th>
 
 
-						</ngb-pagination>
-					</div>
-					<!-- end::Table -->
-				</div>
-			</article>
-		</div>
-	</div>
+                <th class="min-w-95px">{{ "cashier.actions" | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="text-center" *ngFor="let item of data">
+                <td>{{ item.number }}</td>
+                <td>
+                  {{ item.make}}
+                </td>
+                <td>
+                  <span class="color-badge" [ngClass]="'badge-' + item.color?.toLowerCase()">
+                    <span class="dot" [ngClass]="item.color?.toLowerCase()"></span>
+                    {{ item.color }}
+                  </span>
+                </td>
+
+                <td>{{ item.makeModel }}</td>
+
+                <!-- <td>
+                  {{item.dateTime |dateDifference| date:"dd.MM.yyyy"}}
+                  <br>
+                  {{item.dateTime | dateDifference| date:"hh:mm a"}}
+                </td> -->
+
+                <td class="date-time">
+                  <div class="date">
+                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2.43225 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M4.86462 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M5.77669 4.56769H1.52018C1.18435 4.56769 0.912109 4.83993 0.912109 5.17576V9.43227C0.912109 9.7681 1.18435 10.0403 1.52018 10.0403H5.77669C6.11252 10.0403 6.38477 9.7681 6.38477 9.43227V5.17576C6.38477 4.83993 6.11252 4.56769 5.77669 4.56769Z"
+                        stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M0.912109 6.39191H6.38477" stroke="#155DFC" stroke-width="0.608073"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    {{ item.dateTime | dateDifference | date:'dd.MM.yyyy' }}
+                  </div>
+
+                  <div class="time">
+                    <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_10_611)">
+                        <path
+                          d="M6 10C7.65685 10 9 8.65685 9 7C9 5.34315 7.65685 4 6 4C4.34315 4 3 5.34315 3 7C3 8.65685 4.34315 10 6 10Z"
+                          stroke="#00A63E" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 5V7.25L7 8" stroke="#00A63E" stroke-width="0.6" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_10_611">
+                          <rect width="9.875" height="14" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    {{ item.dateTime | dateDifference | date:'hh:mm a' }}
+                  </div>
+
+                </td>
+
+
+
+
+                <td class="d-flex align-item-center justify-content-start ">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" rx="4" fill="#ECFDF5" />
+                    <path d="M10.3334 3.66669H13.6667" stroke="#009966" stroke-width="1.66667" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path d="M12 13.6667L14.5 11.1667" stroke="#009966" stroke-width="1.66667" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M12 20.3333C15.6819 20.3333 18.6667 17.3486 18.6667 13.6667C18.6667 9.98477 15.6819 7 12 7C8.31814 7 5.33337 9.98477 5.33337 13.6667C5.33337 17.3486 8.31814 20.3333 12 20.3333Z"
+                      stroke="#009966" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span class="mt-1 px-2">
+                    {{ item.makeModel }}
+                  </span>
+                </td>
+
+
+
+       <td class="date-time">
+                  <div class="date">
+                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2.43225 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M4.86462 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M5.77669 4.56769H1.52018C1.18435 4.56769 0.912109 4.83993 0.912109 5.17576V9.43227C0.912109 9.7681 1.18435 10.0403 1.52018 10.0403H5.77669C6.11252 10.0403 6.38477 9.7681 6.38477 9.43227V5.17576C6.38477 4.83993 6.11252 4.56769 5.77669 4.56769Z"
+                        stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M0.912109 6.39191H6.38477" stroke="#155DFC" stroke-width="0.608073"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    {{ item.dateTime | dateDifference | date:'dd.MM.yyyy' }}
+                  </div>
+
+                  <div class="time">
+                    <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_10_611)">
+                        <path
+                          d="M6 10C7.65685 10 9 8.65685 9 7C9 5.34315 7.65685 4 6 4C4.34315 4 3 5.34315 3 7C3 8.65685 4.34315 10 6 10Z"
+                          stroke="#00A63E" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 5V7.25L7 8" stroke="#00A63E" stroke-width="0.6" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_10_611">
+                          <rect width="9.875" height="14" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    {{ item.dateTime | dateDifference | date:'hh:mm a' }}
+                  </div>
+
+                </td>
+                   <td>{{ item.makeModel }}</td>
+                <td>{{ item.makeModel }}</td>
+
+                <!-- <td role="button" (click)="openUserMangment(item)"><img src="assets\imgs/edit.svg"></td> -->
+         <td>
+  <div class="actions-wrapper">
+
+    <button class="dots-btn" (click)="toggleMenu(item)">
+      ⋯
+    </button>
+
+    <div class="menu d-flex  justify-content-start  flex-direction-row align-item-center " *ngIf="item.isOpen">
+
+      <div class="menu-item" (click)="viewDetails(item)">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" stroke="#131927" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 12C19.1114 14.991 15.7183 18 12 18C8.2817 18 4.88856 14.991 3 12C5.29855 9.15825 7.99163 6 12 6C16.0084 6 18.7015 9.1582 21 12Z" stroke="#131927" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+        <span>View Details</span>
+      </div>
+
+      <div class="menu-item" (click)="viewImages(item)">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 19V9C2 7.89543 2.89543 7 4 7H4.5C5.12951 7 5.72229 6.70361 6.1 6.2L8.32 3.24C8.43331 3.08892 8.61115 3 8.8 3H15.2C15.3889 3 15.5667 3.08892 15.68 3.24L17.9 6.2C18.2777 6.70361 18.8705 7 19.5 7H20C21.1046 7 22 7.89543 22 9V19C22 20.1046 21.1046 21 20 21H4C2.89543 21 2 20.1046 2 19Z" stroke="#131927" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="#131927" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+        <span>Truck Images</span>
+      </div>
+
+    </div>
+
+  </div>
+</td>
+              </tr>
+            </tbody>
+            <!-- end::Table body -->
+          </table>
+          <div class="pagi-sec">
+            <p *ngIf="data?.length !== 0">
+              {{ "users.total" | translate }}:{{ totalCount }}
+            </p>
+            <ngb-pagination *ngIf="data?.length !== 0" class="pagination p-0 my-4 d-flex justify-content-center"
+              [maxSize]="15" [collectionSize]="totalCount" [(page)]="page" [pageSize]="pageSize"
+              (pageChange)="getData()">
+
+
+            </ngb-pagination>
+          </div>
+          <!-- end::Table -->
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
