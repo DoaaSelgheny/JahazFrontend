@@ -45,7 +45,7 @@
   button {
     border: none;
     background: rgba(236, 248, 239, 0);
-    border-radius: 30%;
+    border-radius: 25%;
     width: 30px;
     height: 30px;
     border: 1px solid var(--Icon-Color-icon-grey, rgba(158, 162, 174, 1));
@@ -59,6 +59,7 @@
   display: flex;
   margin-top: 20px;
   border-bottom: 1px solid #eee;
+
 
   span {
     padding: 10px 20px;
