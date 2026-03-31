@@ -21,4 +21,6 @@ export class VehicleDetailsDialogComponent implements OnInit {
   setTab(tab: any) {
     this.activeTab = tab;
   }
+
+
 }
