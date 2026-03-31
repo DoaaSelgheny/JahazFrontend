@@ -18,9 +18,10 @@ import { TranslationModule } from 'src/app/i18n';
 import { ManageRequestComponent } from './manage-request.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { DateDifferencePipe } from '../user-management/time_format_pipe';
+import { VehicleDetailsDialogComponent } from './vehicle-details-dialog/vehicle-details-dialog.component';
 
 @NgModule({
-  declarations: [ManageRequestComponent,],
+  declarations: [ManageRequestComponent, VehicleDetailsDialogComponent,],
   imports: [
     CommonModule,
     InlineSVGModule,

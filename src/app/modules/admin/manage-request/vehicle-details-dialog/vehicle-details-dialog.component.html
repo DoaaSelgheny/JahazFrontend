@@ -1,0 +1,123 @@
+<div class="sidebar-container">
+
+  <!-- Header -->
+  <div class="header">
+    <h3># {{ data?.number }}</h3>
+    <button (click)="activeModal.close()">✕</button>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <span
+      [class.active]="activeTab === 'overview'"
+      (click)="setTab('overview')">
+      Overview
+    </span>
+
+    <span
+      [class.active]="activeTab === 'history'"
+      (click)="setTab('history')">
+      Visit History
+    </span>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Overview -->
+    <div *ngIf="activeTab === 'overview'">
+
+    <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-info">
+            <h3>Active Visits</h3>
+            <h2>347</h2>
+            <span class="danger">
+              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_10_431)">
+                  <path d="M8.00649 7.81968L4.91307 4.72626L3.0934 6.54592L0.727844 4.18036" stroke="#EC003F"
+                    stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M5.82294 7.81964H8.00653V5.63605" stroke="#EC003F" stroke-width="0.727865"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_10_431">
+                    <rect width="8.73438" height="12" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <span class="px-1">
+                <span class="sale">3%</span> vs last week</span>
+
+            </span>
+          </div>
+          <div class="icon orange p-3">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 29.3333C23.3638 29.3333 29.3334 23.3638 29.3334 16C29.3334 8.63616 23.3638 2.66663 16 2.66663C8.63622 2.66663 2.66669 8.63616 2.66669 16C2.66669 23.3638 8.63622 29.3333 16 29.3333Z"
+                stroke="#E17100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M16 10.6666V17.9966" stroke="#E17100" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M16 21.3333H16.0133" stroke="#E17100" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+
+
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <h3>Avg. Stay Time</h3>
+            <h2>2.4h</h2>
+            <span class="danger">
+              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_10_431)">
+                  <path d="M8.00649 7.81968L4.91307 4.72626L3.0934 6.54592L0.727844 4.18036" stroke="#EC003F"
+                    stroke-width="0.727865" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M5.82294 7.81964H8.00653V5.63605" stroke="#EC003F" stroke-width="0.727865"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_10_431">
+                    <rect width="8.73438" height="12" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <span class="px-1">
+                <span class="sale">3%</span> vs last week</span>
+
+            </span>
+          </div>
+          <div class="icon purple p-3">
+            <svg width="25" height="25" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 29.3333C23.3638 29.3333 29.3333 23.3638 29.3333 16C29.3333 8.63616 23.3638 2.66663 16 2.66663C8.63616 2.66663 2.66663 8.63616 2.66663 16C2.66663 23.3638 8.63616 29.3333 16 29.3333Z"
+                stroke="#7F22FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M13.0078 10V18L18.3411 20.6667" stroke="#7F22FE" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+    <!-- History -->
+    <div *ngIf="activeTab === 'history'">
+      <div class="history-item" *ngFor="let i of [1,2,3,4]">
+        <p>Entry: 05 Feb</p>
+        <p>Exit: 05 Feb</p>
+        <p>Status: Completed</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>

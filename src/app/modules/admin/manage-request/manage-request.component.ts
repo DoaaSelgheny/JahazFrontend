@@ -10,6 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ManageRequestsService } from 'src/app/services/api/manage-requests.service';
 import { AddCashierComponent } from '../manage-cashier/add-cashier/add-cashier.component';
 import { AddUserModalComponent } from '../user-management/add-user-modal/add-user-modal.component';
+import { VehicleDetailsDialogComponent } from './vehicle-details-dialog/vehicle-details-dialog.component';
 
 @Component({
   selector: 'app-manage-request',
@@ -48,9 +49,6 @@ toggleMenu(selectedItem: any) {
   });
 }
 
-viewDetails(item: any) {
-  console.log('Details:', item);
-}
 
 viewImages(item: any) {
   console.log('Images:', item);
@@ -58,6 +56,15 @@ viewImages(item: any) {
 
 
 
+viewDetails(item: any) {
+  const modalRef = this.modalService.open(VehicleDetailsDialogComponent, {
+    windowClass: 'right-side-modal',
+    backdrop: true,
+    keyboard: true,
+  });
+
+  modalRef.componentInstance.data = item;
+}
 
 
   getData() {

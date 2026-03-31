@@ -1,0 +1,136 @@
+/* نخلي المودال كله يروح يمين */
+::ng-deep .right-side-modal .modal-dialog {
+  position: fixed;
+  right: 0;
+  margin: 0;
+  height: 100vh;
+  max-width: 600px;
+  width: 100%;
+  transform: translateX(100%);
+  animation: slideIn 0.3s forwards;
+}
+
+::ng-deep .right-side-modal .modal-content {
+  height: 100vh;
+  border-radius: 0;
+  border: none;
+}
+
+/* animation */
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* المحتوى */
+.sidebar-container {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    font-weight: 600;
+  }
+
+  button {
+    border: none;
+    background: #eee;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+
+  span {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #888;
+
+    &.active {
+      color: #155dfc;
+      border-bottom: 2px solid #155dfc;
+    }
+  }
+}
+
+/* Cards */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+border: 1px solid rgba(226, 232, 240, 1);
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+
+  span
+  {
+    color: rgba(106, 114, 130, 1);
+    font-family: Inter;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+  }
+  .sale
+  {
+    color: rgba(236, 0, 63, 1);
+    font-family: Inter;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+  }
+
+  h3 {
+font-family: Inter;
+font-weight: 500;
+font-size: 16px;
+
+color: rgba(74, 85, 101, 1);
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    margin: 0;
+font-family: Inter;
+font-weight: 600;
+font-size: 24px;
+line-height: 32px;
+    color: rgba(16, 24, 40, 1);
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  .danger {
+    color: #ef4444;
+  }
+
+  .success {
+    color: #22c55e;
+  }
+}
