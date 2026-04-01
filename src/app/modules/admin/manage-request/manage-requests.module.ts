@@ -19,9 +19,10 @@ import { ManageRequestComponent } from './manage-request.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { DateDifferencePipe } from '../user-management/time_format_pipe';
 import { VehicleDetailsDialogComponent } from './vehicle-details-dialog/vehicle-details-dialog.component';
+import { TruckImagesComponent } from './truck-images/truck-images.component';
 
 @NgModule({
-  declarations: [ManageRequestComponent, VehicleDetailsDialogComponent,],
+  declarations: [ManageRequestComponent, VehicleDetailsDialogComponent, TruckImagesComponent,],
   imports: [
     CommonModule,
     InlineSVGModule,

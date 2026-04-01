@@ -11,6 +11,7 @@ import { ManageRequestsService } from 'src/app/services/api/manage-requests.serv
 import { AddCashierComponent } from '../manage-cashier/add-cashier/add-cashier.component';
 import { AddUserModalComponent } from '../user-management/add-user-modal/add-user-modal.component';
 import { VehicleDetailsDialogComponent } from './vehicle-details-dialog/vehicle-details-dialog.component';
+import { TruckImagesComponent } from './truck-images/truck-images.component';
 
 @Component({
   selector: 'app-manage-request',
@@ -66,6 +67,16 @@ viewDetails(item: any) {
   modalRef.componentInstance.data = item;
 }
 
+
+TruckImages(item: any) {
+  const modalRef = this.modalService.open(TruckImagesComponent, {
+    windowClass: 'right-side-modal',
+    backdrop: true,
+    keyboard: true,
+  });
+
+  modalRef.componentInstance.data = item;
+}
 
   getData() {
     this.spinner.show();

@@ -1,0 +1,45 @@
+<div class="truck-images-dialog">
+
+    <!-- Header -->
+  <div class="header mb-5">
+    <div>
+  <h3>Truck Images</h3>
+    <h5> #8034DTB</h5>
+    </div>
+
+    <button (click)="activeModal.close()">✕</button>
+  </div>
+
+
+
+  <h3 class="title my-5">Entry Photo</h3>
+
+  <div class="slider p-5">
+    <button class="nav prev" (click)="prev()">
+      <i class="fa-solid fa-angle-left"></i>
+    </button>
+
+    <img
+      class="main-image"
+      [src]="images[selectedIndex].url"
+      [alt]="images[selectedIndex].label"
+    />
+
+    <button class="nav next" (click)="next()">
+      <i class="fa-solid fa-angle-right"></i>
+
+    </button>
+  </div>
+
+  <div class="thumbnails">
+    <div
+      class="thumb"
+      *ngFor="let img of images; let i = index"
+      [class.active]="i === selectedIndex"
+      (click)="select(i)"
+    >
+      <img [src]="img.url" />
+      <span>{{ img.label }}</span>
+    </div>
+  </div>
+</div>
