@@ -24,6 +24,7 @@ import {  AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AccountantsManagementComponent } from './accountants-management/accountants-management.component';
 import { VisibilityService } from './services/api/mimize-browser.service';
+import { SettingComponent } from './modules/admin/settingModule/setting/setting.component';
 
 
 initializeApp(environment.firebase);
@@ -37,7 +38,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-  declarations: [ AppComponent, AccountantsManagementComponent],
+  declarations: [ AppComponent, AccountantsManagementComponent, SettingComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

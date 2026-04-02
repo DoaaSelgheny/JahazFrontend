@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 const AdminRouting: Routes = [
   {
     path: 'requests',
@@ -15,6 +14,16 @@ const AdminRouting: Routes = [
         (m) => m.ManageRequestsModule
       ),
   },
+
+
+      {
+    path: 'setting',
+    loadChildren: () =>
+      import('./settingModule/settingModule.module').then(
+        (m) => m.SettingModuleModule
+      ),
+  },
+
   {
     path: 'request-detail/:id',
     loadChildren: () =>
@@ -72,6 +81,8 @@ const AdminRouting: Routes = [
         (m) => m.DashboardManagementModule
       ),
   },
+
+
   {
     path: 'manager-dashboard',
     loadChildren: () =>
