@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-settingModule',
+  selector: 'app-setting',
   templateUrl: './settingModule.component.html',
   styleUrls: ['./settingModule.component.scss']
 })

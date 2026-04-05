@@ -24,7 +24,7 @@ import {  AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AccountantsManagementComponent } from './accountants-management/accountants-management.component';
 import { VisibilityService } from './services/api/mimize-browser.service';
-import { SettingComponent } from './modules/admin/settingModule/setting/setting.component';
+import { RouterModule } from '@angular/router';
 
 
 initializeApp(environment.firebase);
@@ -38,7 +38,7 @@ function appInitializer(authService: AuthService) {
 }
 
 @NgModule({
-  declarations: [ AppComponent, AccountantsManagementComponent, SettingComponent],
+  declarations: [ AppComponent, AccountantsManagementComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -54,6 +54,7 @@ function appInitializer(authService: AuthService) {
       AngularFirestoreModule,
       AngularFireStorageModule,
       AngularFireDatabaseModule,
+      RouterModule,
     InlineSVGModule.forRoot(),
     NgbModule,
     NgMultiSelectDropDownModule.forRoot(),

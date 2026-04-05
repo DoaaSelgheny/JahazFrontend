@@ -1,0 +1,287 @@
+<div class="settings-container mt-5">
+  <h2>Settings</h2>
+  <p class="subtitle">Manage your platform configuration and preferences</p>
+
+  <!-- General Settings -->
+  <div class="card">
+    <div class="card-header d-flex align-items-start justify-content-start p-0">
+      <div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 10C0 4.47715 4.47715 0 10 0H30C35.5228 0 40 4.47715 40 10V30C40 35.5228 35.5228 40 30 40H10C4.47715 40 0 35.5228 0 30V10Z" fill="#EFF6FF"/>
+<path d="M25.8333 12.5H14.1667C13.2462 12.5 12.5 13.2462 12.5 14.1667V25.8333C12.5 26.7538 13.2462 27.5 14.1667 27.5H25.8333C26.7538 27.5 27.5 26.7538 27.5 25.8333V14.1667C27.5 13.2462 26.7538 12.5 25.8333 12.5Z" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.5 17.5H27.5" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.5 27.5V17.5" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      </div>
+      <div class="px-2 ">
+     <h5>General Settings</h5>
+      <p>Configure basic platform information</p>
+      </div>
+
+
+    </div>
+
+    <div class="form-group">
+      <label>Platform Name</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="settings.platformName"
+        placeholder="Enter platform name"
+      />
+      <small>This name will be displayed across the platform.</small>
+    </div>
+  </div>
+
+  <!-- Monitoring Settings -->
+  <div class="card">
+   <div class="card-header d-flex align-items-start justify-content-start p-0">
+      <div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 10C0 4.47715 4.47715 0 10 0H30C35.5228 0 40 4.47715 40 10V30C40 35.5228 35.5228 40 30 40H10C4.47715 40 0 35.5228 0 30V10Z" fill="#EFF6FF"/>
+<g clip-path="url(#clip0_32_3754)">
+<path d="M20.0001 28.3334C24.6025 28.3334 28.3334 24.6025 28.3334 20.0001C28.3334 15.3977 24.6025 11.6667 20.0001 11.6667C15.3977 11.6667 11.6667 15.3977 11.6667 20.0001C11.6667 24.6025 15.3977 28.3334 20.0001 28.3334Z" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 15V20L23.3333 21.6667" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_32_3754">
+<rect width="20" height="20" fill="white" transform="translate(10 10)"/>
+</clipPath>
+</defs>
+</svg>
+
+
+      </div>
+      <div class="px-3">
+     <h5>Monitoring Settings</h5>
+      <p>Configure monitoring behavior and alerts</p>
+      </div>
+
+
+    </div>
+    <div class="row">
+      <div class="col">
+        <label>Monitoring Duration (Minutes)</label>
+        <input
+          type="number"
+          class="monitoringDuration p-3"
+          [(ngModel)]="settings.monitoringDuration"
+        />
+        <div>
+        <small class="mt-2">The interval between alerts or logs.</small>
+
+        </div>
+      </div>
+
+      <div class="col  d-flex align-items-start justify-content-around ">
+        <div>
+        <h6>Enable Notifications</h6>
+        <small>Send notifications for system monitoring events</small>
+        </div>
+
+        <div class="switch">
+          <input type="checkbox" [(ngModel)]="settings.notifications" />
+          <span class="slider"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+      <div class="card-header d-flex align-items-start justify-content-start p-0">
+      <div>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 10C0 4.47715 4.47715 0 10 0H30C35.5228 0 40 4.47715 40 10V30C40 35.5228 35.5228 40 30 40H10C4.47715 40 0 35.5228 0 30V10Z" fill="#EFF6FF"/>
+<g clip-path="url(#clip0_32_3782)">
+<path d="M26.6667 11.6667H13.3334C12.4129 11.6667 11.6667 12.4129 11.6667 13.3334V16.6667C11.6667 17.5872 12.4129 18.3334 13.3334 18.3334H26.6667C27.5872 18.3334 28.3334 17.5872 28.3334 16.6667V13.3334C28.3334 12.4129 27.5872 11.6667 26.6667 11.6667Z" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.6667 21.6667H13.3334C12.4129 21.6667 11.6667 22.4129 11.6667 23.3334V26.6667C11.6667 27.5872 12.4129 28.3334 13.3334 28.3334H26.6667C27.5872 28.3334 28.3334 27.5872 28.3334 26.6667V23.3334C28.3334 22.4129 27.5872 21.6667 26.6667 21.6667Z" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 15H15.0083" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 25H15.0083" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_32_3782">
+<rect width="20" height="20" fill="white" transform="translate(10 10)"/>
+</clipPath>
+</defs>
+</svg>
+
+      </div>
+      <div class="px-2 ">
+     <h5>System Information</h5>
+      <p>Current system version and technology stack</p>
+      </div>
+
+
+    </div>
+<div class="info-grid">
+
+
+  <div class="info-item" >
+    <div class="icon">
+<svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_dd_32_3795)">
+<path d="M3 12C3 6.47715 7.47715 2 13 2H25C30.5228 2 35 6.47715 35 12V24C35 29.5228 30.5228 34 25 34H13C7.47715 34 3 29.5228 3 24V12Z" fill="white" shape-rendering="crispEdges"/>
+<path d="M18.3333 24.4867C18.536 24.6037 18.766 24.6653 19 24.6653C19.234 24.6653 19.464 24.6037 19.6667 24.4867L24.3333 21.82C24.5358 21.7031 24.704 21.535 24.821 21.3326C24.938 21.1301 24.9998 20.9005 25 20.6667V15.3333C24.9998 15.0995 24.938 14.8699 24.821 14.6675C24.704 14.465 24.5358 14.2969 24.3333 14.18L19.6667 11.5133C19.464 11.3963 19.234 11.3347 19 11.3347C18.766 11.3347 18.536 11.3963 18.3333 11.5133L13.6667 14.18C13.4642 14.2969 13.296 14.465 13.179 14.6675C13.062 14.8699 13.0002 15.0995 13 15.3333V20.6667C13.0002 20.9005 13.062 21.1301 13.179 21.3326C13.296 21.535 13.4642 21.7031 13.6667 21.82L18.3333 24.4867Z" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19 24.6667V18" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.1934 14.6667L19 18.0001L24.8067 14.6667" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12.8467L22 16.28" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<filter id="filter0_dd_32_3795" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow_32_3795"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_32_3795"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_32_3795" result="effect2_dropShadow_32_3795"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_32_3795" result="shape"/>
+</filter>
+</defs>
+</svg>
+    </div>
+    <div class="content">
+      <span>Version</span>
+      <strong>1.0.0</strong>
+    </div>
+  </div>
+
+
+   <div class="info-item" >
+    <div class="icon">
+<svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_dd_32_3807)">
+<path d="M3 12C3 6.47715 7.47715 2 13 2H25C30.5228 2 35 6.47715 35 12V24C35 29.5228 30.5228 34 25 34H13C7.47715 34 3 29.5228 3 24V12Z" fill="white" shape-rendering="crispEdges"/>
+<path d="M19 15.3333C22.3137 15.3333 25 14.4378 25 13.3333C25 12.2287 22.3137 11.3333 19 11.3333C15.6863 11.3333 13 12.2287 13 13.3333C13 14.4378 15.6863 15.3333 19 15.3333Z" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13 13.3333V22.6666C13 23.197 13.6321 23.7057 14.7574 24.0808C15.8826 24.4559 17.4087 24.6666 19 24.6666C20.5913 24.6666 22.1174 24.4559 23.2426 24.0808C24.3679 23.7057 25 23.197 25 22.6666V13.3333" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13 18C13 18.5304 13.6321 19.0391 14.7574 19.4142C15.8826 19.7893 17.4087 20 19 20C20.5913 20 22.1174 19.7893 23.2426 19.4142C24.3679 19.0391 25 18.5304 25 18" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<filter id="filter0_dd_32_3807" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow_32_3807"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_32_3807"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_32_3807" result="effect2_dropShadow_32_3807"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_32_3807" result="shape"/>
+</filter>
+</defs>
+</svg>
+
+    </div>
+    <div class="content">
+      <span>Database</span>
+      <strong>PostgreSQL</strong>
+    </div>
+  </div>
+
+     <div class="info-item" >
+    <div class="icon">
+<svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_dd_32_3818)">
+<path d="M3 12C3 6.47715 7.47715 2 13 2H25C30.5228 2 35 6.47715 35 12V24C35 29.5228 30.5228 34 25 34H13C7.47715 34 3 29.5228 3 24V12Z" fill="white" shape-rendering="crispEdges"/>
+<g clip-path="url(#clip0_32_3818)">
+<path d="M24.3333 11.3333H13.6666C12.9302 11.3333 12.3333 11.9302 12.3333 12.6666V15.3333C12.3333 16.0696 12.9302 16.6666 13.6666 16.6666H24.3333C25.0696 16.6666 25.6666 16.0696 25.6666 15.3333V12.6666C25.6666 11.9302 25.0696 11.3333 24.3333 11.3333Z" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.3333 19.3333H13.6666C12.9302 19.3333 12.3333 19.9302 12.3333 20.6666V23.3333C12.3333 24.0696 12.9302 24.6666 13.6666 24.6666H24.3333C25.0696 24.6666 25.6666 24.0696 25.6666 23.3333V20.6666C25.6666 19.9302 25.0696 19.3333 24.3333 19.3333Z" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 14H15.0067" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 22H15.0067" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_dd_32_3818" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow_32_3818"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_32_3818"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_32_3818" result="effect2_dropShadow_32_3818"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_32_3818" result="shape"/>
+</filter>
+<clipPath id="clip0_32_3818">
+<rect width="16" height="16" fill="white" transform="translate(11 10)"/>
+</clipPath>
+</defs>
+</svg>
+
+    </div>
+    <div class="content">
+      <span>Backend</span>
+      <strong>Node.js + Express</strong>
+    </div>
+  </div>
+
+
+   <div class="info-item" >
+    <div class="icon">
+<svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_dd_32_3830)">
+<path d="M3 12C3 6.47715 7.47715 2 13 2H25C30.5228 2 35 6.47715 35 12V24C35 29.5228 30.5228 34 25 34H13C7.47715 34 3 29.5228 3 24V12Z" fill="white" shape-rendering="crispEdges"/>
+<path d="M23.6667 12H14.3333C13.597 12 13 12.597 13 13.3333V22.6667C13 23.403 13.597 24 14.3333 24H23.6667C24.403 24 25 23.403 25 22.6667V13.3333C25 12.597 24.403 12 23.6667 12Z" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13 16H25" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 24V16" stroke="#4A5565" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<filter id="filter0_dd_32_3830" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect1_dropShadow_32_3830"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_32_3830"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_32_3830" result="effect2_dropShadow_32_3830"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_32_3830" result="shape"/>
+</filter>
+</defs>
+</svg>
+
+    </div>
+    <div class="content">
+      <span>Frontend</span>
+      <strong>React + Tailwind</strong>
+    </div>
+  </div>
+
+
+
+</div>
+
+  </div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <button class=" cancel" (click)="onCancel()">Cancel</button>
+    <button class="btn save" (click)="onSave()">Save Settings</button>
+  </div>
+</div>
