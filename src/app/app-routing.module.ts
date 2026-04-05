@@ -17,8 +17,9 @@ export const routes: Routes = [
   {
     path: 'welcome/:id',
     loadChildren: () =>
-      import('./modules/admin/review-welcome-message/review-welcome-message.module').then((m) => m.ReviewWelcomeMessageModule
-  ),
+      import('./modules/admin/review-welcome-message/review-welcome-message.module').then(
+        (m) => m.ReviewWelcomeMessageModule,
+      ),
   },
   {
     path: 'auth',
@@ -34,12 +35,11 @@ export const routes: Routes = [
       import('./_metronic/layout/layout.module').then((m) => m.LayoutModule),
   },
 
-
   {
     path: 'error',
     loadChildren: () =>
       import('./modules/SharedComponent/errors/errors.module').then(
-        (m) => m.ErrorsModule
+        (m) => m.ErrorsModule,
       ),
   },
   { path: '**', redirectTo: 'home' },

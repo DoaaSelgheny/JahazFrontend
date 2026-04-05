@@ -1,0 +1,171 @@
+.mb-6 {
+  margin-bottom: 2.5rem;
+}
+
+.fs-2hx {
+  font-size: 2.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+/* Card polish to match clean dashboard look */
+.card {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
+}
+
+.card-header {
+  background: transparent;
+}
+
+.card-title {
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.text-muted {
+  color: #64748b !important;
+}
+
+.text-success {
+  color: #16a34a !important;
+}
+
+.text-danger {
+  color: #ef4444 !important;
+}
+
+/* KPI card styles */
+.kpi-card {
+  --accent: #3b82f6;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.25rem 1.25rem 0.75rem;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
+  position: relative;
+  border-top: 4px solid var(--accent);
+  min-height: 132px;
+}
+
+.kpi-card__top {
+  margin-bottom: 0.5rem;
+}
+
+.kpi-card__label {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.kpi-card__value {
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.kpi-card__sub {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+.kpi-card__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--accent);
+  font-size: 1.05rem;
+}
+
+.kpi-card__footer {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.kpi-accent--blue {
+  --accent: #3b82f6;
+}
+.kpi-accent--orange {
+  --accent: #f59e0b;
+}
+.kpi-accent--green {
+  --accent: #10b981;
+}
+.kpi-accent--red {
+  --accent: #ef4444;
+}
+
+/* Longest Stay Vehicles list */
+.alert-pill {
+  background: #fff1f2;
+  color: #ef4444;
+  border: 1px solid #ffe4e6;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.lsv-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #f1f5f9;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.lsv-item--highlight {
+  background: #fff1f2;
+  border-color: #ffe4e6;
+}
+
+.lsv-rank {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #64748b;
+}
+
+.lsv-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.lsv-plate {
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.lsv-sub {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.lsv-value .lsv-min {
+  font-weight: 800;
+  color: #ef4444;
+}
+
+.lsv-value .lsv-unit {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
