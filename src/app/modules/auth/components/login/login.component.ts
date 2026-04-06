@@ -21,12 +21,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   returnUrl: string;
   isLoading$: Observable<boolean>;
   showPassword: boolean;
+  currentLanguage: any;
   private unsubscribe: Subscription[] = [];
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private translationService: TranslationService
+
   ) {
     this.isLoading$ = this.authService.isLoading$;
     if (localStorage.getItem('access_token_zalool'))  {
@@ -36,6 +39,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initForm();
+    this.currentLanguage = localStorage.getItem('language');
+
   }
 
   initForm() {
@@ -67,5 +72,25 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
+  }
+
+
+   selectLanguage(lang: string) {
+    this.translationService.setLanguage(lang);
+
+    document.location.reload();
+  }
+
+
+  switchLang() {
+    if (this.currentLanguage === 'en') {
+      this.translationService.setLanguage('ar');
+
+      document.location.reload();
+    } else {
+      this.translationService.setLanguage('en');
+
+      document.location.reload();
+    }
   }
 }

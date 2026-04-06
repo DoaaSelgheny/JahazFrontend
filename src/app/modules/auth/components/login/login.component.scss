@@ -55,6 +55,7 @@
     opacity: 1;
   }
 
+
   label {
     margin: 0 10px;
     color: #fff;
@@ -75,14 +76,14 @@
   margin-bottom: 4rem !important;
 }
 
-.input-group-text {
-  background-color: white;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
-  border-left: none;
-  border-top: none;
-  border-right: none;
-  border-radius: 0rem;
-}
+// .input-group-text {
+//   background-color: white;
+//   border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+//   border-left: none;
+//   border-top: none;
+//   border-right: none;
+//   border-radius: 0rem;
+// }
 
 .was-validated .form-control:invalid,
 .form-control.is-invalid {
@@ -143,10 +144,11 @@ font-size: 16px;
 
   .form-action-btn {
     button {
-      border-radius: 40px;
+      border-radius: 8px;
       background: rgba(37, 99, 235, 1);
-      box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+ box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
 box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+
       width: 100%;
       border: none;
       height: 44px;
@@ -246,12 +248,120 @@ font-size: 14px;
   // background: linear-gradient(334deg, rgba(150, 59, 58, 0.00) 2.6%, rgba(246, 240, 240, 0.29) 98.47%);
   // backdrop-filter: blur(25px);
   // background-image: url('/assets/imgs/zalol/blur.svg');
-  padding: 10%;
+  padding: 5%;
   background-color: #fff;
 }
 
-.input-group-text {
-  i {
-    color: #b8b8b8;
+// .input-group-text {
+//   i {
+//     color: #b8b8b8;
+//   }
+// }
+.lang-switch {
+  cursor: pointer;
+  font-weight: 500;
+  color: rgba(54, 65, 83, 1);
+  border: 1px solid rgba(209, 213, 220, 1);
+border-radius: 10px;
+padding: 12px;
+gap: 8px;
+font-size: 14px;
+
+
+  .lang-text {
+    font-size: 14px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+
+.logo
+{  margin: auto;
+}
+.custom-input {
+    border: 1px solid rgba(226, 232, 240, 1);
+    background-color: rgba(248, 250, 252, 1);
+    border-radius: 8px;
+  .input-group-text {
+    font-family: Inter;
+font-weight: 400;
+font-size: 14px;
+color: rgba(113, 113, 130, 1);
+border: none !important;
+border-radius: 0 !important;
+
+
+  }
+
+
+
+  input
+{
+  border: none !important;
+  outline: none;
+  width: 85%;
+  border: none !important;
+  background-color: transparent !important;
+  color: rgba(113, 113, 130, 1);
+}
+
+.password_input
+{
+  width: 80%;
+
+  @media (max-width:1350px) {
+  width: 75%;
+  }
+
+    @media (max-width:1200px) {
+  width: 70%;
+  }
+      @media (max-width:992px) {
+  width: 75%;
+  }
+
+       @media (max-width:400px) {
+  width: 70%;
+  }
+}
+  .form-control {
+    border-left: 0;
+  }
+}
+
+.input-group
+{
+.forget_btn
+  {
+
+    a
+    {
+    color: rgba(21, 93, 252, 1) !important;
+    }
+  }
+}
+
+.Dont_account
+{
+  h5
+  {
+font-family: Inter;
+font-weight: 400;
+font-size: 14px;
+text-align: center;
+color: rgba(255, 255, 255, 1);
+span
+{
+color: rgba(208, 223, 255, 1);
+font-family: Inter;
+font-weight: 600;
+font-style: Semi Bold;
+font-size: 14px;
+text-align: center;
+
+}
   }
 }
