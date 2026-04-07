@@ -1,16 +1,29 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApexOptions } from 'ng-apexcharts';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BrandService } from 'src/app/services/api/brand.service';
+import { BranchManagerService } from 'src/app/services/api/branch-manager.service';
+import { FirstTabService } from 'src/app/services/api/first-tab.service';
+import { ManageCustomersService } from 'src/app/services/api/manage-customers.service';
+import { DashboardFilterComponent } from './filter/dashboard-filter.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.scss'],
 })
-export class Dashboard {
+export class Dashboard implements OnInit {
   totalVisits = 408;
   avgStayMinutes = 271;
   fillTimeLabel = 'Soon';
   incompleteRecords = 190;
+
+  // smart-dashboard-like filters
+  formValue: any;
+  BrandId: any = '';
+  brands: any[] = [];
+  branchs: any[] = [];
+  Branch: any | null = null;
 
   longestStayVehicles = [
     { rank: 1, plate: '2228EBA', visits: 1, stayMin: 1080 },
@@ -28,7 +41,14 @@ export class Dashboard {
 
   durationDonutOptions: ApexOptions & { series: number[] };
 
-  constructor() {
+  constructor(
+    private modalService: NgbModal,
+    private brandService: BrandService,
+    private branchManagerService: BranchManagerService,
+    private firstTabService: FirstTabService,
+    private manageCustomersService: ManageCustomersService,
+    private cdr: ChangeDetectorRef
+  ) {
     this.visitsByHourOptions = {
       series: [
         {
@@ -211,5 +231,169 @@ export class Dashboard {
         return pct.toFixed(1) + '%';
       },
     };
+  }
+
+  ngOnInit(): void {
+    this.getBrands();
+    this.getData();
+  }
+
+  openFilter() {
+    const dialogRef = this.modalService.open(DashboardFilterComponent, {
+      centered: true,
+      backdrop: 'static',
+    });
+
+    if (this.formValue?.Date) {
+      this.formValue.Date = this.formValue.Date.slice(0, 10);
+    }
+    if (this.formValue?.toDate) {
+      this.formValue.toDate = this.formValue.toDate.slice(0, 10);
+    }
+
+    dialogRef.componentInstance.data = this.formValue;
+    dialogRef.result
+      .then((result) => {
+        if (result) {
+          this.formValue = result;
+          this.getData();
+          this.cdr.detectChanges();
+        }
+      })
+      .catch(() => {});
+  }
+
+  getBrands() {
+    this.brandService.getAllBrands().subscribe((res: any) => {
+      this.brands = res || [];
+      if (this.brands.length > 0 && !this.BrandId) {
+        this.BrandId = this.brands[0].id;
+        this.changeBrand(this.BrandId);
+      }
+      this.cdr.detectChanges();
+    });
+  }
+
+  getBranchs(id: any) {
+    if (!id) {
+      this.branchs = [];
+      this.Branch = null;
+      return;
+    }
+    this.branchManagerService.getBranchByBrand(id).subscribe({
+      next: (res: any) => {
+        this.branchs = res || [];
+        this.Branch = null;
+        this.cdr.detectChanges();
+      },
+      error: () => {
+        this.branchs = [];
+        this.Branch = null;
+      },
+    });
+  }
+
+  changeBrand(brandId: any) {
+    this.BrandId = brandId;
+    this.getBranchs(brandId);
+    this.getData();
+  }
+
+  getData() {
+    this.firstTabService
+      .getvisitHours({
+        branchId: this.Branch ?? '',
+        brandId: this.BrandId ?? '',
+        fromDate: this.formValue?.Date ?? '',
+        toDate: this.formValue?.toDate ?? '',
+        carModel: this.formValue?.search ?? '',
+        cityId: this.formValue?.city ?? '',
+      })
+      .subscribe({
+        next: (res: any) => {
+          const hours = (res?.visitHours || []).map((h: any) => ({
+            label: `${String(h.hourDisplay).padStart(2, '0')}:00`,
+            count: Number(h.visitCount || 0),
+          }));
+
+          if (res?.totalVisits !== undefined) {
+            this.totalVisits = Number(res.totalVisits);
+          }
+
+          if (hours.length) {
+            const low = hours.map((x: any) => (x.count <= 19 ? x.count : 0));
+            const med = hours.map((x: any) =>
+              x.count >= 20 && x.count <= 39 ? x.count : 0
+            );
+            const high = hours.map((x: any) => (x.count >= 40 ? x.count : 0));
+
+            this.visitsByHourOptions = {
+              ...(this.visitsByHourOptions || {}),
+              series: [
+                { name: 'Low (0-19)', data: low },
+                { name: 'Medium (20-39)', data: med },
+                { name: 'High (40+)', data: high },
+              ],
+              xaxis: {
+                ...(this.visitsByHourOptions?.xaxis as any),
+                categories: hours.map((x: any) => x.label),
+              },
+            };
+          }
+
+          this.cdr.detectChanges();
+        },
+        error: () => {},
+      });
+
+    this.manageCustomersService
+      .getCustomerStatistics({
+        branchId: this.Branch ?? '',
+        brandId: this.BrandId ?? '',
+        fromDate: this.formValue?.Date ?? '',
+        toDate: this.formValue?.toDate ?? '',
+        carModel: this.formValue?.search ?? '',
+        cityId: this.formValue?.city ?? '',
+      })
+      .subscribe({
+        next: (res: any) => {
+          if (res?.totalVisitsCount !== undefined) {
+            this.totalVisits = Number(res.totalVisitsCount);
+          }
+          this.cdr.detectChanges();
+        },
+        error: () => {},
+      });
+  }
+
+  getExport() {
+    this.manageCustomersService
+      .getExcelExport({
+        brandId: this.BrandId ?? '',
+        branchId: this.Branch ?? '',
+        fromDate: this.formValue?.Date ?? '',
+        toDate: this.formValue?.toDate ?? '',
+        carModel: this.formValue?.search ?? '',
+        cityId: this.formValue?.city ?? '',
+      })
+      .subscribe({
+        next: (res: any) => {
+          this.downloadExcelFile(res);
+        },
+        error: () => {},
+      });
+  }
+
+  downloadExcelFile(blob: any) {
+    const excelBlob = new Blob([blob], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    });
+
+    const url = window.URL.createObjectURL(excelBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'dashboard.xlsx';
+    a.click();
+    URL.revokeObjectURL(url);
   }
 }
