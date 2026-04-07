@@ -76,6 +76,7 @@ const AdminRouting: Routes = [
   },
   {
     path: 'dashboard',
+
     loadChildren: () =>
       import('./dashboard-management/dashboard-management.module').then(
         (m) => m.DashboardManagementModule,
@@ -173,7 +174,7 @@ const AdminRouting: Routes = [
 
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'dashboard',
   },
 ];
 
