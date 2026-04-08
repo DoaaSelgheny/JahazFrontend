@@ -97,17 +97,32 @@ export const locale = {
       createaccount: 'Create account',
       SignOut: 'SignOut',
     },
-    loginPage: {
-      welcomeToGotGame: 'Welcome to GotGame',
-      text: 'Please enter your registered Email address to log in to your account',
-      logInEmail: 'Email',
-      enterEmail: 'Enter email',
-      Password: 'Password',
-      enterPassword: 'Enter password',
-      rememberme: 'Remember Me.',
-      logIn: 'Login',
-      thisFieldIsRequired: 'This field is required',
-    },
+    // loginPage: {
+    //   welcomeToGotGame: 'Welcome to GotGame',
+    //   text: 'Please enter your registered Email address to log in to your account',
+    //   logInEmail: 'Email',
+    //   enterEmail: 'Enter email',
+    //   Password: 'Password',
+    //   enterPassword: 'Enter password',
+    //   rememberme: 'Remember Me.',
+    //   logIn: 'Login',
+    //   thisFieldIsRequired: 'This field is required',
+    // },
+
+   "loginPage": {
+      "enterEmail": 'Enter email',
+      "thisFieldIsRequired": 'This field is required',
+      "logInEmail": 'Email',
+      "logIn": 'Login',
+      "Password": 'Password',
+  "welcome": "Welcome Back",
+  "subtitle": "Sign in to access the water tank monitoring platform",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot password?",
+  "noAccount": "Don't have an account?",
+  "signUp": "Sign up here"
+},
+
     gymList: {
       gymsManagement: 'Gyms Management',
       search: 'Search by name',
@@ -377,17 +392,6 @@ export const locale = {
       name: 'Brand Name',
     },
 
-
-
-
-
-
-
-
-
-
-
-
     sideMenue: {
       users: 'Users Managment',
       orders: 'Orders Managment',
@@ -399,51 +403,94 @@ export const locale = {
       record: 'Requests Managment',
       contactUs: 'Contact Us Management ',
       smartDashboard: 'Smart Business',
-      vehicles:"Vehicles",
-      activity:"Activity",
-      analytics:"Analytics",
-      team:"Team",
-      alerts:"Alerts",
-      setting:"Setting"
+      vehicles: 'Vehicles',
+      activity: 'Activity',
+      analytics: 'Analytics',
+      team: 'Team',
+      alerts: 'Alerts',
+      setting: 'Setting',
     },
 
-    vehiclesComponent:
-    {
-      title:'Vehicles',
-      subTitle:'Monitor and manage all truck visit records in real-time',
-      exportCv:'Export CSV',
-      activeVisits:'Active Visits',
-      Completed:'Completed',
-      AvgStayTime:'Avg. Stay Time',
-      lastWeek:'vs last week',
-      filters:'Filters',
-      searchRecords:'Search Records',
-      searchPlaceholder:'Search by plate number...',
-      plateColor:'Plate Color',
-      allColors:'All Colors',
-      vehicleType:'Vehicle Type',
-      allTypes:'All Types',
-      status:'Status',
-      allStatuses:'All status',
-      recordType:'Record Type',
-      allRecords:'All Records',
+    vehiclesComponent: {
+      title: 'Vehicles',
+      subTitle: 'Monitor and manage all truck visit records in real-time',
+      exportCv: 'Export CSV',
+      activeVisits: 'Active Visits',
+      Completed: 'Completed',
+      AvgStayTime: 'Avg. Stay Time',
+      lastWeek: 'vs last week',
+      filters: 'Filters',
+      searchRecords: 'Search Records',
+      searchPlaceholder: 'Search by plate number...',
+      plateColor: 'Plate Color',
+      allColors: 'All Colors',
+      vehicleType: 'Vehicle Type',
+      allTypes: 'All Types',
+      status: 'Status',
+      allStatuses: 'All status',
+      recordType: 'Record Type',
+      allRecords: 'All Records',
       plateNumber: 'Plate Number',
       licenseNo: 'License No.',
       entryTime: 'Entry Time',
       duration: 'Duration',
       exitTime: 'Exit Time',
-      actions: 'Actions'
+      actions: 'Actions',
+      viewDetails: 'View Details',
+      truckImages: 'Truck Images',
+      overview: 'Overview',
+      visitHistory: 'Visit History',
+      vehicleInformation: 'Vehicle Information',
+      model: 'Model',
+      licenseNumber: 'License Number',
+      truckType: 'Truck Type',
+      tankLicense: 'Tank License',
+      incomplete: 'Incomplete',
+      stayDurationAnalytics: 'Stay Duration Analytics',
+      stayDuration: 'Stay Duration',
+      fillingDuration: 'Filling Duration',
+      completed: 'Completed',
+      avgStayTime: 'Avg. Stay Time',
+      totalVisits: 'Total Visits',
+      avgStayTimeCard: 'Avg. Stay Time',
     },
 
 
+    "settings": {
+  "title": "Settings",
+  "subtitle": "Manage your platform configuration and preferences",
 
+  "general": {
+    "title": "General Settings",
+    "desc": "Configure basic platform information",
+    "platformName": "Platform Name",
+    "placeholder": "Enter platform name",
+    "hint": "This name will be displayed across the platform."
+  },
 
+  "monitoring": {
+    "title": "Monitoring Settings",
+    "desc": "Configure monitoring behavior and alerts",
+    "duration": "Monitoring Duration (Minutes)",
+    "hint": "The interval between alerts or logs.",
+    "enableNotifications": "Enable Notifications",
+    "notificationsDesc": "Send notifications for system monitoring events"
+  },
 
+  "system": {
+    "title": "System Information",
+    "desc": "Current system version and technology stack",
+    "version": "Version",
+    "database": "Database",
+    "backend": "Backend",
+    "frontend": "Frontend"
+  },
 
-
-
-
-
+  "actions": {
+    "cancel": "Cancel",
+    "save": "Save Settings"
+  }
+},
 
     record: {
       number: 'Plate Number',
@@ -719,7 +766,7 @@ export const locale = {
       INPROGRESS: 'InProgress',
     },
     smart: {
-       Riyadh:"Riyadh",
+      Riyadh: 'Riyadh',
       smartPage: 'Business Intelligence',
       wait: 'Wait Us',
       subTitle:
@@ -760,37 +807,37 @@ export const locale = {
       requestStatus: 'Order Status',
       requestDetails: 'Items',
       cancel: 'Cancel',
-      vists:"Vists",
-      minute:"Minute",
-      less:"Less",
-      average:"Average",
-      more:"More",
-    densityScale:"Density Scale",
-    peakHour:"Peak Hour",
-    TypesOfVehicles:"Types of Vehicles",
-    colors:"colors",
-    toDate:"To Date",
-   mostVisitedVehicles:"Most Visited Vehicles",
-   comingSoon:"Coming soon! Exclusive discount coupons for our most loyal visitors",
-   lastVisit:"Last Visit",
-   apply:"Apply",
-      searchFilter:" Search Filter",
-   search:"Search",
-   searchByModel:" Search by model, city, ...",
-   Date:"From Date",
-   country:"Country",
-   selectCountry:" Select Country",
-   city:"City",
-   selectCity:"Select City ",
- morning:" 6 A.M to 11:59 A.M",
-    afternoon:"12 P.M to 5:59 P.M",
-    night:"6 P.M to 5 A.M",
-    orders:"Orders",
-    novehicles:"No vehicles",
-       noPoints:"No Points",
-       notFound:"Not Found",
-      currency:"SAR"
-
+      vists: 'Vists',
+      minute: 'Minute',
+      less: 'Less',
+      average: 'Average',
+      more: 'More',
+      densityScale: 'Density Scale',
+      peakHour: 'Peak Hour',
+      TypesOfVehicles: 'Types of Vehicles',
+      colors: 'colors',
+      toDate: 'To Date',
+      mostVisitedVehicles: 'Most Visited Vehicles',
+      comingSoon:
+        'Coming soon! Exclusive discount coupons for our most loyal visitors',
+      lastVisit: 'Last Visit',
+      apply: 'Apply',
+      searchFilter: ' Search Filter',
+      search: 'Search',
+      searchByModel: ' Search by model, city, ...',
+      Date: 'From Date',
+      country: 'Country',
+      selectCountry: ' Select Country',
+      city: 'City',
+      selectCity: 'Select City ',
+      morning: ' 6 A.M to 11:59 A.M',
+      afternoon: '12 P.M to 5:59 P.M',
+      night: '6 P.M to 5 A.M',
+      orders: 'Orders',
+      novehicles: 'No vehicles',
+      noPoints: 'No Points',
+      notFound: 'Not Found',
+      currency: 'SAR',
     },
     orders: {
       averageDailyRequests: 'Average daily requests',
@@ -806,8 +853,7 @@ export const locale = {
       pointsLeaderboard: 'Points Leaderboard',
       price: 'Price',
       OrdersCount: 'Number of orders',
-      orderUnit:"No order Unit",
-
+      orderUnit: 'No order Unit',
       total: 'Total',
       waiting: 'Wait for us',
       waitingText:

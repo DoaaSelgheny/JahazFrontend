@@ -86,10 +86,10 @@
 </div>
 
               <h2>
-                Welcome Back
+  {{ 'loginPage.welcome' | translate }}
               </h2>
               <p>
-                Sign in to access the water tank monitoring platform
+  {{ 'loginPage.welcome' | translate }}
               </p>
             </div>
             <!--begin::Form-->
@@ -230,11 +230,14 @@
                     <div class="label d-flex justify-content-start align-items-center">
                       <input type="checkbox" >
                       <h6 class="mt-1 mx-1">
-                      Remember me
+  {{ 'loginPage.rememberMe' | translate }}
                       </h6>
                     </div>
                     <div class="forget_btn">
-                      <a href="./">Forgot password ?</a>
+                      <a href="./">
+                          {{ 'loginPage.forgotPassword' | translate }}
+
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -287,8 +290,11 @@
       </div>
 
       <div class="text-center Dont_account my-3">
-      <h5>Don't have an account?  <span class="signUp">
-Sign up Here
+      <h5>
+          {{ 'loginPage.noAccount' | translate }}
+
+        <span class="signUp">
+    {{ 'loginPage.signUp' | translate }}
       </span></h5>
 
       </div>

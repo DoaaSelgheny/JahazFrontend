@@ -1,7 +1,6 @@
 <div class="settings-container mt-5">
-  <h2>Settings</h2>
-  <p class="subtitle">Manage your platform configuration and preferences</p>
-
+<h2>{{ 'settings.title' | translate }}</h2>
+<p class="subtitle">{{ 'settings.subtitle' | translate }}</p>
   <!-- General Settings -->
   <div class="card">
     <div class="card-header d-flex align-items-start justify-content-start p-0">
@@ -15,23 +14,22 @@
 
       </div>
       <div class="px-2 ">
-     <h5>General Settings</h5>
-      <p>Configure basic platform information</p>
+<h5>{{ 'settings.general.title' | translate }}</h5>
+<p>{{ 'settings.general.desc' | translate }}</p>
       </div>
 
 
     </div>
 
     <div class="form-group">
-      <label>Platform Name</label>
+<label>{{ 'settings.general.platformName' | translate }}</label>
       <input
         type="text"
         class="form-control"
         [(ngModel)]="settings.platformName"
-        placeholder="Enter platform name"
+  [placeholder]="'settings.general.placeholder' | translate"
       />
-      <small>This name will be displayed across the platform.</small>
-    </div>
+<small>{{ 'settings.general.hint' | translate }}</small>    </div>
   </div>
 
   <!-- Monitoring Settings -->
@@ -54,31 +52,30 @@
 
       </div>
       <div class="px-3">
-     <h5>Monitoring Settings</h5>
-      <p>Configure monitoring behavior and alerts</p>
+<h5>{{ 'settings.monitoring.title' | translate }}</h5>
+<p>{{ 'settings.monitoring.desc' | translate }}</p>
       </div>
 
 
     </div>
     <div class="row">
       <div class="col">
-        <label>Monitoring Duration (Minutes)</label>
+<label>{{ 'settings.monitoring.duration' | translate }}</label>
         <input
           type="number"
           class="monitoringDuration p-3"
           [(ngModel)]="settings.monitoringDuration"
         />
         <div>
-        <small class="mt-2">The interval between alerts or logs.</small>
+        <small class="mt-2">{{ 'settings.monitoring.hint' | translate }}</small>
 
         </div>
       </div>
 
       <div class="col  d-flex align-items-start justify-content-around ">
         <div>
-        <h6>Enable Notifications</h6>
-        <small>Send notifications for system monitoring events</small>
-        </div>
+<h6>{{ 'settings.monitoring.enableNotifications' | translate }}</h6>
+<small>{{ 'settings.monitoring.notificationsDesc' | translate }}</small>        </div>
 
         <div class="switch">
           <input type="checkbox" [(ngModel)]="settings.notifications" />
@@ -108,8 +105,8 @@
 
       </div>
       <div class="px-2 ">
-     <h5>System Information</h5>
-      <p>Current system version and technology stack</p>
+<h5>{{ 'settings.system.title' | translate }}</h5>
+<p>{{ 'settings.system.desc' | translate }}</p>
       </div>
 
 
@@ -149,7 +146,7 @@
 </svg>
     </div>
     <div class="content">
-      <span>Version</span>
+<span>{{ 'settings.system.version' | translate }}</span>
       <strong>1.0.0</strong>
     </div>
   </div>
@@ -187,7 +184,7 @@
 
     </div>
     <div class="content">
-      <span>Database</span>
+<span>{{ 'settings.system.database' | translate }}</span>
       <strong>PostgreSQL</strong>
     </div>
   </div>
@@ -230,7 +227,7 @@
 
     </div>
     <div class="content">
-      <span>Backend</span>
+<span>{{ 'settings.system.database' | translate }}</span>
       <strong>Node.js + Express</strong>
     </div>
   </div>
@@ -268,7 +265,7 @@
 
     </div>
     <div class="content">
-      <span>Frontend</span>
+<span>{{ 'settings.system.frontend' | translate }}</span>
       <strong>React + Tailwind</strong>
     </div>
   </div>
@@ -281,7 +278,13 @@
 
   <!-- Actions -->
   <div class="actions">
-    <button class=" cancel" (click)="onCancel()">Cancel</button>
-    <button class="btn save" (click)="onSave()">Save Settings</button>
+    <button class=" cancel" (click)="onCancel()">
+        {{ 'settings.actions.cancel' | translate }}
+
+    </button>
+    <button class="btn save" (click)="onSave()">
+        {{ 'settings.actions.save' | translate }}
+
+    </button>
   </div>
 </div>
