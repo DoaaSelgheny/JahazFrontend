@@ -6,14 +6,14 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home',
+    redirectTo: 'auth',
   },
 
-  {
-    path: 'home',
-    loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomeModule),
-  },
+  // {
+  //   path: 'home',
+  //   loadChildren: () =>
+  //     import('./modules/home/home.module').then((m) => m.HomeModule),
+  // },
   {
     path: 'welcome/:id',
     loadChildren: () =>

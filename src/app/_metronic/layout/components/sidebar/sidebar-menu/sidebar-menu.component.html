@@ -261,8 +261,8 @@
         ><span class="menu-title">{{
           "sideMenue.dashboard" | translate
         }}</span></a
-      > -->
-      <!-- <a
+      >
+       <a
         *ngIf="
           currentUser?.roles[0] === roles.ThalolBrandDirector ||
           currentUser?.roles[0] === roles.ThalolBranchDirector
@@ -272,17 +272,12 @@
         routerLinkActive="active"
       >
         <span class="menu-icon">
-          <span
-            [inlineSVG]="'./assets/imgs/sidebar/smartDashboard.svg'"
-            class="svg-icon svg-icon-2">
-        </span>
         </span>
         <span class="menu-title">
           {{ "sideMenue.smartDashboard" | translate }}
         </span>
       </a> -->
-
-      <a
+      <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolSuperAdmin"
         class="menu-link without-sub"
         routerLink="/admin/brand-manager"
@@ -295,7 +290,7 @@
         ><span class="menu-title">{{
           "sideMenue.brandManager" | translate
         }}</span></a
-      >
+      > -->
 
       <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
@@ -312,7 +307,7 @@
         }}</span></a
       > -->
 
-      <a
+      <!-- <a
         *ngIf="
           currentUser?.roles[0] === roles.ThalolBrandDirector ||
           currentUser?.roles[0] === roles.ThalolSuperAdmin ||
@@ -326,13 +321,12 @@
             [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
             class="svg-icon svg-icon-2"
           ></span> </span
-        ><span class="menu-title">
-          {{"sideMenue.branches" | translate}}
-          </span>
-        </a
-      >
+        ><span class="menu-title">{{
+          "sideMenue.branches" | translate
+        }}</span></a
+      > -->
 
-      <a
+      <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
         class="menu-link without-sub"
         routerLink="/admin/branch-manager-management"
@@ -345,9 +339,9 @@
         ><span class="menu-title">{{
           "branchManager.branchManagerManagement" | translate
         }}</span></a
-      >
+      > -->
 
-      <a
+      <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
         class="menu-link without-sub"
         routerLink="/admin/cashier-management"
@@ -360,7 +354,7 @@
         ><span class="menu-title">{{
           "sideMenue.accountants" | translate
         }}</span></a
-      >
+      > -->
 
       <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolCasheir"
@@ -437,7 +431,7 @@
           >{{ "welcomeMessage.WelcomeScreenManagement" | translate }}
         </span></a
       >
-      <a
+      <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
         class="menu-link without-sub"
         routerLink="/admin/welcome-message-management"
@@ -450,8 +444,8 @@
         ><span class="menu-title"
           >{{ "welcomeMessage.WelcomeScreenManagement" | translate }}
         </span></a
-      >
-
+      > -->
+<!--
       <a
         *ngIf="
           currentUser?.roles[0] === roles.ThalolBrandDirector ||
@@ -467,7 +461,7 @@
             class="svg-icon svg-icon-2"
           ></span> </span
         ><span class="menu-title">{{ "sideMenue.brands" | translate }}</span></a
-      >
+      > -->
 
       <a
         *ngIf="currentUser?.roles[0] === roles.ThalolSuperAdmin"
@@ -483,7 +477,7 @@
           "sideMenue.contactUs" | translate
         }}</span></a
       >
-      <a
+      <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
         class="menu-link without-sub"
         routerLink="/admin/category-management"
@@ -496,8 +490,8 @@
         ><span class="menu-title">{{
           "categoryManager.categoryManager" | translate
         }}</span></a
-      >
-      <a
+      > -->
+      <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolBrandDirector"
         class="menu-link without-sub"
         routerLink="/admin/redeem-points-management"
@@ -510,7 +504,7 @@
         ><span class="menu-title">{{
           "redeemPointsManager.redeemPointsManager" | translate
         }}</span></a
-      >
+      > -->
     </div>
   </div>
   <!--end::Menu-->
