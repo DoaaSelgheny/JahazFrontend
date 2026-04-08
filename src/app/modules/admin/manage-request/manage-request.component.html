@@ -13,8 +13,8 @@
       <!-- Header -->
       <div class="page-header">
         <div>
-          <h2>Vehicles</h2>
-          <p>Monitor and manage all truck visit records in real-time</p>
+          <h2>{{ "vehiclesComponent.title" | translate }}</h2>
+          <p>{{ "vehiclesComponent.subTitle" | translate }}</p>
         </div>
 
         <button class="export-btn">
@@ -27,7 +27,7 @@
             <path d="M8 10V2" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
 
-          Export CSV
+          {{ "vehiclesComponent.exportCv" | translate }}
         </button>
       </div>
 
@@ -35,7 +35,7 @@
       <div class="stats-cards">
         <div class="stat-card">
           <div class="stat-info">
-            <h3>Active Visits</h3>
+            <h3>{{ "vehiclesComponent.activeVisits" | translate }}</h3>
             <h2>347</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +53,7 @@
               </svg>
 
               <span class="px-1">
-                <span class="sale">3%</span> vs last week</span>
+                <span class="sale">3%</span> {{ "vehiclesComponent.lastWeek" | translate }}</span>
 
             </span>
           </div>
@@ -72,7 +72,7 @@
 
         <div class="stat-card">
           <div class="stat-info">
-            <h3>Completed</h3>
+            <h3>{{ "vehiclesComponent.Completed" | translate }}</h3>
             <h2>61</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +90,7 @@
               </svg>
 
               <span class="px-1">
-                <span class="sale">3%</span> vs last week</span>
+                <span class="sale">3%</span> {{ "vehiclesComponent.lastWeek" | translate }}</span>
 
             </span>
           </div>
@@ -108,7 +108,7 @@
 
         <div class="stat-card">
           <div class="stat-info">
-            <h3>Avg. Stay Time</h3>
+            <h3>{{ "vehiclesComponent.AvgStayTime" | translate }}</h3>
             <h2>2.4h</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -126,7 +126,7 @@
               </svg>
 
               <span class="px-1">
-                <span class="sale">3%</span> vs last week</span>
+                <span class="sale">3%</span> {{ "vehiclesComponent.lastWeek" | translate }}</span>
 
             </span>
           </div>
@@ -151,41 +151,41 @@
               d="M5.99978 12C5.99972 12.1239 6.03419 12.2454 6.09931 12.3508C6.16443 12.4561 6.25763 12.5413 6.36845 12.5967L7.70178 13.2634C7.80344 13.3142 7.91641 13.3381 8.02994 13.333C8.14348 13.3278 8.25381 13.2938 8.35047 13.234C8.44712 13.1742 8.52689 13.0907 8.58219 12.9914C8.6375 12.8921 8.6665 12.7803 8.66645 12.6667V8.00002C8.6666 7.66961 8.78942 7.35102 9.01111 7.10602L13.8264 1.78002C13.9128 1.68439 13.9695 1.56581 13.9898 1.43861C14.0102 1.31141 13.9932 1.18104 13.941 1.06327C13.8889 0.945499 13.8037 0.845369 13.6958 0.774988C13.5879 0.704608 13.4619 0.666991 13.3331 0.666687H1.33311C1.20418 0.666734 1.07804 0.704164 0.969946 0.774445C0.861857 0.844725 0.776466 0.94484 0.724116 1.06266C0.671767 1.18048 0.654704 1.31096 0.674996 1.43828C0.695289 1.5656 0.752064 1.68431 0.838447 1.78002L5.65511 7.10602C5.8768 7.35102 5.99963 7.66961 5.99978 8.00002V12Z"
               stroke="#62748E" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          <span>Filters</span>
+          <span>{{ "vehiclesComponent.filters" | translate }}</span>
         </div>
 
         <div class="filters-body">
 
           <div class="filter-item search me-5">
-            <label>Search Records</label>
-            <input type="text" placeholder="Search by plate number..." />
+            <label>{{ "vehiclesComponent.searchRecords" | translate }}</label>
+            <input type="text" [placeholder]="'vehiclesComponent.searchPlaceholder' | translate" />
           </div>
 
           <div class="filter-item  me-1">
-            <label>Plate Color</label>
+            <label>{{ "vehiclesComponent.plateColor" | translate }}</label>
             <select>
-              <option>All Colors</option>
+              <option>{{ "vehiclesComponent.allColors" | translate }}</option>
             </select>
           </div>
 
           <div class="filter-item">
-            <label>Vehicle Type</label>
+            <label>{{ "vehiclesComponent.vehicleType" | translate }}</label>
             <select>
-              <option>All Types</option>
+              <option>{{ "vehiclesComponent.allTypes" | translate }}</option>
             </select>
           </div>
 
           <div class="filter-item">
-            <label>Status</label>
+            <label>{{ "vehiclesComponent.status" | translate }}</label>
             <select>
-              <option>All Statuses</option>
+              <option>{{ "vehiclesComponent.allStatuses" | translate }}</option>
             </select>
           </div>
 
           <div class="filter-item">
-            <label>Record Type</label>
+            <label>{{ "vehiclesComponent.recordType" | translate }}</label>
             <select>
-              <option>All Records</option>
+              <option>{{ "vehiclesComponent.allRecords" | translate }}</option>
             </select>
           </div>
         </div>
@@ -216,18 +216,36 @@
             <!-- begin::Table head -->
             <thead>
               <tr class="text-center">
-                <th class="min-w-95px">Plate Number</th>
-                <th class="min-w-125px">Plate Color</th>
-                <th class="min-w-125px">Vehicle Type</th>
-                <th class="min-w-125px">License No.</th>
-                <th class="min-w-125px">Entry Time</th>
-                <th class="min-w-125px">Duration</th>
-                <th class="min-w-125px">Exit Time</th>
-                <th class="min-w-125px">Exit Time</th>
-                <th class="min-w-125px">Status</th>
+                <th class="min-w-95px">
+                  {{ 'vehiclesComponent.plateNumber' | translate }}
+                </th>
+                <th class="min-w-125px">
+                  {{ 'vehiclesComponent.plateColor' | translate }}
+                </th>
+                <th class="min-w-125px">
+                  {{ 'vehiclesComponent.vehicleType' | translate }}
+                </th>
+                <th class="min-w-125px">
+                  {{ 'vehiclesComponent.licenseNo' | translate }}
+                </th>
+                <th class="min-w-125px">
+                  {{ 'vehiclesComponent.entryTime' | translate }}
+                </th>
+                <th class="min-w-125px">
+                  {{ 'vehiclesComponent.duration' | translate }}
+                </th>
+                <th class="min-w-125px">
+                  {{ 'vehiclesComponent.exitTime' | translate }}
+                </th>
+                <th class="min-w-125px">
+                  {{ 'vehiclesComponent.status' | translate }}
+                </th>
+                <th class="min-w-95px">
+                  {{ 'vehiclesComponent.actions' | translate }}
+                </th>
 
 
-                <th class="min-w-95px">{{ "cashier.actions" | translate }}</th>
+                <!-- <th class="min-w-95px">{{ "cashier.actions" | translate }}</th> -->
               </tr>
             </thead>
             <tbody>
@@ -344,7 +362,6 @@
                   </div>
 
                 </td>
-                   <td>{{ item.makeModel }}</td>
                 <td>{{ item.makeModel }}</td>
 
                 <!-- <td role="button" (click)="openUserMangment(item)"><img src="assets\imgs/edit.svg"></td> -->

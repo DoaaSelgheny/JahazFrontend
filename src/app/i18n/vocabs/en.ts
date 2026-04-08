@@ -376,6 +376,18 @@ export const locale = {
       title: 'Add Brand',
       name: 'Brand Name',
     },
+
+
+
+
+
+
+
+
+
+
+
+
     sideMenue: {
       users: 'Users Managment',
       orders: 'Orders Managment',
@@ -387,7 +399,52 @@ export const locale = {
       record: 'Requests Managment',
       contactUs: 'Contact Us Management ',
       smartDashboard: 'Smart Business',
+      vehicles:"Vehicles",
+      activity:"Activity",
+      analytics:"Analytics",
+      team:"Team",
+      alerts:"Alerts",
+      setting:"Setting"
     },
+
+    vehiclesComponent:
+    {
+      title:'Vehicles',
+      subTitle:'Monitor and manage all truck visit records in real-time',
+      exportCv:'Export CSV',
+      activeVisits:'Active Visits',
+      Completed:'Completed',
+      AvgStayTime:'Avg. Stay Time',
+      lastWeek:'vs last week',
+      filters:'Filters',
+      searchRecords:'Search Records',
+      searchPlaceholder:'Search by plate number...',
+      plateColor:'Plate Color',
+      allColors:'All Colors',
+      vehicleType:'Vehicle Type',
+      allTypes:'All Types',
+      status:'Status',
+      allStatuses:'All status',
+      recordType:'Record Type',
+      allRecords:'All Records',
+      plateNumber: 'Plate Number',
+      licenseNo: 'License No.',
+      entryTime: 'Entry Time',
+      duration: 'Duration',
+      exitTime: 'Exit Time',
+      actions: 'Actions'
+    },
+
+
+
+
+
+
+
+
+
+
+
     record: {
       number: 'Plate Number',
       make: 'Car Type',

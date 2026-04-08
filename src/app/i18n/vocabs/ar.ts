@@ -275,6 +275,11 @@ export const locale = {
       unRead: ' غير مقروء',
       showAll: 'مشاهدة الكل',
     },
+
+
+
+
+    // side menue
     sideMenue: {
       users: 'إدارة العملاء ',
       orders: 'قائمة الطلبات',
@@ -286,7 +291,47 @@ export const locale = {
       record: 'سجل الحركه',
       contactUs: 'ادارة تواصل المستخدمين',
       smartDashboard: 'ذكاء الأعمال',
+      vehicles:"المركبات",
+      activity:"النشاط",
+      analytics:"التحليلات",
+      team:"الفريق",
+      alerts:"التنبيهات",
+      setting:"الاعدادات"
     },
+
+
+
+
+
+
+ vehiclesComponent: {
+  title: 'المركبات',
+  subTitle: 'مراقبة وإدارة سجلات زيارات الشاحنات في الوقت الفعلي',
+  exportCv: 'تصدير CSV',
+  activeVisits: 'الزيارات النشطة',
+  Completed: 'اكتمل',
+  AvgStayTime: 'متوسط وقت البقاء',
+      filters:'الفلاتر',
+  lastWeek: 'مقارنة بالأسبوع الماضي',
+   searchRecords: 'ابحث في السجلات',
+    searchPlaceholder: 'ابحث برقم اللوحة...',
+    plateColor: 'لون اللوحة',
+    allColors: 'جميع الألوان',
+    vehicleType: 'نوع المركبة',
+    allTypes: 'جميع الأنواع',
+    status: 'الحالة',
+    allStatuses: 'جميع الحالات',
+    recordType: 'نوع السجل',
+    allRecords: 'جميع السجلات',
+    plateNumber: 'رقم اللوحة',
+    licenseNo: 'رقم الرخصة',
+    entryTime: 'وقت الدخول',
+    duration: 'المدة',
+    exitTime: 'وقت الخروج',
+    actions: 'الإجراءات'
+},
+
+
     requests: {
       searchtxt: 'بحث برقم السيارة  أو رقم الطلب',
       detail: 'التفاصيل',

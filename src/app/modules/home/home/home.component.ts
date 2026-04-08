@@ -119,7 +119,7 @@ export class HomeComponent implements OnInit {
       this.currentUser &&
       this.currentUser['roles'][0] == Constants.AllRoles.ThalolCasheir
     ) {
-      this.router.navigate(['/admin/dashboard']);
+      this.router.navigate(['/admin/water-dashboard']);
     } else if (
       this.currentUser &&
       this.currentUser['roles'][0] == Constants.AllRoles.ThalolBranchDirector
