@@ -159,13 +159,13 @@ const AdminRouting: Routes = [
         (m) => m.ManageContactUsModule,
       ),
   },
-  {
-    path: 'smart-dashboard',
-    loadChildren: () =>
-      import('./smart-dashboard/smart-dashboard.module').then(
-        (m) => m.SmartDashboardModule,
-      ),
-  },
+  // {
+  //   path: 'smart-dashboard',
+  //   loadChildren: () =>
+  //     import('./smart-dashboard/smart-dashboard.module').then(
+  //       (m) => m.SmartDashboardModule,
+  //     ),
+  // },
   {
     path: 'water-dashboard',
     loadChildren: () =>
