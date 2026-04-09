@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.component.html',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingComponent implements OnInit {
 
+  constructor(
+        private translate: TranslateService,
+
+  )
+  {
+
+  }
 settings = {
     platformName: 'Water Tenant Monitoring Platform',
     monitoringDuration: 10,

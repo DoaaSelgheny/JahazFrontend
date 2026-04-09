@@ -9,19 +9,18 @@
         }
         .menu-title {
             color: rgba(54, 65, 83, 1);
+            font-family: Inter;
+            font-weight: 500;
             font-size: 14px;
             transition: all .3s;
         }
-        // &.active,
-        // &:hover {
-        //     background-color: #420c37 !important;
-        //     svg {
-        //         fill: #EFB245;
-        //     }
-        //     .menu-title {
-        //         color: #EFB245 !important;
-        //     }
-        // }
+        &.active,
+        &:hover {
+            background-color: rgba(239, 246, 255, 1) !important;
+            .menu-title {
+                color: rgba(20, 71, 230, 1) !important;
+            }
+        }
     }
 }
 
@@ -31,7 +30,7 @@
     padding-top: 25px;
     padding-bottom: 15px;
     background: #fff;
-    color: rgba(16, 24, 40, 1);
+    color: rgba(106, 114, 130, 1);
     position: relative;
     z-index: 9;
     margin-bottom: 0;

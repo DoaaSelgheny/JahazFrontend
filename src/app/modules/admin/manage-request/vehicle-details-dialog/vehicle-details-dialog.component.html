@@ -12,14 +12,16 @@
     class="w-50"
       [class.active]="activeTab === 'overview'"
       (click)="setTab('overview')">
-      Overview
+          {{ 'vehiclesComponent.overview' | translate }}
+
     </span>
 
     <span
       [class.active]="activeTab === 'history'"
     class="w-50"
       (click)="setTab('history')">
-      Visit History
+          {{ 'vehiclesComponent.visitHistory' | translate }}
+
     </span>
   </div>
 
@@ -32,7 +34,7 @@
     <div class="stats-cards">
         <div class="stat-card">
           <div class="stat-info">
-            <h3>Total Visits</h3>
+<h3>{{ 'vehiclesComponent.totalVisits' | translate }}</h3>
             <h2>34</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +52,7 @@
               </svg>
 
               <span class="px-1">
-                <span class="sale">3%</span> vs last week</span>
+                <span class="sale">3%</span>   {{ 'vehiclesComponent.lastWeek' | translate }}</span>
 
             </span>
           </div>
@@ -67,7 +69,7 @@
 
         <div class="stat-card">
           <div class="stat-info">
-            <h3>Avg. Stay Time</h3>
+<h3>{{ 'vehiclesComponent.avgStayTimeCard' | translate }}</h3>
             <h2>2.4h</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,7 +87,8 @@
               </svg>
 
               <span class="px-1">
-                <span class="sale">3%</span> vs last week</span>
+                <span class="sale">3%</span>   {{ 'vehiclesComponent.lastWeek' | translate }}
+</span>
 
             </span>
           </div>
@@ -111,7 +114,7 @@
 <path d="M14.1667 16.6666C15.0871 16.6666 15.8333 15.9205 15.8333 15C15.8333 14.0795 15.0871 13.3333 14.1667 13.3333C13.2462 13.3333 12.5 14.0795 12.5 15C12.5 15.9205 13.2462 16.6666 14.1667 16.6666Z" stroke="#45556C" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.83341 16.6666C6.75389 16.6666 7.50008 15.9205 7.50008 15C7.50008 14.0795 6.75389 13.3333 5.83341 13.3333C4.91294 13.3333 4.16675 14.0795 4.16675 15C4.16675 15.9205 4.91294 16.6666 5.83341 16.6666Z" stroke="#45556C" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-      Vehicle Information
+  {{ 'vehiclesComponent.vehicleInformation' | translate }}
     </div>
 
     <span class="status incomplete">
@@ -127,38 +130,38 @@
 </clipPath>
 </defs>
 </svg>
-      Incomplete
+  {{ 'vehiclesComponent.vehicleInformation' | translate }}
     </span>
   </div>
 
   <div class="card-body p-4">
     <div class="info">
-      <label>PLATE NUMBER</label>
+  <label>{{ 'vehiclesComponent.plateNumber' | translate }}</label>
       <span>2974BDA</span>
     </div>
 
     <div class="info">
-      <label>MODEL</label>
+  <label>{{ 'vehiclesComponent.plateNumber' | translate }}</label>
       <span>Volvo FH16 750</span>
     </div>
 
     <div class="info">
-      <label>PLATE COLOR</label>
+  <label>{{ 'vehiclesComponent.plateColor' | translate }}</label>
       <span class="badge blue">Blue</span>
     </div>
 
     <div class="info">
-      <label>LICENSE NUMBER</label>
+  <label>{{ 'vehiclesComponent.plateColor' | translate }}</label>
       <span>قريبا</span>
     </div>
 
     <div class="info">
-      <label>TRUCK TYPE</label>
+  <label>{{ 'vehiclesComponent.truckType' | translate }}</label>
       <span>Tractor Trailer</span>
     </div>
 
     <div class="info">
-      <label>TANK LICENSE</label>
+  <label>{{ 'vehiclesComponent.tankLicense' | translate }}</label>
       <span>TL-2024-0009</span>
     </div>
   </div>
@@ -177,7 +180,7 @@
 </clipPath>
 </defs>
 </svg>
-    Stay Duration Analytics
+  {{ 'vehiclesComponent.stayDurationAnalytics' | translate }}
   </div>
   <img src="../../../../../assets/imgs/Surface.png" alt="">
   <!--
@@ -195,13 +198,13 @@
 
 <div *ngIf="activeTab === 'history'" class="visit-history">
 
-  <div class="history-header">
-    <span>Entry Time</span>
-    <span>Exit Time</span>
-    <span>Stey Duration</span>
-    <span>Filling Duration</span>
-    <span>Status</span>
-  </div>
+<div class="history-header">
+  <span>{{ 'vehiclesComponent.entryTime' | translate }}</span>
+  <span>{{ 'vehiclesComponent.exitTime' | translate }}</span>
+  <span>{{ 'vehiclesComponent.stayDuration' | translate }}</span>
+  <span>{{ 'vehiclesComponent.fillingDuration' | translate }}</span>
+  <span>{{ 'vehiclesComponent.status' | translate }}</span>
+</div>
 
   <div class="history-row" *ngFor="let i of [1,2,3,4,5,6]">
 
@@ -226,7 +229,7 @@
     </div>
 
     <div class="status completed">
-      Completed
+  {{ 'vehiclesComponent.completed' | translate }}
     </div>
 
   </div>

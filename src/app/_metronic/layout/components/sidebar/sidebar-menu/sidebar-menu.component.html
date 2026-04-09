@@ -68,7 +68,7 @@
         </svg>
         <span class="px-3">Jahez</span>
       </a>
-      <p class="mt-3">Water Trucks</p>
+      <p class="mt-1  text-start w-50  m-auto">Water Trucks</p>
 
       <div class="line-sep">
         <img src="/assets/imgs/line.svg" alt="" srcset="" />
@@ -76,7 +76,179 @@
     </div>
 
     <div class="menu-item">
-      <a
+
+        <a
+        *ngIf="
+
+          currentUser?.roles[0] === roles.ThalolCasheir ||
+          currentUser?.roles[0] === roles.ThalolBrandDirector
+        "
+        class="menu-link without-sub"
+        routerLink="/admin/water-dashboard"
+        routerLinkActive="active"
+          #dashboard="routerLinkActive"
+      >
+        <span class="menu-icon">
+          <span
+    [inlineSVG]="
+        dashboard.isActive
+          ? './assets/imgs/sidebar/dashboard-active.svg'
+          : './assets/imgs/sidebar/dashboard.svg'
+      "            class="svg-icon svg-icon-2"
+          >
+        </span>
+
+        </span>
+
+        <span class="menu-title">
+
+          {{"sideMenue.dashboard" | translate}}
+        </span></a
+      >
+           <a
+        *ngIf="
+          currentUser?.roles[0] === roles.ThalolCasheir ||
+          currentUser?.roles[0] === roles.ThalolBrandDirector
+        "
+        class="menu-link without-sub"
+        routerLink="/admin/manage-requests"
+        routerLinkActive="active"
+         #rla="routerLinkActive"
+      >
+        <span class="menu-icon">
+          <span
+    [inlineSVG]="
+        rla.isActive
+          ? './assets/imgs/sidebar/VehiclesActive.svg'
+          : './assets/imgs/sidebar/Vehicles.svg'
+      "            class="svg-icon svg-icon-2"
+          >
+        </span>
+
+        </span>
+        <span class="menu-title">
+          {{"sideMenue.vehicles" | translate}}
+        </span>
+        </a>
+        <!-- Activity -->
+                 <a
+        *ngIf="
+          currentUser?.roles[0] === roles.ThalolCasheir ||
+          currentUser?.roles[0] === roles.ThalolBrandDirector
+        "
+        class="menu-link without-sub"
+        routerLink="/home"
+        routerLinkActive="active"
+         #activity="routerLinkActive"
+      >
+        <span class="menu-icon">
+          <span
+    [inlineSVG]="
+        activity.isActive
+          ? './assets/imgs/sidebar/Activity.svg'
+          : './assets/imgs/sidebar/Activity.svg'
+      "            class="svg-icon svg-icon-2"
+          >
+        </span>
+
+        </span>
+        <span class="menu-title">
+          {{"sideMenue.activity" | translate}}
+        </span>
+        </a>
+
+        <!-- Analytics -->
+
+                 <a
+        *ngIf="
+          currentUser?.roles[0] === roles.ThalolCasheir ||
+          currentUser?.roles[0] === roles.ThalolBrandDirector
+        "
+        class="menu-link without-sub"
+        routerLink="/home"
+        routerLinkActive="active"
+         #analytics="routerLinkActive"
+      >
+        <span class="menu-icon">
+          <span
+    [inlineSVG]="
+        analytics.isActive
+          ? './assets/imgs/sidebar/Analytics.svg'
+          : './assets/imgs/sidebar/Analytics.svg'
+      "            class="svg-icon svg-icon-2"
+          >
+        </span>
+
+        </span>
+        <span class="menu-title">
+                    {{"sideMenue.analytics" | translate}}
+
+        </span>
+        </a>
+
+
+        <!-- Team -->
+
+                 <a
+        *ngIf="
+          currentUser?.roles[0] === roles.ThalolCasheir ||
+          currentUser?.roles[0] === roles.ThalolBrandDirector
+        "
+        class="menu-link without-sub"
+        routerLink="/home"
+        routerLinkActive="active"
+         #team="routerLinkActive"
+      >
+        <span class="menu-icon">
+          <span
+    [inlineSVG]="
+        team.isActive
+          ? './assets/imgs/sidebar/Team.svg'
+          : './assets/imgs/sidebar/Team.svg'
+      "            class="svg-icon svg-icon-2"
+          >
+        </span>
+
+        </span>
+        <span class="menu-title">
+
+                    {{"sideMenue.team" | translate}}
+        </span>
+        </a>
+
+        <!-- Alerts -->
+                 <a
+        *ngIf="
+          currentUser?.roles[0] === roles.ThalolCasheir ||
+          currentUser?.roles[0] === roles.ThalolBrandDirector
+        "
+        class="menu-link without-sub"
+        routerLink="/home"
+        routerLinkActive="active"
+         #alerts="routerLinkActive"
+      >
+        <span class="menu-icon">
+          <span
+    [inlineSVG]="
+        alerts.isActive
+          ? './assets/imgs/sidebar/Alerts.svg'
+          : './assets/imgs/sidebar/Alerts.svg'
+      "            class="svg-icon svg-icon-2"
+          >
+        </span>
+
+        </span>
+        <span class="menu-title">
+                    {{"sideMenue.alerts" | translate}}
+        </span>
+        </a>
+
+
+
+
+
+
+      <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolBusinessOperation"
         class="menu-link without-sub"
         routerLink="/admin/manager-dashboard"
@@ -90,7 +262,7 @@
           "sideMenue.dashboard" | translate
         }}</span></a
       >
-      <!-- <a
+       <a
         *ngIf="
           currentUser?.roles[0] === roles.ThalolBrandDirector ||
           currentUser?.roles[0] === roles.ThalolBranchDirector
@@ -100,7 +272,6 @@
         routerLinkActive="active"
       >
         <span class="menu-icon">
-
         </span>
         <span class="menu-title">
           {{ "sideMenue.smartDashboard" | translate }}
@@ -185,7 +356,7 @@
         }}</span></a
       > -->
 
-      <a
+      <!-- <a
         *ngIf="currentUser?.roles[0] === roles.ThalolCasheir"
         class="menu-link without-sub"
         routerLink="/admin/dashboard"
@@ -198,7 +369,7 @@
         ><span class="menu-title">{{
           "sideMenue.dashboard" | translate
         }}</span></a
-      >
+      > -->
 
       <!-- <a
         *ngIf="
@@ -215,109 +386,8 @@
           ></span> </span
         ><span class="menu-title">{{ "sideMenue.users" | translate }}</span></a
       > -->
-      <a
-        *ngIf="
-          currentUser?.roles[0] === roles.ThalolCasheir ||
-          currentUser?.roles[0] === roles.ThalolBrandDirector
-        "
-        class="menu-link without-sub"
-        routerLink="/admin/water-dashboard"
-        routerLinkActive="active"
-      >
-        <span class="menu-icon">
-          <!-- <span
-            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
-            class="svg-icon svg-icon-2"
-          >
-        </span> -->
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.1833 1.66669H9.81667C9.37464 1.66669 8.95072 1.84228 8.63816 2.15484C8.3256 2.4674 8.15 2.89133 8.15 3.33335V3.48335C8.1497 3.77562 8.07255 4.06268 7.92628 4.31572C7.78002 4.56876 7.56978 4.77888 7.31667 4.92502L6.95834 5.13335C6.70497 5.27963 6.41756 5.35664 6.125 5.35664C5.83244 5.35664 5.54503 5.27963 5.29167 5.13335L5.16667 5.06669C4.78422 4.84607 4.32987 4.78622 3.90334 4.90028C3.47681 5.01433 3.11296 5.29297 2.89167 5.67502L2.70833 5.99169C2.48772 6.37413 2.42787 6.82849 2.54192 7.25502C2.65598 7.68155 2.93461 8.04539 3.31667 8.26669L3.44167 8.35002C3.69356 8.49545 3.90302 8.70426 4.04921 8.95571C4.1954 9.20716 4.27325 9.4925 4.275 9.78335V10.2084C4.27617 10.502 4.19971 10.7908 4.05337 11.0454C3.90703 11.3001 3.69601 11.5115 3.44167 11.6584L3.31667 11.7334C2.93461 11.9546 2.65598 12.3185 2.54192 12.745C2.42787 13.1716 2.48772 13.6259 2.70833 14.0084L2.89167 14.325C3.11296 14.7071 3.47681 14.9857 3.90334 15.0998C4.32987 15.2138 4.78422 15.154 5.16667 14.9334L5.29167 14.8667C5.54503 14.7204 5.83244 14.6434 6.125 14.6434C6.41756 14.6434 6.70497 14.7204 6.95834 14.8667L7.31667 15.075C7.56978 15.2212 7.78002 15.4313 7.92628 15.6843C8.07255 15.9374 8.1497 16.2244 8.15 16.5167V16.6667C8.15 17.1087 8.3256 17.5326 8.63816 17.8452C8.95072 18.1578 9.37464 18.3334 9.81667 18.3334H10.1833C10.6254 18.3334 11.0493 18.1578 11.3618 17.8452C11.6744 17.5326 11.85 17.1087 11.85 16.6667V16.5167C11.8503 16.2244 11.9275 15.9374 12.0737 15.6843C12.22 15.4313 12.4302 15.2212 12.6833 15.075L13.0417 14.8667C13.295 14.7204 13.5824 14.6434 13.875 14.6434C14.1676 14.6434 14.455 14.7204 14.7083 14.8667L14.8333 14.9334C15.2158 15.154 15.6701 15.2138 16.0967 15.0998C16.5232 14.9857 16.887 14.7071 17.1083 14.325L17.2917 14C17.5123 13.6176 17.5721 13.1632 17.4581 12.7367C17.344 12.3102 17.0654 11.9463 16.6833 11.725L16.5583 11.6584C16.304 11.5115 16.093 11.3001 15.9466 11.0454C15.8003 10.7908 15.7238 10.502 15.725 10.2084V9.79169C15.7238 9.498 15.8003 9.20923 15.9466 8.9546C16.093 8.69997 16.304 8.48853 16.5583 8.34169L16.6833 8.26669C17.0654 8.04539 17.344 7.68155 17.4581 7.25502C17.5721 6.82849 17.5123 6.37413 17.2917 5.99169L17.1083 5.67502C16.887 5.29297 16.5232 5.01433 16.0967 4.90028C15.6701 4.78622 15.2158 4.84607 14.8333 5.06669L14.7083 5.13335C14.455 5.27963 14.1676 5.35664 13.875 5.35664C13.5824 5.35664 13.295 5.27963 13.0417 5.13335L12.6833 4.92502C12.4302 4.77888 12.22 4.56876 12.0737 4.31572C11.9275 4.06268 11.8503 3.77562 11.85 3.48335V3.33335C11.85 2.89133 11.6744 2.4674 11.3618 2.15484C11.0493 1.84228 10.6254 1.66669 10.1833 1.66669Z"
-              stroke="#364153"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
-              stroke="#364153"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </span>
 
-        <span class="menu-title">Dashboard</span></a
-      >
-      <a
-        *ngIf="
-          currentUser?.roles[0] === roles.ThalolCasheir ||
-          currentUser?.roles[0] === roles.ThalolBrandDirector
-        "
-        class="menu-link without-sub"
-        routerLink="/admin/manage-requests"
-        routerLinkActive="active"
-      >
-        <span class="menu-icon">
-          <!-- <span
-            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
-            class="svg-icon svg-icon-2"
-          >
-        </span> -->
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11.6667 15V4.99998C11.6667 4.55795 11.4912 4.13403 11.1786 3.82147C10.866 3.50891 10.4421 3.33331 10.0001 3.33331H3.33341C2.89139 3.33331 2.46746 3.50891 2.1549 3.82147C1.84234 4.13403 1.66675 4.55795 1.66675 4.99998V14.1666C1.66675 14.3877 1.75455 14.5996 1.91083 14.7559C2.06711 14.9122 2.27907 15 2.50008 15H4.16675"
-              stroke="#364153"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M12.5 15H7.5"
-              stroke="#364153"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M15.8334 15H17.5001C17.7211 15 17.9331 14.9122 18.0893 14.7559C18.2456 14.5997 18.3334 14.3877 18.3334 14.1667V11.125C18.3331 10.9359 18.2684 10.7525 18.1501 10.605L15.2501 6.98002C15.1721 6.88242 15.0733 6.80359 14.9608 6.74935C14.8482 6.69512 14.725 6.66687 14.6001 6.66669H11.6667"
-              stroke="#364153"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M14.1667 16.6666C15.0871 16.6666 15.8333 15.9205 15.8333 15C15.8333 14.0795 15.0871 13.3333 14.1667 13.3333C13.2462 13.3333 12.5 14.0795 12.5 15C12.5 15.9205 13.2462 16.6666 14.1667 16.6666Z"
-              stroke="#364153"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M5.83341 16.6666C6.75389 16.6666 7.50008 15.9205 7.50008 15C7.50008 14.0795 6.75389 13.3333 5.83341 13.3333C4.91294 13.3333 4.16675 14.0795 4.16675 15C4.16675 15.9205 4.91294 16.6666 5.83341 16.6666Z"
-              stroke="#364153"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </span>
 
-        <span class="menu-title">{{ "sideMenue.record" | translate }}</span></a
-      >
 
       <a
         *ngIf="
@@ -327,38 +397,24 @@
         class="menu-link without-sub"
         routerLink="/admin/setting"
         routerLinkActive="active"
+         #setting="routerLinkActive"
       >
         <span class="menu-icon">
-          <!-- <span
-            [inlineSVG]="'./assets/imgs/sidebar/dashboard.svg'"
-            class="svg-icon svg-icon-2"
+          <span
+    [inlineSVG]="
+        setting.isActive
+          ? './assets/imgs/sidebar/settingActive.svg'
+          : './assets/imgs/sidebar/setting.svg'
+      "            class="svg-icon svg-icon-2"
           >
-        </span> -->
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.1833 1.66669H9.81667C9.37464 1.66669 8.95072 1.84228 8.63816 2.15484C8.3256 2.4674 8.15 2.89133 8.15 3.33335V3.48335C8.1497 3.77562 8.07255 4.06268 7.92628 4.31572C7.78002 4.56876 7.56978 4.77888 7.31667 4.92502L6.95834 5.13335C6.70497 5.27963 6.41756 5.35664 6.125 5.35664C5.83244 5.35664 5.54503 5.27963 5.29167 5.13335L5.16667 5.06669C4.78422 4.84607 4.32987 4.78622 3.90334 4.90028C3.47681 5.01433 3.11296 5.29297 2.89167 5.67502L2.70833 5.99169C2.48772 6.37413 2.42787 6.82849 2.54192 7.25502C2.65598 7.68155 2.93461 8.04539 3.31667 8.26669L3.44167 8.35002C3.69356 8.49545 3.90302 8.70426 4.04921 8.95571C4.1954 9.20716 4.27325 9.4925 4.275 9.78335V10.2084C4.27617 10.502 4.19971 10.7908 4.05337 11.0454C3.90703 11.3001 3.69601 11.5115 3.44167 11.6584L3.31667 11.7334C2.93461 11.9546 2.65598 12.3185 2.54192 12.745C2.42787 13.1716 2.48772 13.6259 2.70833 14.0084L2.89167 14.325C3.11296 14.7071 3.47681 14.9857 3.90334 15.0998C4.32987 15.2138 4.78422 15.154 5.16667 14.9334L5.29167 14.8667C5.54503 14.7204 5.83244 14.6434 6.125 14.6434C6.41756 14.6434 6.70497 14.7204 6.95834 14.8667L7.31667 15.075C7.56978 15.2212 7.78002 15.4313 7.92628 15.6843C8.07255 15.9374 8.1497 16.2244 8.15 16.5167V16.6667C8.15 17.1087 8.3256 17.5326 8.63816 17.8452C8.95072 18.1578 9.37464 18.3334 9.81667 18.3334H10.1833C10.6254 18.3334 11.0493 18.1578 11.3618 17.8452C11.6744 17.5326 11.85 17.1087 11.85 16.6667V16.5167C11.8503 16.2244 11.9275 15.9374 12.0737 15.6843C12.22 15.4313 12.4302 15.2212 12.6833 15.075L13.0417 14.8667C13.295 14.7204 13.5824 14.6434 13.875 14.6434C14.1676 14.6434 14.455 14.7204 14.7083 14.8667L14.8333 14.9334C15.2158 15.154 15.6701 15.2138 16.0967 15.0998C16.5232 14.9857 16.887 14.7071 17.1083 14.325L17.2917 14C17.5123 13.6176 17.5721 13.1632 17.4581 12.7367C17.344 12.3102 17.0654 11.9463 16.6833 11.725L16.5583 11.6584C16.304 11.5115 16.093 11.3001 15.9466 11.0454C15.8003 10.7908 15.7238 10.502 15.725 10.2084V9.79169C15.7238 9.498 15.8003 9.20923 15.9466 8.9546C16.093 8.69997 16.304 8.48853 16.5583 8.34169L16.6833 8.26669C17.0654 8.04539 17.344 7.68155 17.4581 7.25502C17.5721 6.82849 17.5123 6.37413 17.2917 5.99169L17.1083 5.67502C16.887 5.29297 16.5232 5.01433 16.0967 4.90028C15.6701 4.78622 15.2158 4.84607 14.8333 5.06669L14.7083 5.13335C14.455 5.27963 14.1676 5.35664 13.875 5.35664C13.5824 5.35664 13.295 5.27963 13.0417 5.13335L12.6833 4.92502C12.4302 4.77888 12.22 4.56876 12.0737 4.31572C11.9275 4.06268 11.8503 3.77562 11.85 3.48335V3.33335C11.85 2.89133 11.6744 2.4674 11.3618 2.15484C11.0493 1.84228 10.6254 1.66669 10.1833 1.66669Z"
-              stroke="#364153"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
-              stroke="#364153"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
         </span>
 
-        <span class="menu-title">setting</span></a
+        </span>
+
+        <span class="menu-title">
+             {{"sideMenue.setting" | translate}}
+            </span>
+</a
       >
 
       <a
