@@ -10,7 +10,7 @@ import { ViewUserComponent } from '../view-user/view-user.component';
 import { CashiersService } from 'src/app/services/api/cashier.service';
 import { ViewCarHistoryComponent } from '../view-car-history/view-car-history.component';
 import { VisitsHistoryComponent } from '../visits-history/visits-history.component';
-
+import { VehicleDetailsDialogComponent } from '../vehicle-details-dialog/vehicle-details-dialog.component';
 @Component({
   selector: 'app-user-management',
   templateUrl: './user-management.component.html',
@@ -95,14 +95,25 @@ export class UserManagementComponent implements OnInit {
       MaxResultCount: this.pageSize,
     };
   }
-  viewUserModal(data:any) {
-    const modalRef = this.modalService.open(ViewUserComponent, {
-      size: 'lg',
-      backdrop: 'static',
-    });
-    modalRef.componentInstance.data = data;
+  // viewUserModal(data:any) {
+  //   const modalRef = this.modalService.open(ViewUserComponent, {
+  //     size: 'lg',
+  //     backdrop: 'static',
+  //   });
+  //   modalRef.componentInstance.data = data;
+  // }
 
+  viewUserModal(item: any)
+  {
+    const modalRef = this.modalService.open(VehicleDetailsDialogComponent, {
+      windowClass: 'right-side-modal',
+      backdrop: true,
+      keyboard: true,
+    });
+
+    modalRef.componentInstance.data = item;
   }
+
 
   viewVisitHistory(data:any) {
     const modalRef = this.modalService.open(VisitsHistoryComponent, {

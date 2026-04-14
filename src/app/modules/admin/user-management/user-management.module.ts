@@ -23,15 +23,17 @@ import { DateDifferencePipe } from './time_format_pipe';
 import { ViewCarHistoryComponent } from './view-car-history/view-car-history.component';
 import { VisitsHistoryComponent } from './visits-history/visits-history.component';
 import { RedeemPointsCashierComponent } from './redeem-points-cashier/redeem-points-cashier.component';
+import { VehicleDetailsDialogComponent } from './vehicle-details-dialog/vehicle-details-dialog.component';
 
 @NgModule({
   declarations: [UserManagementComponent,
-  
-     AddUserModalComponent, ViewUserComponent, ViewCarHistoryComponent, VisitsHistoryComponent, RedeemPointsCashierComponent],
+
+     AddUserModalComponent, ViewUserComponent, ViewCarHistoryComponent, VisitsHistoryComponent, RedeemPointsCashierComponent,VehicleDetailsDialogComponent],
   imports: [
     CommonModule,
     InlineSVGModule,
     DateDifferencePipe,
+
     RouterModule.forChild([
       {
         path: '',

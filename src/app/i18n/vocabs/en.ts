@@ -409,6 +409,7 @@ export const locale = {
       team: 'Team',
       alerts: 'Alerts',
       setting: 'Setting',
+      clients: 'clients',
     },
 
     vehiclesComponent: {

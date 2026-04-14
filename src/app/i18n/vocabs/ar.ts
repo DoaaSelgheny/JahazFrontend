@@ -309,6 +309,7 @@ export const locale = {
       team: 'الفريق',
       alerts: 'التنبيهات',
       setting: 'الاعدادات',
+      clients: 'عملاء',
     },
 
     vehiclesComponent: {

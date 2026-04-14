@@ -245,6 +245,33 @@
 
 
 
+        <!-- Alerts -->
+                 <a
+        *ngIf="
+          currentUser?.roles[0] === roles.ThalolCasheir ||
+          currentUser?.roles[0] === roles.ThalolBrandDirector
+        "
+        class="menu-link without-sub"
+        routerLink="/admin/user-management"
+        routerLinkActive="active"
+         #alerts="routerLinkActive"
+      >
+        <span class="menu-icon">
+          <span
+    [inlineSVG]="
+        alerts.isActive
+          ? './assets/imgs/sidebar/Team.svg'
+          : './assets/imgs/sidebar/Team.svg'
+      "            class="svg-icon svg-icon-2"
+          >
+        </span>
+
+        </span>
+        <span class="menu-title">
+                    {{"sideMenue.clients" | translate}}
+        </span>
+        </a>
+
 
 
 

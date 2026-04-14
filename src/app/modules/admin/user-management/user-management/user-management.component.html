@@ -10,10 +10,10 @@
         <div class="row">
 
           <div class="col-md-5 col-sm-6 col-12  mt-3">
-            <div class="search-btn">
+            <div class="search-btn px-3">
+              <i class="fa fa-search"></i>
               <input (keyup)="page = 1; fromSearchInput = true; getAllUsersData()" class="form-control" type="text"
                 [(ngModel)]="searchText" [placeholder]="'users.searchUser' | translate" />
-              <i class="fa fa-search"></i>
             </div>
 
           </div>
@@ -67,7 +67,7 @@
                 <th class="min-w-95px">
                   {{ "users.visitNo" | translate }}
                 </th>
-                
+
                 <th class="min-w-95px">
                   {{ "dashboard.point" | translate }}
                 </th>
@@ -90,14 +90,53 @@
                 <td>{{ item.carNo??'-' }}</td>
                 <td>{{ item.fullName??'-' }}</td>
                 <td>{{ item.phoneNumber ??'-'}}</td>
-                <td>
+                <!-- <td>
                   {{item.carDateTime |dateDifference| date:"dd.MM.yyyy"}}
                   <br>
                   {{item.carDateTime | dateDifference| date:"hh:mm a"}}
+                </td> -->
+
+
+                <td class="date-time">
+                  <div class="date">
+                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2.43225 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M4.86462 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M5.77669 4.56769H1.52018C1.18435 4.56769 0.912109 4.83993 0.912109 5.17576V9.43227C0.912109 9.7681 1.18435 10.0403 1.52018 10.0403H5.77669C6.11252 10.0403 6.38477 9.7681 6.38477 9.43227V5.17576C6.38477 4.83993 6.11252 4.56769 5.77669 4.56769Z"
+                        stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M0.912109 6.39191H6.38477" stroke="#155DFC" stroke-width="0.608073"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    {{ item.carDateTime | dateDifference | date:'dd.MM.yyyy' }}
+                  </div>
+
+                  <div class="time">
+                    <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_10_611)">
+                        <path
+                          d="M6 10C7.65685 10 9 8.65685 9 7C9 5.34315 7.65685 4 6 4C4.34315 4 3 5.34315 3 7C3 8.65685 4.34315 10 6 10Z"
+                          stroke="#00A63E" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 5V7.25L7 8" stroke="#00A63E" stroke-width="0.6" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_10_611">
+                          <rect width="9.875" height="14" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    {{ item.carDateTime | dateDifference | date:'hh:mm a' }}
+                  </div>
+
                 </td>
+
+
                 <td role="button" (click)="viewVisitHistory(item)"><span style="color:#0565D6;">{{item.visitsNo}}</span></td>
-               <td>{{item.pointsNo ??'-'}}</td> 
-               <td>{{item.memberShipPointNo ??'-'}}</td> 
+               <td>{{item.pointsNo ??'-'}}</td>
+               <td>{{item.memberShipPointNo ??'-'}}</td>
 
                 <td role="button" (click)="viewUserModal(item)"><i class="fa fa-eye"></i></td>
               </tr>
