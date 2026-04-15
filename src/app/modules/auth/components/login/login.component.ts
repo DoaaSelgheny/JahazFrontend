@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) {
     this.isLoading$ = this.authService.isLoading$;
     if (localStorage.getItem('access_token_zalool'))  {
-      this.router.navigate(['/']);
+      this.router.navigate(['admin/water-dashboard']);
     }
   }
 

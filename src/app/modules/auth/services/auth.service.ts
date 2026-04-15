@@ -138,7 +138,7 @@ export class AuthService implements OnDestroy {
           this.getcurrentUser().subscribe((res) => {
             this.roleAndPermissions(res);
           });
-          this.router.navigate(['/admin/smart-dashboard']);
+          this.router.navigate(['/admin/water-dashboard']);
         },
         (mockError) => {
           setTimeout(() => {
@@ -230,7 +230,7 @@ export class AuthService implements OnDestroy {
     } else if (user['roles'][0] == Constants.AllRoles.ThalolBrandDirector) {
       this.router.navigate(['/admin/smart-dashboard']);
     } else if (user['roles'][0] == Constants.AllRoles.ThalolCasheir) {
-      this.router.navigate(['/admin/dashboard']);
+      this.router.navigate(['/admin/water-dashboard']);
     } else if (user['roles'][0] == Constants.AllRoles.ThalolBusinessOperation) {
       this.router.navigate(['/admin/manager-dashboard']);
     } else if (user['roles'][0] == Constants.AllRoles.ThalolBranchDirector) {
