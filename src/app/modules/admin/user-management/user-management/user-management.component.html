@@ -56,11 +56,11 @@
                 <!-- <th class="min-w-125px">{{ "users.carColor" | translate }}</th> -->
                 <!-- <th class="min-w-125px">{{ "users.carMakeModel" | translate }}</th> -->
 
-                <th class="min-w-95px">{{ "users.userName" | translate }}</th>
+                <!-- <th class="min-w-95px">{{ "users.userName" | translate }}</th> -->
 
-                <th class="min-w-95px">
+                <!-- <th class="min-w-95px">
                   {{ "users.phoneNumber" | translate }}
-                </th>
+                </th> -->
 
                 <!-- <th class="min-w-95px">{{ "users.branch" | translate }}</th> -->
                 <th>{{"users.date"|translate}}</th>
@@ -68,13 +68,13 @@
                   {{ "users.visitNo" | translate }}
                 </th>
 
-                <th class="min-w-95px">
+                <!-- <th class="min-w-95px">
                   {{ "dashboard.point" | translate }}
                 </th>
 
                 <th class="min-w-95px">
                   {{ "users.membershipPoints" | translate }}
-                </th>
+                </th> -->
 
                 <th class="min-w-95px">
                   {{ "users.actions" | translate }}
@@ -88,8 +88,8 @@
               <tr class="text-center" *ngFor="let item of allUsers">
                 <td>{{ item.customerNo??'-' }}</td>
                 <td>{{ item.carNo??'-' }}</td>
-                <td>{{ item.fullName??'-' }}</td>
-                <td>{{ item.phoneNumber ??'-'}}</td>
+                <!-- <td>{{ item.fullName??'-' }}</td> -->
+                <!-- <td>{{ item.phoneNumber ??'-'}}</td> -->
                 <!-- <td>
                   {{item.carDateTime |dateDifference| date:"dd.MM.yyyy"}}
                   <br>
@@ -135,8 +135,8 @@
 
 
                 <td role="button" (click)="viewVisitHistory(item)"><span style="color:#0565D6;">{{item.visitsNo}}</span></td>
-               <td>{{item.pointsNo ??'-'}}</td>
-               <td>{{item.memberShipPointNo ??'-'}}</td>
+               <!-- <td>{{item.pointsNo ??'-'}}</td> -->
+               <!-- <td>{{item.memberShipPointNo ??'-'}}</td> -->
 
                 <td role="button" (click)="viewUserModal(item)"><i class="fa fa-eye"></i></td>
               </tr>

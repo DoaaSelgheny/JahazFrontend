@@ -155,13 +155,14 @@
         </div>
 
         <div class="filters-body">
-
+<!--
           <div class="filter-item search me-5">
             <label>{{ "vehiclesComponent.searchRecords" | translate }}</label>
             <input type="text" [placeholder]="'vehiclesComponent.searchPlaceholder' | translate" />
-          </div>
+          </div> -->
 
-          <div class="filter-item  me-1">
+          <div class="filter-item  me-5">
+
             <label>{{ "vehiclesComponent.plateColor" | translate }}</label>
             <select>
               <option>{{ "vehiclesComponent.allColors" | translate }}</option>
@@ -182,12 +183,12 @@
             </select>
           </div>
 
-          <div class="filter-item">
+          <!-- <div class="filter-item">
             <label>{{ "vehiclesComponent.recordType" | translate }}</label>
             <select>
               <option>{{ "vehiclesComponent.allRecords" | translate }}</option>
             </select>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -260,11 +261,11 @@
                 </td>
 
                 <td>
-                  {{ item.makeModel}}
+                 {{item.make}} _ {{ item.makeModel}}
                 </td>
 
 
-                <td>{{ item.makeModel }}</td>
+                <td>_</td>
 
                 <!-- <td>
                   {{item.dateTime |dateDifference| date:"dd.MM.yyyy"}}
@@ -311,8 +312,8 @@
 
 
 
-                <td class="d-flex align-item-center justify-content-start ">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <td class="d-flex align-item-center justify-content-center ">
+                  <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="24" height="24" rx="4" fill="#ECFDF5" />
                     <path d="M10.3334 3.66669H13.6667" stroke="#009966" stroke-width="1.66667" stroke-linecap="round"
                       stroke-linejoin="round" />
@@ -321,16 +322,17 @@
                     <path
                       d="M12 20.3333C15.6819 20.3333 18.6667 17.3486 18.6667 13.6667C18.6667 9.98477 15.6819 7 12 7C8.31814 7 5.33337 9.98477 5.33337 13.6667C5.33337 17.3486 8.31814 20.3333 12 20.3333Z"
                       stroke="#009966" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
+                  </svg> -->
                   <span class="mt-1 px-2">
-                    {{ item.makeModel }}
+                    <!-- {{ item.makeModel }} -->
+                      _
                   </span>
                 </td>
 
 
 
        <td class="date-time">
-                  <div class="date">
+                  <!-- <div class="date">
                     <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2.43225 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
                         stroke-linejoin="round" />
@@ -361,10 +363,13 @@
                       </defs>
                     </svg>
                     {{ item.dateTime | dateDifference | date:'hh:mm a' }}
-                  </div>
-
+                  </div> -->
+                  _
                 </td>
-                <td>{{ item.makeModel }}</td>
+                <td>
+                  <!-- {{ item.makeModel }} -->
+                    _
+                </td>
 
                 <!-- <td role="button" (click)="openUserMangment(item)"><img src="assets\imgs/edit.svg"></td> -->
          <td>
