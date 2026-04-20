@@ -9,7 +9,7 @@
       <article>
         <div class="row">
 
-          <div class="col-md-5 col-sm-6 col-12  mt-3">
+          <div class="col-md-5 col-sm-8 col-12  mt-3">
             <div class="search-btn px-3">
               <i class="fa fa-search"></i>
               <input (keyup)="page = 1; fromSearchInput = true; getAllUsersData()" class="form-control" type="text"
@@ -17,11 +17,11 @@
             </div>
 
           </div>
-          <div class="col-md-4 col-sm-5 col-12 mt-3 ">
+          <!-- <div class="col-md-4 col-sm-5 col-12 mt-3 ">
             <ng-multiselect-dropdown [placeholder]="'cashier.branch'|translate" [settings]="dropdownSettingBranch"
               [data]="branchs" [(ngModel)]="Branch" (onSelect)="getAllUsersData()" (onDeSelect)="getAllUsersData()">
             </ng-multiselect-dropdown>
-          </div>
+          </div> -->
           <!-- <button
             (click)="openModal()"
             class="addbutton col-lg-6 justify-content-end"
