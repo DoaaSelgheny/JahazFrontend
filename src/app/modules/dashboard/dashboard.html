@@ -45,7 +45,7 @@
         >
           <div>
             <div class="kpi-card__label">Total Visits</div>
-            <div class="kpi-card__value">{{ totalVisits }}</div>
+            <div class="kpi-card__value">{{ cards?.totalVisits }}</div>
             <div class="kpi-card__sub">0 today visits</div>
           </div>
           <div class="kpi-card__icon">
@@ -67,7 +67,7 @@
         >
           <div>
             <div class="kpi-card__label">Avg Stay Time</div>
-            <div class="kpi-card__value">{{ avgStayMinutes }} min</div>
+            <div class="kpi-card__value">{{cards?.averageDurationInMinutes | number:'1.1-1'}}</div>
             <div class="kpi-card__sub">122 long stay</div>
           </div>
           <div class="kpi-card__icon">
@@ -89,7 +89,7 @@
         >
           <div>
             <div class="kpi-card__label">Avg Filling Time</div>
-            <div class="kpi-card__value">{{ fillTimeLabel }}</div>
+            <div class="kpi-card__value">{{ cards?.averageFillingDurationInMinutes }}</div>
             <div class="kpi-card__sub">Data coming soon</div>
           </div>
           <div class="kpi-card__icon">
@@ -111,7 +111,7 @@
         >
           <div>
             <div class="kpi-card__label">Incomplete Records</div>
-            <div class="kpi-card__value">{{ incompleteRecords }}</div>
+            <div class="kpi-card__value">{{cards?.incompleteVisits }}</div>
             <div class="kpi-card__sub">Missing exit data</div>
           </div>
           <div class="kpi-card__icon">

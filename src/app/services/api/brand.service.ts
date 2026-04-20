@@ -6,6 +6,15 @@ import { WebApiService } from '../webApi.service';
 })
 export class BrandService {
   constructor(private webApi: WebApiService) {}
+
+
+
+
+
+    getCards(param?: any) {
+    return this.webApi.get('/api/app/visits/kpis', param);
+  }
+
   getAllBrands(param?: any) {
     return this.webApi.get(
       'api/app/manage-brand/brands',

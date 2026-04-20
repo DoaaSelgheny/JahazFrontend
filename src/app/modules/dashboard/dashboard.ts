@@ -6,17 +6,18 @@ import { BranchManagerService } from 'src/app/services/api/branch-manager.servic
 import { FirstTabService } from 'src/app/services/api/first-tab.service';
 import { ManageCustomersService } from 'src/app/services/api/manage-customers.service';
 import { DashboardFilterComponent } from './filter/dashboard-filter.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.scss'],
 })
-export class Dashboard implements OnInit {
-  totalVisits = 408;
-  avgStayMinutes = 271;
-  fillTimeLabel = 'Soon';
-  incompleteRecords = 190;
+export class DashboardComponent implements OnInit {
+  // totalVisits = 408;
+  // avgStayMinutes = 271;
+  // fillTimeLabel = 'Soon';
+  // incompleteRecords = 190;
 
   // smart-dashboard-like filters
   formValue: any;
@@ -24,7 +25,7 @@ export class Dashboard implements OnInit {
   brands: any[] = [];
   branchs: any[] = [];
   Branch: any | null = null;
-
+cards:any
   longestStayVehicles = [
     { rank: 1, plate: '2228EBA', visits: 1, stayMin: 1080 },
     { rank: 2, plate: '92012991', visits: 1, stayMin: 1020 },
@@ -47,7 +48,9 @@ export class Dashboard implements OnInit {
     private branchManagerService: BranchManagerService,
     private firstTabService: FirstTabService,
     private manageCustomersService: ManageCustomersService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+        private spinner: NgxSpinnerService,
+
   ) {
     this.visitsByHourOptions = {
       series: [
@@ -236,6 +239,7 @@ export class Dashboard implements OnInit {
   ngOnInit(): void {
     this.getBrands();
     this.getData();
+    this.getCard()
   }
 
   openFilter() {
@@ -262,6 +266,30 @@ export class Dashboard implements OnInit {
       })
       .catch(() => {});
   }
+
+  getCard()
+{
+
+    // this.filterObj.fromDate = this.fromDate;
+    // this.filterObj.toDate = this.toDate;
+
+    // let myObj: any = { ...this.filterObj };
+    this.spinner.show();
+    const input:any=
+    {
+ fromDate: this.formValue?.Date ?? '',
+        toDate: this.formValue?.toDate ?? '',
+    }
+
+  this.brandService.getCards(input).subscribe((res)=>{
+    this.cards=res;
+    this.spinner.hide();
+
+  })
+}
+
+
+
 
   getBrands() {
     this.brandService.getAllBrands().subscribe((res: any) => {
@@ -316,9 +344,9 @@ export class Dashboard implements OnInit {
             count: Number(h.visitCount || 0),
           }));
 
-          if (res?.totalVisits !== undefined) {
-            this.totalVisits = Number(res.totalVisits);
-          }
+          // if (res?.totalVisits !== undefined) {
+          //   this.totalVisits = Number(res.totalVisits);
+          // }
 
           if (hours.length) {
             const low = hours.map((x: any) => (x.count <= 19 ? x.count : 0));
@@ -357,9 +385,9 @@ export class Dashboard implements OnInit {
       })
       .subscribe({
         next: (res: any) => {
-          if (res?.totalVisitsCount !== undefined) {
-            this.totalVisits = Number(res.totalVisitsCount);
-          }
+          // if (res?.totalVisitsCount !== undefined) {
+          //   this.totalVisits = Number(res.totalVisitsCount);
+          // }
           this.cdr.detectChanges();
         },
         error: () => {},
