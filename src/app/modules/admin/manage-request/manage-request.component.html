@@ -17,7 +17,9 @@
           <p>{{ "vehiclesComponent.subTitle" | translate }}</p>
         </div>
 
-        <button class="export-btn">
+
+        <div class="d-flex align-item-center justify-content-start ">
+      <button class="export-btn mx-4" (click)="getExport()">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10"
@@ -29,14 +31,47 @@
 
           {{ "vehiclesComponent.exportCv" | translate }}
         </button>
+
+
+
+<div class="date-filter">
+
+  <div class="date-box">
+<svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.33337 6.78796V8.87279" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.66663 6.78796V8.87279" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.2917 7.83032H2.70833C2.11002 7.83032 1.625 8.29703 1.625 8.87273V16.1696C1.625 16.7453 2.11002 17.212 2.70833 17.212H10.2917C10.89 17.212 11.375 16.7453 11.375 16.1696V8.87273C11.375 8.29703 10.89 7.83032 10.2917 7.83032Z" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1.625 10.9576H11.375" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    <input
+      type="date"
+      [(ngModel)]="fromDate"
+      (change)="onDateChange()"
+    />
+
+    <span class="separator">-</span>
+
+    <input
+      type="date"
+      [(ngModel)]="toDate"
+      (change)="onDateChange()"
+    />
+
+  </div>
+
+</div>
+        </div>
+
       </div>
+
 
       <!-- Stats -->
       <div class="stats-cards">
         <div class="stat-card">
           <div class="stat-info">
             <h3>{{ "vehiclesComponent.activeVisits" | translate }}</h3>
-            <h2>347</h2>
+            <h2>{{cards?.totalVisits}}</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_10_431)">
@@ -73,7 +108,7 @@
         <div class="stat-card">
           <div class="stat-info">
             <h3>{{ "vehiclesComponent.Completed" | translate }}</h3>
-            <h2>61</h2>
+            <h2>{{cards?.completedVisits}}</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_10_431)">
@@ -109,7 +144,7 @@
         <div class="stat-card">
           <div class="stat-info">
             <h3>{{ "vehiclesComponent.AvgStayTime" | translate }}</h3>
-            <h2>2.4h</h2>
+            <h2>{{cards?.averageDurationInMinutes | number:'1.1-1'}}h</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_10_431)">
@@ -155,33 +190,37 @@
         </div>
 
         <div class="filters-body">
-<!--
-          <div class="filter-item search me-5">
+
+          <div class="filter-item search ">
             <label>{{ "vehiclesComponent.searchRecords" | translate }}</label>
-            <input type="text" [placeholder]="'vehiclesComponent.searchPlaceholder' | translate" />
-          </div> -->
+            <input type="text" [placeholder]="'vehiclesComponent.searchPlaceholder' | translate"
 
-          <div class="filter-item  me-5">
-
-            <label>{{ "vehiclesComponent.plateColor" | translate }}</label>
-            <select>
-              <option>{{ "vehiclesComponent.allColors" | translate }}</option>
-            </select>
+            [(ngModel)]="Search"
+              (ngModelChange)="onSearchChange()"
+            />
           </div>
 
-          <div class="filter-item">
+          <div class="d-flex align-item-center justify-content-start ">
+                  <div class="filter-item mx-5">
             <label>{{ "vehiclesComponent.vehicleType" | translate }}</label>
-            <select>
-              <option>{{ "vehiclesComponent.allTypes" | translate }}</option>
+            <select [(ngModel)]="selectedCarMake" (change)="onCarMakeChange()">
+              <option value="">
+                {{ "vehiclesComponent.allTypes" | translate }}
+              </option>
+              <option *ngFor="let car of makeCar" [value]="car">
+      {{ car }}
+    </option>
             </select>
           </div>
 
-          <div class="filter-item">
+          <div class="filter-item mx-5">
             <label>{{ "vehiclesComponent.status" | translate }}</label>
             <select>
               <option>{{ "vehiclesComponent.allStatuses" | translate }}</option>
             </select>
           </div>
+          </div>
+
 
           <!-- <div class="filter-item">
             <label>{{ "vehiclesComponent.recordType" | translate }}</label>
@@ -199,7 +238,7 @@
 
         <div class="table-responsive mt-7">
           <!-- begin::Table -->
-          <div *ngIf="data.length === 0">
+          <div *ngIf="vists.length === 0">
             <img style="
 				  text-align: center;
 				  display: block;
@@ -213,7 +252,7 @@
               {{ "userManagement.NotFound" | translate }}
             </h1>
           </div>
-          <table class="table align-middle  gs-0 gy-4" *ngIf="data.length > 0">
+          <table class="table align-middle  gs-0 gy-4" *ngIf="vists.length > 0">
             <!-- begin::Table head -->
             <thead>
               <tr class="text-center">
@@ -251,27 +290,21 @@
             </thead>
             <tbody>
 
-              <tr class="text-center" *ngFor="let item of data">
-                <td>{{ item.number }}</td>
+              <tr class="text-center" *ngFor="let item of vists">
+                <td>{{ item?.carNumber }}</td>
                        <td>
-                  <span class="color-badge" [ngClass]="'badge-' + item.color?.toLowerCase()">
-                    <span class="dot" [ngClass]="item.color?.toLowerCase()"></span>
-                    {{ item.color }}
+                  <span class="color-badge" [ngClass]="'badge-' + item.carColor?.toLowerCase()">
+                    <span class="dot" [ngClass]="item.carColor?.toLowerCase()"></span>
+                    {{ item.carColor }}
                   </span>
                 </td>
 
                 <td>
-                 {{item.make}} _ {{ item.makeModel}}
+                 {{item?.carMake}} _ {{ item?.carMakeModel}}
                 </td>
 
 
-                <td>_</td>
-
-                <!-- <td>
-                  {{item.dateTime |dateDifference| date:"dd.MM.yyyy"}}
-                  <br>
-                  {{item.dateTime | dateDifference| date:"hh:mm a"}}
-                </td> -->
+                <td>{{item?.licenseNumber}}</td>
 
                 <td class="date-time">
                   <div class="date">
@@ -286,7 +319,7 @@
                       <path d="M0.912109 6.39191H6.38477" stroke="#155DFC" stroke-width="0.608073"
                         stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    {{ item.dateTime | dateDifference | date:'dd.MM.yyyy' }}
+    {{ item?.entryTime | date:'dd.MM.yyyy' }}
                   </div>
 
                   <div class="time">
@@ -304,7 +337,7 @@
                         </clipPath>
                       </defs>
                     </svg>
-                    {{ item.dateTime | dateDifference | date:'hh:mm a' }}
+    {{ item?.entryTime | date:'hh:mm a' }}
                   </div>
 
                 </td>
@@ -313,7 +346,7 @@
 
 
                 <td class="d-flex align-item-center justify-content-center ">
-                  <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="24" height="24" rx="4" fill="#ECFDF5" />
                     <path d="M10.3334 3.66669H13.6667" stroke="#009966" stroke-width="1.66667" stroke-linecap="round"
                       stroke-linejoin="round" />
@@ -322,17 +355,17 @@
                     <path
                       d="M12 20.3333C15.6819 20.3333 18.6667 17.3486 18.6667 13.6667C18.6667 9.98477 15.6819 7 12 7C8.31814 7 5.33337 9.98477 5.33337 13.6667C5.33337 17.3486 8.31814 20.3333 12 20.3333Z"
                       stroke="#009966" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg> -->
+                  </svg>
                   <span class="mt-1 px-2">
-                    <!-- {{ item.makeModel }} -->
-                      _
+                    {{ item?.durationInMinutes ??"_" }}
+
                   </span>
                 </td>
 
 
 
        <td class="date-time">
-                  <!-- <div class="date">
+                  <div class="date">
                     <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2.43225 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
                         stroke-linejoin="round" />
@@ -344,7 +377,7 @@
                       <path d="M0.912109 6.39191H6.38477" stroke="#155DFC" stroke-width="0.608073"
                         stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    {{ item.dateTime | dateDifference | date:'dd.MM.yyyy' }}
+                    {{ item?.exitTime ? (item.exitTime | date:'dd.MM.yyyy') : '_' }}
                   </div>
 
                   <div class="time">
@@ -362,12 +395,13 @@
                         </clipPath>
                       </defs>
                     </svg>
-                    {{ item.dateTime | dateDifference | date:'hh:mm a' }}
-                  </div> -->
-                  _
+                    {{ item?.exitTime ? (item.exitTime |date:'hh:mm a') : '_' }}
+
+                  </div>
+
                 </td>
                 <td>
-                  <!-- {{ item.makeModel }} -->
+                  <!-- {{ item?.status }} -->
                     _
                 </td>
 
@@ -410,12 +444,12 @@
             <!-- end::Table body -->
           </table>
           <div class="pagi-sec">
-            <p *ngIf="data?.length !== 0">
+            <p *ngIf="vists?.length !== 0">
               {{ "users.total" | translate }}:{{ totalCount }}
             </p>
-            <ngb-pagination *ngIf="data?.length !== 0" class="pagination p-0 my-4 d-flex justify-content-center"
+            <ngb-pagination *ngIf="vists?.length !== 0" class="pagination p-0 my-4 d-flex justify-content-center"
               [maxSize]="15" [collectionSize]="totalCount" [(page)]="page" [pageSize]="pageSize"
-              (pageChange)="getData()">
+              (pageChange)="getVists()">
 
 
             </ngb-pagination>

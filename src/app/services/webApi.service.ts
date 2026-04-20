@@ -84,13 +84,13 @@ export class WebApiService {
       )
     );
   }
- getFile(path: string, params?: HttpParams) {
+ getFile(path: string, params?: HttpParams): Observable<Blob> {
   return from(this.setHeadersFile()).pipe(
     mergeMap((headers: HttpHeaders) =>
       this.http.get(`${environment.api_url}${path}`, {
         headers: headers,
         params,
-        responseType: 'blob' as 'json'   // ← مهم جداً
+        responseType: 'blob'    // ← مهم جداً
       })
     )
   );

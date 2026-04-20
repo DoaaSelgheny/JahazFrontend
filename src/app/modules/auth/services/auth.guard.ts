@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate {
   canLoad(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
     if (localStorage.getItem('access_token_zalool')) {
-      
+
     }
   }
 

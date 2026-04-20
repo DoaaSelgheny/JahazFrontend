@@ -13,6 +13,7 @@ export class VehicleDetailsDialogComponent implements OnInit {
   }
 
     @Input() data: any;
+    @Input() cards: any;
 
   activeTab: 'overview' | 'history' = 'overview';
 

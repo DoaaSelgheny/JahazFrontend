@@ -2,7 +2,7 @@
 
   <!-- Header -->
   <div class="header">
-    <h3># {{ data?.number }}</h3>
+    <h3># {{ data?.carNumber }}</h3>
     <button (click)="activeModal.close()">✕</button>
   </div>
 
@@ -35,7 +35,7 @@
         <div class="stat-card">
           <div class="stat-info">
 <h3>{{ 'vehiclesComponent.totalVisits' | translate }}</h3>
-            <h2>34</h2>
+            <h2>{{cards?.totalVisits}}</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_10_431)">
@@ -70,7 +70,7 @@
         <div class="stat-card">
           <div class="stat-info">
 <h3>{{ 'vehiclesComponent.avgStayTimeCard' | translate }}</h3>
-            <h2>2.4h</h2>
+            <h2>{{cards?.averageDurationInMinutes | number:'1.1-1'}}h</h2>
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_10_431)">
@@ -137,32 +137,36 @@
   <div class="card-body p-4">
     <div class="info">
   <label>{{ 'vehiclesComponent.plateNumber' | translate }}</label>
-      <span>2974BDA</span>
+      <span>{{ data?.carNumber }}</span>
     </div>
 
     <div class="info">
-  <label>{{ 'vehiclesComponent.plateNumber' | translate }}</label>
-      <span>Volvo FH16 750</span>
-    </div>
-
-    <div class="info">
-  <label>{{ 'vehiclesComponent.plateColor' | translate }}</label>
-      <span class="badge blue">Blue</span>
+  <label>{{ 'vehiclesComponent.model' | translate }}</label>
+      <span>{{ data?.carMakeModel }}</span>
     </div>
 
     <div class="info">
   <label>{{ 'vehiclesComponent.plateColor' | translate }}</label>
-      <span>قريبا</span>
+
+          <span class="color-badge" [ngClass]="'badge-' + data.carColor?.toLowerCase()">
+                    <span class="dot" [ngClass]="data.carColor?.toLowerCase()"></span>
+                    {{ data.carColor }}
+                  </span>
+    </div>
+
+    <div class="info">
+  <label>{{ 'vehiclesComponent.licenseNumber' | translate }}</label>
+      <span>{{ data?.licenseNumber }}</span>
     </div>
 
     <div class="info">
   <label>{{ 'vehiclesComponent.truckType' | translate }}</label>
-      <span>Tractor Trailer</span>
+      <span>{{ data?.carMake }}</span>
     </div>
 
     <div class="info">
   <label>{{ 'vehiclesComponent.tankLicense' | translate }}</label>
-      <span>TL-2024-0009</span>
+      <span>{{data?.licenseNumber}}</span>
     </div>
   </div>
 </div>
@@ -206,26 +210,119 @@
   <span>{{ 'vehiclesComponent.status' | translate }}</span>
 </div>
 
-  <div class="history-row" *ngFor="let i of [1,2,3,4,5,6]">
+  <div class="history-row">
 
     <div class="time">
-      <div class="date">Feb 5, 2024</div>
-      <div class="clock">01:52 AM</div>
+             <div class="date">
+                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2.43225 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M4.86462 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M5.77669 4.56769H1.52018C1.18435 4.56769 0.912109 4.83993 0.912109 5.17576V9.43227C0.912109 9.7681 1.18435 10.0403 1.52018 10.0403H5.77669C6.11252 10.0403 6.38477 9.7681 6.38477 9.43227V5.17576C6.38477 4.83993 6.11252 4.56769 5.77669 4.56769Z"
+                        stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M0.912109 6.39191H6.38477" stroke="#155DFC" stroke-width="0.608073"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+    {{ data?.entryTime | date:'dd.MM.yyyy' }}
+                  </div>
+
+                  <div class="time">
+                    <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_10_611)">
+                        <path
+                          d="M6 10C7.65685 10 9 8.65685 9 7C9 5.34315 7.65685 4 6 4C4.34315 4 3 5.34315 3 7C3 8.65685 4.34315 10 6 10Z"
+                          stroke="#00A63E" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 5V7.25L7 8" stroke="#00A63E" stroke-width="0.6" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_10_611">
+                          <rect width="9.875" height="14" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+    {{ data?.entryTime | date:'hh:mm a' }}
+                  </div>
     </div>
 
-    <div class="time">
-      <div class="date">Feb 5, 2024</div>
-      <div class="clock">01:52 AM</div>
+        <div class="time">
+             <div class="date">
+                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2.43225 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M4.86462 3.95966V5.1758" stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M5.77669 4.56769H1.52018C1.18435 4.56769 0.912109 4.83993 0.912109 5.17576V9.43227C0.912109 9.7681 1.18435 10.0403 1.52018 10.0403H5.77669C6.11252 10.0403 6.38477 9.7681 6.38477 9.43227V5.17576C6.38477 4.83993 6.11252 4.56769 5.77669 4.56769Z"
+                        stroke="#155DFC" stroke-width="0.608073" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M0.912109 6.39191H6.38477" stroke="#155DFC" stroke-width="0.608073"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+    {{ data?.exitTime | date:'dd.MM.yyyy' }}
+                  </div>
+
+                  <div class="time">
+                    <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_10_611)">
+                        <path
+                          d="M6 10C7.65685 10 9 8.65685 9 7C9 5.34315 7.65685 4 6 4C4.34315 4 3 5.34315 3 7C3 8.65685 4.34315 10 6 10Z"
+                          stroke="#00A63E" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 5V7.25L7 8" stroke="#00A63E" stroke-width="0.6" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_10_611">
+                          <rect width="9.875" height="14" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+    {{ data?.exitTime | date:'hh:mm a' }}
+                  </div>
     </div>
 
     <div class="duration purple">
-      <span class="icon">🕒</span>
-      60m
+         <div class="d-flex align-item-center justify-content-center ">
+     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" rx="4" fill="#F5F3FF"/>
+<g clip-path="url(#clip0_14_2750)">
+<path d="M12.0002 18.6667C15.6821 18.6667 18.6668 15.6819 18.6668 12C18.6668 8.31814 15.6821 5.33337 12.0002 5.33337C8.31826 5.33337 5.3335 8.31814 5.3335 12C5.3335 15.6819 8.31826 18.6667 12.0002 18.6667Z" stroke="#7F22FE" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 8V12L14.6667 13.3333" stroke="#7F22FE" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_14_2750">
+<rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+</clipPath>
+</defs>
+</svg>
+
+                  <span class="mt-1 px-2">
+                    {{ data?.durationInMinutes ??"_" }}
+
+                  </span>
+                </div>
+
     </div>
 
     <div class="duration green">
-      <span class="icon">⏱</span>
-      60m
+         <div class="d-flex align-item-center justify-content-center ">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" rx="4" fill="#ECFDF5" />
+                    <path d="M10.3334 3.66669H13.6667" stroke="#009966" stroke-width="1.66667" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path d="M12 13.6667L14.5 11.1667" stroke="#009966" stroke-width="1.66667" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M12 20.3333C15.6819 20.3333 18.6667 17.3486 18.6667 13.6667C18.6667 9.98477 15.6819 7 12 7C8.31814 7 5.33337 9.98477 5.33337 13.6667C5.33337 17.3486 8.31814 20.3333 12 20.3333Z"
+                      stroke="#009966" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span class="mt-1 px-2">
+                    {{ data?.durationInMinutes ??"_" }}
+
+                  </span>
+                </div>
+
     </div>
 
     <div class="status completed">

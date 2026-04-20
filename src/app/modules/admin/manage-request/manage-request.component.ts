@@ -36,20 +36,34 @@ export class ManageRequestComponent implements OnInit {
   pageSize: number = 10;
   data: any[] = [];
   filterObj = this.initFilterObj();
+  cards:any;
+  vists:any[]=[];
+  Search:string='';
+makeCar:any;
+selectedCarMake: string = '';
+fromDate: string = '';
+toDate: string = '';
 
   public lang: string = String(localStorage.getItem('language'));
 
   ngOnInit(): void {
-    this.getData();
-  }
+    this.getCard();
+    this.getVists();
+    this.getcarMakeModel();
+    }
 
 
 toggleMenu(selectedItem: any) {
-  this.data.forEach(item => {
+  this.vists.forEach(item => {
     item.isOpen = item === selectedItem ? !item.isOpen : false;
   });
 }
 
+
+onCarMakeChange() {
+  this.page = 1;
+  this.getVists();
+}
 
 viewImages(item: any) {
   console.log('Images:', item);
@@ -65,6 +79,7 @@ viewDetails(item: any) {
   });
 
   modalRef.componentInstance.data = item;
+  modalRef.componentInstance.cards = this.cards;
 }
 
 
@@ -78,20 +93,93 @@ TruckImages(item: any) {
   modalRef.componentInstance.data = item;
 }
 
-  getData() {
+
+getCard()
+{
+
+    this.filterObj.fromDate = this.fromDate;
+    this.filterObj.toDate = this.toDate;
+
+    let myObj: any = { ...this.filterObj };
+
+  this.manageRequestsService.getCards(myObj).subscribe((res)=>{
+    this.cards=res
+
+  })
+}
+
+getVists()
+{
     this.spinner.show();
-    const startIndex = (this.page - 1) * this.pageSize;
+
+      const startIndex = (this.page - 1) * this.pageSize;
     this.filterObj.SkipCount = startIndex;
     this.filterObj.MaxResultCount = this.pageSize;
+    this.filterObj.Search = this.Search;
+    this.filterObj.CarMake = this.selectedCarMake;
+    this.filterObj.fromDate = this.fromDate;
+    this.filterObj.toDate = this.toDate;
+
     let myObj: any = { ...this.filterObj };
-    this.manageRequestsService.getAllRequests(myObj).subscribe((res) => {
-      this.data = res.items;
-      this.spinner.hide();
+  this.manageRequestsService.getAllVists(myObj).subscribe((res)=>{
+    this.vists=res.items;
       this.totalCount = res.totalCount;
       this.spinner.hide();
       this.cdr.detectChanges();
-    });
-  }
+
+
+  })
+}
+
+onSearchChange() {
+  this.page = 1;
+  this.getVists();
+}
+
+
+onDateChange() {
+  this.page = 1;
+  this.getVists();
+  this.getCard();
+  this.getExport()
+}
+
+getcarMakeModel()
+{
+
+  this.manageRequestsService.getcarMake().subscribe((res)=>{
+    this.makeCar=res;
+
+  })
+}
+
+
+getExport() {
+    this.spinner.show();
+
+    this.filterObj.Search = this.Search;
+        this.filterObj.CarMake = this.selectedCarMake;
+    this.filterObj.fromDate = this.fromDate;
+    this.filterObj.toDate = this.toDate;
+    let myObj: any = { ...this.filterObj };
+
+  this.manageRequestsService.getExport(myObj).subscribe((res: Blob) => {
+
+    const blob = new Blob([res], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'visits.csv'; // اسم الملف
+    a.click();
+
+    window.URL.revokeObjectURL(url);
+
+    this.spinner.hide();
+            this.toastr.success(this.translate.instant('Download is Success'));
+  });
+}
+
   openUserMangment(row?: any) {
 
       const modalRef = this.modalService.open(AddUserModalComponent, {
@@ -104,7 +192,7 @@ TruckImages(item: any) {
       modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
 
         if (receivedEntry === true) {
-          this.getData();
+          this.getVists();
         }
       });
 
@@ -115,6 +203,10 @@ TruckImages(item: any) {
       Sorting: 'id',
       SkipCount: 0,
       MaxResultCount: this.pageSize,
+      Search: this.Search,
+       CarMake: this.selectedCarMake || '',
+        fromDate: this.fromDate || '',
+    toDate: this.toDate || ''
     };
   }
 }

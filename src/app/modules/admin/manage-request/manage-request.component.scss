@@ -161,6 +161,60 @@ background: rgba(0, 166, 62, 1);
   }
 }
 
+.badge-white {
+
+    background: #fff;
+  border: 1px solid rgba(61, 60, 59, 1);
+  color: rgba(61, 60, 59, 1);
+
+  .dot {
+
+
+  background: rgb(217, 215, 212);
+  }
+}
+
+.badge-silver {
+
+    background: rgb(247, 242, 242);
+  border: 1px solid rgba(61, 60, 59, 1);
+  color: rgb(142, 140, 140);
+
+  .dot {
+
+
+  background: rgb(114, 112, 112);
+  }
+}
+
+.badge-gray {
+
+    background: rgb(239, 237, 237);
+  border: 1px solid rgba(61, 60, 59, 1);
+  color: rgb(142, 140, 140);
+
+  .dot {
+
+
+  background: rgb(114, 112, 112);
+  }
+}
+
+
+
+.badge-brown {
+
+    background: rgba(162, 79, 79, 0.5);
+  border: 1px solid Brown;
+  color: brown;
+
+  .dot {
+
+
+  background: Brown;
+  }
+}
+
 
 
 .dot.white {
@@ -243,7 +297,6 @@ font-size: 12px;
 
   .vehicles-page {
   padding: 24px;
-  background: #f5f7fb;
 }
 
 /* Header */
@@ -409,10 +462,12 @@ color: rgba(15, 23, 43, 1);
 }
 
 .filters-body {
-  display: grid;
-  grid-template-columns: 2fr repeat(4, 1fr);
-  gap: 12px;
-  // border: 1px solid rgba(241, 245, 249, 1);
+  // display: grid;
+  // grid-template-columns: 2fr repeat(4, 1fr);
+  // gap: 12px;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(241, 245, 249, 1);
   padding: 7px ;
 }
 
@@ -426,6 +481,8 @@ color: rgba(15, 23, 43, 1);
     margin-bottom: 5px;
   }
 
+
+
   input,
   select {
     border: 1px solid #e5e7eb;
@@ -436,6 +493,11 @@ color: rgba(15, 23, 43, 1);
   }
 }
 
+ .search
+  {
+    width: 30%;
+  }
+
 /* Responsive */
 @media (max-width: 992px) {
   .stats-cards {
@@ -444,8 +506,62 @@ color: rgba(15, 23, 43, 1);
 
   .filters-body {
     grid-template-columns: 1fr;
+
   }
 }
+
+@media (max-width: 768px) {
+
+
+  .filters-body {
+display: block;
+  }
+}
+
+
+.date-filter {
+  display: flex;
+  align-items: center;
+}
+
+.date-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+border: 1px solid rgba(226, 232, 240, 1);
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 250px;
+
+  i {
+    color: #6c757d;
+    font-size: 14px;
+  }
+
+  input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: rgba(15, 23, 43, 1);
+
+    &::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+    }
+  }
+
+  .separator {
+    color: rgba(15, 23, 43, 1);
+    font-weight: 500;
+  }
+
+  &:hover {
+    border-color: rgba(21, 93, 252, 1);
+  }
+}
+
+
 
 
 .date-time {
