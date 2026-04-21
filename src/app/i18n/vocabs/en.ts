@@ -296,7 +296,7 @@ export const locale = {
       phoneNumber: 'Phone Number',
       userManagement: 'User Management',
       addUser: 'Add New User',
-      searchUser: 'Search by Username, phone Number, car Number',
+      searchUser: 'Search by  car Number',
       total: 'total',
       save: 'Save',
       cancel: 'Cancel',

@@ -85,9 +85,10 @@
             <!-- begin::Table body -->
 
             <tbody>
+
               <tr class="text-center" *ngFor="let item of allUsers">
-                <td>{{ item.customerNo??'-' }}</td>
-                <td>{{ item.carNo??'-' }}</td>
+                <td>{{ item.customerId??'-' }}</td>
+                <td>{{ item.carNumber??'-' }}</td>
                 <!-- <td>{{ item.fullName??'-' }}</td> -->
                 <!-- <td>{{ item.phoneNumber ??'-'}}</td> -->
                 <!-- <td>
@@ -110,7 +111,7 @@
                       <path d="M0.912109 6.39191H6.38477" stroke="#155DFC" stroke-width="0.608073"
                         stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    {{ item.carDateTime | dateDifference | date:'dd.MM.yyyy' }}
+                    {{ item.firstEntryDate | dateDifference | date:'dd.MM.yyyy' }}
                   </div>
 
                   <div class="time">
@@ -128,13 +129,13 @@
                         </clipPath>
                       </defs>
                     </svg>
-                    {{ item.carDateTime | dateDifference | date:'hh:mm a' }}
+                    {{ item.firstEntryDate | dateDifference | date:'hh:mm a' }}
                   </div>
 
                 </td>
 
 
-                <td role="button" (click)="viewVisitHistory(item)"><span style="color:#0565D6;">{{item.visitsNo}}</span></td>
+                <td role="button"><span>{{item.visitCount}}</span></td>
                <!-- <td>{{item.pointsNo ??'-'}}</td> -->
                <!-- <td>{{item.memberShipPointNo ??'-'}}</td> -->
 

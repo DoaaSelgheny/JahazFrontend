@@ -9,7 +9,7 @@ export class OrderManagementService {
   getAllOrders(param?: any) {
     return this.webApi.get('api/app/manage-foodics/orders', param);
   }
-  
+
   getOrderByID(id?: any) {
     return this.webApi.get(`api/app/manage-foodics/order-details/${id}`);
   }
@@ -25,7 +25,7 @@ export class OrderManagementService {
     return this.webApi.get(`api/app/manage-car/customers-history/${id}`);
   }
   getAllUsers(param?: any) {
-    return this.webApi.get(`api/app/manage-customer/customers`, param);
+    return this.webApi.get(`/api/app/users`, param);
   }
   addUser(body?: any) {
     return this.webApi.post(`api/app/manage-customer/register-customer`, body);
@@ -36,7 +36,7 @@ export class OrderManagementService {
   manageCarbyid(id:any) {
     return this.webApi.get(`api/app/manage-car/by-id/${id}`);
   }
-  
+
   getcarModel(id: any) {
     return this.webApi.get(`api/app/manage-model/model-by-type-id/${id}`);
   }

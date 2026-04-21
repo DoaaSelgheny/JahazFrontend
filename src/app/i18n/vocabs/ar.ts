@@ -240,7 +240,7 @@ export const locale = {
       phoneNumber: 'رقم الجوال',
       userManagement: 'إدارة العملاء',
       addUser: 'إضافة مستخدم جديد',
-      searchUser: 'بحث باسم المستخدم أو رقم اللوحة أو رقم الجوال',
+      searchUser: 'بحث  برقم المركبه ',
       total: 'إظهار من الى',
       save: 'حفظ',
       cancel: 'إلغاء',

@@ -6,10 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { ViewUserComponent } from '../view-user/view-user.component';
-import { CashiersService } from 'src/app/services/api/cashier.service';
-import { ViewCarHistoryComponent } from '../view-car-history/view-car-history.component';
-import { VisitsHistoryComponent } from '../visits-history/visits-history.component';
 import { VehicleDetailsDialogComponent } from '../vehicle-details-dialog/vehicle-details-dialog.component';
 @Component({
   selector: 'app-user-management',
@@ -23,7 +19,6 @@ export class UserManagementComponent implements OnInit {
     private translate: TranslateService,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
-    private cashiersService:CashiersService,
     private router: Router,
     private modalService: NgbModal
   ) {}
@@ -41,7 +36,7 @@ export class UserManagementComponent implements OnInit {
   fromSearchInput: boolean = false;
 
   ngOnInit(): void {
-    this.getBranchs()
+    // this.getBranchs()
     this.dropdownSettingBranch = {
       singleSelection: true,
       idField: 'id',
@@ -54,14 +49,7 @@ export class UserManagementComponent implements OnInit {
 
   }
 
-  getBranchs() {
-    this.cashiersService.getDirectorBranches().subscribe({
-      next:next=>{
-        this.branchs = next
-        this.cdr.detectChanges()
-      }
-    })
-  }
+
 
   rest() {
     this.searchText = '';
@@ -71,7 +59,7 @@ export class UserManagementComponent implements OnInit {
 
     const startIndex = (this.page - 1) * this.pageSize;
     this.filterObj.SkipCount = startIndex;
-    this.filterObj.Text = this.searchText;
+    this.filterObj.search = this.searchText;
     this.filterObj.MaxResultCount = this.pageSize;
     let myObj: any = { ...this.filterObj };
 
@@ -87,21 +75,17 @@ export class UserManagementComponent implements OnInit {
       this.cdr.detectChanges();
     });
   }
+
+
   initFilterObj() {
     return {
-      Text: this.searchText,
+      search: this.searchText,
       Sorting: 'id',
       SkipCount: 0,
       MaxResultCount: this.pageSize,
     };
   }
-  // viewUserModal(data:any) {
-  //   const modalRef = this.modalService.open(ViewUserComponent, {
-  //     size: 'lg',
-  //     backdrop: 'static',
-  //   });
-  //   modalRef.componentInstance.data = data;
-  // }
+
 
   viewUserModal(item: any)
   {
@@ -115,18 +99,7 @@ export class UserManagementComponent implements OnInit {
   }
 
 
-  viewVisitHistory(data:any) {
-    const modalRef = this.modalService.open(VisitsHistoryComponent, {
-      size: 'md',
-      backdrop: 'static',
-      scrollable: true
-    });
-    modalRef.componentInstance.data = data;
-    modalRef.componentInstance.customerNo = data.customerNo;
 
-    modalRef.componentInstance.id = data.id;
-
-  }
   openModal(data:any) {
     const modalRef = this.modalService.open(AddUserModalComponent, {
       size: 'md',
