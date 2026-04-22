@@ -147,39 +147,43 @@
           </span>
         </div>
 
+
         <div class="card-body p-4">
           <div class="info">
             <label>{{ 'vehiclesComponent.plateNumber' | translate }}</label>
-            <span>{{ data?.carNumber }}</span>
+            <span>{{ overViews?.number }}</span>
           </div>
 
           <div class="info">
             <label>{{ 'vehiclesComponent.model' | translate }}</label>
-            <span>{{ data?.carMakeModel }}</span>
+            <span>{{ overViews?.make }}</span>
           </div>
 
           <div class="info">
             <label>{{ 'vehiclesComponent.plateColor' | translate }}</label>
 
-            <span class="color-badge" [ngClass]="'badge-' + data.carColor?.toLowerCase()">
-              <span class="dot" [ngClass]="data.carColor?.toLowerCase()"></span>
-              {{ data.carColor }}
+            <span class="color-badge" [ngClass]="'badge-' + overViews?.color?.toLowerCase()">
+              <span class="dot" [ngClass]="overViews?.color?.toLowerCase()"></span>
+              {{ overViews?.color }}
             </span>
           </div>
 
+
+
+
           <div class="info">
             <label>{{ 'vehiclesComponent.licenseNumber' | translate }}</label>
-            <span>{{ data?.licenseNumber }}</span>
+            <span>{{ overViews?.licenseNumber }}</span>
           </div>
 
           <div class="info">
             <label>{{ 'vehiclesComponent.truckType' | translate }}</label>
-            <span>{{ data?.carMake }}</span>
+            <span>{{ overViews?.makeModel }}</span>
           </div>
 
           <div class="info">
             <label>{{ 'vehiclesComponent.tankLicense' | translate }}</label>
-            <span>{{data?.licenseNumber}}</span>
+            <span>{{overViews?.licenseNumber}}</span>
           </div>
         </div>
       </div>
@@ -201,13 +205,39 @@
           </svg>
           {{ 'vehiclesComponent.stayDurationAnalytics' | translate }}
         </div>
-        <img src="../../../../../assets/imgs/Surface.png" alt="">
+        <!-- <img src="../../../../../assets/imgs/Surface.png" alt=""> -->
+
         <!--
   <canvas baseChart
     [data]="lineChartData"
     [options]="lineChartOptions"
     [type]="'line'">
   </canvas> -->
+
+
+    <apx-chart
+    *ngIf="chartOptions"
+    [series]="chartOptions?.series"
+    [chart]="chartOptions?.chart"
+    [stroke]="chartOptions?.stroke"
+    [markers]="chartOptions?.markers"
+    [xaxis]="chartOptions?.xaxis"
+    [yaxis]="chartOptions?.yaxis"
+    [colors]="chartOptions?.colors"
+    [grid]="chartOptions?.grid"
+    [dataLabels]="chartOptions?.dataLabels"
+    [tooltip]="chartOptions?.tooltip"
+  ></apx-chart>
+
+  <div class="chart-footer">
+    <span class="dot"></span>
+    Stay Duration (minutes)
+
+    <span class="avg">
+      <i class="fa fa-arrow-up"></i>
+      Average: {{ average }} minutes
+    </span>
+  </div>
       </div>
 
 

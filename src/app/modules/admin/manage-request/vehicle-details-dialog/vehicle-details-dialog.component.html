@@ -186,13 +186,29 @@
 </svg>
   {{ 'vehiclesComponent.stayDurationAnalytics' | translate }}
   </div>
-  <img src="../../../../../assets/imgs/Surface.png" alt="">
-  <!--
-  <canvas baseChart
-    [data]="lineChartData"
-    [options]="lineChartOptions"
-    [type]="'line'">
-  </canvas> -->
+    <apx-chart
+    *ngIf="chartOptions"
+    [series]="chartOptions?.series"
+    [chart]="chartOptions?.chart"
+    [stroke]="chartOptions?.stroke"
+    [markers]="chartOptions?.markers"
+    [xaxis]="chartOptions?.xaxis"
+    [yaxis]="chartOptions?.yaxis"
+    [colors]="chartOptions?.colors"
+    [grid]="chartOptions?.grid"
+    [dataLabels]="chartOptions?.dataLabels"
+    [tooltip]="chartOptions?.tooltip"
+  ></apx-chart>
+
+  <div class="chart-footer">
+    <span class="dot"></span>
+    Stay Duration (minutes)
+
+    <span class="avg">
+      <i class="fa fa-arrow-up"></i>
+      Average: {{ average }} minutes
+    </span>
+  </div>
 </div>
 
 

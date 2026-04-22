@@ -27,4 +27,13 @@ export class ManageRequestsService {
     return this.webApi.getFile('/api/app/visits/export/csv', param);
   }
 
+  getOverView(carNumber?:any)
+  {
+  return this.webApi.get(`/api/app/vehicles/${carNumber}/overview`);
+  }
+
+    getLastVists(carNumber?:any)
+  {
+  return this.webApi.get(`/api/app/vehicles/${carNumber}/last-visits`);
+  }
 }

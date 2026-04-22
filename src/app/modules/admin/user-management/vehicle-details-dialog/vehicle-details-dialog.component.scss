@@ -459,3 +459,41 @@ line-height: 16px;
     background: #f0fdf4;
   }
 }
+
+
+.chart-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 14px;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: #3B82F6;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .avg {
+    margin-left: auto;
+    color: #28a745;
+    font-weight: 500;
+  }
+}

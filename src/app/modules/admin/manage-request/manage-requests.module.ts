@@ -20,6 +20,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { DateDifferencePipe } from '../user-management/time_format_pipe';
 import { VehicleDetailsDialogComponent } from './vehicle-details-dialog/vehicle-details-dialog.component';
 import { TruckImagesComponent } from './truck-images/truck-images.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [ManageRequestComponent, VehicleDetailsDialogComponent, TruckImagesComponent,],
@@ -27,13 +28,14 @@ import { TruckImagesComponent } from './truck-images/truck-images.component';
     CommonModule,
     InlineSVGModule,
     DateDifferencePipe,
+        NgApexchartsModule   ,
     RouterModule.forChild([
       {
         path: '',
         component: ManageRequestComponent,
       },
     ]),
-  
+
     WidgetsModule,
     ModalsModule,
     FormsModule,

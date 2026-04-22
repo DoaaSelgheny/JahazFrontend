@@ -24,6 +24,7 @@ import { ViewCarHistoryComponent } from './view-car-history/view-car-history.com
 import { VisitsHistoryComponent } from './visits-history/visits-history.component';
 import { RedeemPointsCashierComponent } from './redeem-points-cashier/redeem-points-cashier.component';
 import { VehicleDetailsDialogComponent } from './vehicle-details-dialog/vehicle-details-dialog.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [UserManagementComponent,
@@ -33,6 +34,7 @@ import { VehicleDetailsDialogComponent } from './vehicle-details-dialog/vehicle-
     CommonModule,
     InlineSVGModule,
     DateDifferencePipe,
+    NgApexchartsModule   ,
 
     RouterModule.forChild([
       {
