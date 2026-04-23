@@ -68,7 +68,9 @@
         <div class="stat-card">
           <div class="stat-info">
             <h3>{{ 'vehiclesComponent.avgStayTimeCard' | translate }}</h3>
-            <h2>{{cards?.averageDurationInMinutes | number:'1.1-1'}}h</h2>
+            <!-- <h2>{{cards?.averageDurationInMinutes | number:'1.1-1'}}h</h2> -->
+             <h2>{{ formatDuration(cards?.averageDurationInMinutes) }}</h2>
+
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_10_431)">
@@ -128,7 +130,7 @@
             {{ 'vehiclesComponent.vehicleInformation' | translate }}
           </div>
 
-          <span class="status incomplete">
+          <!-- <span class="status incomplete">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_17_3326)">
                 <path
@@ -144,7 +146,7 @@
               </defs>
             </svg>
             {{ 'vehiclesComponent.vehicleInformation' | translate }}
-          </span>
+          </span> -->
         </div>
 
 
@@ -346,7 +348,7 @@
             </svg>
 
             <span class="mt-1 px-2">
-              {{ item?.durationInMinutes ??"_" }}
+              {{ item?.durationInMinutes | number:'1.1-1' ??   "_" }}
 
             </span>
           </div>
@@ -366,7 +368,7 @@
                 stroke="#009966" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             <span class="mt-1 px-2">
-              {{ item?.durationInMinutes ??"_" }}
+              {{ item?.fillingDurationInMinutes | number:'1.1-1' ??  "_" }}
 
             </span>
           </div>

@@ -1,11 +1,11 @@
 
 
- 
+
 
 
   <!--begin::User menu-->
   <div class="app-navbar-item" [ngClass]="itemClass">
-   
+
     <!--begin::Menu wrapper-->
     <div class="cursor-pointer symbol" [ngClass]="userAvatarClass" data-kt-menu-trigger="hover"
       data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
@@ -30,7 +30,7 @@
     </div>
     <app-user-inner data-kt-menu="true"></app-user-inner>
 
-    <div ngbDropdown class="btn-group" *ngIf="currentUser?.roles[0] === roles.ThalolCasheir">
+    <!-- <div ngbDropdown class="btn-group" *ngIf="currentUser?.roles[0] === roles.ThalolCasheir">
       <div class="action-btn" id="dropdownBasic1" ngbDropdownToggle>
         <button>
           <span class="num" *ngIf="messageNo > 0">{{ messageNo>99?'+99': messageNo}}</span>
@@ -60,7 +60,17 @@
 
         </ul>
       </div>
-    </div>
+    </div> -->
+
+
+      <div class="action-btn" routerLink="/admin/manage-requests">
+        <button>
+          <span class="num" *ngIf="messageNo > 0">{{ messageNo>99?'+99': messageNo}}</span>
+          <img class="mx-2 notific-icon" src="/assets/imgs/zalol/notification.svg" alt="" srcset="" />
+        </button>
+      </div>
+
+
     <!--end::Menu wrapper-->
   </div>
   <!--end::User menu-->
@@ -88,7 +98,7 @@
                 {{userData?.brand}}
               </div>
               <div class="user-title">
-                {{userData?.branch}} 
+                {{userData?.branch}}
               </div>
             </div>
           </div>

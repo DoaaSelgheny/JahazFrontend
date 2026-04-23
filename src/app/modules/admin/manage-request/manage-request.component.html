@@ -144,7 +144,9 @@
         <div class="stat-card">
           <div class="stat-info">
             <h3>{{ "vehiclesComponent.AvgStayTime" | translate }}</h3>
-            <h2>{{cards?.averageDurationInMinutes | number:'1.1-1'}}h</h2>
+            <!-- <h2>{{cards?.averageDurationInMinutes | number:'1.1-1'}}h</h2> -->
+             <h2>{{ formatDuration(cards?.averageDurationInMinutes) }}</h2>
+
             <span class="danger">
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_10_431)">

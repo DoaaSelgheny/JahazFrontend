@@ -37,7 +37,16 @@ export class VehicleDetailsDialogComponent implements OnInit {
   setTab(tab: any) {
     this.activeTab = tab;
   }
+formatDuration(minutes: number): string {
+  if (!minutes) return '0 min';
 
+  if (minutes < 60) {
+    return `${parseFloat(minutes.toFixed(2))} min`;
+  }
+
+  const hours = minutes / 60;
+  return `${parseFloat(hours.toFixed(2))} h`;
+}
 
   getVists()
   {

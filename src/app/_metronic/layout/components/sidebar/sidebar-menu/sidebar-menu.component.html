@@ -105,6 +105,7 @@
           {{"sideMenue.dashboard" | translate}}
         </span></a
       >
+
            <a
         *ngIf="
           currentUser?.roles[0] === roles.ThalolCasheir ||
@@ -130,32 +131,34 @@
           {{"sideMenue.vehicles" | translate}}
         </span>
         </a>
-        <!-- Activity -->
+
+        <!-- Alerts -->
                  <a
         *ngIf="
           currentUser?.roles[0] === roles.ThalolCasheir ||
           currentUser?.roles[0] === roles.ThalolBrandDirector
         "
         class="menu-link without-sub"
-        routerLink="/home"
+        routerLink="/admin/user-management"
         routerLinkActive="active"
-         #activity="routerLinkActive"
+         #alerts="routerLinkActive"
       >
         <span class="menu-icon">
           <span
     [inlineSVG]="
-        activity.isActive
-          ? './assets/imgs/sidebar/Activity.svg'
-          : './assets/imgs/sidebar/Activity.svg'
+        alerts.isActive
+          ? './assets/imgs/sidebar/Team.svg'
+          : './assets/imgs/sidebar/Team.svg'
       "            class="svg-icon svg-icon-2"
           >
         </span>
 
         </span>
         <span class="menu-title">
-          {{"sideMenue.activity" | translate}}
+                    {{"sideMenue.clients" | translate}}
         </span>
         </a>
+
 
         <!-- Analytics -->
 
@@ -243,34 +246,33 @@
         </a>
 
 
-        <!-- Alerts -->
+
+    <!-- Activity -->
                  <a
         *ngIf="
           currentUser?.roles[0] === roles.ThalolCasheir ||
           currentUser?.roles[0] === roles.ThalolBrandDirector
         "
         class="menu-link without-sub"
-        routerLink="/admin/user-management"
+        routerLink="/home"
         routerLinkActive="active"
-         #alerts="routerLinkActive"
+         #activity="routerLinkActive"
       >
         <span class="menu-icon">
           <span
     [inlineSVG]="
-        alerts.isActive
-          ? './assets/imgs/sidebar/Team.svg'
-          : './assets/imgs/sidebar/Team.svg'
+        activity.isActive
+          ? './assets/imgs/sidebar/Activity.svg'
+          : './assets/imgs/sidebar/Activity.svg'
       "            class="svg-icon svg-icon-2"
           >
         </span>
 
         </span>
         <span class="menu-title">
-                    {{"sideMenue.clients" | translate}}
+          {{"sideMenue.activity" | translate}}
         </span>
         </a>
-
-
 
 
       <!-- <a

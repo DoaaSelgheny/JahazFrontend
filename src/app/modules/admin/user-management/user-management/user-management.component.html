@@ -2,7 +2,7 @@
   <div class="container">
     <div class="page-title">
       <header>
-        <h3>{{ "users.userManagement" | translate }}</h3>
+        <h3>{{ "sideMenue.clients" | translate }}</h3>
       </header>
     </div>
     <div class="page-content">
@@ -50,7 +50,7 @@
             <!-- begin::Table head -->
             <thead>
               <tr class="text-center">
-                <th class="min-w-95px">{{ "dashboard.userNo" | translate }}</th>
+                <!-- <th class="min-w-95px">{{ "dashboard.userNo" | translate }}</th> -->
                 <th class="min-w-125px">{{ "users.carNo" | translate }}</th>
                 <!-- <th class="min-w-125px">{{ "users.carYear" | translate }}</th> -->
                 <!-- <th class="min-w-125px">{{ "users.carColor" | translate }}</th> -->
@@ -87,7 +87,7 @@
             <tbody>
 
               <tr class="text-center" *ngFor="let item of allUsers">
-                <td>{{ item.customerId??'-' }}</td>
+                <!-- <td>{{ item.customerId??'-' }}</td> -->
                 <td>{{ item.carNumber??'-' }}</td>
                 <!-- <td>{{ item.fullName??'-' }}</td> -->
                 <!-- <td>{{ item.phoneNumber ??'-'}}</td> -->

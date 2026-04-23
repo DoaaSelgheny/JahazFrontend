@@ -57,6 +57,7 @@ export class UserManagementComponent implements OnInit {
   }
   getAllUsersData() {
 
+    this.spinner.show();
     const startIndex = (this.page - 1) * this.pageSize;
     this.filterObj.SkipCount = startIndex;
     this.filterObj.search = this.searchText;
