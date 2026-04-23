@@ -140,11 +140,28 @@ getVists()
   })
 }
 
-onSearchChange() {
-  this.page = 1;
-  this.getVists();
-}
+// onSearchChange() {
+//   this.page = 1;
+//   this.getVists();
+// }
 
+
+searchTimeout: any;
+
+onSearchChange() {
+  clearTimeout(this.searchTimeout);
+
+  this.searchTimeout = setTimeout(() => {
+    this.page = 1;
+
+    if (this.Search && this.Search.length < 3) {
+      this.vists = [];
+      return;
+    }
+
+    this.getVists();
+  }, 400); // 400ms delay
+}
 
 onDateChange() {
   this.page = 1;
