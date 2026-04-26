@@ -22,6 +22,10 @@ export class ManageRequestsService {
     return this.webApi.get('/api/app/lookups/car-make', param);
   }
 
+      getTruckImage(carNumber?: any) {
+  return this.webApi.get(`/api/app/vehicles/${carNumber}/images`);
+  }
+
 
  getExport(param?: any) {
     return this.webApi.getFile('/api/app/visits/export/csv', param);

@@ -4,13 +4,14 @@
   <div class="header mb-5">
     <div>
   <h3>Truck Images</h3>
-    <h5> #8034DTB</h5>
+    <h5> {{data?.carNumber}}</h5>
     </div>
 
     <button (click)="activeModal.close()">✕</button>
   </div>
 
 
+<div *ngIf="images.length > 0">
 
   <h3 class="title my-5">Entry Photo</h3>
 
@@ -21,8 +22,8 @@
 
     <img
       class="main-image"
-      [src]="images[selectedIndex].url"
-      [alt]="images[selectedIndex].label"
+      [src]="images[selectedIndex]?.entryVehicleCropUrl"
+      [alt]="images[selectedIndex]?.entryVehicleCropStorageName "
     />
 
     <button class="nav next" (click)="next()">
@@ -38,8 +39,10 @@
       [class.active]="i === selectedIndex"
       (click)="select(i)"
     >
-      <img [src]="img.url" />
-      <span>{{ img.label }}</span>
+      <img [src]="img?.entryVehicleCropUrl" />
+      <!-- <span>{{ img?.entryVehicleCropStorageName  }}</span> -->
     </div>
   </div>
+  </div>
+
 </div>
