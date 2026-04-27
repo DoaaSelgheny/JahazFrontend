@@ -106,26 +106,26 @@ export class NavbarComponent implements OnInit {
       });
   }
 
-  openUserMangment(row?: any) {
-    //call UnRead Notification
-    this.messageService.getReadNotifications(row.id).subscribe((res) => {
-      this.getData();
-    });
-    const modalRef = this.modalService.open(AddUserModalComponent, {
-      size: 'md',
-      backdrop: 'static',
-    });
-    modalRef.componentInstance.cameraNumber=row.cameraNumber
-    modalRef.componentInstance.id = row.redirectUrl;
-    modalRef.componentInstance.notificationID = row.id;
-    modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
-      if (receivedEntry) {
-        this.router
-          .navigateByUrl('/', { skipLocationChange: true })
-          .then(() => this.router.navigate(['/admin/user-management']));
-      }
-    });
-  }
+  // openUserMangment(row?: any) {
+  //   //call UnRead Notification
+  //   this.messageService.getReadNotifications(row.id).subscribe((res) => {
+  //     this.getData();
+  //   });
+  //   const modalRef = this.modalService.open(AddUserModalComponent, {
+  //     size: 'md',
+  //     backdrop: 'static',
+  //   });
+  //   modalRef.componentInstance.cameraNumber=row.cameraNumber
+  //   modalRef.componentInstance.id = row.redirectUrl;
+  //   modalRef.componentInstance.notificationID = row.id;
+  //   modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
+  //     if (receivedEntry) {
+  //       this.router
+  //         .navigateByUrl('/', { skipLocationChange: true })
+  //         .then(() => this.router.navigate(['/admin/user-management']));
+  //     }
+  //   });
+  // }
 
   onItemSelect(item: any) {
     this.headerService.changeBranch(item.id).subscribe({

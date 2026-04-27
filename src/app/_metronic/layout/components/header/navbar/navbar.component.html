@@ -48,18 +48,18 @@
           <li role="menuitem">
             <div class="d-flex justify-content-between" role="button">
               <div class="title">{{'notificationComponent.Notification'|translate}}</div>
-              <div routerLink="/admin/manage-requests" class="all-notification">
+              <div routerLink="/admin/notification-management" class="all-notification">
                 {{'notificationComponent.showAll'|translate}}
 
               </div>
             </div>
           </li>
           <li class="notify" role="menuitem" *ngFor="let row of allManageNotifications.slice(0, 5)">
-            <div role="button" class="d-flex" (click)="openUserMangment(row)">
+            <div role="button" class="d-flex" routerLink="/admin/manage-requests">
               <img class="mx-2 notific-icon" src="/assets/imgs/mercedes.svg" alt="" srcset="" />
-              <h3>{{ row.title }} </h3>
+              <h3 >{{ row.title }} </h3>
 
-               <span class="ml-auto point" ><i class="fa-solid fa-ellipsis"></i></span>
+               <!-- <span class="ml-auto point" ><i class="fa-solid fa-ellipsis"></i></span> -->
             </div>
           </li>
 
