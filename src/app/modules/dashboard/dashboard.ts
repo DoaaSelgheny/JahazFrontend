@@ -259,18 +259,18 @@ vistsLongest()
 // }
 vistsByVehicles() {
   const input: any = {
-    fromDate: this.formValue?.Date || null,
-    toDate: this.formValue?.toDate || null,
+    fromDate: this.formValue?.Date ?? '',
+    toDate: this.formValue?.toDate ?? '',
   };
 
   this._dashboardService.vistsByVehicles(input).subscribe({
-    next: (res: any) => {
+    next: (res: any[]) => {
       console.log(res);
 
-      const data = res || [];
+      if (!res || !res.length) return;
 
-      const categories = data.map((x: any) => x.vehicleType);
-      const values = data.map((x: any) => x.averageDurationInMinutes);
+      const categories = res.map(x => x.makeModel); // ✅ الصح
+      const values = res.map(x => x.averageDurationInMinutes);
 
       this.stayByVehicleOptions = {
         ...this.stayByVehicleOptions,
