@@ -167,7 +167,6 @@ onDateChange() {
   this.page = 1;
   this.getVists();
   this.getCard();
-  this.getExport()
 }
 
 getcarMakeModel()
