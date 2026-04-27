@@ -26,7 +26,6 @@
         <select
           class="form-select form-select-sm dashboard-select"
           [(ngModel)]="Branch"
-          (change)="getData()"
         >
           <option selected [ngValue]="null">Select branch</option>
           <option *ngFor="let item of branchs" [ngValue]="item.id">
