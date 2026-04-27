@@ -7,6 +7,7 @@ import { FirstTabService } from 'src/app/services/api/first-tab.service';
 import { ManageCustomersService } from 'src/app/services/api/manage-customers.service';
 import { DashboardFilterComponent } from './filter/dashboard-filter.component';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { DashboardService } from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,10 +15,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./dashboard.scss'],
 })
 export class DashboardComponent implements OnInit {
-  // totalVisits = 408;
-  // avgStayMinutes = 271;
-  // fillTimeLabel = 'Soon';
-  // incompleteRecords = 190;
+
 
   // smart-dashboard-like filters
   formValue: any;
@@ -26,13 +24,7 @@ export class DashboardComponent implements OnInit {
   branchs: any[] = [];
   Branch: any | null = null;
 cards:any
-  longestStayVehicles = [
-    { rank: 1, plate: '2228EBA', visits: 1, stayMin: 1080 },
-    { rank: 2, plate: '92012991', visits: 1, stayMin: 1020 },
-    { rank: 3, plate: '25305TB', visits: 1, stayMin: 960 },
-    { rank: 4, plate: '16231JUA', visits: 1, stayMin: 900 },
-    { rank: 5, plate: '78921KL', visits: 1, stayMin: 840 },
-  ];
+  longestStayVehicles:any[] = [];
 
   visitsByHourOptions: ApexOptions;
 
@@ -47,63 +39,29 @@ cards:any
     private brandService: BrandService,
     private branchManagerService: BranchManagerService,
     private firstTabService: FirstTabService,
+    private _dashboardService:DashboardService,
     private manageCustomersService: ManageCustomersService,
     private cdr: ChangeDetectorRef,
         private spinner: NgxSpinnerService,
 
   ) {
     this.visitsByHourOptions = {
-      series: [
-        {
-          name: 'Low (0-19)',
-          data: [
-            22, 25, 18, 17, 16, 19, 16, 15, 46, 14, 16, 15, 14, 16, 17, 18, 19,
-            15,
-          ],
-        },
-        {
-          name: 'Medium (20-39)',
-          data: [
-            10, 12, 11, 12, 13, 10, 9, 10, 8, 11, 12, 11, 10, 11, 12, 13, 12,
-            10,
-          ],
-        },
-        {
-          name: 'High (40+)',
-          data: [0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        },
-      ],
+    series: [],
+
+
       chart: {
         type: 'bar',
         height: 320,
         stacked: true,
         toolbar: { show: false },
       },
-      colors: ['#3B82F6', '#10B981', '#F59E0B'],
+      colors: ['rgba(219, 234, 254, 1)', 'rgba(81, 162, 255, 1)', 'rgba(21, 93, 252, 1)'],
       plotOptions: { bar: { columnWidth: '45%', borderRadius: 6 } },
       dataLabels: { enabled: false },
       stroke: { show: false, width: 0 },
       xaxis: {
-        categories: [
-          '00:00',
-          '03:00',
-          '06:00',
-          '07:00',
-          '08:00',
-          '09:00',
-          '10:00',
-          '11:00',
-          '12:00',
-          '13:00',
-          '14:00',
-          '15:00',
-          '16:00',
-          '17:00',
-          '18:00',
-          '19:00',
-          '20:00',
-          '21:00',
-        ],
+      categories: [],
+
         labels: { style: { colors: '#94A3B8', fontSize: '12px' } },
         axisBorder: { show: false },
         axisTicks: { show: false },
@@ -160,7 +118,7 @@ cards:any
       series: [
         {
           name: 'Avg Stay (min)',
-          data: [160, 240, 150, 320, 360, 280, 90, 70, 40],
+          data: [],
         },
       ],
       chart: { type: 'bar', height: 360, toolbar: { show: false } },
@@ -171,17 +129,7 @@ cards:any
       dataLabels: { enabled: false },
       stroke: { show: true, width: 2 },
       xaxis: {
-        categories: [
-          'Tractor-trailer',
-          'Van-trailer',
-          'Sedan',
-          'Sedan-standard',
-          'Car-standard',
-          'Taxi-bus-commercial',
-          'Sedan-standard',
-          'Motorcycle',
-          'Other',
-        ],
+        categories: [],
         labels: { style: { colors: '#94A3B8', fontSize: '12px' } },
         axisBorder: { show: false },
         axisTicks: { show: false },
@@ -236,10 +184,124 @@ cards:any
     };
   }
 
+
+vistsHourly() {
+  const input: any = {
+    fromDate: this.formValue?.Date ?? '',
+    toDate: this.formValue?.toDate ?? '',
+  };
+
+  this._dashboardService.vistsHourly(input).subscribe((res: any) => {
+    const hours = res?.hours || [];
+
+    const categories = hours.map((h: any) => `${h.hourDisplay}:00`);
+
+    const low = hours.map((h: any) =>
+      h.visitCount <= 19 ? h.visitCount : 0
+    );
+
+    const medium = hours.map((h: any) =>
+      h.visitCount >= 20 && h.visitCount <= 39 ? h.visitCount : 0
+    );
+
+    const high = hours.map((h: any) =>
+      h.visitCount >= 40 ? h.visitCount : 0
+    );
+
+    this.visitsByHourOptions = {
+      ...this.visitsByHourOptions,
+      series: [
+        { name: 'Low (0-19)', data: low },
+        { name: 'Medium (20-39)', data: medium },
+        { name: 'High (40+)', data: high },
+      ],
+      xaxis: {
+        ...(this.visitsByHourOptions.xaxis as any),
+        categories: categories,
+      },
+    };
+
+    this.cdr.detectChanges();
+  });
+}
+
+
+vistsLongest()
+{
+    const input: any = {
+    fromDate: this.formValue?.Date ?? '',
+    toDate: this.formValue?.toDate ?? '',
+  };
+
+  this._dashboardService.vistsLongest(input).subscribe((res)=>
+  {
+    console.log(res);
+    this.longestStayVehicles=res;
+        this.cdr.detectChanges();
+
+  })
+}
+
+
+// vistsByVehicles()
+// {
+//       const input: any = {
+//     fromDate: this.formValue?.Date ?? '',
+//     toDate: this.formValue?.toDate ?? '',
+//   };
+
+
+//   this._dashboardService.vistsByVehicles(input).subscribe((res)=>
+//   {
+//     console.log(res);
+
+//   })
+// }
+vistsByVehicles() {
+  const input: any = {
+    fromDate: this.formValue?.Date || null,
+    toDate: this.formValue?.toDate || null,
+  };
+
+  this._dashboardService.vistsByVehicles(input).subscribe({
+    next: (res: any) => {
+      console.log(res);
+
+      const data = res || [];
+
+      const categories = data.map((x: any) => x.vehicleType);
+      const values = data.map((x: any) => x.averageDurationInMinutes);
+
+      this.stayByVehicleOptions = {
+        ...this.stayByVehicleOptions,
+        series: [
+          {
+            name: 'Avg Stay (min)',
+            data: values,
+          },
+        ],
+        xaxis: {
+          ...(this.stayByVehicleOptions.xaxis as any),
+          categories: categories,
+        },
+      };
+
+      this.cdr.detectChanges();
+    },
+    error: (err) => {
+      console.log(err);
+    },
+  });
+}
+
   ngOnInit(): void {
     this.getBrands();
     this.getData();
-    this.getCard()
+    this.getCard();
+    this.vistsHourly();
+    this.vistsLongest();
+    // this.vistsByVehicles()
+
   }
 
   openFilter() {
@@ -261,6 +323,12 @@ cards:any
         if (result) {
           this.formValue = result;
           this.getData();
+             this.getData();
+    this.getCard();
+    this.vistsHourly();
+    this.vistsByVehicles();
+    this.vistsLongest()
+
           this.cdr.detectChanges();
         }
       })
@@ -294,6 +362,8 @@ cards:any
   getBrands() {
     this.brandService.getAllBrands().subscribe((res: any) => {
       this.brands = res || [];
+      console.log(res);
+
       if (this.brands.length > 0 && !this.BrandId) {
         this.BrandId = this.brands[0].id;
         this.changeBrand(this.BrandId);
@@ -362,6 +432,7 @@ cards:any
                 { name: 'Medium (20-39)', data: med },
                 { name: 'High (40+)', data: high },
               ],
+
               xaxis: {
                 ...(this.visitsByHourOptions?.xaxis as any),
                 categories: hours.map((x: any) => x.label),
@@ -394,23 +465,23 @@ cards:any
       });
   }
 
-  getExport() {
-    this.manageCustomersService
-      .getExcelExport({
-        brandId: this.BrandId ?? '',
-        branchId: this.Branch ?? '',
-        fromDate: this.formValue?.Date ?? '',
-        toDate: this.formValue?.toDate ?? '',
-        carModel: this.formValue?.search ?? '',
-        cityId: this.formValue?.city ?? '',
-      })
-      .subscribe({
-        next: (res: any) => {
-          this.downloadExcelFile(res);
-        },
-        error: () => {},
-      });
-  }
+  // getExport() {
+  //   this.manageCustomersService
+  //     .getExcelExport({
+  //       brandId: this.BrandId ?? '',
+  //       branchId: this.Branch ?? '',
+  //       fromDate: this.formValue?.Date ?? '',
+  //       toDate: this.formValue?.toDate ?? '',
+  //       carModel: this.formValue?.search ?? '',
+  //       cityId: this.formValue?.city ?? '',
+  //     })
+  //     .subscribe({
+  //       next: (res: any) => {
+  //         this.downloadExcelFile(res);
+  //       },
+  //       error: () => {},
+  //     });
+  // }
 
   downloadExcelFile(blob: any) {
     const excelBlob = new Blob([blob], {
