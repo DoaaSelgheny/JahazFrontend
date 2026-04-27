@@ -300,7 +300,7 @@ vistsByVehicles() {
     this.getCard();
     this.vistsHourly();
     this.vistsLongest();
-    // this.vistsByVehicles()
+    this.vistsByVehicles()
 
   }
 
