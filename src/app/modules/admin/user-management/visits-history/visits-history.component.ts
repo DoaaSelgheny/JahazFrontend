@@ -10,7 +10,7 @@ import { OrderManagementService } from 'src/app/services/api/user-management.ser
   styleUrls: ['./visits-history.component.scss']
 })
 export class VisitsHistoryComponent implements OnInit {
-  
+
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
   @Input() id:any;
   userData:any
@@ -21,18 +21,15 @@ export class VisitsHistoryComponent implements OnInit {
      private spinner: NgxSpinnerService,
      public activeModal: NgbActiveModal
    ) {}
- 
+
    ngOnInit(): void {
-  
-    console.log(converter.toWordsOrdinal(33));
-    console.log(converter.toWords(33),'ar');
-    console.log(converter.toOrdinal(33));
+
     this.getUserData();
    }
 
    getUserData(){
      this.spinner.show()
-  
+
      this._UserManagementService.visitsHistory(this.id).subscribe(res=>{
        this.spinner.hide()
        this.userData=res
@@ -45,4 +42,3 @@ export class VisitsHistoryComponent implements OnInit {
    }
 
  }
- 

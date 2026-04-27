@@ -56,10 +56,10 @@
           </li>
           <li class="notify" role="menuitem" *ngFor="let row of allManageNotifications.slice(0, 5)">
             <div role="button" class="d-flex" (click)="openUserMangment(row)">
-              <img class="mx-2 notific-icon" src="/assets/imgs/zalol/mercedes.svg" alt="" srcset="" />
+              <img class="mx-2 notific-icon" src="/assets/imgs/mercedes.svg" alt="" srcset="" />
               <h3>{{ row.title }} </h3>
 
-              <img class="ml-auto point" src="/assets/imgs/zalol/point.svg" alt="" srcset="" />
+               <span class="ml-auto point" ><i class="fa-solid fa-ellipsis"></i></span>
             </div>
           </li>
 
@@ -96,7 +96,7 @@
       <button>
         <div class="d-flex justify-content-between align-items-center px-2 py-2 ">
           <div class="d-flex align-items-center px-2">
-            <img src="assets/imgs/zalol/branchHead.svg" width="33px">
+            <img src="assets/imgs/branchHead.svg" width="33px">
 
             <div class="user-info mx-1">
               <div>

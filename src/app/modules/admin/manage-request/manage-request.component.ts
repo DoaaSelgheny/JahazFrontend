@@ -74,10 +74,6 @@ onCarMakeChange() {
   this.getVists();
 }
 
-viewImages(item: any) {
-  console.log('Images:', item);
-}
-
 
 
 viewDetails(item: any) {

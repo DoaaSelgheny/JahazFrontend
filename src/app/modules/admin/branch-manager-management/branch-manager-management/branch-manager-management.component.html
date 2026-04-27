@@ -24,11 +24,11 @@
 								[placeholder]="'cashier.email' | translate" />
 								<i class="fa fa-search"></i>
 							</div>
-							
+
 						</div>
 						<div class="col-md-3 col-12 col-sm-6 mt-3 ">
 							<ng-multiselect-dropdown [placeholder]="'cashier.brand'|translate"
-								[settings]="dropdownSettings" [data]="brands" 
+								[settings]="dropdownSettings" [data]="brands"
 								(onSelect)="changeBrand($event)" (onDeSelect)="BrandId=undefined;Branch=undefined;getData();">
 							</ng-multiselect-dropdown>
 						</div>
@@ -73,7 +73,7 @@
 				  margin-right: auto;
 				  margin-top: 10%;
 				  max-width: 250px;
-				" src="assets/imgs/zalol/noData.svg" />
+				" src="assets/imgs/noData.svg" />
 
 						<h1 class="titleNoData" style="text-align: center; padding-top: 15px">
 							{{ "userManagement.NotFound" | translate }}
@@ -98,7 +98,7 @@
 								<td>{{ item.brand??'-' }}</td>
 								<td>
 									<div>{{ item.branch??'-' }}</div>
-							
+
 
 								</td>
 								<td>{{ item.name??'-' }}</td>
@@ -106,7 +106,7 @@
 								<td >
 									<div class="form-check form-switch p-0 d-flex justify-content-center align-items-center ">
 										<label class="switch form-check-label " [for]="item.id" style="margin-left: 75px;margin-right: 75px;">
-											<input (change)="changAccountState(item)" class="form-check-input" 
+											<input (change)="changAccountState(item)" class="form-check-input"
 												type="checkbox" [checked]="item.state === cashierState.Active"
 												[id]="item.id" role="button"/>
 											<span class="slider round"></span>

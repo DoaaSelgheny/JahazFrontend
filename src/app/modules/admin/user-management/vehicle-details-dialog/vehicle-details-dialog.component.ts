@@ -92,14 +92,6 @@ formatDuration(minutes: number): string {
 
 
 
-  // getLastVists()
-  // {
-  //       this._UserManagementService.getLastVists(this.data?.carNumber).subscribe((res=>{
-  //     console.log(res);
-
-  //   }))
-  // }
-
   getLastVists() {
   this._UserManagementService.getLastVists(this.data?.carNumber).subscribe((res) => {
 
