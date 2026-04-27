@@ -27,5 +27,9 @@ export class DashboardService {
   }
 
 
+          vistsDaily(parms?: any) {
+    return this.webApi.get(`/api/app/visits/daily` ,parms);
+  }
+
 
 }

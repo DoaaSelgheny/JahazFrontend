@@ -235,7 +235,6 @@ vistsLongest()
 
   this._dashboardService.vistsLongest(input).subscribe((res)=>
   {
-    console.log(res);
     this.longestStayVehicles=res;
         this.cdr.detectChanges();
 
@@ -252,7 +251,6 @@ vistsByVehicles() {
 
   this._dashboardService.vistsByVehicles(input).subscribe({
     next: (res: any[]) => {
-      console.log(res);
 
       if (!res || !res.length) return;
 
@@ -290,7 +288,6 @@ vistsByStayDuration() {
 
   this._dashboardService.vistsByStayDuration(input).subscribe({
     next: (res: any) => {
-      console.log(res);
 
       const buckets = res?.buckets || [];
 
@@ -311,6 +308,56 @@ vistsByStayDuration() {
   });
 }
 
+
+// vistsDaily()
+// {
+//   this._dashboardService.vistsDaily().subscribe((res)=>
+//   {
+//     console.log(res);
+
+//   })
+
+// }
+
+
+vistsDaily() {
+
+  this._dashboardService.vistsDaily().subscribe({
+    next: (res: any) => {
+      const days = res?.days || [];
+
+      const categories = days.map((d: any) => {
+        const date = new Date(d.date);
+        return date.toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+        });
+      });
+
+      const values = days.map((d: any) => d.visitCount);
+
+      this.visitActivityOptions = {
+        ...this.visitActivityOptions,
+        series: [
+          {
+            name: 'Visits',
+            data: values,
+          },
+        ],
+        xaxis: {
+          ...(this.visitActivityOptions.xaxis as any),
+          categories: categories,
+        },
+      };
+
+      this.cdr.detectChanges();
+    },
+    error: (err) => {
+      console.log(err);
+    },
+  });
+}
+
   ngOnInit(): void {
     this.getBrands();
     this.getData();
@@ -319,6 +366,7 @@ vistsByStayDuration() {
     this.vistsLongest();
     this.vistsByVehicles();
     this.vistsByStayDuration()
+    this.vistsDaily()
 
   }
 
