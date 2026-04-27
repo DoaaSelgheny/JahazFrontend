@@ -21,4 +21,11 @@ export class DashboardService {
     return this.webApi.get(`/api/app/visits/stay-time-by-vehicles` ,parms);
   }
 
+
+        vistsByStayDuration(parms?: any) {
+    return this.webApi.get(`/api/app/visits/stay-duration-distribution` ,parms);
+  }
+
+
+
 }

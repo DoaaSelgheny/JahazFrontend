@@ -243,20 +243,7 @@ vistsLongest()
 }
 
 
-// vistsByVehicles()
-// {
-//       const input: any = {
-//     fromDate: this.formValue?.Date ?? '',
-//     toDate: this.formValue?.toDate ?? '',
-//   };
 
-
-//   this._dashboardService.vistsByVehicles(input).subscribe((res)=>
-//   {
-//     console.log(res);
-
-//   })
-// }
 vistsByVehicles() {
   const input: any = {
     fromDate: this.formValue?.Date ?? '',
@@ -294,13 +281,44 @@ vistsByVehicles() {
   });
 }
 
+
+vistsByStayDuration() {
+  const input: any = {
+    fromDate: this.formValue?.Date ?? '',
+    toDate: this.formValue?.toDate ?? '',
+  };
+
+  this._dashboardService.vistsByStayDuration(input).subscribe({
+    next: (res: any) => {
+      console.log(res);
+
+      const buckets = res?.buckets || [];
+
+      const labels = buckets.map((x: any) => `${x.label} min`);
+      const series = buckets.map((x: any) => x.count);
+
+      this.durationDonutOptions = {
+        ...this.durationDonutOptions,
+        labels: labels,
+        series: series,
+      };
+
+      this.cdr.detectChanges();
+    },
+    error: (err) => {
+      console.log(err);
+    },
+  });
+}
+
   ngOnInit(): void {
     this.getBrands();
     this.getData();
     this.getCard();
     this.vistsHourly();
     this.vistsLongest();
-    this.vistsByVehicles()
+    this.vistsByVehicles();
+    this.vistsByStayDuration()
 
   }
 
@@ -338,10 +356,7 @@ vistsByVehicles() {
   getCard()
 {
 
-    // this.filterObj.fromDate = this.fromDate;
-    // this.filterObj.toDate = this.toDate;
 
-    // let myObj: any = { ...this.filterObj };
     this.spinner.show();
     const input:any=
     {
@@ -465,23 +480,6 @@ vistsByVehicles() {
       });
   }
 
-  // getExport() {
-  //   this.manageCustomersService
-  //     .getExcelExport({
-  //       brandId: this.BrandId ?? '',
-  //       branchId: this.Branch ?? '',
-  //       fromDate: this.formValue?.Date ?? '',
-  //       toDate: this.formValue?.toDate ?? '',
-  //       carModel: this.formValue?.search ?? '',
-  //       cityId: this.formValue?.city ?? '',
-  //     })
-  //     .subscribe({
-  //       next: (res: any) => {
-  //         this.downloadExcelFile(res);
-  //       },
-  //       error: () => {},
-  //     });
-  // }
 
   downloadExcelFile(blob: any) {
     const excelBlob = new Blob([blob], {
