@@ -101,7 +101,7 @@ formatDuration(minutes: number): string {
     // y-axis data
     const durations = res.visits.map((v: any) => v.durationInMinutes);
 
-const categories = res.visits.map((v: any) => `Visit ${v.id}`);
+const categories = res.visits.map((v: any) => `Visit ${v.number}`);
 
     this.chartOptions = {
       series: [
