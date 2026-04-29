@@ -7,6 +7,7 @@ import { InlineSVGModule } from 'ng-inline-svg-2';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardFilterComponent } from './filter/dashboard-filter.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [DashboardComponent, DashboardFilterComponent],
@@ -16,6 +17,7 @@ import { DashboardFilterComponent } from './filter/dashboard-filter.component';
     NgApexchartsModule,
     NgbModule,
     FormsModule,
+    TranslateModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {

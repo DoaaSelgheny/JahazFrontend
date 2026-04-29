@@ -110,30 +110,7 @@ export class NotificationManagmentComponent implements OnInit {
       NotificationRead: this.theNotificationRead.All,
     };
   }
-  openUserMangment(row?: any) {
-    if (!row.isOpen) {
-      row.isRead = !row.isRead;
-      this.messageService.getReadNotifications(row.id).subscribe((res) => {
-        this.messageService.getUnReadNotification();
-      });
-      const modalRef = this.modalService.open(AddUserModalComponent, {
-        size: 'md',
-        backdrop: 'static',
-      });
-      modalRef.componentInstance.id = row.redirectUrl;
-      modalRef.componentInstance.notificationID = row.id;
-      modalRef.componentInstance.cameraNumber = row.cameraNumber;
-      modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
-        
-        if (receivedEntry === true) {
-          this.router
-            .navigateByUrl('/', { skipLocationChange: true })
-            .then(() => this.router.navigate(['/admin/user-management/']));
-        }
-      });
-   
-    }
-  }
+
   returnType(event: any) {
     if (event.target.type === 'date') this.isDate = true;
   }

@@ -28,12 +28,14 @@ export class UserManagementComponent implements OnInit {
   BranchText: string | undefined = this.lang === 'ar' ? 'بحث' : 'Search';
   totalCount: number;
   searchText: string = '';
+  Search:string='';
   page: number = 1;
   pageSize: number = 10;
   allUsers: any[] = [];
   filterObj = this.initFilterObj();
   branchs:any[] = [];
   fromSearchInput: boolean = false;
+searchTimeout: any;
 
   ngOnInit(): void {
     // this.getBranchs()
@@ -99,7 +101,25 @@ export class UserManagementComponent implements OnInit {
     modalRef.componentInstance.data = item;
   }
 
+onSearchChange() {
+  clearTimeout(this.searchTimeout);
 
+  this.searchTimeout = setTimeout(() => {
+    this.page = 1;
+
+    // لو فاضي → رجّع كل الداتا
+    if (!this.searchText) {
+      this.getAllUsersData();
+      return;
+    }
+
+    if (this.searchText.length < 3) {
+      return;
+    }
+    this.getAllUsersData();
+
+  }, 400);
+}
 
   openModal(data:any) {
     const modalRef = this.modalService.open(AddUserModalComponent, {

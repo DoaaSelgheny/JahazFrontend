@@ -420,6 +420,7 @@ export const locale = {
       Completed: 'Completed',
       AvgStayTime: 'Avg. Stay Time',
       lastWeek: 'vs last week',
+      stayMin:'stay min',
       filters: 'Filters',
       searchRecords: 'Search Records',
       searchPlaceholder: 'Search by plate number...',
@@ -447,6 +448,7 @@ export const locale = {
       truckType: 'Truck Type',
       tankLicense: 'Tank License',
       incomplete: 'Incomplete',
+      incompleteRecords: 'Incomplete Records',
       stayDurationAnalytics: 'Stay Duration Analytics',
       stayDuration: 'Stay Duration',
       fillingDuration: 'Filling Duration',
@@ -454,6 +456,8 @@ export const locale = {
       avgStayTime: 'Avg. Stay Time',
       totalVisits: 'Total Visits',
       avgStayTimeCard: 'Avg. Stay Time',
+      avgFilling : 'Avg Filling Time',
+      EntryPhoto:'Entry Photo'
     },
 
 
@@ -522,7 +526,7 @@ export const locale = {
       orderDeclined: 'Canceled Orders',
     },
     dashboard: {
-      userNo: 'Customer ID',
+      userNo: 'Customer ID',
       point: 'Balance Points',
       noOrder: 'No Orders Currently.',
       text1: 'Welcome to Tholol',
@@ -534,11 +538,20 @@ export const locale = {
       carType: 'Type',
       value: 'Value',
       lastvalue: 'Last Order',
-      carRecord: 'Add Car',
+      carRecord: 'Add Car',
       carview: 'car View ',
-
       orderday: 'Orders Per day',
-      increase: '12% Increase Compared To The Previous Month',
+      increase: '12% Increase Compared To The Previous Month',
+
+
+      WaterTruckAnalytics:'Water Truck Analytics',
+      VisitsByHour:'Visits by Hour',
+      VisitActivity:'Visit Activity',
+      StayTimeByVehicle:'Stay Time by Vehicle',
+      StayDurationDistribution:'Stay Duration Distribution',
+      LongestStayVehicles:'Longest Stay Vehicles',
+      vehiclesWithLongestDuration:'Vehicles with longest duration'
+
     },
     cashier: {
       userManagement: 'User Management',

@@ -6,12 +6,14 @@
 
   .notification-all {
 
-    background: rgba(242, 223, 220, 1);
+    // background:;
+    background: rgba(21, 93, 252, 1);
+
     border-radius: 151px;
     padding: 10px;
 
     text-align: center;
-    color: #9B403E;
+    color:  rgba(242, 223, 220, 1);
     font-weight: 700;
   }
 
@@ -99,8 +101,8 @@ li {
   width: 10px;
   height: 10px;
 
-  color: #9B403E;
-  background-color: #9B403E;
+  color: rgba(21, 93, 252, 1);
+  background-color: rgba(21, 93, 252, 1);
   margin: 10px;
 
 }
@@ -127,11 +129,12 @@ li {
     .notif-div {
       margin-right: 15px;
       margin-left: 15px;
-      background: rgba(242, 223, 220, 1);
+      background: rgba(21, 93, 252, .4);
+
       border-radius: 151px;
       padding: 10px;
       text-align: center;
-      color: #9B403E;
+      color: rgba(21, 93, 252, 1);
       font-weight: 700;
     }
 

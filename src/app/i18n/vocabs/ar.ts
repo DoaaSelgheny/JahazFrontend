@@ -321,6 +321,7 @@ export const locale = {
       AvgStayTime: 'متوسط وقت البقاء',
       filters: 'الفلاتر',
       lastWeek: 'مقارنة بالأسبوع الماضي',
+      stayMin: 'مدة التوقف (دقيقة)',
       searchRecords: 'ابحث في السجلات',
       searchPlaceholder: 'ابحث برقم اللوحة...',
       plateColor: 'لون اللوحة',
@@ -345,6 +346,7 @@ export const locale = {
       truckType: 'نوع الشاحنة',
       tankLicense: 'ترخيص الخزان',
       incomplete: 'غير مكتمل',
+      incompleteRecords: 'السجلات غير المكتملة',
       stayDurationAnalytics: 'تحليل مدة البقاء',
       stayDuration: 'مدة البقاء',
       fillingDuration: 'مدة التعبئة',
@@ -354,6 +356,8 @@ export const locale = {
       visitHistory: 'سجل الزيارات',
       totalVisits: 'إجمالي الزيارات',
       avgStayTimeCard: 'متوسط وقت البقاء',
+      EntryPhoto:'صورة الدخول',
+      avgFilling: 'متوسط وقت التعبئة'
     },
 
 
@@ -428,6 +432,13 @@ export const locale = {
       carview: 'استعراض المركبة ',
       orderday: 'عدد الطلبات خلال اليوم',
       increase: '12% زيادة عن الشهر السابق',
+      WaterTruckAnalytics: 'تحليلات شاحنات المياه',
+VisitsByHour: 'عدد الزيارات حسب الساعة',
+VisitActivity: 'نشاط الزيارات',
+StayTimeByVehicle: 'مدة التوقف حسب المركبة',
+StayDurationDistribution: 'توزيع مدة التوقف',
+LongestStayVehicles: 'المركبات ذات أطول مدة توقف',
+vehiclesWithLongestDuration: 'المركبات ذات أطول مدة زمنية'
     },
     cashier: {
       userManagement: 'إدارة المستخدمين',

@@ -12,8 +12,14 @@
           <div class="col-md-5 col-sm-8 col-12  mt-3">
             <div class="search-btn px-3">
               <i class="fa fa-search"></i>
-              <input (keyup)="page = 1; fromSearchInput = true; getAllUsersData()" class="form-control" type="text"
-                [(ngModel)]="searchText" [placeholder]="'users.searchUser' | translate" />
+              <!-- <input (keyup)="page = 1; fromSearchInput = true; getAllUsersData()" class="form-control" type="text"
+                [(ngModel)]="searchText"
+              (ngModelChange)="onSearchChange()"
+                [placeholder]="'users.searchUser' | translate" /> -->
+
+
+              <input class="form-control" type="text" [(ngModel)]="searchText" (ngModelChange)="onSearchChange()"
+                [placeholder]="'users.searchUser' | translate" />
             </div>
 
           </div>
@@ -136,8 +142,8 @@
 
 
                 <td role="button"><span>{{item.visitCount}}</span></td>
-               <!-- <td>{{item.pointsNo ??'-'}}</td> -->
-               <!-- <td>{{item.memberShipPointNo ??'-'}}</td> -->
+                <!-- <td>{{item.pointsNo ??'-'}}</td> -->
+                <!-- <td>{{item.memberShipPointNo ??'-'}}</td> -->
 
                 <td role="button" (click)="viewUserModal(item)"><i class="fa fa-eye"></i></td>
               </tr>

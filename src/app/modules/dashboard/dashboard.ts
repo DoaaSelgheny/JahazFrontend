@@ -8,6 +8,7 @@ import { ManageCustomersService } from 'src/app/services/api/manage-customers.se
 import { DashboardFilterComponent } from './filter/dashboard-filter.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from './dashboard.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -40,6 +41,8 @@ export class DashboardComponent implements OnInit {
     private manageCustomersService: ManageCustomersService,
     private cdr: ChangeDetectorRef,
     private spinner: NgxSpinnerService,
+        private translate: TranslateService,
+
   ) {
     this.visitsByHourOptions = {
       series: [],
