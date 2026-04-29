@@ -1,14 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { BranchesService } from 'src/app/services/api/branches.service';
-import { BrandService } from 'src/app/services/api/brand.service';
-import { CashiersService } from 'src/app/services/api/cashier.service';
-import { ConfirmationDialogService } from '../../SharedComponent/SharedComponent/confirmation-dialog/confirmation-dialog.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ManageRequestsService } from 'src/app/services/api/manage-requests.service';
-import { AddCashierComponent } from '../manage-cashier/add-cashier/add-cashier.component';
 import { AddUserModalComponent } from '../user-management/add-user-modal/add-user-modal.component';
 import { VehicleDetailsDialogComponent } from './vehicle-details-dialog/vehicle-details-dialog.component';
 import { TruckImagesComponent } from './truck-images/truck-images.component';
@@ -24,7 +19,6 @@ export class ManageRequestComponent implements OnInit {
     private manageRequestsService: ManageRequestsService,
     private spinner: NgxSpinnerService,
 
-    private confirmationDialogService: ConfirmationDialogService,
     private translate: TranslateService,
     private toastr: ToastrService,
     private modalService: NgbModal
@@ -46,11 +40,7 @@ toDate: string = '';
 
   public lang: string = String(localStorage.getItem('language'));
 
-  ngOnInit(): void {
-    this.getCard();
-    this.getVists();
-    this.getcarMakeModel();
-    }
+
 
 formatDuration(minutes: number): string {
   if (!minutes) return '0 min';
@@ -108,7 +98,9 @@ getCard()
     let myObj: any = { ...this.filterObj };
 
   this.manageRequestsService.getCards(myObj).subscribe((res)=>{
-    this.cards=res
+    this.cards=res;
+      this.cdr.detectChanges();
+
 
   })
 }
@@ -230,6 +222,12 @@ getExport() {
     toDate: this.toDate || ''
     };
   }
+
+    ngOnInit(): void {
+  this.getcarMakeModel();
+  this.getCard();
+  this.getVists();
+}
 }
 function hideFn(value: any) {
   throw new Error('Function not implemented.');

@@ -309,7 +309,7 @@ export const locale = {
       team: 'الفريق',
       alerts: 'التنبيهات',
       setting: 'الاعدادات',
-      clients: 'عملاء',
+      clients: 'العملاء',
     },
 
     vehiclesComponent: {
@@ -339,7 +339,7 @@ export const locale = {
       exitTime: 'وقت الخروج',
       actions: 'الإجراءات',
       viewDetails: 'عرض المزيد',
-      truckImages: 'صور الشاحنات',
+      truckImages: 'صور الشاحنة ',
       vehicleInformation: 'بيانات المركبة',
       model: 'الموديل',
       licenseNumber: 'رقم الرخصة',
@@ -712,6 +712,7 @@ vehiclesWithLongestDuration: 'المركبات ذات أطول مدة زمنية
       wait: 'انتظــــــــــــــرونا !!',
       cancel: 'الغاء',
       vists: 'زيارات',
+      reset:'اعاده ادخال ',
       minute: 'دقيقة',
       toDate: 'إلى تاريخ',
       less: 'اقل',

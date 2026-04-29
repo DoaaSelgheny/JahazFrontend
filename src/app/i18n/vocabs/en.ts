@@ -111,6 +111,7 @@ export const locale = {
 
    "loginPage": {
       "enterEmail": 'Enter email',
+      "enterPassword": 'Enter Password',
       "thisFieldIsRequired": 'This field is required',
       "logInEmail": 'Email',
       "logIn": 'Login',
@@ -409,7 +410,7 @@ export const locale = {
       team: 'Team',
       alerts: 'Alerts',
       setting: 'Setting',
-      clients: 'clients',
+      clients: 'Clients',
     },
 
     vehiclesComponent: {
@@ -831,6 +832,7 @@ export const locale = {
       TypesOfVehicles: 'Types of Vehicles',
       colors: 'colors',
       toDate: 'To Date',
+      reset:'Reset',
       mostVisitedVehicles: 'Most Visited Vehicles',
       comingSoon:
         'Coming soon! Exclusive discount coupons for our most loyal visitors',

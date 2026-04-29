@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard-filter',
@@ -13,7 +14,9 @@ export class DashboardFilterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public activeModal: NgbActiveModal
+    public activeModal: NgbActiveModal,
+            private translate: TranslateService,
+
   ) {}
 
   ngOnInit(): void {
