@@ -24,6 +24,9 @@ export class DashboardComponent implements OnInit {
   cards: any;
   longestStayVehicles: any[] = [];
 
+  percentages: any = {};
+
+
   visitsByHourOptions: ApexOptions;
 
   visitActivityOptions: ApexOptions;
@@ -329,18 +332,76 @@ export class DashboardComponent implements OnInit {
       .catch(() => {});
   }
 
-  getCard() {
-    this.spinner.show();
-    const input: any = {
-      fromDate: this.formValue?.Date ?? '',
-      toDate: this.formValue?.toDate ?? '',
-    };
+  // getCard() {
+  //   this.spinner.show();
+  //   const input: any = {
+  //     fromDate: this.formValue?.Date ?? '',
+  //     toDate: this.formValue?.toDate ?? '',
+  //   };
 
-    this.brandService.getCards(input).subscribe((res) => {
-      this.cards = res;
-      this.spinner.hide();
-    });
+  //   this.brandService.getCards(input).subscribe((res) => {
+  //     this.cards = res;
+  //     this.spinner.hide();
+  //   });
+  // }
+getCard() {
+  this.spinner.show();
+
+  let from: Date;
+  let to: Date;
+
+  // default = آخر أسبوع
+  if (!this.formValue?.Date || !this.formValue?.toDate) {
+    to = new Date();
+    from = new Date();
+    from.setDate(to.getDate() - 6);
+  } else {
+    from = new Date(this.formValue.Date);
+    to = new Date(this.formValue.toDate);
   }
+
+  const diff = to.getTime() - from.getTime();
+
+  // الأسبوع اللي قبله
+  const prevFrom = new Date(from.getTime() - diff - 86400000);
+  const prevTo = new Date(to.getTime() - diff - 86400000);
+
+  const currentInput = {
+    fromDate: from.toISOString(),
+    toDate: to.toISOString(),
+  };
+
+  const prevInput = {
+    fromDate: prevFrom.toISOString(),
+    toDate: prevTo.toISOString(),
+  };
+
+  this.brandService.getCards(currentInput).subscribe({
+    next: (currentRes) => {
+      this.brandService.getCards(prevInput).subscribe({
+        next: (prevRes) => {
+          this.cards = currentRes;
+
+          this.percentages = {
+            totalVisits: this.calcPercentage(currentRes.totalVisits, prevRes.totalVisits),
+            avgStay: this.calcPercentage(currentRes.averageDurationInMinutes, prevRes.averageDurationInMinutes),
+            avgFilling: this.calcPercentage(currentRes.averageFillingDurationInMinutes, prevRes.averageFillingDurationInMinutes),
+            incomplete: this.calcPercentage(currentRes.incompleteVisits, prevRes.incompleteVisits),
+          };
+
+          this.spinner.hide();
+        },
+        error: () => this.spinner.hide()
+      });
+    },
+    error: () => this.spinner.hide()
+  });
+}
+
+calcPercentage(current: number, previous: number): number {
+  if (!previous) return 0; // عشان avoid division by zero
+  return +(((current - previous) / previous) * 100).toFixed(1);
+}
 
 
   getBranchs(id: any) {

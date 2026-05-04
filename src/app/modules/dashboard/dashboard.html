@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center justify-content-between mb-5 mt-5 pt-5">
     <h2 class="fw-bolder mb-0">
 
-              {{ "dashboard.WaterTruckAnalytics" | translate }}
+      {{ "dashboard.WaterTruckAnalytics" | translate }}
 
     </h2>
     <div class="d-flex gap-3">
@@ -18,11 +18,8 @@
       </button> -->
 
       <div class="d-flex align-items-center" *ngIf="brands && brands.length">
-        <select
-          class="form-select form-select-sm dashboard-select"
-          [(ngModel)]="BrandId"
-          (change)="changeBrand($any($event).target.value)"
-        >
+        <select class="form-select form-select-sm dashboard-select" [(ngModel)]="BrandId"
+          (change)="changeBrand($any($event).target.value)">
           <option *ngFor="let item of brands" [value]="item.id">
             {{ item.name }}
           </option>
@@ -30,10 +27,7 @@
       </div>
 
       <div class="d-flex align-items-center" *ngIf="BrandId">
-        <select
-          class="form-select form-select-sm dashboard-select"
-          [(ngModel)]="Branch"
-        >
+        <select class="form-select form-select-sm dashboard-select" [(ngModel)]="Branch">
           <option selected [ngValue]="null">Select branch</option>
           <option *ngFor="let item of branchs" [ngValue]="item.id">
             {{ item.name }}
@@ -47,33 +41,44 @@
     <!-- Total Visits -->
     <div class="col-12 col-md-6 col-xl-3">
       <div class="kpi-card kpi-accent--blue h-100">
-        <div
-          class="kpi-card__top d-flex justify-content-between align-items-start"
-        >
+        <div class="kpi-card__top d-flex justify-content-between align-items-start">
           <div>
             <div class="kpi-card__label">
               {{ "vehiclesComponent.totalVisits" | translate }}
             </div>
-            <div class="kpi-card__value">{{ cards?.totalVisits  ?? "_"}}</div>
+            <div class="kpi-card__value">{{ cards?.totalVisits ?? "_"}}</div>
             <div class="kpi-card__sub">0 today visits</div>
           </div>
           <div class="kpi-card__icon">
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 10C0 4.47715 4.47715 0 10 0H38C43.5229 0 48 4.47715 48 10V38C48 43.5229 43.5228 48 38 48H10C4.47715 48 0 43.5228 0 38V10Z" fill="#DBEAFE"/>
-<path d="M26 30V18C26 17.4696 25.7893 16.9609 25.4142 16.5858C25.0391 16.2107 24.5304 16 24 16H16C15.4696 16 14.9609 16.2107 14.5858 16.5858C14.2107 16.9609 14 17.4696 14 18V29C14 29.2652 14.1054 29.5196 14.2929 29.7071C14.4804 29.8946 14.7348 30 15 30H17" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M27 30H21" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M31 30H33C33.2652 30 33.5196 29.8946 33.7071 29.7071C33.8946 29.5196 34 29.2652 34 29V25.35C33.9996 25.1231 33.922 24.903 33.78 24.726L30.3 20.376C30.2065 20.2589 30.0878 20.1643 29.9528 20.0992C29.8178 20.0341 29.6699 20.0002 29.52 20H26" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M29 32C30.1046 32 31 31.1046 31 30C31 28.8954 30.1046 28 29 28C27.8954 28 27 28.8954 27 30C27 31.1046 27.8954 32 29 32Z" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M19 32C20.1046 32 21 31.1046 21 30C21 28.8954 20.1046 28 19 28C17.8954 28 17 28.8954 17 30C17 31.1046 17.8954 32 19 32Z" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0 10C0 4.47715 4.47715 0 10 0H38C43.5229 0 48 4.47715 48 10V38C48 43.5229 43.5228 48 38 48H10C4.47715 48 0 43.5228 0 38V10Z"
+                fill="#DBEAFE" />
+              <path
+                d="M26 30V18C26 17.4696 25.7893 16.9609 25.4142 16.5858C25.0391 16.2107 24.5304 16 24 16H16C15.4696 16 14.9609 16.2107 14.5858 16.5858C14.2107 16.9609 14 17.4696 14 18V29C14 29.2652 14.1054 29.5196 14.2929 29.7071C14.4804 29.8946 14.7348 30 15 30H17"
+                stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M27 30H21" stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M31 30H33C33.2652 30 33.5196 29.8946 33.7071 29.7071C33.8946 29.5196 34 29.2652 34 29V25.35C33.9996 25.1231 33.922 24.903 33.78 24.726L30.3 20.376C30.2065 20.2589 30.0878 20.1643 29.9528 20.0992C29.8178 20.0341 29.6699 20.0002 29.52 20H26"
+                stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M29 32C30.1046 32 31 31.1046 31 30C31 28.8954 30.1046 28 29 28C27.8954 28 27 28.8954 27 30C27 31.1046 27.8954 32 29 32Z"
+                stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M19 32C20.1046 32 21 31.1046 21 30C21 28.8954 20.1046 28 19 28C17.8954 28 17 28.8954 17 30C17 31.1046 17.8954 32 19 32Z"
+                stroke="#155DFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </div>
         </div>
         <div class="kpi-card__footer text-success">
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.6666 4.66669L8.99992 10.3334L5.66659 7.00002L1.33325 11.3334" stroke="#00A63E" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M10.6667 4.66669H14.6667V8.66669" stroke="#00A63E" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-          <span>0% </span><span class="text-muted">                          {{ "vehiclesComponent.lastWeek" | translate }}</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.6666 4.66669L8.99992 10.3334L5.66659 7.00002L1.33325 11.3334" stroke="#00A63E"
+              stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.6667 4.66669H14.6667V8.66669" stroke="#00A63E" stroke-width="1.33333" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>{{ percentages?.totalVisits }}% </span><span class="text-muted"> {{ "vehiclesComponent.lastWeek" |
+            translate }}</span>
         </div>
       </div>
     </div>
@@ -81,9 +86,7 @@
     <!-- Avg Stay Time -->
     <div class="col-12 col-md-6 col-xl-3">
       <div class="kpi-card kpi-accent--orange h-100">
-        <div
-          class="kpi-card__top d-flex justify-content-between align-items-start"
-        >
+        <div class="kpi-card__top d-flex justify-content-between align-items-start">
           <div>
             <div class="kpi-card__label">
               {{ "vehiclesComponent.AvgStayTime" | translate }}
@@ -92,19 +95,31 @@
             <div class="kpi-card__sub">122 long stay</div>
           </div>
           <div class="kpi-card__icon">
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 10C0 4.47715 4.47715 0 10 0H38C43.5229 0 48 4.47715 48 10V38C48 43.5229 43.5228 48 38 48H10C4.47715 48 0 43.5228 0 38V10Z" fill="#FFEDD4"/>
-<path d="M24 34C29.5228 34 34 29.5228 34 24C34 18.4772 29.5228 14 24 14C18.4772 14 14 18.4772 14 24C14 29.5228 18.4772 34 24 34Z" stroke="#F54900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M24 18V24L28 26" stroke="#F54900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0 10C0 4.47715 4.47715 0 10 0H38C43.5229 0 48 4.47715 48 10V38C48 43.5229 43.5228 48 38 48H10C4.47715 48 0 43.5228 0 38V10Z"
+                fill="#FFEDD4" />
+              <path
+                d="M24 34C29.5228 34 34 29.5228 34 24C34 18.4772 29.5228 14 24 14C18.4772 14 14 18.4772 14 24C14 29.5228 18.4772 34 24 34Z"
+                stroke="#F54900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M24 18V24L28 26" stroke="#F54900" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </div>
         </div>
         <div class="kpi-card__footer text-danger">
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-          <span>122% </span><span class="text-muted">                          {{ "vehiclesComponent.lastWeek" | translate }}</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B"
+              stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+
+          <span>
+          {{ percentages?.avgStay }}%
+          </span>
+          <span class="text-muted">
+            {{ "vehiclesComponent.lastWeek" | translate }}</span>
         </div>
       </div>
     </div>
@@ -112,30 +127,43 @@
     <!-- Avg Filling Time -->
     <div class="col-12 col-md-6 col-xl-3">
       <div class="kpi-card kpi-accent--green h-100">
-        <div
-          class="kpi-card__top d-flex justify-content-between align-items-start"
-        >
+        <div class="kpi-card__top d-flex justify-content-between align-items-start">
           <div>
             <div class="kpi-card__label">
               {{ "vehiclesComponent.avgFilling" | translate }}
             </div>
-            <div class="kpi-card__value">{{ cards?.averageFillingDurationInMinutes  ?? "_"}}</div>
+            <div class="kpi-card__value">{{ cards?.averageFillingDurationInMinutes ?? "_"}}</div>
             <div class="kpi-card__sub">Data coming soon</div>
           </div>
           <div class="kpi-card__icon">
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 10C0 4.47715 4.47715 0 10 0H38C43.5229 0 48 4.47715 48 10V38C48 43.5229 43.5228 48 38 48H10C4.47715 48 0 43.5228 0 38V10Z" fill="#DCFCE7"/>
-<path d="M19 28.3C21.2 28.3 23 26.47 23 24.25C23 23.09 22.43 21.99 21.29 21.06C20.15 20.13 19.29 18.75 19 17.3C18.71 18.75 17.86 20.14 16.71 21.06C15.56 21.98 15 23.1 15 24.25C15 26.47 16.8 28.3 19 28.3Z" stroke="#00A63E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M24.56 18.6C25.2477 17.5011 25.7353 16.2891 26 15.02C26.5 17.52 28 19.92 30 21.52C32 23.12 33 25.02 33 27.02C33.0057 28.4023 32.6008 29.7552 31.8368 30.9071C31.0727 32.059 29.9838 32.9582 28.7081 33.4905C27.4324 34.0229 26.0274 34.1644 24.6711 33.8973C23.3149 33.6302 22.0685 32.9664 21.09 31.99" stroke="#00A63E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0 10C0 4.47715 4.47715 0 10 0H38C43.5229 0 48 4.47715 48 10V38C48 43.5229 43.5228 48 38 48H10C4.47715 48 0 43.5228 0 38V10Z"
+                fill="#DCFCE7" />
+              <path
+                d="M19 28.3C21.2 28.3 23 26.47 23 24.25C23 23.09 22.43 21.99 21.29 21.06C20.15 20.13 19.29 18.75 19 17.3C18.71 18.75 17.86 20.14 16.71 21.06C15.56 21.98 15 23.1 15 24.25C15 26.47 16.8 28.3 19 28.3Z"
+                stroke="#00A63E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M24.56 18.6C25.2477 17.5011 25.7353 16.2891 26 15.02C26.5 17.52 28 19.92 30 21.52C32 23.12 33 25.02 33 27.02C33.0057 28.4023 32.6008 29.7552 31.8368 30.9071C31.0727 32.059 29.9838 32.9582 28.7081 33.4905C27.4324 34.0229 26.0274 34.1644 24.6711 33.8973C23.3149 33.6302 22.0685 32.9664 21.09 31.99"
+                stroke="#00A63E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </div>
         </div>
         <div class="kpi-card__footer text-danger">
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-          <span>0% </span><span class="text-muted">                          {{ "vehiclesComponent.lastWeek" | translate }}</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B"
+              stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>
+
+
+            {{ percentages?.avgFilling }}%
+
+
+          </span><span class="text-muted">
+            {{ "vehiclesComponent.lastWeek" | translate }}</span>
         </div>
       </div>
     </div>
@@ -143,33 +171,39 @@
     <!-- Incomplete Records -->
     <div class="col-12 col-md-6 col-xl-3">
       <div class="kpi-card kpi-accent--red h-100">
-        <div
-          class="kpi-card__top d-flex justify-content-between align-items-start"
-        >
+        <div class="kpi-card__top d-flex justify-content-between align-items-start">
           <div>
             <div class="kpi-card__label">
-                            {{ "vehiclesComponent.incompleteRecords" | translate }}
+              {{ "vehiclesComponent.incompleteRecords" | translate }}
 
             </div>
-            <div class="kpi-card__value">{{cards?.incompleteVisits  ?? "_"}}</div>
+            <div class="kpi-card__value">{{cards?.incompleteVisits ?? "_"}}</div>
             <div class="kpi-card__sub">Missing exit data</div>
           </div>
           <div class="kpi-card__icon">
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 10C0 4.47715 4.47715 0 10 0H38C43.5229 0 48 4.47715 48 10V38C48 43.5229 43.5228 48 38 48H10C4.47715 48 0 43.5228 0 38V10Z" fill="#FFE2E2"/>
-<path d="M33.7301 30L25.7301 16C25.5556 15.6922 25.3027 15.4362 24.997 15.258C24.6913 15.0799 24.3438 14.9861 23.9901 14.9861C23.6363 14.9861 23.2888 15.0799 22.9831 15.258C22.6774 15.4362 22.4245 15.6922 22.2501 16L14.2501 30C14.0737 30.3053 13.9813 30.6519 13.9821 31.0045C13.9828 31.3571 14.0768 31.7032 14.2545 32.0078C14.4322 32.3124 14.6872 32.5646 14.9937 32.7388C15.3003 32.9131 15.6475 33.0032 16.0001 33H32.0001C32.351 32.9996 32.6956 32.9069 32.9993 32.7313C33.3031 32.5556 33.5553 32.3031 33.7306 31.9991C33.9059 31.6951 33.9981 31.3504 33.998 30.9995C33.9979 30.6486 33.9055 30.3039 33.7301 30Z" stroke="#E7000B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M24 21V25" stroke="#E7000B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M24 29H24.01" stroke="#E7000B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0 10C0 4.47715 4.47715 0 10 0H38C43.5229 0 48 4.47715 48 10V38C48 43.5229 43.5228 48 38 48H10C4.47715 48 0 43.5228 0 38V10Z"
+                fill="#FFE2E2" />
+              <path
+                d="M33.7301 30L25.7301 16C25.5556 15.6922 25.3027 15.4362 24.997 15.258C24.6913 15.0799 24.3438 14.9861 23.9901 14.9861C23.6363 14.9861 23.2888 15.0799 22.9831 15.258C22.6774 15.4362 22.4245 15.6922 22.2501 16L14.2501 30C14.0737 30.3053 13.9813 30.6519 13.9821 31.0045C13.9828 31.3571 14.0768 31.7032 14.2545 32.0078C14.4322 32.3124 14.6872 32.5646 14.9937 32.7388C15.3003 32.9131 15.6475 33.0032 16.0001 33H32.0001C32.351 32.9996 32.6956 32.9069 32.9993 32.7313C33.3031 32.5556 33.5553 32.3031 33.7306 31.9991C33.9059 31.6951 33.9981 31.3504 33.998 30.9995C33.9979 30.6486 33.9055 30.3039 33.7301 30Z"
+                stroke="#E7000B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M24 21V25" stroke="#E7000B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M24 29H24.01" stroke="#E7000B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </div>
         </div>
         <div class="kpi-card__footer text-danger">
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-          <span>190% </span><span class="text-muted">
-                          {{ "vehiclesComponent.lastWeek" | translate }}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B"
+              stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>{{ percentages?.incomplete }}%</span>
+
+          <span class="text-muted">
+            {{ "vehiclesComponent.lastWeek" | translate }}
           </span>
         </div>
       </div>
@@ -186,22 +220,15 @@
       <div class="card h-100 shadow-sm">
         <div class="card-header border-0 pt-5">
           <h3 class="card-title fw-bolder m-0">
-              {{ "dashboard.VisitsByHour" | translate }}
+            {{ "dashboard.VisitsByHour" | translate }}
           </h3>
         </div>
         <div class="card-body pt-0">
-          <apx-chart
-            [series]="visitsByHourOptions.series!"
-            [chart]="visitsByHourOptions.chart!"
-            [xaxis]="visitsByHourOptions.xaxis!"
-            [yaxis]="visitsByHourOptions.yaxis!"
-            [dataLabels]="visitsByHourOptions.dataLabels!"
-            [plotOptions]="visitsByHourOptions.plotOptions!"
-            [stroke]="visitsByHourOptions.stroke!"
-            [tooltip]="visitsByHourOptions.tooltip!"
-            [legend]="visitsByHourOptions.legend!"
-            [fill]="visitsByHourOptions.fill!"
-          ></apx-chart>
+          <apx-chart [series]="visitsByHourOptions.series!" [chart]="visitsByHourOptions.chart!"
+            [xaxis]="visitsByHourOptions.xaxis!" [yaxis]="visitsByHourOptions.yaxis!"
+            [dataLabels]="visitsByHourOptions.dataLabels!" [plotOptions]="visitsByHourOptions.plotOptions!"
+            [stroke]="visitsByHourOptions.stroke!" [tooltip]="visitsByHourOptions.tooltip!"
+            [legend]="visitsByHourOptions.legend!" [fill]="visitsByHourOptions.fill!"></apx-chart>
         </div>
       </div>
     </div>
@@ -213,20 +240,15 @@
       <div class="card h-100 shadow-sm">
         <div class="card-header border-0 pt-5">
           <h3 class="card-title fw-bolder m-0">
-              {{ "dashboard.VisitActivity" | translate }}
+            {{ "dashboard.VisitActivity" | translate }}
 
           </h3>
         </div>
         <div class="card-body pt-0">
-          <apx-chart
-            [series]="visitActivityOptions.series!"
-            [chart]="visitActivityOptions.chart!"
-            [xaxis]="visitActivityOptions.xaxis!"
-            [yaxis]="visitActivityOptions.yaxis!"
-            [dataLabels]="visitActivityOptions.dataLabels!"
-            [stroke]="visitActivityOptions.stroke!"
-            [tooltip]="visitActivityOptions.tooltip!"
-          ></apx-chart>
+          <apx-chart [series]="visitActivityOptions.series!" [chart]="visitActivityOptions.chart!"
+            [xaxis]="visitActivityOptions.xaxis!" [yaxis]="visitActivityOptions.yaxis!"
+            [dataLabels]="visitActivityOptions.dataLabels!" [stroke]="visitActivityOptions.stroke!"
+            [tooltip]="visitActivityOptions.tooltip!"></apx-chart>
         </div>
       </div>
     </div>
@@ -240,20 +262,14 @@
       <div class="card h-100 shadow-sm">
         <div class="card-header border-0 pt-5">
           <h3 class="card-title fw-bolder m-0">
-                          {{ "dashboard.StayTimeByVehicle" | translate }}
+            {{ "dashboard.StayTimeByVehicle" | translate }}
           </h3>
         </div>
         <div class="card-body pt-0">
-          <apx-chart
-            [series]="stayByVehicleOptions.series!"
-            [chart]="stayByVehicleOptions.chart!"
-            [xaxis]="stayByVehicleOptions.xaxis!"
-            [yaxis]="stayByVehicleOptions.yaxis!"
-            [dataLabels]="stayByVehicleOptions.dataLabels!"
-            [plotOptions]="stayByVehicleOptions.plotOptions!"
-            [stroke]="stayByVehicleOptions.stroke!"
-            [tooltip]="stayByVehicleOptions.tooltip!"
-          ></apx-chart>
+          <apx-chart [series]="stayByVehicleOptions.series!" [chart]="stayByVehicleOptions.chart!"
+            [xaxis]="stayByVehicleOptions.xaxis!" [yaxis]="stayByVehicleOptions.yaxis!"
+            [dataLabels]="stayByVehicleOptions.dataLabels!" [plotOptions]="stayByVehicleOptions.plotOptions!"
+            [stroke]="stayByVehicleOptions.stroke!" [tooltip]="stayByVehicleOptions.tooltip!"></apx-chart>
         </div>
       </div>
     </div>
@@ -265,22 +281,16 @@
 
     <div class="col-12 col-xl-6">
       <div class="card h-100 shadow-sm">
-        <div
-          class="card-header border-0 pt-5 d-flex justify-content-between align-items-center"
-        >
+        <div class="card-header border-0 pt-5 d-flex justify-content-between align-items-center">
           <h3 class="card-title fw-bolder m-0">
-                          {{ "dashboard.StayDurationDistribution" | translate }}
+            {{ "dashboard.StayDurationDistribution" | translate }}
 
           </h3>
         </div>
         <div class="card-body pt-0">
-          <apx-chart
-            [series]="durationDonutOptions.series!"
-            [chart]="durationDonutOptions.chart!"
-            [labels]="durationDonutOptions.labels!"
-            [responsive]="durationDonutOptions.responsive!"
-            [legend]="durationDonutOptions.legend!"
-          ></apx-chart>
+          <apx-chart [series]="durationDonutOptions.series!" [chart]="durationDonutOptions.chart!"
+            [labels]="durationDonutOptions.labels!" [responsive]="durationDonutOptions.responsive!"
+            [legend]="durationDonutOptions.legend!"></apx-chart>
         </div>
       </div>
     </div>
@@ -288,45 +298,42 @@
 
     <div class="col-12 col-xl-6">
       <div class="card shadow-sm">
-        <div
-          class="card-header border-0 pt-5 d-flex justify-content-between align-items-start"
-        >
+        <div class="card-header border-0 pt-5 d-flex justify-content-between align-items-start">
           <div>
             <h3 class="card-title fw-bolder m-0">
-                            {{ "dashboard.LongestStayVehicles" | translate }}
+              {{ "dashboard.LongestStayVehicles" | translate }}
             </h3>
             <div class="text-muted small mt-1">
-                            {{ "dashboard.vehiclesWithLongestDuration" | translate }}
+              {{ "dashboard.vehiclesWithLongestDuration" | translate }}
             </div>
           </div>
           <div class="alert-pill">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_42_6339)">
-<path d="M10.865 9L6.86496 2C6.77775 1.8461 6.65127 1.71809 6.49843 1.62903C6.34559 1.53997 6.17186 1.49305 5.99496 1.49305C5.81807 1.49305 5.64434 1.53997 5.4915 1.62903C5.33866 1.71809 5.21218 1.8461 5.12496 2L1.12496 9C1.03681 9.15268 0.990579 9.32595 0.990969 9.50225C0.99136 9.67856 1.03835 9.85162 1.12719 10.0039C1.21602 10.1562 1.34354 10.2823 1.49681 10.3694C1.65009 10.4565 1.82367 10.5016 1.99996 10.5H9.99996C10.1754 10.4998 10.3477 10.4535 10.4996 10.3656C10.6515 10.2778 10.7776 10.1515 10.8652 9.99956C10.9529 9.84757 10.999 9.67519 10.9989 9.49974C10.9989 9.32429 10.9527 9.15194 10.865 9Z" stroke="#C10007" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6 4.5V6.5" stroke="#C10007" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6 8.5H6.005" stroke="#C10007" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_42_6339">
-<rect width="12" height="12" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+              <g clip-path="url(#clip0_42_6339)">
+                <path
+                  d="M10.865 9L6.86496 2C6.77775 1.8461 6.65127 1.71809 6.49843 1.62903C6.34559 1.53997 6.17186 1.49305 5.99496 1.49305C5.81807 1.49305 5.64434 1.53997 5.4915 1.62903C5.33866 1.71809 5.21218 1.8461 5.12496 2L1.12496 9C1.03681 9.15268 0.990579 9.32595 0.990969 9.50225C0.99136 9.67856 1.03835 9.85162 1.12719 10.0039C1.21602 10.1562 1.34354 10.2823 1.49681 10.3694C1.65009 10.4565 1.82367 10.5016 1.99996 10.5H9.99996C10.1754 10.4998 10.3477 10.4535 10.4996 10.3656C10.6515 10.2778 10.7776 10.1515 10.8652 9.99956C10.9529 9.84757 10.999 9.67519 10.9989 9.49974C10.9989 9.32429 10.9527 9.15194 10.865 9Z"
+                  stroke="#C10007" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6 4.5V6.5" stroke="#C10007" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6 8.5H6.005" stroke="#C10007" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <defs>
+                <clipPath id="clip0_42_6339">
+                  <rect width="12" height="12" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
 
-<span class="mx-1">
-{{longestStayVehicles.length}}
-{{ "sideMenue.alerts" | translate }}
+            <span class="mx-1">
+              {{longestStayVehicles.length}}
+              {{ "sideMenue.alerts" | translate }}
 
-</span>
+            </span>
           </div>
         </div>
 
         <div class="card-body pt-0">
-          <div
-            *ngFor="let v of longestStayVehicles; let i = index"
-            class="lsv-item"
-            [ngClass]="{'lsv-item--highlight': i < 2}"
-          >
+          <div *ngFor="let v of longestStayVehicles; let i = index" class="lsv-item"
+            [ngClass]="{'lsv-item--highlight': i < 2}">
             <div class="lsv-rank">{{ v.carId }}</div>
             <div class="lsv-info">
               <div class="lsv-plate">{{ v.carNumber }}</div>
@@ -335,8 +342,8 @@
             <div class="lsv-value ms-auto text-end">
               <div class="lsv-min">{{ v.durationInMinutes }}</div>
               <div class="lsv-unit">
-                   {{ "vehiclesComponent.stayMin" | translate }}
-                  </div>
+                {{ "vehiclesComponent.stayMin" | translate }}
+              </div>
             </div>
           </div>
         </div>
