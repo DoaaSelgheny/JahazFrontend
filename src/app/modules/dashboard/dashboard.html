@@ -46,7 +46,7 @@
             <div class="kpi-card__label">
               {{ "vehiclesComponent.totalVisits" | translate }}
             </div>
-            <div class="kpi-card__value">{{ cards?.totalVisits ?? "_"}}</div>
+            <div class="kpi-card__value">{{ cards?.current?.totalVisits ?? "_"}}</div>
             <div class="kpi-card__sub">0 today visits</div>
           </div>
           <div class="kpi-card__icon">
@@ -70,14 +70,31 @@
             </svg>
           </div>
         </div>
-        <div class="kpi-card__footer text-success">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="kpi-card__footer "
+                             [ngClass]="{
+       'text-danger': cards?.comparison?.totalVisitsChangePercentage < 0,
+              'text-success': cards?.comparison?.totalVisitsChangePercentage >= 0
+     }">
+
+          <svg *ngIf="cards?.comparison?.totalVisitsChangePercentage >= 0; else negativeIcon"
+          width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.6666 4.66669L8.99992 10.3334L5.66659 7.00002L1.33325 11.3334" stroke="#00A63E"
               stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M10.6667 4.66669H14.6667V8.66669" stroke="#00A63E" stroke-width="1.33333" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-          <span>{{ percentages?.totalVisits }}% </span><span class="text-muted"> {{ "vehiclesComponent.lastWeek" |
+
+          <ng-template #negativeIcon>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B"
+              stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+
+            </ng-template>
+          <span>{{ cards?.comparison?.totalVisitsChangePercentage }}% </span>
+          <span class="text-muted"> {{ "vehiclesComponent.lastWeek" |
             translate }}</span>
         </div>
       </div>
@@ -91,7 +108,7 @@
             <div class="kpi-card__label">
               {{ "vehiclesComponent.AvgStayTime" | translate }}
             </div>
-            <div class="kpi-card__value">{{cards?.averageDurationInMinutes | number:'1.1-1' ?? "_"}}</div>
+            <div class="kpi-card__value">{{cards?.current?.averageDurationInMinutes | number:'1.1-1' ?? "_"}}</div>
             <div class="kpi-card__sub">122 long stay</div>
           </div>
           <div class="kpi-card__icon">
@@ -107,16 +124,32 @@
             </svg>
           </div>
         </div>
-        <div class="kpi-card__footer text-danger">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="kpi-card__footer "
+                             [ngClass]="{
+       'text-danger': cards?.comparison?.averageDurationInMinutesChangePercentage < 0,
+       'text-success': cards?.comparison?.averageDurationInMinutesChangePercentage >= 0
+     }"
+     >
+        <svg *ngIf="cards?.comparison?.averageDurationInMinutesChangePercentage >= 0; else averageDurationInMinutesChangePercentage"
+          width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.6666 4.66669L8.99992 10.3334L5.66659 7.00002L1.33325 11.3334" stroke="#00A63E"
+              stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.6667 4.66669H14.6667V8.66669" stroke="#00A63E" stroke-width="1.33333" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+
+          <ng-template #averageDurationInMinutesChangePercentage>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B"
               stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
 
+            </ng-template>
+
           <span>
-          {{ percentages?.avgStay }}%
+          {{ cards?.comparison?.averageDurationInMinutesChangePercentage }}%
           </span>
           <span class="text-muted">
             {{ "vehiclesComponent.lastWeek" | translate }}</span>
@@ -132,7 +165,7 @@
             <div class="kpi-card__label">
               {{ "vehiclesComponent.avgFilling" | translate }}
             </div>
-            <div class="kpi-card__value">{{ cards?.averageFillingDurationInMinutes ?? "_"}}</div>
+            <div class="kpi-card__value">{{ cards?.current?.averageFillingDurationInMinutes ?? "_"}}</div>
             <div class="kpi-card__sub">Data coming soon</div>
           </div>
           <div class="kpi-card__icon">
@@ -149,17 +182,35 @@
             </svg>
           </div>
         </div>
-        <div class="kpi-card__footer text-danger">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="kpi-card__footer text-danger"
+                     [ngClass]="{
+       'text-danger': cards?.previousWeek?.averageFillingDurationInMinutes < 0,
+       'text-success': cards?.previousWeek?.averageFillingDurationInMinutes >= 0
+
+     }"
+     >
+          <svg *ngIf="cards?.previousWeek?.averageFillingDurationInMinutes >= 0; else averageFillingDurationInMinutes"
+          width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.6666 4.66669L8.99992 10.3334L5.66659 7.00002L1.33325 11.3334" stroke="#00A63E"
+              stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.6667 4.66669H14.6667V8.66669" stroke="#00A63E" stroke-width="1.33333" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+
+          <ng-template #averageFillingDurationInMinutes>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B"
               stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
+
+            </ng-template>
+
           <span>
 
 
-            {{ percentages?.avgFilling }}%
+            {{ cards?.previousWeek?.averageFillingDurationInMinutes }}%
 
 
           </span><span class="text-muted">
@@ -177,7 +228,7 @@
               {{ "vehiclesComponent.incompleteRecords" | translate }}
 
             </div>
-            <div class="kpi-card__value">{{cards?.incompleteVisits ?? "_"}}</div>
+            <div class="kpi-card__value">{{cards?.current?.incompleteVisits ?? "_"}}</div>
             <div class="kpi-card__sub">Missing exit data</div>
           </div>
           <div class="kpi-card__icon">
@@ -193,14 +244,32 @@
             </svg>
           </div>
         </div>
-        <div class="kpi-card__footer text-danger">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="kpi-card__footer"
+             [ngClass]="{
+       'text-danger': cards?.comparison?.incompleteVisitsChangePercentage < 0,
+       'text-success': cards?.comparison?.incompleteVisitsChangePercentage >= 0
+
+     }"
+     >
+        <svg *ngIf="cards?.comparison?.incompleteVisitsChangePercentage >= 0; else incompleteVisitsChangePercentage"
+          width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.6666 4.66669L8.99992 10.3334L5.66659 7.00002L1.33325 11.3334" stroke="#00A63E"
+              stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M10.6667 4.66669H14.6667V8.66669" stroke="#00A63E" stroke-width="1.33333" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+
+          <ng-template #incompleteVisitsChangePercentage>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.6666 11.3334L8.99992 5.66669L5.66659 9.00002L1.33325 4.66669" stroke="#E7000B"
               stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M10.6666 11.3333H14.6666V7.33331" stroke="#E7000B" stroke-width="1.33333" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-          <span>{{ percentages?.incomplete }}%</span>
+
+            </ng-template>
+
+          <span>{{ cards?.comparison?.incompleteVisitsChangePercentage }}%</span>
 
           <span class="text-muted">
             {{ "vehiclesComponent.lastWeek" | translate }}
